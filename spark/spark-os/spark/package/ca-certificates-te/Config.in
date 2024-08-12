@@ -1,0 +1,5 @@
+config BR2_PACKAGE_CA_CERTIFICATES_TE
+	bool "ca-certificates-te"
+	select BR2_PACKAGE_CA_CERTIFICATES
+	help
+	  TE Certificates

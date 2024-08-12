@@ -1,0 +1,15 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+
+# Install packages
+RUN apt-get update && apt-get install -y \
+    libudev-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+VOLUME ["/app/coverage"]
+WORKDIR /app
+COPY package.json yarn.lock /app/
+RUN npm_config_build_from_source=true yarn install --frozen-lockfile
+COPY . /app
+CMD ["yarn", "test"]

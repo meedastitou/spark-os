@@ -1,0 +1,18 @@
+[Unit]
+Description=Spark Webadmin
+After=network.target
+
+[Service]
+Type=notify
+User=spark-webadmin
+Group=spark-webadmin
+TimeoutStartSec=180
+TimeoutStopSec=30
+SyslogIdentifier=spark-webadmin
+ExecStart=/usr/bin/node --max_old_space_size=80 /usr/bin/spark-webadmin
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-webadmin
+WatchdogSec=60
+
+[Install]
+WantedBy=multi-user.target

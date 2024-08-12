@@ -1,0 +1,6 @@
+config BR2_PACKAGE_SPARK_MQTT_BROKER
+	bool "spark-mqtt-broker"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark MQTT Broker

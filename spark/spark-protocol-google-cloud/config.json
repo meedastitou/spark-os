@@ -1,0 +1,85 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "projectId": "",
+            "keyFilePath": "/boot",
+            "database": "Bigtable",
+            "cluster": "",
+            "zone": "europe-west1-b",
+            "table": "",
+            "packetQueueSize": 10
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-google-cloud-client",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Google Cloud Client.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "projectId": {
+                    "title": "Project Id",
+                    "description": "The Project Id for the Google Cloud Client.",
+                    "type": "string",
+                    "required": true
+                },
+                "keyFilePath": {
+                    "title": "Keyfile Path",
+                    "description": "The path to where the keyfile (keyfile.json) is in the filesystem.",
+                    "type": "string",
+                    "required": true
+                },
+                "database": {
+                    "title": "Google Cloud Database to use",
+                    "description": "Choose the Google Cloud database to store the data to.",
+                    "type": "string",
+                    "enum": ["Bigtable", "Datastore", "Pub/Sub"]
+                },
+                "cluster": {
+                    "title": "Cluster Id",
+                    "description": "The Id of the Cloud Bigtable cluster to use.",
+                    "type": "string"
+                },
+                "zone": {
+                    "title": "Zone",
+                    "description": "The geographical zone the cluster is in.",
+                    "type": "string",
+                    "enum": ["asia-east1-a", "asia-east1-b", "europe-west1-b", "europe-west1-c", "us-central1-b", "us-central1-c", "us-east1-b", "us-east1-c"]
+                },
+                "table": {
+                    "title": "Table",
+                    "description": "The table to write the data to. Will be created if it does not exist.",
+                    "type": "string"
+                },
+                "packetQueueSize": {
+                    "title": "Packet Queue Size",
+                    "description": "The number of events to queue up for each send packet.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "projectId",
+            "keyFilePath",
+            "database", {
+                "condition": "model.database=='Bigtable'",
+                "key": "cluster"
+            }, {
+                "condition": "model.database=='Bigtable'",
+                "key": "zone"
+            },{
+                "condition": "model.database=='Bigtable'",
+                "key": "table"
+            },
+            "packetQueueSize"
+        ]
+    }
+}

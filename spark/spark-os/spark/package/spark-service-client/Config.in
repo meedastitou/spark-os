@@ -1,0 +1,6 @@
+config BR2_PACKAGE_SPARK_SERVICE_CLIENT
+	bool "spark-service-client"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark Service Client

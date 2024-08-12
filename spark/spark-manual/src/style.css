@@ -1,0 +1,195 @@
+.te-white {
+    color: white
+}
+
+.te-background-white {
+    background: white
+}
+
+
+/** Primary Colours **/
+
+
+/* PMS 144 */
+
+.te-orange {
+    color: #E98300;
+}
+
+.te-background-orange {
+    background: #E98300;
+}
+
+
+/* PMS Cool Gray 9 */
+
+.te-grey {
+    color: #747678;
+}
+
+.te-background-grey {
+    background: #747678;
+}
+
+
+/** Secondary Colours **/
+
+
+/* PMS 3015 */
+
+.te-blue {
+    color: #0066A1;
+}
+
+.te-background-blue {
+    background: #0066A1;
+}
+
+
+/** Tertiary Colours **/
+
+
+/* PMS 144 */
+
+.te-light-blue {
+    color: #3DB7E4;
+}
+
+.te-background-light-blue {
+    background: #3DB7E4;
+}
+
+
+/* PMS 122 */
+
+.te-yellow {
+    color: #FCD450;
+}
+
+.te-background-yellow {
+    background: #FCD450;
+}
+
+
+/* PMS 1795 */
+
+.te-red {
+    color: #CD202C;
+}
+
+.te-background-red {
+    background: #CD202C;
+}
+
+
+/* PMS 5497 */
+
+.te-light-grey {
+    color: #899F99;
+}
+
+.te-background-light-grey {
+    background: #899F99;
+}
+
+h1,
+h2,
+h3,
+h4,
+a {
+    color: #0066a1
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+
+/* sidebar */
+
+.bs-docs-sidebar {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: inherit;
+}
+
+
+/* all links */
+
+.bs-docs-sidebar .nav>li>a {
+    border-left: 2px solid transparent;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+/* nested links */
+
+.bs-docs-sidebar .nav .nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    font-size: 14px;
+}
+
+.bs-docs-sidebar .nav .nav .nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 40px;
+    font-size: 14px;
+}
+
+.bs-docs-sidebar .nav .nav .nav .nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 45px;
+    font-size: 12px;
+}
+
+/* active & hover links */
+
+.bs-docs-sidebar .nav>.active>a,
+.bs-docs-sidebar .nav>li>a:hover,
+.bs-docs-sidebar .nav>li>a:focus {
+    color: #E98300;
+    text-decoration: none;
+    background-color: transparent;
+    border-left-color: #E98300;
+}
+
+
+/* hide all (inactive) nested list */
+
+
+/*.bs-docs-sidebar .nav ul.nav {
+    display: none;
+}*/
+
+
+/* show active nested list */
+
+
+/*.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;
+}*/
+
+
+/* Avoid page break, across pages (when printing) */
+
+@media print {
+    table {
+        page-break-inside: avoid;
+    }
+    code {
+        page-break-inside: avoid;
+    }
+    h1 {
+        page-break-before: always;
+    }
+}

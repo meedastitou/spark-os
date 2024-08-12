@@ -1,0 +1,98 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "interface": "serial",
+            "ipAddress": "",
+            "port": "8501",
+            "device": "/dev/ttyUSB0",
+            "baudRate": "9600",
+            "requestFrequency": 5,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-keyence-hostlink",
+            "required": [
+                "enable",
+                "interface",
+                "requestFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "interface": {
+                    "title": "Interface",
+                    "description": "Choose either Serial or Ethernet Interface.",
+                    "type": "string",
+                    "enum": ["serial", "ethernet"]
+                },
+                "ipAddress": {
+                    "title": "IP Address",
+                    "description": "The IP address of the machine.",
+                    "type": "string"
+                },
+                "port": {
+                    "title": "Port",
+                    "description": "Choose which port to connect to.",
+                    "type": "string"
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the Machine is connected to.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["75", "110", "300", "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200"]
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between data requests.",
+                    "type": "integer",
+                    "minimum": 2,
+                    "maximum": 120
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "interface", {
+                "condition": "model.interface=='ethernet'",
+                "key": "ipAddress",
+                "placeholder": "192.168.0.1"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "port"
+            },{
+                "condition": "model.interface=='serial'",
+                "key": "device"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "baudRate"
+            },
+            "requestFrequency",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

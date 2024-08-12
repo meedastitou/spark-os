@@ -1,0 +1,294 @@
+From 43f2a26afdad4c71c603fc83d98963c9bbef0539 Mon Sep 17 00:00:00 2001
+From: "Bark, Martin" <martin.bark@te.com>
+Date: Tue, 20 Jun 2017 16:23:55 +0100
+Subject: [PATCH] add online check retry
+
+Taken from https://git.merproject.org/mer-core/connman
+
+Signed-off-by: Bark, Martin <martin.bark@te.com>
+---
+ src/service.c | 179 ++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 149 insertions(+), 30 deletions(-)
+
+diff --git a/src/service.c b/src/service.c
+index 2289d54..5bcc7cf 100644
+--- a/src/service.c
++++ b/src/service.c
+@@ -39,6 +39,9 @@
+ 
+ #define CONNECT_TIMEOUT		120
+ 
++// Maximum time between failed online checks is ONLINE_CHECK_RETRY_COUNT^2 seconds
++#define ONLINE_CHECK_RETRY_COUNT 12
++
+ static DBusConnection *connection = NULL;
+ 
+ static GList *service_list = NULL;
+@@ -124,12 +127,15 @@ struct connman_service {
+ 	char **excludes;
+ 	char *pac;
+ 	bool wps;
+-	int online_check_count;
++	int online_check_count_ipv4;
++	int online_check_count_ipv6;
+ 	bool do_split_routing;
+ 	bool new_service;
+ 	bool hidden_service;
+ 	char *config_file;
+ 	char *config_entry;
++	guint online_check_timer_ipv4;
++	guint online_check_timer_ipv6;
+ };
+ 
+ static bool allow_property_changed(struct connman_service *service);
+@@ -355,6 +361,54 @@ static enum connman_service_proxy_method string2proxymethod(const char *method)
+ 		return CONNMAN_SERVICE_PROXY_METHOD_UNKNOWN;
+ }
+ 
++static void do_single_online_check(struct connman_service *service, enum connman_ipconfig_type type)
++{
++	if (!service)
++		return;
++
++	if (!__connman_service_is_connected_state(service, type))
++		return;
++
++	switch (type) {
++	case CONNMAN_IPCONFIG_TYPE_IPV4:
++		service->online_check_count_ipv4 = ONLINE_CHECK_RETRY_COUNT;
++		break;
++	case CONNMAN_IPCONFIG_TYPE_IPV6:
++		service->online_check_count_ipv6 = ONLINE_CHECK_RETRY_COUNT;
++		break;
++	default:
++		;
++	}
++
++	__connman_wispr_start(service, type);
++}
++
++static void stop_recurring_online_check(struct connman_service *service)
++{
++	gboolean remove_ipv4 = false;
++	gboolean remove_ipv6 = false;
++
++	if (!service)
++		return;
++
++	if (service->online_check_timer_ipv4 > 0)
++		remove_ipv4 = true;
++	if (service->online_check_timer_ipv6 > 0)
++		remove_ipv6 = true;
++
++	if (remove_ipv4) {
++		g_source_remove(service->online_check_timer_ipv4);
++		service->online_check_timer_ipv4 = 0;
++		connman_service_unref(service);
++	}
++
++	if (remove_ipv6) {
++		g_source_remove(service->online_check_timer_ipv6);
++		service->online_check_timer_ipv6 = 0;
++		connman_service_unref(service);
++	}
++}
++
+ static void set_split_routing(struct connman_service *service, bool value)
+ {
+ 	if (service->type != CONNMAN_SERVICE_TYPE_VPN)
+@@ -3437,15 +3491,10 @@ static DBusMessage *set_property(DBusConnection *conn,
+ 		nameserver_add_all(service, CONNMAN_IPCONFIG_TYPE_ALL);
+ 		dns_configuration_changed(service);
+ 
+-		if (__connman_service_is_connected_state(service,
+-						CONNMAN_IPCONFIG_TYPE_IPV4))
+-			__connman_wispr_start(service,
+-						CONNMAN_IPCONFIG_TYPE_IPV4);
++		stop_recurring_online_check(service);
+ 
+-		if (__connman_service_is_connected_state(service,
+-						CONNMAN_IPCONFIG_TYPE_IPV6))
+-			__connman_wispr_start(service,
+-						CONNMAN_IPCONFIG_TYPE_IPV6);
++		do_single_online_check(service, CONNMAN_IPCONFIG_TYPE_IPV4);
++		do_single_online_check(service, CONNMAN_IPCONFIG_TYPE_IPV6);
+ 
+ 		service_save(service);
+ 	} else if (g_str_equal(name, "Timeservers.Configuration")) {
+@@ -3561,6 +3610,11 @@ static DBusMessage *set_property(DBusConnection *conn,
+ 
+ 		__connman_notifier_proxy_changed(service);
+ 
++		stop_recurring_online_check(service);
++
++		do_single_online_check(service, CONNMAN_IPCONFIG_TYPE_IPV4);
++		do_single_online_check(service, CONNMAN_IPCONFIG_TYPE_IPV6);
++
+ 		service_save(service);
+ 	} else if (g_str_equal(name, "IPv4.Configuration") ||
+ 			g_str_equal(name, "IPv6.Configuration")) {
+@@ -4740,6 +4794,8 @@ static void service_free(gpointer user_data)
+ 	if (service->stats_roaming.timer)
+ 		g_timer_destroy(service->stats_roaming.timer);
+ 
++	stop_recurring_online_check(service);
++
+ 	if (current_default == service)
+ 		current_default = NULL;
+ 
+@@ -5869,46 +5925,104 @@ static void service_rp_filter(struct connman_service *service,
+ 		connected_networks_count, original_rp_filter);
+ }
+ 
+-static gboolean redo_wispr(gpointer user_data)
++static void redo_wispr(struct connman_service *service, enum connman_ipconfig_type type)
+ {
+-	struct connman_service *service = user_data;
+-	int refcount = service->refcount - 1;
++	DBG("service %p type %d", service, type);
+ 
++	int refcount = service->refcount - 1;
+ 	connman_service_unref(service);
+ 	if (refcount == 0) {
+ 		DBG("Service %p already removed", service);
+-		return FALSE;
++		return;
+ 	}
+ 
+-	__connman_wispr_start(service, CONNMAN_IPCONFIG_TYPE_IPV6);
++	__connman_wispr_start(service, type);
++}
+ 
++static gboolean redo_wispr_ipv4(gpointer user_data)
++{
++	struct connman_service *service = user_data;
++	service->online_check_timer_ipv4 = 0;
++	redo_wispr(service, CONNMAN_IPCONFIG_TYPE_IPV4);
+ 	return FALSE;
+ }
+ 
++static gboolean redo_wispr_ipv6(gpointer user_data)
++{
++	struct connman_service *service = user_data;
++	service->online_check_timer_ipv6 = 0;
++	redo_wispr(service, CONNMAN_IPCONFIG_TYPE_IPV6);
++	return FALSE;
++}
++
++static gboolean downgrade_state_ipv4(gpointer user_data)
++{
++	struct connman_service *service = (struct connman_service *)user_data;
++	__connman_service_ipconfig_indicate_state(service, CONNMAN_SERVICE_STATE_READY, CONNMAN_IPCONFIG_TYPE_IPV4);
++	return false;
++}
++
++static gboolean downgrade_state_ipv6(gpointer user_data)
++{
++	struct connman_service *service = (struct connman_service *)user_data;
++	__connman_service_ipconfig_indicate_state(service, CONNMAN_SERVICE_STATE_READY, CONNMAN_IPCONFIG_TYPE_IPV6);
++	return false;
++}
++
+ int __connman_service_online_check_failed(struct connman_service *service,
+ 					enum connman_ipconfig_type type)
+ {
+-	DBG("service %p type %d count %d", service, type,
+-						service->online_check_count);
++	int *online_check_count;
++	guint *online_check_timer;
++	GSourceFunc downgrade_func;
++	GSourceFunc redo_func;
++
++	switch (type) {
++	case CONNMAN_IPCONFIG_TYPE_IPV4:
++		online_check_count = &service->online_check_count_ipv4;
++		online_check_timer = &service->online_check_timer_ipv4;
++		downgrade_func = downgrade_state_ipv4;
++		redo_func = redo_wispr_ipv4;
++		break;
++	case CONNMAN_IPCONFIG_TYPE_IPV6:
++		online_check_count = &service->online_check_count_ipv6;
++		online_check_timer = &service->online_check_timer_ipv6;
++		downgrade_func = downgrade_state_ipv6;
++		redo_func = redo_wispr_ipv6;
++		break;
++	default:
++		return -EAGAIN;
++	}
+ 
+-	/* currently we only retry IPv6 stuff */
+-	if (type == CONNMAN_IPCONFIG_TYPE_IPV4 ||
+-			service->online_check_count != 1) {
+-		connman_warn("Online check failed for %p %s", service,
+-			service->name);
++	DBG("service %p type %d count %d", service, type, *online_check_count);
++
++	if (!__connman_service_is_connected_state(service, type))
+ 		return 0;
++
++	/* Revert back to ready state */
++	switch (type) {
++	case CONNMAN_IPCONFIG_TYPE_IPV4:
++		if (service->state_ipv4 == CONNMAN_SERVICE_STATE_ONLINE)
++			g_idle_add(downgrade_func, service);
++		break;
++	case CONNMAN_IPCONFIG_TYPE_IPV6:
++		if (service->state_ipv6 == CONNMAN_SERVICE_STATE_ONLINE)
++			g_idle_add(downgrade_func, service);
++		break;
++	default:
++		;
+ 	}
+ 
+-	service->online_check_count = 0;
++	if (*online_check_count > 1)
++		--(*online_check_count);
++	else
++		connman_warn("Online check failed for %p %s", service, service->name);
+ 
+-	/*
+-	 * We set the timeout to 1 sec so that we have a chance to get
+-	 * necessary IPv6 router advertisement messages that might have
+-	 * DNS data etc.
+-	 */
+-	g_timeout_add_seconds(1, redo_wispr, connman_service_ref(service));
++	int timeout = ONLINE_CHECK_RETRY_COUNT - *online_check_count;
++	DBG("Next online check for service %p type %d in %d seconds", service, type, timeout * timeout);
++	*online_check_timer = g_timeout_add_seconds(timeout * timeout, redo_func, connman_service_ref(service));
+ 
+-	return EAGAIN;
++	return -EAGAIN;
+ }
+ 
+ int __connman_service_ipconfig_indicate_state(struct connman_service *service,
+@@ -5985,7 +6099,7 @@ int __connman_service_ipconfig_indicate_state(struct connman_service *service,
+ 				check_proxy_setup(service);
+ 				service_rp_filter(service, true);
+ 			} else {
+-				service->online_check_count = 1;
++				service->online_check_count_ipv6 = ONLINE_CHECK_RETRY_COUNT;
+ 				__connman_wispr_start(service, type);
+ 			}
+ 		else
+@@ -6325,6 +6439,9 @@ int __connman_service_disconnect(struct connman_service *service)
+ 	service->connect_reason = CONNMAN_SERVICE_CONNECT_REASON_NONE;
+ 	service->proxy = CONNMAN_SERVICE_PROXY_METHOD_UNKNOWN;
+ 
++	__connman_wispr_stop(service);
++	stop_recurring_online_check(service);
++
+ 	connman_agent_cancel(service);
+ 
+ 	reply_pending(service, ECONNABORTED);
+@@ -7135,6 +7252,8 @@ void __connman_service_remove_from_network(struct connman_network *network)
+ 	__connman_connection_gateway_remove(service,
+ 					CONNMAN_IPCONFIG_TYPE_ALL);
+ 
++	stop_recurring_online_check(service);
++
+ 	connman_service_unref(service);
+ }
+ 
+-- 
+2.7.4
+

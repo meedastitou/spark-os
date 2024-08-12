@@ -1,0 +1,60 @@
+{
+    "info": {
+        "name": "spark-machine-badge",
+        "fullname": "TEchCon Badge Machine",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a TEchCon Badge Machine",
+        "hpl": "ble"
+    },
+    "settings": {
+        "model": {
+            "address": "",
+            "localName": ""
+        }
+    },
+    "variables": [{
+        "name": "address_type",
+        "description": "Address Type",
+        "format": "bool"
+    }, {
+        "name": "connectable",
+        "description": "Connectable",
+        "format": "bool"
+    }, {
+        "name": "rssi",
+        "description": "RSSI",
+        "format": "int8"
+    }, {
+        "name": "battery_level",
+        "description": "Battery Level (%)",
+        "format": "uint8",
+        "addrOffset": 2
+    }, {
+        "name": "temperature",
+        "description": "Temperature (C)",
+        "format": "uint8",
+        "transformEq": "(x/2)-20",
+        "outputFormat": "float",
+        "addrOffset": 3
+    }, {
+        "name": "humidity",
+        "description": "Humidity (%)",
+        "format": "uint8",
+        "outputFormat": "float",
+        "transformEq": "x*4/10",
+        "addrOffset": 4
+    }, {
+        "name": "pressure",
+        "description": "Pressure (hPa)",
+        "format": "uint8",
+        "addrOffset": 5,
+        "transformEq": "(4/10)*x+950",
+        "outputFormat": "float"
+    }],
+    "settings": {
+        "model": {
+            "address": "",
+            "localName": ""
+        }
+    }
+}

@@ -1,0 +1,23 @@
+[Unit]
+Description=Setup Data mount
+ConditionFileIsExecutable=/etc/systemd/scripts/setupdatamnt
+Requires=data.mount
+After=data.mount
+Before=sshd.service
+Before=connman.service
+Before=redis.service
+Before=avahi-daemon.service
+Before=bluetooth.service
+Before=nginx.service
+Before=spark-hardware.service
+Before=spark-protocol.service
+Before=spark-webadmin.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/systemd/scripts/setupdatamnt start
+ExecStop=/etc/systemd/scripts/setupdatamnt stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

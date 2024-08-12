@@ -1,0 +1,72 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+			"accessKeyId": "",
+			"secretAccessKey": "",
+			"region": "",
+			"kinesisStreamName": ""
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-aws-kinesis",
+            "properties": {
+				"enable": {
+					"title": "Enable",
+					"description": "Enable/disable the AWS Kinesis producer.",
+					"type": "boolean",
+					"required": true
+				},
+				"accessKeyId": {
+					"title": "Access Key ID",
+					"description": "The access key of the AWS user.",
+					"type": "string",
+					"required": true
+				},
+				"secretAccessKey": {
+					"title": "Secret Access Key",
+					"description": "The secret access key of the AWS user.",
+					"type": "string",
+					"required": true
+				},
+				"region": {
+					"title": "Region",
+					"description": "The AWS region of the AWS user.",
+					"type": "string",
+					"enum": ["US East (Ohio)",
+							 "US East (N. Virginia)",
+							 "US West (N. California)",
+							 "US West (Oregon)",
+							 "Asia Pacific (Tokyo)",
+							 "Asia Pacific (Seoul)",
+							 "Asia Pacific (Osaka-Local)",
+							 "Asia Pacific (Mumbai)",
+							 "Asia Pacific (Singapore)",
+							 "Asia Pacific (Sydney)",
+							 "Canada (Central)",
+							 "China (Beijing)",
+							 "China (Ningxia)",
+							 "EU (Frankfurt)",
+							 "EU (Ireland)",
+							 "EU (London)",
+							 "EU (Paris)",
+							 "South America (São Paulo)"]
+				},
+				"kinesisStreamName": {
+					"title": "Kinesis stream name",
+					"description": "The AWS Kinesis stream to produce data to.",
+					"type": "string",
+					"required": true
+				}
+            }
+        },
+        "form": [
+            "enable",
+			"accessKeyId",
+			"secretAccessKey",
+			"region",
+			"kinesisStreamName"
+        ]
+    }
+}

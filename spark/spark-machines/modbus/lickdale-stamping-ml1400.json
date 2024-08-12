@@ -1,0 +1,84 @@
+{
+    "info": {
+        "hpl": "modbus",
+        "name": "lickdale-stamping-ml1400",
+        "description": "ML1400 stamping using Modbus (rewired machine in Lickdale)",
+        "version": "1.0.0",
+        "fullname": "ML1400 stamping (Lickdale)"
+    },
+    "variables": [{
+        "name": "Production_Counter",
+        "description": "Production Counter",
+        "format": "int32",
+        "type": "hr",
+        "address": "0000"
+    }, {
+        "name": "Machine_Status",
+        "description": "Machine Status",
+        "format": "int16",
+        "type": "hr",
+        "address": "0002"
+    }, {
+        "name": "Alarm_Code",
+        "description": "Alarm Code",
+        "format": "int16",
+        "type": "hr",
+        "address": "0003"
+    }, {
+        "name": "Press_SPM",
+        "description": "Press Speed",
+        "format": "int16",
+        "type": "hr",
+        "address": "0004"
+    }, {
+        "name": "Press_Angle",
+        "description": "Press Angle",
+        "format": "int16",
+        "type": "hr",
+        "address": "0005"
+    }, {
+        "name": "Mode_of_Press",
+        "description": "Mode of Press",
+        "format": "int16",
+        "type": "hr",
+        "address": "0006"
+    }, {
+        "name": "Reel_Ready",
+        "description": "Reel Status",
+        "format": "bool",
+        "type": "di",
+        "address": "0000"
+    }, {
+        "name": "Dereel_Ready",
+        "description": "Dereeler ready",
+        "format": "bool",
+        "type": "di",
+        "address": "0001"
+    }, {
+        "name": "Air_Pressure",
+        "description": "Air Pressure",
+        "format": "int16",
+        "type": "hr",
+        "address": "0007"
+    }, {
+        "name": "Oil_Pressure",
+        "description": "Oil Pressure",
+        "format": "int16",
+        "type": "hr",
+        "address": "0008"
+    }, {
+        "name": "Ram_Pressure",
+        "description": "Ram Pressure",
+        "format": "int16",
+        "type": "hr",
+        "address": "0009"
+    }],
+    "settings": {
+        "model": {
+            "highByteFirst": true,
+            "highWordFirst": true,
+            "baudRate": "38400",
+            "mode": "RTU"
+        }
+    }
+}

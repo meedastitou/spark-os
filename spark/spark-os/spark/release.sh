@@ -1,0 +1,2 @@
+source ${BR2_EXTERNAL_SPARK_PATH}/release
+RELEASE="${MAJOR}.${MINOR}.${PATCH}"

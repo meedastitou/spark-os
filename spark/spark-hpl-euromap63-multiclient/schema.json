@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-euromap63-multiclient",
+    "title": "Euromap63-Multiclient",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "reportName",
+                    "alarmCode",
+                    "alarmCodeChanged"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "reportName"
+                    ],
+                    "properties": {
+                        "reportName": {
+                            "title": "Report Name",
+                            "description": "The name to use for field matching in the response file or when writing to a variable.",
+                            "type": "string"
+                        },
+                        "alarmCode": {
+                            "title": "Alarm Code",
+                            "description": "If true, the variable will contain the most recent alarm code, rather than a report field value.",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "alarmCodeChanged": {
+                            "title": "Alarm Code Changed",
+                            "description": "If not 'None', the variable will contain the alarm code most recently activated or deactivated, rather than a report field value.",
+                            "type": "string",
+                            "enum": [
+                                "None",
+                                "Activated",
+                                "Deactivated"
+                            ],
+                            "default": "None"
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

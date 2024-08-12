@@ -1,0 +1,33 @@
+Liste der Offenen Punkte
+
+1.  Fehlerbehandlung
+    Die Fehlerbehandlung ist nur ansatzweise implementiert.
+    Da die Fehlerbehandlung vom Protokoll abhaengt, ist mit
+    einer schnellen Bearbeitung nicht zu Rechnen. Fehlerbescheibungen
+    können mir per Mail über die Sourceforge Seite zugestellt werden.
+
+2.  Folgende Funktionen Fehlen noch.
+
+     seit dem 28.05.2007 sind alle Funktionen Implementiert.
+     Sollten doch welche Fehlen, bitte ich um Nachricht.
+
+3.  Dokumentation
+    Die Dokumentation ist nur ansatzweise vorhanden.
+
+    Teilweise ist die Dokumentation in den Quelletexten.
+    Die Dokumentatin für Status Var ist im Verzeichnis
+    ../doc/as511_status_var.3.
+
+4.  Übersetzungen in andere Sprachen
+    Falls Jemand interesse hat, Manuelpages zu Schreiben bzw.
+    zu Übersetzen, nur zu. Ich bin für jede Hilfe dankbar.
+
+5.  Anpassung der Quelltexte für die grossen CPUs (928, 948, 945)
+    Aus Mangel an geeigneter Hardware zum Testen z.Z. nicht möglich.
+
+6.  Code aufräumen ist angesagt, da viel Programmcode doppelt
+    vorhanden ist z.B. Speicherverwaltung.
+
+7.  Die Codes für STATUS BAUSEIN und BEARBEITUNGSKONTROLLE sind
+    noch nicht vollständig.
+

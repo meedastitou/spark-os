@@ -1,0 +1,104 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "requestFrequency": 10,
+            "slaveId": 1,
+            "device": "/dev/ttyUSB0",
+            "baudRate": "115200",
+            "parity": "none",
+            "timeoutInterval": 2000,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-kellerbus",
+            "required": [
+                "enable",
+                "requestFrequency",
+                "slaveId"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Kellerbus Machine.",
+                    "type": "boolean"
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between each complete set of requests.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120
+                },
+                "slaveId": {
+                    "title": "ID of the slave",
+                    "description": "The ID number of the slave device to connect to.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 255
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the Kellerbus Machine is connected to.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["75", "110", "300", "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200"]
+                },
+                "parity": {
+                    "title": "Serial Parity",
+                    "description": "Choose the Parity for the serial device.",
+                    "type": "string",
+                    "enum": ["none", "even", "mark", "odd", "space"]
+                },
+                "timeoutInterval":{
+                    "title": "Response timeout (in milliseconds)",
+                    "description":"The maximum time to wait for a Kellerbus response",
+                    "type": "integer",
+                    "minimum": 10,
+                    "maximum": 2000,
+                    "validationMessage": "Must be a number between 10 to 999"
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "requestFrequency",
+            "slaveId",
+            "device",
+            "baudRate",
+            "parity",
+            "timeoutInterval",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

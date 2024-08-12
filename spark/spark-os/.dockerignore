@@ -1,0 +1,14 @@
+**/.git*
+**/[Dd]ocker*
+**/node_modules
+**/npm-debug.log
+**/yarn-error.log
+**/coverage
+**/logs
+**/test.log
+**/package-lock.json
+**/.nyc_output
+**/output
+**/dl
+**/rel
+**/buildroot

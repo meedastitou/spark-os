@@ -1,0 +1,4 @@
+NODE_ENV=production
+NODE_OPTIONS="--use-openssl-ca"
+LOG_SYSLOG=spark-health-monitor
+SPARK_SERVER=spark.tycoelectronics.com

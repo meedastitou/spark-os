@@ -1,0 +1,62 @@
+{
+    "name": "spark-hardware",
+    "version": "0.0.1",
+    "description": "Spark Hardware Layer",
+    "private": true,
+    "main": "src/app.js",
+    "bin": {
+        "spark-hardware": "bin/spark-hardware"
+    },
+    "scripts": {
+        "start": "bin/spark-hardware",
+        "test": "echo \"TODO: add tests\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hardware.git"
+    },
+    "keywords": [
+        "Spark",
+        "RS232",
+        "RS485",
+        "I2C"
+    ],
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "lodash": "4.17.10",
+        "spark-alert": "../spark-alert",
+        "spark-config": "../spark-config",
+        "spark-db": "../spark-db",
+        "spark-hardware-detect": "../spark-hardware-detect",
+        "spark-logging": "../spark-logging",
+        "spark-machine-dataq": "../spark-machine-dataq",
+        "spark-machine-deviceinfo": "../spark-machine-deviceinfo",
+        "spark-machine-ftp-csv-dynamic": "../spark-machine-ftp-csv-dynamic",
+        "spark-machine-hpl": "../spark-machine-hpl",
+        "spark-machine-mtconnect": "../spark-machine-mtconnect",
+        "spark-machine-otto-vision-dynamic": "../spark-machine-otto-vision-dynamic",
+        "spark-machine-ppt-vision-dynamic": "../spark-machine-ppt-vision-dynamic",
+        "spark-machine-spark": "../spark-machine-spark",
+        "spark-machine-wac": "../spark-machine-wac",
+        "spark-machine-weather-sensor": "../spark-machine-weather-sensor",
+        "spark-machine-webdav-csv-dynamic": "../spark-machine-webdav-csv-dynamic",
+        "spark-machine-webdav-txt-dynamic": "../spark-machine-webdav-txt-dynamic",
+        "spark-machines": "../spark-machines",
+        "spark-plugin": "../spark-plugin",
+        "systemd-daemon": "1.1.1"
+    },
+    "devDependencies": {
+        "grunt": "1.0.3",
+        "grunt-cli": "1.2.0",
+        "grunt-concurrent": "2.3.1",
+        "grunt-contrib-jshint": "1.1.0",
+        "grunt-contrib-watch": "1.1.0",
+        "grunt-jsbeautifier": "0.2.13",
+        "grunt-nodemon": "0.4.2",
+        "load-grunt-tasks": "4.0.0"
+    }
+}

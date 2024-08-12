@@ -1,0 +1,10 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/coverage"]
+WORKDIR /app/spark-hpl-euromap63-multiclient
+COPY node-simple-ftpd /app/node-simple-ftpd
+COPY spark-hpl-euromap63-multiclient/package.json spark-hpl-euromap63-multiclient/yarn.lock /app/spark-hpl-euromap63-multiclient/
+RUN yarn install --frozen-lockfile
+COPY spark-hpl-euromap63 /app/spark-hpl-euromap63-multiclient
+CMD ["yarn", "test"]

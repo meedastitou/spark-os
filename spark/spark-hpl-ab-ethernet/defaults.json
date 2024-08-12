@@ -1,0 +1,115 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "requestFrequency": 10,
+            "host": "",
+            "port": 44818,
+            "doRouting": false,
+            "backPlanePort": 1,
+            "backPlaneSlot": 0,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-ab-ethernet",
+            "required": [
+                "enable",
+                "requestFrequency",
+                "host",
+                "port"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine using the Allen Bradley Ethernet.",
+                    "type": "boolean"
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between each complete set of requests.",
+                    "type": "integer",
+                    "minimum": 2,
+                    "maximum": 120
+                },
+                "host": {
+                    "title": "Allen Bradley Ethernet Host IP Address",
+                    "description": "The IP address of the Allen Bradley Ethernet device.",
+                    "type": "string",
+                    "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+                    "validationMessage": "Must be a valid IPv4 address"
+                },
+                "port": {
+                    "title": "Port Number",
+                    "description": "The port number of the Allen Bradley Ethernet device.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "doRouting": {
+                    "title": "Do Routing",
+                    "description": "Include additional routing information e.g. for ControlLogix CompactLogix.",
+                    "type": "boolean"
+                },
+                "backPlanePort": {
+                    "title": "Backplane Port",
+                    "description": "The backplane port to use for routing.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                },
+                "backPlaneSlot": {
+                    "title": "Backplane Slot",
+                    "description": "The backplane slot to use for routing.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "requestFrequency",
+            {
+                "key": "host",
+                "placeholder": "192.168.0.1"
+            }, {
+                "key": "port",
+                "placeholder": 44818
+            },
+            "doRouting", {
+                "condition": "model.doRouting==true",
+                "key": "backPlanePort"
+            }, {
+                "condition": "model.doRouting==true",
+                "key": "backPlaneSlot"
+            },
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

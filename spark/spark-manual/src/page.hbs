@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{htmlWebpackPlugin.options.title}}</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 hidden-print visible-lg-block">
+                <div class="bs-docs-sidebar affix">
+                    <h4><a href="#">{{htmlWebpackPlugin.options.title}}</a></h4>
+                    {{{htmlWebpackPlugin.options.tocHtml}}}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="jumbotron top-buffer hidden-print">
+                    <h1>{{htmlWebpackPlugin.options.title}}</h1>
+                </div>
+
+                <div id="{{htmlWebpackPlugin.options.pageId}}"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

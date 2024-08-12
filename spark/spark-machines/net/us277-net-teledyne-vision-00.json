@@ -1,0 +1,60 @@
+{
+  "info": {
+    "name": "us277-net-teledyne-vision-00",
+    "description": "Spark Machine Definition for Teledyne Dalsa using Ethernet Packet Capture",
+    "fullname": "Teledyne Dalsa (Ethernet Packet)",
+    "version": "1.0.0",
+    "hpl": "net"
+  },
+  "variables": [
+    {
+      "name": "date-time",
+      "description": "The date associated with this part",
+      "format": "char",
+      "csvPos": 0
+    },
+    {
+      "name": "nose-width",
+      "description": "Nose Width",
+      "format": "float",
+      "csvPos": 2
+    },
+    {
+      "name": "left-lance",
+      "description": "Left Lance",
+      "format": "float",
+      "csvPos": 4
+    },
+    {
+      "name": "right-lance",
+      "description": "Right Lance",
+      "format": "float",
+      "csvPos": 6
+    },
+    {
+      "name": "body-width",
+      "description": "Body Width",
+      "format": "float",
+      "csvPos": 8
+    },
+    {
+      "name": "wire-u-width",
+      "description": "Wire U Width",
+      "format": "float",
+      "csvPos": 10
+    },
+    {
+      "name": "pass-count",
+      "description": "Pass Count",
+      "format": "int32",
+      "csvPos": 12
+    }
+  ],
+  "settings": {
+    "model": {
+      "port": 10000,
+      "mode": "pub/sub as server",
+      "separator": ","
+    }
+  }
+}

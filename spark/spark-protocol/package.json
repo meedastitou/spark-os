@@ -1,0 +1,65 @@
+{
+    "name": "spark-protocol",
+    "version": "0.0.1",
+    "description": "Spark Protocol Layer",
+    "private": true,
+    "main": "lib/app.js",
+    "bin": {
+        "spark-protocol": "bin/spark-protocol"
+    },
+    "scripts": {
+        "postinstall": "patch-package",
+        "start": "bin/spark-protocol",
+        "test": "echo \"TODO: add tests\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol.git"
+    },
+    "keywords": [
+        "Spark",
+        "RS232",
+        "RS485",
+        "I2C"
+    ],
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "chalk": "^2.4.1",
+        "lodash": "4.17.10",
+        "spark-alert": "../spark-alert",
+        "spark-config": "../spark-config",
+        "spark-db": "../spark-db",
+        "spark-logging": "../spark-logging",
+        "spark-plugin": "../spark-plugin",
+        "spark-protocol-aws-iot": "../spark-protocol-aws-iot",
+        "spark-protocol-aws-iot-advanced": "../spark-protocol-aws-iot-advanced",
+        "spark-protocol-aws-kinesis": "../spark-protocol-aws-kinesis",
+        "spark-protocol-azure-iot-hub": "../spark-protocol-azure-iot-hub",
+        "spark-protocol-google-cloud": "../spark-protocol-google-cloud",
+        "spark-protocol-grafana": "../spark-protocol-grafana",
+        "spark-protocol-http": "../spark-protocol-http",
+        "spark-protocol-mqtt-client": "../spark-protocol-mqtt-client",
+        "spark-protocol-opcua": "../spark-protocol-opcua",
+        "spark-protocol-rest": "../spark-protocol-rest",
+        "spark-protocol-sparkplug": "../spark-protocol-sparkplug",
+        "spark-protocol-sql": "../spark-protocol-sql",
+        "spark-protocol-sql-2": "../spark-protocol-sql-2",
+        "spark-protocol-sql-multi-table": "../spark-protocol-sql-multi-table",
+        "spark-protocol-websockets": "../spark-protocol-websockets",
+        "systemd-daemon": "1.1.1"
+    },
+    "devDependencies": {
+        "grunt": "1.0.3",
+        "grunt-cli": "1.2.0",
+        "grunt-concurrent": "2.3.1",
+        "grunt-contrib-jshint": "1.1.0",
+        "grunt-contrib-watch": "1.1.0",
+        "grunt-jsbeautifier": "0.2.13",
+        "grunt-nodemon": "0.4.2",
+        "load-grunt-tasks": "4.0.0"
+    }
+}

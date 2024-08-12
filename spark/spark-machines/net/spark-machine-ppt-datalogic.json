@@ -1,0 +1,47 @@
+{
+    "info": {
+        "name": "spark-machine-ppt-datalogic",
+        "fullname": "PPT Datalogic",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a PPT Datalogic",
+        "hpl": "net"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub as server",
+            "port": 10000,
+            "separator": ","
+        }
+    }    ,
+    "variables": [{
+        "name": "Date",
+        "description": "The date associated with this part",
+        "csvPos": 0,
+        "format": "char"
+    }, {
+        "name": "Time",
+        "description": "The time associated with this this part",
+        "csvPos": 1,
+        "format": "char"
+    }, {
+        "name": "Count",
+        "description": "The parts counter",
+        "regex": "count= ([^,]+)",
+        "format": "int32"
+    }, {
+        "name": "Clip1Dim",
+        "description": "Clip 1 Dimension",
+        "regex": "Clip1 dim = ([^,]+)",
+        "format": "float"
+    }, {
+        "name": "Clip2Dim",
+        "description": "Clip 2 Dimension",
+        "regex": "Clip2 dim=([^,]+)",
+        "format": "float"
+    }, {
+        "name": "Result",
+        "description": "The result associated with this part",
+        "regex": "(pass|fail)$",
+        "format": "char"
+    }]
+}

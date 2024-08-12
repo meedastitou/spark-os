@@ -1,0 +1,165 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "interface": "ethernet",
+            "updateRate": 2,
+            "ipAddress": "",
+            "port": 9600,
+            "destinationNode": 0,
+            "payload": "Hostlink (C-mode)",
+            "device": "/dev/ttyUSB0",
+            "baudRate": "9600",
+            "dataBits": 7,
+            "stopBits": 2,
+            "parity": "even",
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-omron-fins",
+            "required": [
+                "enable",
+                "interface",
+                "updateRate",
+                "publishDisabled"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine using the Omron FINS Protocol.",
+                    "type": "boolean"
+                },
+                "interface": {
+                    "title": "Interface",
+                    "description": "Choose either Ethernet or Serial Interface.",
+                    "type": "string",
+                    "enum": ["ethernet", "serial"]
+                },
+                "ipAddress": {
+                    "title": "IP Address",
+                    "description": "The IP address of the Omron FINS PLC.",
+                    "type": "string",
+                    "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+                    "validationMessage": "Must be a valid IPv4 address"
+                },
+                "port": {
+                    "title": "Port Number",
+                    "description": "The port number of the Omron FINS PLC",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "destinationNode": {
+                    "title": "Destination Node",
+                    "description": "The destination node of the Omron FINS PLC",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 126
+                },
+                "payload": {
+                    "title": "Payload Format",
+                    "description": "Choose what payload format to commicate with.",
+                    "type": "string",
+                    "enum": ["FINS (CV-mode)","FINS (CV-Extended)", "Hostlink (C-mode)"]
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device to use.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200"]
+                },
+                "dataBits": {
+                    "title": "Data Bits",
+                    "description": "The number of data bits.",
+                    "type": "integer",
+                    "minimum": 5,
+                    "maximum": 8
+                },
+                "stopBits": {
+                    "title": "Stop Bits",
+                    "description": "The number of stop bits.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2
+                },
+                "parity": {
+                    "title": "Parity",
+                    "description": "The partity to use.",
+                    "type": "string",
+                    "enum": ["none", "even", "mark", "odd", "space"]
+                },
+                "updateRate": {
+                    "title": "Variable update rate in seconds",
+                    "description": "The time to wait between each variable being update.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "interface", {
+                "condition": "model.interface=='ethernet'",
+                "key": "ipAddress",
+                "placeholder": "192.168.0.1"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "port"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "destinationNode"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "payload"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "device"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "baudRate"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "dataBits"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "stopBits"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "parity"
+            },
+            "updateRate",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

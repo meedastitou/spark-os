@@ -1,0 +1,11 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/spark-machines/coverage"]
+WORKDIR /app/spark-machines/
+COPY . /app/
+COPY spark-machine-hpl /app/spark-machine-hpl/
+COPY spark-machines/package.json spark-machines/yarn.lock /app/spark-machines/
+RUN yarn install --frozen-lockfile
+COPY spark-machines /app/spark-machines
+CMD ["yarn", "test"]

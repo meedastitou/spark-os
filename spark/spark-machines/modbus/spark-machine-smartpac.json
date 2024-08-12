@@ -1,0 +1,102 @@
+{
+    "info": {
+        "name": "spark-machine-smartpac",
+        "fullname": "SmartPAC",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a SmartPAC using Modbus",
+        "hpl": "modbus"
+    },
+    "settings": {
+        "model": {
+            "highByteFirst": true,
+            "highWordFirst": true,
+            "mode": "ASCII_8BIT",
+            "baudRate": "2400"
+        }
+    }    ,
+    "variables": [{
+        "name": "Production_Good_Parts_Preset",
+        "description": "Good Parts Counter Preset value entered by the operator",
+        "type": "hr",
+        "address": "03E8",
+        "format": "int32"
+    }, {
+        "name": "Production_Tool_Number",
+        "description": "The tool number currently loaded in the SmartPAC",
+        "type": "hr",
+        "address": "03EA",
+        "format": "int32"
+    }, {
+        "name": "Production_Job_Number",
+        "description": "The operator-entered job number currently loaded in the SmartPAC",
+        "type": "hr",
+        "address": "03EC",
+        "format": "int32"
+    }, {
+        "name": "Production_Part_Number",
+        "description": "The operator-entered part number currently loaded in the SmartPAC",
+        "type": "hr",
+        "address": "03EE",
+        "format": "int32"
+    }, {
+        "name": "Counter_Strokes_No_Reset",
+        "description": "The total number of strokes made by the press",
+        "type": "hr",
+        "address": "03F0",
+        "format": "int32"
+    }, {
+        "name": "Counter_Good_Parts_No_Reset",
+        "description": "The total number of good parts made by the press",
+        "type": "hr",
+        "address": "03F2",
+        "format": "int32"
+    }, {
+        "name": "Press_Stop_Time_Actual",
+        "description": "The most recent stopping time of the press (in ms)",
+        "type": "hr",
+        "address": "03F4",
+        "format": "int16"
+    }, {
+        "name": "Press_Stop_Time_Limit",
+        "description": "The stop time limit (in ms)",
+        "type": "hr",
+        "address": "03F5",
+        "format": "int16"
+    }, {
+        "name": "Press_Total_Tonnage",
+        "description": "The total forward peak load on the press",
+        "type": "hr",
+        "address": "03F6",
+        "format": "int16"
+    }, {
+        "name": "Press_Shaft_Speed",
+        "description": "The current speed of the press",
+        "type": "hr",
+        "address": "03F7",
+        "format": "int16"
+    }, {
+        "name": "Press_Operator_1",
+        "description": "The Operator Number of the current operator",
+        "type": "hr",
+        "address": "03FA",
+        "format": "int32"
+    }, {
+        "name": "Counter_Scrap_No_Reset",
+        "description": "The total number of scrap items",
+        "type": "hr",
+        "address": "03FC",
+        "format": "int16"
+    }, {
+        "name": "Press_State_Code",
+        "description": "The current machine state",
+        "type": "hr",
+        "address": "03FD",
+        "format": "int16"
+    }, {
+        "name": "Press_Error_Reason_Code",
+        "description": "The error code representing the current error",
+        "type": "hr",
+        "address": "03FE",
+        "format": "int16"
+    }]
+}

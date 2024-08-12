@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-adc",
+    "title": "ADC",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "type",
+                    "format"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "type"
+                    ],
+                    "properties": {
+                        "type": {
+                            "title": "Type",
+                            "description": "The type of variable",
+                            "type": "string",
+                            "enum": [
+                                "General Command",
+                                "Temperature Request",
+                                "Periodic Temperature Value"
+                            ]
+                        },
+                        "commandName": {
+                            "title": "Command Name",
+                            "description": "The name of the command used to read or write values for general command variables",
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9]*$",
+                            "minLength": 1
+                        },
+                        "temperatureDescriptor": {
+                            "title": "Temperature Descriptor",
+                            "description": "The descriptor of the temperature value to be read for temperature request variables",
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9]*$",
+                            "minLength": 1
+                        },
+                        "temperatureIndex": {
+                            "title": "Temperature Index",
+                            "description": "The index of the temperature to be read for periodic temperature value variables",
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 99
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

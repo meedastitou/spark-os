@@ -1,0 +1,14 @@
+mode	1	enabled	1	enabled	1	enabled	1	enabled	1	enabled	0	enabled	0
+serial port	30	Function code	0	Function code	0	Function code	0	Function code	0	Function code	1	Function code	0
+baud rate	115200	read/write	0	read/write	0	read/write	0	read/write	0	read/write	0	read/write	0
+data bits	8	register size	0	register size	0	register size	0	register size	0	register size	0	register size	1
+stop bits	10	data type	2	data type	4	data type	3	data type	2	data type	0	data type	0
+parity	0	1st Register	41001	1st Register	41013	1st Register	41021	1st Register	41019	1st Register	0	1st Register	18192
+slave ID	1	offset	40001	offset	40001	offset	40001	offset	40001	offset	0	offset	10001
+byte order	1	num of values	6	num of values	4	num of values	3	num of values	1	num of values	1	num of values	1
+word order	1	41001	1	41013	10	41021	1234	41019	99	0	1	18192	1
+add noise	1	41003	2	41014	20	41022	6
+%reading	15	41005	3	41015	30	41023	0
+scroll lock	1	41007	4	41016	40
+		41009	5
+		41011	10

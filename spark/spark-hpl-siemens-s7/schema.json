@@ -1,0 +1,100 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-siemens-s7",
+    "title": "SiemensS7",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "address"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "address"
+                    ],
+                    "properties": {
+                        "address": {
+                            "title": "Address",
+                            "description": "S7 Address String",
+                            "type": "string"
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "destVariables": {
+                            "title": "Destination Variables",
+                            "description": "Array of variables to receive the values of this array variable",
+                            "type": "array",
+                            "format": "tabs",
+                            "minItems": 1,
+                            "items": {
+                                "required": [
+                                    "destVariable"
+                                ],
+                                "properties": {
+                                    "destVariable": {
+                                        "title": "Destination Variable Name",
+                                        "description": "The variable name in which to report the value of an array element",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Destination Variable Name must only contain letters, numbers, dash and underscore"
+                                    },
+                                    "arrayIndex": {
+                                        "title": "Array Index",
+                                        "description": "The index of the array element to report in this destination variable",
+                                        "type": "integer",
+                                        "minimum": 1
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

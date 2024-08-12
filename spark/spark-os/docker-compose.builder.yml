@@ -1,0 +1,17 @@
+version: '3'
+services:
+  builder:
+    build:
+      context: ../
+      dockerfile: spark-os/Dockerfile.builder
+      args:
+        uid: ${uid}
+        gid: ${gid}
+    hostname: spark-builder
+    volumes:
+      - ../:/spark
+      - ${BR2_DL_DIR}:/dl
+      - ccache:/home/sparkadmin/.buildroot-ccache
+
+volumes:
+  ccache:

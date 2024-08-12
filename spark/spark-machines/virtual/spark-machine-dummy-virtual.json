@@ -1,0 +1,39 @@
+{
+    "info": {
+        "name": "spark-machine-dummy-virtual",
+        "fullname": "Dummy Machine (Virtual)",
+        "version": "1.0.0",
+        "description": "Virtual device combining variables from two dummy machines",
+        "hpl": "virtual"
+    },
+    "variables": [{
+        "name": "oilTemp",
+        "description": "Oil Temperature (°C)",
+        "format": "float",
+        "srcVariables": [{
+            "srcMachine": "spark-machine-dummy",
+            "srcVariable": "temperature"
+        }]
+    }, {
+        "name": "partsMade",
+        "description": "Number of Parts Made",
+        "format": "float",
+        "srcVariables": [{
+            "srcMachine": "spark-machine-dummy2",
+            "srcVariable": "count"
+        }]
+    }, {
+        "name": "error",
+        "description": "Error",
+        "format": "char",
+        "srcVariables": [{
+            "srcMachine": "spark-machine-dummy",
+            "srcVariable": "error",
+            "successValue": "success, from spark-machine-dummy"
+        }, {
+            "srcMachine": "spark-machine-dummy2",
+            "srcVariable": "error",
+            "successValue": "success, from spark-machine-dummy2"
+        }]
+    }]
+}

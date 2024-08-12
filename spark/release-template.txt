@@ -1,0 +1,30 @@
+Hi,
+
+I have created a [${VERSION}|https://te360.sharepoint.com/sites/SparkDev/Shared%20Documents/General/spark-releases-dev/${VERSION}] release of Spark. This is an *Alpha* release of the v5.x (master) branch and must not be used in production. This release includes:
+
+${LOG}
+
+Please download the [${VERSION}|https://te360.sharepoint.com/sites/SparkDev/Shared%20Documents/General/spark-releases-dev/${VERSION}] release from the [spark-releases-dev|https://te360.sharepoint.com/sites/SparkDev/Shared%20Documents/General/spark-releases-dev] folder. The release includes the following files:
+
+# Release_Notes.pdf - Spark Release notes
+# Installation_Manual.pdf - Installation and setup instructions
+# Development_Environment_Setup.pdf - Details on setting up an environment to develop code for Spark
+# Adding_A_Hardware_Protocol_Layer.pdf - How to add a new HPL
+# Adding_A_Protocol_Layer.pdf - How to add a new protocol
+# spark_rpi3_${VERSION}.zip - Raspberry Pi 3 firmware
+# spark_rpi3_${VERSION}_sdcard.img.zip - Raspberry Pi 3 sd card image for initial setup
+# spark_rpi4_${VERSION}.zip - Raspberry Pi 4 firmware
+# spark_rpi4_${VERSION}_sdcard.img.zip - Raspberry Pi 4 sd card image for initial setup
+# spark_x86_64_${VERSION}.zip - x86-64 firmware (Advantech ARK-1123C)
+# spark_x86_64_${VERSION}_sdcard.img.zip - x86-64 sd card image for initial setup (Advantech ARK-1123C)
+
+Note: you should see the [spark-releases-dev|https://te360.sharepoint.com/sites/SparkDev/Shared%20Documents/General/spark-releases-dev] folder under your “Shared with me” folder in the OneDrive web interface. You can access OneDrive via https://portal.office.com or click on the links above.
+
+The source code can be found in the [spark|https://makemake.tycoelectronics.com/stash/projects/IOTLABS/repos/spark] repository under the [v${VERSION}|https://makemake.tycoelectronics.com/stash/projects/IOTLABS/repos/spark/browse?at=refs%2Ftags%2Fv${VERSION}] tag.
+
+Thanks
+
+[~${RELEASE_USER}]
+
+Watchers:
+TE192191, TE301159, TE320982, TE192188, US018410, TE192184, US036429

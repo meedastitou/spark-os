@@ -1,0 +1,117 @@
+{
+    "settings": {
+        "model": {
+          "enable": false,
+          "sftpUrl": "",
+          "sftpPort": 22,
+          "sftpFolder": "/",
+          "username": "anonymous",
+          "password": "",
+          "readFrequency": 60,
+          "deliverEntireResponse": false,
+          "includeFilenameInCombinedData": false,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-sftp-cleanlaser",
+            "required": [
+              "enable",
+              "sftpUrl",
+              "sftpPort",
+              "sftpFolder",
+              "username",
+              "password",
+              "readFrequency"
+            ],
+            "properties": {
+              "enable": {
+                  "title": "Enable",
+                  "description": "Enable/Disable the SFTP Cleanlaser Machine",
+                  "type": "boolean",
+                  "required": true
+              },
+              "sftpUrl": {
+                  "title": "SFTP URL",
+                  "description": "The URL of the SFTP server",
+                  "type": "string",
+                  "required": true
+              },
+              "sftpPort": {
+                  "title": "SFTP Port Number",
+                  "description": "The port number of the SFTP server",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9999,
+                  "required": true
+              },
+              "sftpFolder": {
+                  "title": "SFTP Folder",
+                  "description": "The folder to search on the SFTP server",
+                  "type": "string",
+                  "required": true
+              },
+              "username": {
+                  "title": "Username",
+                  "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                  "type": "string",
+                  "required": true
+              },
+              "password": {
+                  "title": "Password",
+                  "description": "The password for the login (leave blank for anonymous login).",
+                  "type": "string"
+              },
+              "readFrequency": {
+                  "title": "Time between checks of the sftp server (in seconds)",
+                  "description": "The time to wait between each search and read of new cleanlaser txt files.",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 86400,
+                  "required": true
+              },
+              "deliverEntireResponse": {
+                  "title": "Deliver Entire Response",
+                  "description": "Set to true to deliver the entire machine response as variable 'CombinedResult'",
+                  "type": "boolean",
+                  "default": false
+              },
+              "includeFilenameInCombinedData": {
+                "title": "Include Filename in Combined Data",
+                "description": "If this box is checked, the filename that generated the delivered data will be included as a new filename field in the combined-result.",
+                "type": "boolean",
+                "default": false
+              },
+              "publishDisabled": {
+                  "title": "Output Publish Disabled",
+                  "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                  "type": "boolean"
+              },
+              "connectionStatus" : {
+                "title": "Connected",
+                "description": "Whether or not the Spark is connected to this machine",
+                "type": "boolean",
+                "readOnly": true
+              }
+            }
+        },
+        "form": [
+          "enable",
+          "sftpUrl",
+          "sftpPort",
+          "sftpFolder",
+          "username",
+          "password",
+          "readFrequency",
+          "deliverEntireResponse",
+          {
+              "condition": "model.deliverEntireResponse==true",
+              "key": "includeFilenameInCombinedData"
+          },
+          "publishDisabled",
+          "connectionStatus"
+        ]
+    }
+}

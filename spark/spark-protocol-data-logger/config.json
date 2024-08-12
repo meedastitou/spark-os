@@ -1,0 +1,31 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "filePath": "/tmp"
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-sumitomo-seduz",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Data Logger.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "filePath": {
+                    "title": "File Path",
+                    "description": "The path to where the files should be written.",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "filePath"
+        ]
+    }
+}

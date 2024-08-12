@@ -1,0 +1,79 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "device": "/dev/ttyUSB0",
+            "baudRate": "38400",
+            "parity": "none",
+            "requestFrequency": 5,
+            "disconnectReportTime": 0,
+            "publishDisabled": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-adc",
+            "required": [
+                "enable",
+                "device",
+                "baudRate",
+                "parity"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the interface is connected to.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["75", "110", "300", "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200"]
+                },
+                "parity": {
+                    "title": "Serial Parity",
+                    "description": "Choose the Parity for the serial device.",
+                    "type": "string",
+                    "enum": ["none", "even", "mark", "odd", "space"]
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between each complete set of requests in req/res mode.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "mode",
+            "device",
+            "baudRate",
+            "parity",
+            "requestFrequency",
+            "disconnectReportTime",
+            "publishDisabled"
+        ]
+    }
+}

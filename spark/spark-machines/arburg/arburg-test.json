@@ -1,0 +1,206 @@
+{
+  "info": {
+    "hpl": "arburg",
+    "name": "arburg-test",
+    "version": "1.0.0",
+    "fullname": "Arburg Test",
+    "description": "Machine Definition for an Arburg to get Basic Status"
+  },
+  "variables": [
+    {
+      "name": "machineNumber",
+      "description": "Machine Number",
+      "format": "uint32",
+      "blockLocation": "Basic Status",
+      "byteOffset": 0
+    },
+    {
+      "name": "machineMode",
+      "description": "Machine Mode",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 4
+    },
+    {
+      "name": "runState",
+      "description": "Run State",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 6
+    },
+    {
+      "name": "orderState",
+      "description": "Order State",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 8
+    },
+    {
+      "name": "program1",
+      "description": "Program 1",
+      "format": "char",
+      "blockLocation": "Basic Status",
+      "byteOffset": 10,
+      "length": 16
+    },
+    {
+      "name": "program2",
+      "description": "Program 2",
+      "format": "char",
+      "blockLocation": "Basic Status",
+      "byteOffset": 26,
+      "length": 16
+    },
+    {
+      "name": "order1",
+      "description": "Order 1",
+      "format": "char",
+      "blockLocation": "Basic Status",
+      "byteOffset": 42,
+      "length": 16
+    },
+    {
+      "name": "order2",
+      "description": "Order 2",
+      "format": "char",
+      "blockLocation": "Basic Status",
+      "byteOffset": 58,
+      "length": 16
+    },
+    {
+      "name": "cavity",
+      "description": "Cavity",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 76
+    },
+    {
+      "name": "nominalParts",
+      "description": "Nominal Parts",
+      "format": "uint32",
+      "blockLocation": "Basic Status",
+      "byteOffset": 78
+    },
+    {
+      "name": "actualParts",
+      "description": "Actual Parts",
+      "format": "uint32",
+      "blockLocation": "Basic Status",
+      "byteOffset": 82
+    },
+    {
+      "name": "badParts",
+      "description": "Bad Parts",
+      "format": "uint32",
+      "blockLocation": "Basic Status",
+      "byteOffset": 86
+    },
+    {
+      "name": "mouldCode1",
+      "description": "Mould Code 1",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 100
+    },
+    {
+      "name": "mouldCode2",
+      "description": "Mould Code 2",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 102
+    },
+    {
+      "name": "alarmNumber1",
+      "description": "Alarm Number 1",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 104
+    },
+    {
+      "name": "alarmNumber2",
+      "description": "Alarm Number 2",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 106
+    },
+    {
+      "name": "userCode",
+      "description": "User Code",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 108
+    },
+    {
+      "name": "mdaCode",
+      "description": "MDA Code",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 110
+    },
+    {
+      "name": "dialogFlag",
+      "description": "Dialog Flag",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 112
+    },
+    {
+      "name": "materialSlot",
+      "description": "Material Slot",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 114
+    },
+    {
+      "name": "mould1",
+      "description": "Mould 1",
+      "format": "char",
+      "blockLocation": "Basic Status",
+      "byteOffset": 116,
+      "length": 16
+    },
+    {
+      "name": "mould2",
+      "description": "Mould 2",
+      "format": "char",
+      "blockLocation": "Basic Status",
+      "byteOffset": 132,
+      "length": 16
+    },
+    {
+      "name": "cyclinderCode1",
+      "description": "Cyclinder Code 1",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 148
+    },
+    {
+      "name": "cyclinderCode2",
+      "description": "Cyclinder Code 2",
+      "format": "uint16",
+      "blockLocation": "Basic Status",
+      "byteOffset": 150
+    },
+    {
+      "name": "meanCycleTime",
+      "description": "Mean Cycle Time",
+      "format": "uint32",
+      "blockLocation": "Basic Status",
+      "byteOffset": 152
+    },
+    {
+      "name": "cycleTime",
+      "description": "Cycle Time",
+      "format": "uint32",
+      "blockLocation": "Basic Status",
+      "byteOffset": 156
+    },
+    {
+      "name": "alarmString",
+      "description": "Alarm String",
+      "format": "char",
+      "blockLocation": "Alarm String",
+      "byteOffset": 0
+    }
+  ]
+}

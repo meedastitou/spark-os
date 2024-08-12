@@ -1,0 +1,20 @@
+{
+    "info": {
+        "name": "test-machine",
+        "fullname": "Test machine",
+        "version": "1.0.0",
+        "description": "Test Machine",
+        "hpl": "corona"
+    },
+    "variables": [{
+        "name": "ch0",
+        "description": "ch0",
+        "format": "int16",
+        "channelNum": 0
+    }, {
+        "name": "ch1",
+        "description": "ch1",
+        "format": "int16",
+        "channelNum": 1
+    }]
+}

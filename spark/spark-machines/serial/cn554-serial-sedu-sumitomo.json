@@ -1,0 +1,128 @@
+{
+  "info": {
+    "version": "1.0.0",
+    "description": "cn554-serial-sedu-sumitomo",
+    "fullname": "cn554-serial-sedu-sumitomo",
+    "name": "cn554-serial-sedu-sumitomo",
+    "hpl": "serial"
+  },
+  "variables": [
+    {
+      "name": "Clamping_Force_Abnormal",
+      "description": "Clamping Force Abnormal",
+      "format": "double",
+      "requestKey": "A407"
+    },
+    {
+      "name": "Ejector_Retract_Abnormal",
+      "description": "Ejector Retract Abnormal",
+      "format": "double",
+      "requestKey": "A408"
+    },
+    {
+      "name": "Heater_Open_Circuit",
+      "description": "Heater Open Circuit",
+      "format": "double",
+      "requestKey": "A24"
+    },
+    {
+      "name": "Mold_heater_Open_Circuit",
+      "description": "Mold heater Open Circuit",
+      "format": "double",
+      "requestKey": "A32"
+    },
+    {
+      "name": "Heater_Temperature_Abnormal",
+      "description": "Heater Temperature Abnormal",
+      "format": "double",
+      "requestKey": "A14"
+    },
+    {
+      "name": "Mold_Temperature_Abnormal",
+      "description": "Mold Temperature Abnormal",
+      "format": "double",
+      "requestKey": "A22"
+    },
+    {
+      "name": "Oil_Temperature_Abnormal",
+      "description": "Oil Temperature Abnormal",
+      "format": "double",
+      "requestKey": "A36"
+    },
+    {
+      "name": "Resin_Temperature_Abnormal",
+      "description": "Resin Temperature Abnormal",
+      "format": "double",
+      "requestKey": "A34"
+    },
+    {
+      "name": "Water_Jacket_Temperature_Abnormal",
+      "description": "Water Jacket Temperature Abnormal",
+      "format": "double",
+      "requestKey": "A35"
+    },
+    {
+      "name": "Cycle",
+      "description": "Cycle Time",
+      "format": "double",
+      "requestKey": "T300"
+    },
+    {
+      "name": "Good",
+      "description": "Non Defect Shots",
+      "format": "double",
+      "requestKey": "C301"
+    },
+    {
+      "name": "NG",
+      "description": "Reject Shots",
+      "format": "double",
+      "requestKey": "C304"
+    },
+    {
+      "name": "Shotcount",
+      "description": "Total Shots",
+      "format": "double",
+      "requestKey": "C300"
+    },
+    {
+      "name": "Status",
+      "description": "Machine Condition",
+      "format": "double",
+      "requestKey": "A73"
+    },
+    {
+      "name": "InjTime",
+      "description": "Injection Time",
+      "format": "float",
+      "requestKey": "T301"
+    },
+    {
+      "name": "MCushion",
+      "description": "Melt Cushion",
+      "format": "float",
+      "requestKey": "S303"
+    },
+    {
+      "name": "PeakPrs",
+      "description": "Peak Pressure",
+      "format": "int32",
+      "requestKey": "P300"
+    },
+    {
+      "name": "ExtrdStart",
+      "description": "ExtrdStart",
+      "format": "float",
+      "requestKey": "S305"
+    }
+  ],
+  "settings": {
+    "model": {
+      "mode": "req/res",
+      "baudRate": "9600",
+      "parity": "even",
+      "requestFrequency": 10,
+      "protocol": "SE-DUZ"
+    }
+  }
+}

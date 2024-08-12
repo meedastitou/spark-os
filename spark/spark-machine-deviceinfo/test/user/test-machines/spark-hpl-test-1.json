@@ -1,0 +1,18 @@
+{
+  "info": {
+    "description": "Test Machine 1",
+    "fullname": "Test Machine 1",
+    "version": "1.0.0",
+    "name": "test-machine-1",
+    "hpl": "dummy"
+  },
+  "variables": [
+    {
+      "name": "counter",
+      "description": "counter",
+      "format": "int16",
+      "type": "count",
+      "max": 20
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "clientURL": "",
+            "useAlias": false,
+            "alias": "",
+            "getOnlyProductionListInfo": false,
+            "queryOperation": "HDVEGetData",
+            "databaseKey": "",
+            "databaseValue": "",
+            "machine": "",
+            "manufacturingSite": "",
+            "manufacturingSiteID": "",
+            "requestFrequency": 60,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-soap",
+            "required": [
+                "enable",
+                "clientURL",
+                "databaseKey",
+                "databaseValue",
+                "machine",
+                "queryOperation",
+                "requestFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "clientURL": {
+                    "title": "Client URL",
+                    "description": "The client URL used to connect to acquire the MES data.",
+                    "type": "string"
+                },
+                "useAlias": {
+                    "title": "Use Alias",
+                    "description": "Use an alias to specify the location of the MES data.",
+                    "type": "boolean"
+                },
+                "alias": {
+                    "title": "Alias",
+                    "description": "Alias for the location of the MES data.",
+                    "type": "string"
+                },
+                "getOnlyProductionListInfo": {
+                  "title": "Get Only Production List Info",
+                  "description": "Get only the production list info for a specified machine.",
+                  "type": "boolean"
+                },
+                "queryOperation": {
+                    "title": "Query Operation",
+                    "description": "Soap Operation used to query MES data.",
+                    "type": "string",
+                    "enum": ["HDVEGetData", "HDVEGetDataMachineBased", "HDVEGetRunningOrders"],
+                    "default": "HDVEGetData"
+                },
+                "databaseKey": {
+                    "title": "Database Key",
+                    "description": "The header of the column in which to search for the database value to request MES data.",
+                    "type": "string"
+                },
+                "databaseValue": {
+                    "title": "Database Value",
+                    "description": "The string to match in the column specified by the database key to request MES data.",
+                    "type": "string"
+                },
+                "machine": {
+                    "title": "Machine",
+                    "description": "The machine for which to get the production list info.",
+                    "type": "string"
+                },
+                "manufacturingSite": {
+                    "title": "Manufacturing Site",
+                    "description": "The name of the manufacting site for the MES data.",
+                    "type": "string"
+                },
+                "manufacturingSiteID": {
+                    "title": "Manufacturing Site ID",
+                    "description": "The indentifier of the manufacting site for the MES data.",
+                    "type": "string"
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in minutes)",
+                    "description": "The time to wait between each complete set of requests in req/res mode.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1440
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "clientURL",
+            "useAlias",
+            {
+                "condition": "model.useAlias==true",
+                "key": "alias"
+            },
+            "getOnlyProductionListInfo",
+            {
+                "condition": "model.getOnlyProductionListInfo==false",
+                "key": "queryOperation"
+            },
+            {
+                "condition": "model.getOnlyProductionListInfo==false",
+                "key": "databaseKey"
+            },
+            {
+                "condition": "model.getOnlyProductionListInfo==false",
+                "key": "databaseValue"
+            },
+            {
+                "condition": "model.getOnlyProductionListInfo==true",
+                "key": "machine"
+            },
+            "manufacturingSite",
+            "manufacturingSiteID",
+            "requestFrequency",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

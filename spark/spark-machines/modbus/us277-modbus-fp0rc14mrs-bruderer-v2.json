@@ -1,0 +1,117 @@
+{
+  "info": {
+    "fullname": "Lickdale Stamping Sensor box FP0RC14MRS V2",
+    "name": "us277-modbus-fp0rc14mrs-bruderer-v2",
+    "description": "Lickdale Stamping Sensor box FP0RC14MRS V2",
+    "version": "1.0.0",
+    "hpl": "modbus"
+  },
+  "variables": [
+    {
+      "name": "RPM_Final1",
+      "description": "RPM_Final1 (DDT209)",
+      "format": "int16",
+      "type": "hr",
+      "address": "00D1"
+    },
+    {
+      "name": "Part_Count",
+      "description": "Part_count (DDT230)",
+      "format": "uint16",
+      "type": "hr",
+      "address": "00E6"
+    },
+    {
+      "name": "Misfeed_Fault",
+      "description": "Misfeed Fault (Y1)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0001"
+    },
+    {
+      "name": "CrankSensor_Fault",
+      "description": "CrankSensor_Fault (Y2)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0002"
+    },
+    {
+      "name": "Misfeed_Pilot_Fault",
+      "description": "Misfeed_pilot(Y20)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0020"
+    },
+    {
+      "name": "Buckle_Fault",
+      "description": "Buckle_Fault (Y21)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0021"
+    },
+    {
+      "name": "Dykem_Fault",
+      "description": "Dykem_Weld Fault (Y22)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0022"
+    },
+    {
+      "name": "EPD2_Vision",
+      "description": "EPD2_Vision (Y23)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0023"
+    },
+    {
+      "name": "EPD1_GB_Box",
+      "description": "EPD1_NO GB Box Y25",
+      "format": "bool",
+      "type": "coil",
+      "address": "0025"
+    },
+    {
+      "name": "Straddle_Fault",
+      "description": "Straddle_Fault (Y4)",
+      "format": "bool",
+      "type": "coil",
+      "address": "0004"
+    },
+    {
+      "name": "Reeler_Fault",
+      "description": "Reeler Fault Y26",
+      "format": "bool",
+      "type": "coil",
+      "address": "0026"
+    },
+    {
+      "name": "Dereeler_Fault",
+      "description": "Dereeler Fault Y27",
+      "format": "bool",
+      "type": "coil",
+      "address": "0027"
+    },
+    {
+      "name": "fault-code",
+      "description": "fault-code(dt100)",
+      "format": "int16",
+      "type": "hr",
+      "address": "0064"
+    },
+    {
+      "name": "press-status",
+      "description": "press-status(dt106)",
+      "format": "int16",
+      "type": "hr",
+      "address": "006A"
+    }
+  ],
+  "settings": {
+    "model": {
+      "mode": "RTU",
+      "highWordFirst": true,
+      "baudRate": "115200",
+      "highByteFirst": true
+    }
+  }
+}

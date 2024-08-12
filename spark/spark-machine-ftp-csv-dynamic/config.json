@@ -1,0 +1,173 @@
+{
+    "variables": [],
+    "settings": {
+        "model": {
+          "enable": false,
+          "ftpUrl": "",
+          "checkAllFiles": false,
+          "useBaseFilename": false,
+          "filename": "",
+          "baseFilename": "",
+          "fileType": "",
+          "includeFilenameInCombinedData": false,
+          "username": "anonymous",
+          "password": "",
+          "useHeaderRowForKeywords": true,
+          "keywordList": "",
+          "readFrequency": 5,
+          "separator": ",",
+          "timestampFields": "1",
+          "utcOffset": 0,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-ftp-csv-dynamic",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the FTP-CSV Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "ftpUrl": {
+                    "title": "FTP URL",
+                    "description": "The URL of the FTP server",
+                    "type": "string",
+                    "required": true
+                },
+                "checkAllFiles": {
+                  "title": "Check all files",
+                  "description": "If this box is checked, the newest file is read, rather than a file with a specific filename.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "useBaseFilename": {
+                  "title": "Use Base Filename",
+                  "description": "If this box is checked, the newest file whose filename starts with a base filename is read, rather than a file with a specific filename.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "filename": {
+                    "title": "Filename",
+                    "description": "The filename of the file to be read.",
+                    "type": "string",
+                    "required": true
+                },
+                "baseFilename": {
+                    "title": "Base Filename",
+                    "description": "The base filename of the file to be read, if the 'Use Base Filename' box is checked. The newest file starting with the base file name is read",
+                    "type": "string",
+                    "required": true
+                },
+                "fileType": {
+                    "title": "File Type",
+                    "description": "For Check-all-files or BaseFilename, this allows a filetype to be specified.",
+                    "type": "string"
+                },
+                "includeFilenameInCombinedData": {
+                  "title": "Include Filename in Combined Data",
+                  "description": "If this box is checked, the filename that generated the delivered data will be included as a new filename field in the combined-result.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "username": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "useHeaderRowForKeywords": {
+                  "title": "Use header row for keywords",
+                  "description": "If this box is checked, the first row in the file is read and used to define the keywords for the rest of the rows",
+                  "type": "boolean",
+                  "default": true
+                },
+                "keywordList": {
+                    "title": "Keyword list",
+                    "description": "For version2, the comma-separated keyword list to use for parsing data into variables.",
+                    "type": "string"
+                },
+                "readFrequency": {
+                    "title": "Time between reads of the CSV file (in seconds)",
+                    "description": "The time to wait between each read of the CSV file.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 600,
+                    "required": true
+                },
+                "separator": {
+                    "title": "Separator",
+                    "description": "The separator used to parse the CSV file.",
+                    "type": "string",
+                    "default": ","
+                },
+                "timestampFields": {
+                    "title": "Timestamp Field(s)",
+                    "description": "The field to use to generate a row's timestamp for sorting.  For files where the data and time are in two different fields, enter date-field, time-field",
+                    "type": "string",
+                    "default": "1"
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "ftpUrl",
+            "checkAllFiles",
+            {
+                "condition": "model.checkAllFiles==false",
+                "key": "useBaseFilename"
+            },
+            {
+                "condition": "model.checkAllFiles==false&&model.useBaseFilename==false",
+                "key": "filename"
+            },
+            {
+                "condition": "model.checkAllFiles==false&&model.useBaseFilename==true",
+                "key": "baseFilename"
+            },
+            {
+                "condition": "model.checkAllFiles==true||model.useBaseFilename==true",
+                "key": "fileType"
+            },
+            "includeFilenameInCombinedData",
+            "username",
+            "password",
+            "useHeaderRowForKeywords",
+            {
+                "condition": "model.useHeaderRowForKeywords==false",
+                "key": "keywordList"
+            },
+            "readFrequency",
+            "separator",
+            "timestampFields",
+            "utcOffset",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/coverage"]
+WORKDIR /app
+COPY package.json yarn.lock /app/
+RUN yarn install --frozen-lockfile
+COPY . /app
+CMD ["yarn", "test"]

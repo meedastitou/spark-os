@@ -1,0 +1,101 @@
+{
+    "info": {
+        "name": "test-machine",
+        "fullname": "Test machine",
+        "version": "1.0.0",
+        "description": "Test Machine",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "data1",
+        "description": "data1",
+        "format": "uint16",
+        "type": "data"
+    }, {
+        "name": "data2",
+        "description": "data2",
+        "format": "float",
+        "type": "data"
+    }, {
+        "name": "data3",
+        "description": "data3",
+        "format": "char",
+        "type": "data"
+    }, {
+        "name": "data4",
+        "description": "data4",
+        "format": "bool",
+        "type": "data"
+    }, {
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float",
+        "type": "random"
+    }, {
+        "name": "pressure",
+        "description": "Pressure",
+        "format": "float",
+        "type": "sine"
+    }, {
+        "name": "humidity",
+        "description": "Humidity",
+        "format": "float",
+        "type": "cosine"
+    }, {
+        "name": "voltage",
+        "description": "Voltage",
+        "format": "float",
+        "type": "square",
+        "max": 10,
+        "min": 0,
+        "on_cycle": 10,
+        "off_cycle": 10
+    },{
+        "name": "error-code",
+        "description": "Error Code",
+        "format": "uint16",
+        "outputFormat": "char",
+        "type": "error",
+        "transformMap": {
+            "0": "success, from spark-machine-dummy",
+            "1": "error, from spark-machine-dummy"
+        }
+    }, {
+        "name": "error-bool",
+        "description": "Error Code",
+        "format": "bool",
+        "type": "error"
+    }, {
+        "name": "error-str",
+        "description": "Error Code",
+        "format": "char",
+        "type": "error"
+    }, {
+        "name": "count",
+        "description": "count",
+        "format": "uint16",
+        "type": "count",
+        "max": 10
+    }, {
+        "name": "static-with-value",
+        "description": "Static Variable With Value",
+        "format": "char",
+        "type": "static",
+        "staticvalue": "staticvalue"
+    }, {
+        "name": "static-without-value",
+        "description": "Static Variable Without Value",
+        "format": "char",
+        "type": "static"
+    }, {
+        "name": "combined-result-value",
+        "description": "combined-result-value",
+        "format": "char",
+        "type": "deliver-entire-response-results"
+    }, {
+        "name": "unknown",
+        "description": "unknown",
+        "format": "uint16",
+        "type": "unknown"
+    }]
+}

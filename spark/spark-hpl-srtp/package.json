@@ -1,0 +1,42 @@
+{
+    "name": "spark-hpl-srtp",
+    "fullname": "SRTP",
+    "version": "0.0.1",
+    "description": "Spark HPL for a Machine using the SRTP Protocol",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint . --ext .json --ext .js --ignore-path .gitignore --color --fix",
+        "pretest": "yarn lint",
+        "test": "test/teststart.sh && NODE_ENV=test nyc --reporter=text --reporter=html mocha --bail --exit test/test.js",
+        "posttest": "nyc check-coverage --statements 72 --branches 60 --functions 80 --lines 72"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-scada.git"
+    },
+    "keywords": [
+        "Spark",
+        "SRTP"
+    ],
+    "author": {
+        "name": "Mike Strong",
+        "email": "mike.strong@te.com"
+    },
+    "devDependencies": {
+        "bunyan": "1.8.12",
+        "chai": "4.1.2",
+        "eslint": "5.3.0",
+        "eslint-config-airbnb": "17.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-json": "^1.3.2",
+        "eslint-plugin-jsx-a11y": "^6.1.1",
+        "eslint-plugin-react": "^7.11.0",
+        "mocha": "5.2.0",
+        "nyc": "12.0.2"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "lodash": "4.17.10"
+    }
+}

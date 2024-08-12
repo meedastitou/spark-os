@@ -1,0 +1,17 @@
+{
+  "info": {
+    "description": "siemens-s7 test",
+    "name": "gl-s7-siemens-demo-00",
+    "version": "1.0.0",
+    "fullname": "SiemensPLC",
+    "hpl": "siemens-s7"
+  },
+  "variables": [
+    {
+      "name": "test1",
+      "description": "d",
+      "format": "float",
+      "address": "db2.dbd0"
+    }
+  ]
+}

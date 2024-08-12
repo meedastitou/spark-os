@@ -1,0 +1,32 @@
+From df1a1749fef2471d6acfd9ac3ce4e53a75f01686 Mon Sep 17 00:00:00 2001
+From: "Bark, Martin" <martin.bark@te.com>
+Date: Tue, 11 Jul 2017 15:46:36 +0100
+Subject: [PATCH] boot/syslinux: don't delete $(HOST_DIR)/usr/bin/syslinux
+
+Signed-off-by: Bark, Martin <martin.bark@te.com>
+---
+ boot/syslinux/syslinux.mk | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/boot/syslinux/syslinux.mk b/boot/syslinux/syslinux.mk
+index 13496414dd..790d7b6e6b 100644
+--- a/boot/syslinux/syslinux.mk
++++ b/boot/syslinux/syslinux.mk
+@@ -74,14 +74,6 @@ define SYSLINUX_INSTALL_TARGET_CMDS
+ 		-C $(@D) $(SYSLINUX_TARGET) install
+ endef
+ 
+-# That 'syslinux' binary is an installer actually built for the target.
+-# However, buildroot makes no usage of it, so better delete it than have it
+-# installed at the wrong place
+-define SYSLINUX_POST_INSTALL_CLEANUP
+-	rm -rf $(HOST_DIR)/bin/syslinux
+-endef
+-SYSLINUX_POST_INSTALL_TARGET_HOOKS += SYSLINUX_POST_INSTALL_CLEANUP
+-
+ SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_ISOLINUX) += bios/core/isolinux.bin
+ SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_PXELINUX) += bios/core/pxelinux.bin
+ SYSLINUX_IMAGES-$(BR2_TARGET_SYSLINUX_MBR) += bios/mbr/mbr.bin
+-- 
+2.16.1
+

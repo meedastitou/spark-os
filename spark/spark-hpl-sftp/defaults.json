@@ -1,0 +1,98 @@
+{
+    "settings": {
+        "model": {
+          "enable": false,
+          "sftpUrl": "",
+          "sftpPort": 22,
+          "sftpFolder": "/",
+          "username": "anonymous",
+          "password": "",
+          "readFrequency": 5,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-sftp",
+            "required": [
+              "enable",
+              "sftpUrl",
+              "sftpPort",
+              "sftpFolder",
+              "username",
+              "password",
+              "readFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the SFTP xml Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "sftpUrl": {
+                    "title": "SFTP URL",
+                    "description": "The URL of the SFTP server",
+                    "type": "string",
+                    "required": true
+                },
+                "sftpPort": {
+                    "title": "SFTP Port Number",
+                    "description": "The port number of the SFTP server",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9999,
+                    "required": true
+                },
+                "sftpFolder": {
+                    "title": "SFTP Folder",
+                    "description": "The folder-name to search for on the SFTP server.  Path: /Images/yyyy/mmdd/hr/folder-name",
+                    "type": "string",
+                    "required": true
+                },
+                "username": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "readFrequency": {
+                    "title": "Time between reads of the sftp server (in seconds)",
+                    "description": "The time to wait between each read of the CSV file.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 600,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "sftpUrl",
+            "sftpPort",
+            "sftpFolder",
+            "username",
+            "password",
+            "readFrequency",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

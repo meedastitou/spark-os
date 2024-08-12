@@ -1,0 +1,10 @@
+version: '3'
+services:
+  tester:
+    build:
+      context: ../
+      dockerfile: $PWD/Dockerfile.test
+    volumes:
+      - artifacts:/app/spark-hpl-omron-fins/coverage
+volumes:
+  artifacts:

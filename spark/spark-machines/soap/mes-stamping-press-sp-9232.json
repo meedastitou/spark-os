@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "mes-stamping-press-sp-9232",
+    "description": "MES Data for Stamping Press SP-9232",
+    "version": "1.0.0",
+    "fullname": "MES Stamping Press SP-9232",
+    "hpl": "soap"
+  },
+  "variables": [
+    {
+      "name": "manufacturing-site",
+      "description": "Manufacturing Site",
+      "format": "char"
+    },
+    {
+      "name": "manufacturing-site-id",
+      "description": "Manufacturing Site ID",
+      "format": "char"
+    },
+    {
+      "name": "value-stream",
+      "description": "Value Stream",
+      "format": "char",
+      "requestKey": "MACHINE_AREA",
+      "transformMap": {
+        "BURGESS_ASSY": "ASSEMBLY",
+        "BURGESS_STAMP": "STAMPING",
+        "PEGG_MECHA": "MECHATRONICS",
+        "PEGG_MOLD": "MOLDING",
+        "PEGG_PLATE": "PLATING"
+      }
+    },
+    {
+      "name": "equipment-name",
+      "description": "Equipment Name",
+      "format": "char",
+      "requestKey": "MACHINE_GROUP_NR"
+    },
+    {
+      "name": "tool-id",
+      "description": "Tool ID",
+      "format": "char",
+      "requestKey": "TOOL_NUMBER"
+    },
+    {
+      "name": "factory-order",
+      "description": "Factor Order",
+      "format": "char",
+      "requestKey": "ORDER_OPERATION"
+    },
+    {
+      "name": "part-number",
+      "description": "Part Number",
+      "format": "char",
+      "requestKey": "ARTICLE"
+    },
+    {
+      "name": "part-description",
+      "description": "Part Description",
+      "format": "char",
+      "requestKey": "ARTICLE_DESCRIPTION"
+    }
+  ]
+}

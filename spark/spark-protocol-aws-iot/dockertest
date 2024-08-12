@@ -1,0 +1,16 @@
+#!/bin/bash -e
+DC="docker-compose -f docker-compose.test.yml"
+
+function finish {
+  # down and remove volumes
+  $DC down --volumes
+}
+
+$DC build
+
+trap finish EXIT
+$DC run --rm tester $@
+
+if [ $# -eq 0 ] ; then
+ $DC run --no-deps --rm -T tester bash -c '(tar cf - coverage)' | tar xf -
+fi

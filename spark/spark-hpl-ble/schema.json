@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-BLE",
+    "title": "Bluetooth Low Energy",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "properties": {
+                        "addrOffset": {
+                            "title": "address offset",
+                            "description": "buffer offset",
+                            "type": "integer"
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

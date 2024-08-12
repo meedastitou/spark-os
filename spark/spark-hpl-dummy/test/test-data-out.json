@@ -1,0 +1,302 @@
+[
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 10
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data3",
+    "type": "data",
+    "data3": "5"
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data4",
+    "type": "data",
+    "data4": true
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 9
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 8
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 7
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 6
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 5
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 1
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 4
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 2
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 3
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 3
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 2
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 4
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 1
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 5
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 6
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 10
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data3",
+    "type": "data",
+    "data3": "5"
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data4",
+    "type": "data",
+    "data4": true
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 9
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 8
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 7
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 6
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 5
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 1
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 4
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 2
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 3
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 3
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 2
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 4
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 1
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 5
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data2",
+    "type": "data",
+    "data2": 0
+  },
+  {
+    "machine": "test-machine",
+    "variable": "data1",
+    "type": "data",
+    "data1": 6
+  }
+]

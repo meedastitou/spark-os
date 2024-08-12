@@ -1,0 +1,65 @@
+{
+  "info": {
+    "description": "Sensing Application for Universal AI Sensor",
+    "version": "1.0.0",
+    "name": "gl_opcua_senselinc_analoginput",
+    "fullname": "SenseLinc Universal Analog Input",
+    "hpl": "opcua"
+  },
+  "variables": [
+    {
+      "name": "ch1-array",
+      "description": "channel 1 array",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.arrCh1",
+      "array": true
+    },
+    {
+      "name": "ch2-array",
+      "description": "channel 2 array",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.arrCh2",
+      "array": true
+    },
+    {
+      "name": "ch3-array",
+      "description": "channel 3 array",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.arrCh3",
+      "array": true
+    },
+    {
+      "name": "ch4-array",
+      "description": "channel 4 array",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.arrCh4",
+      "array": true
+    },
+    {
+      "name": "ch1-type",
+      "description": "channel 1 unit type",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch1_EngUnit",
+      "onChange": false,
+      "onChangeTimeoutConditionalValue": "1"
+    },
+    {
+      "name": "ch2-type",
+      "description": "channel 2 unit type",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch2_EngUnit"
+    },
+    {
+      "name": "ch3-type",
+      "description": "channel 3 unit type",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch3_EngUnit"
+    },
+    {
+      "name": "ch4-type",
+      "description": "channel 4 unit type",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch4_EngUnit"
+    }
+  ]
+}

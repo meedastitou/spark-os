@@ -1,0 +1,36 @@
+{
+  "info": {
+    "description": "cn554-enetip-ml1400-stmp",
+    "version": "1.0.0",
+    "fullname": "cn554-enetip-ml1400-stmp",
+    "name": "cn554-enetip-ml1400-stmp",
+    "hpl": "ab-ethernet"
+  },
+  "variables": [
+    {
+      "name": "cycle-time",
+      "description": "Cycle Time(S)",
+      "format": "float",
+      "address": "L12:12",
+      "transformEq": "x/1000"
+    },
+    {
+      "name": "machine-running",
+      "description": "Machine Running",
+      "format": "bool",
+      "address": "B3:10/0"
+    },
+    {
+      "name": "machine-faulted",
+      "description": "Machine Faulted",
+      "format": "bool",
+      "address": "B3:10/1"
+    },
+    {
+      "name": "product-count",
+      "description": "Product Count (Reset if>10000)",
+      "format": "int32",
+      "address": "L12:10"
+    }
+  ]
+}

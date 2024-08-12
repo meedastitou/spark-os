@@ -1,0 +1,6 @@
+config BR2_PACKAGE_SPARK_HEALTH_MONITOR
+	bool "spark-health-monitor"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark Health Monitor

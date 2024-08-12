@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tester:
+    build:
+      context: ../
+      dockerfile: $PWD/Dockerfile.test
+    environment:
+      - REDIS_URL=redis://db:6379/0
+    depends_on:
+      - db
+    volumes:
+      - artifacts:/app/spark-protocol-rest/coverage
+      - /var/run/dbus:/var/run/dbus
+    security_opt:
+      - apparmor:unconfined
+      - seccomp:unconfined
+    network_mode: "host"
+  db:
+    image: redis
+    ports:
+      - "6379"
+volumes:
+  artifacts:

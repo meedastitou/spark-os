@@ -1,0 +1,152 @@
+From 6d723c0474f60e526d6c4a564a6c7d004726ba65 Mon Sep 17 00:00:00 2001
+From: Martin Bark <martin@barkynet.com>
+Date: Mon, 28 Nov 2016 16:14:51 +0000
+Subject: [PATCH] add configurable online status url
+
+Taken from https://git.merproject.org/mer-core/connman
+
+Signed-off-by: Martin Bark <martin@barkynet.com>
+---
+ include/setting.h |  3 +++
+ src/6to4.c        |  6 +++---
+ src/main.c        | 24 ++++++++++++++++++++++++
+ src/wispr.c       |  7 ++-----
+ 4 files changed, 32 insertions(+), 8 deletions(-)
+
+diff --git a/include/setting.h b/include/setting.h
+index a882021..32ccf56 100644
+--- a/include/setting.h
++++ b/include/setting.h
+@@ -28,6 +28,9 @@
+ extern "C" {
+ #endif
+ 
++#define CONF_STATUS_URL_IPV6            "Ipv6StatusUrl"
++#define CONF_STATUS_URL_IPV4            "Ipv4StatusUrl"
++
+ bool connman_setting_get_bool(const char *key);
+ char **connman_setting_get_string_list(const char *key);
+ unsigned int *connman_setting_get_uint_list(const char *key);
+diff --git a/src/6to4.c b/src/6to4.c
+index 71a2882..78a4665 100644
+--- a/src/6to4.c
++++ b/src/6to4.c
+@@ -53,8 +53,6 @@ static unsigned int newlink_watch;
+ static unsigned int newlink_flags;
+ static int newlink_timeout_id;
+ 
+-#define STATUS_URL "http://ipv6.connman.net/online/status.html"
+-
+ #ifndef IP_DF
+ #define IP_DF		0x4000		/* Flag: "Don't Fragment"	*/
+ #endif
+@@ -317,7 +315,9 @@ static void tun_newlink(unsigned flags, unsigned change, void *user_data)
+ 		if (getenv("CONNMAN_WEB_DEBUG"))
+ 			g_web_set_debug(web, web_debug, "6to4");
+ 
+-		web_request_id = g_web_request_get(web, STATUS_URL,
++		const char *url = connman_option_get_string(CONF_STATUS_URL_IPV6);
++
++		web_request_id = g_web_request_get(web, url,
+ 				web_result, NULL,  NULL);
+ 
+ 		newlink_timeout(NULL);
+diff --git a/src/main.c b/src/main.c
+index 3e6449a..84769e2 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -76,6 +76,8 @@ static struct {
+ 	bool single_tech;
+ 	char **tethering_technologies;
+ 	bool persistent_tethering_mode;
++	char *ipv6_status_url;
++	char *ipv4_status_url;
+ 	bool enable_6to4;
+ 	char *vendor_class_id;
+ 	bool enable_online_check;
+@@ -129,12 +131,18 @@ static const char *supported_options[] = {
+ 	CONF_SINGLE_TECH,
+ 	CONF_TETHERING_TECHNOLOGIES,
+ 	CONF_PERSISTENT_TETHERING_MODE,
++	CONF_STATUS_URL_IPV4,
++	CONF_STATUS_URL_IPV6,
+ 	CONF_ENABLE_6TO4,
+ 	CONF_VENDOR_CLASS_ID,
+ 	CONF_ENABLE_ONLINE_CHECK,
+ 	NULL
+ };
+ 
++/* Default values */
++#define CONF_STATUS_URL_IPV4_DEF "http://ipv4.connman.net/online/status.html"
++#define CONF_STATUS_URL_IPV6_DEF "http://ipv6.connman.net/online/status.html"
++
+ static GKeyFile *load_config(const char *file)
+ {
+ 	GError *err = NULL;
+@@ -385,6 +393,11 @@ static void parse_config(GKeyFile *config)
+ 
+ 	g_clear_error(&error);
+ 
++	connman_settings.ipv4_status_url = __connman_config_get_string(config,
++					"General", CONF_STATUS_URL_IPV4, &error);
++	connman_settings.ipv6_status_url = __connman_config_get_string(config,
++					"General", CONF_STATUS_URL_IPV6, NULL);
++
+ 	boolean = __connman_config_get_bool(config, "General",
+ 					CONF_ENABLE_6TO4, &error);
+ 	if (!error)
+@@ -583,6 +596,15 @@ const char *connman_option_get_string(const char *key)
+ 			return option_wifi;
+ 	}
+ 
++	if (g_str_equal(key, CONF_STATUS_URL_IPV4))
++		return connman_settings.ipv4_status_url ?
++			connman_settings.ipv4_status_url :
++			CONF_STATUS_URL_IPV4_DEF;
++	if (g_str_equal(key, CONF_STATUS_URL_IPV6))
++		return connman_settings.ipv6_status_url ?
++			connman_settings.ipv6_status_url :
++			CONF_STATUS_URL_IPV6_DEF;
++
+ 	return NULL;
+ }
+ 
+@@ -826,6 +848,8 @@ int main(int argc, char *argv[])
+ 	g_strfreev(connman_settings.fallback_nameservers);
+ 	g_strfreev(connman_settings.blacklisted_interfaces);
+ 	g_strfreev(connman_settings.tethering_technologies);
++	g_free(connman_settings.ipv6_status_url);
++	g_free(connman_settings.ipv4_status_url);
+ 
+ 	g_free(option_debug);
+ 	g_free(option_wifi);
+diff --git a/src/wispr.c b/src/wispr.c
+index 03b38bb..0054049 100644
+--- a/src/wispr.c
++++ b/src/wispr.c
+@@ -30,9 +30,6 @@
+ 
+ #include "connman.h"
+ 
+-#define STATUS_URL_IPV4  "http://ipv4.connman.net/online/status.html"
+-#define STATUS_URL_IPV6  "http://ipv6.connman.net/online/status.html"
+-
+ struct connman_wispr_message {
+ 	bool has_error;
+ 	const char *current_element;
+@@ -884,10 +881,10 @@ static int wispr_portal_detect(struct connman_wispr_portal_context *wp_context)
+ 
+ 	if (wp_context->type == CONNMAN_IPCONFIG_TYPE_IPV4) {
+ 		g_web_set_address_family(wp_context->web, AF_INET);
+-		wp_context->status_url = STATUS_URL_IPV4;
++		wp_context->status_url = connman_option_get_string(CONF_STATUS_URL_IPV4);
+ 	} else {
+ 		g_web_set_address_family(wp_context->web, AF_INET6);
+-		wp_context->status_url = STATUS_URL_IPV6;
++		wp_context->status_url = connman_option_get_string(CONF_STATUS_URL_IPV6);
+ 	}
+ 
+ 	for (i = 0; nameservers[i]; i++)
+-- 
+2.7.4
+

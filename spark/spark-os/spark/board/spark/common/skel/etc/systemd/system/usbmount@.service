@@ -1,0 +1,8 @@
+[Unit]
+Description=Mount USB Drive on %i
+
+[Service]
+Type=oneshot
+# Mount so sparkadmin has read/write access and
+# anyone in the storage group has read only access
+ExecStart=/usr/bin/systemd-mount -o uid=sparkadmin,gid=storage,umask=0022 "/dev/%i"

@@ -1,0 +1,47 @@
+*
+  Copyright (c) 2007 Peter Schnabel
+
+  Datei:   README
+  Datum:   18.07.2007
+  Version: 0.0.1
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+*/
+
+
+Dateien und deren Zuordnungen zu den AG/PG Funktionen
+
+
+as511_ag_run.c                  AG in RUN  Schalten  nur AG 100U
+as511_ag_stop.c                 AG in STOP Schalten  nur AG 100U
+as511_change_operating_mode.c   AG Betriebsart wechseln Nur AG 135U
+                                AG STOP, Neustart, Wiederanlauf
+as511_compress_ram.c            AG Speicher Komprimieren
+as511_ctrl_output.c             AG Ausgänge steuern
+as511_delete_module_all.c       AG Bausteine Löschen (Urlöschen)
+as511_delete_module.c           AG Baustein Löschen
+as511_read_bstack.c             AG BSTACK Lesen
+as511_read_cpu_typ.c            AG CPU Typ Ermitteln
+as511_read_module_addr_list.c   AG Baustein Adressliste Lesen
+as511_read_prog_module.c        AG Baustein Lesen
+as511_read_module_info.c        AG Baustein INFO Lesen
+as511_read_ram.c                AG Speicher Lesen
+as511_read_ram_info.c           AG Speicherinformationen Lesen
+as511_read_system_parameter.c   AG Systemparameter Lesen
+as511_read_ustack.c             AG USTACK Lesen
+as511_status_module.c           AG Status Baustein
+as511_status_var.c              AG Status Variable
+as511_step_module.c             AG Bearbeitungskontrolle
+as511_write_module.c            Baustein ins AG Übertragen
+as511_write_ram.c               AG Speicher Schreiben

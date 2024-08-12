@@ -1,0 +1,43 @@
+{
+  "info": {
+    "description": "Trumpf Laser TruPulse 124 OPC-UA Connection (6.6W)",
+    "name": "emea-opc-pc-trupulse124-00",
+    "version": "1.0.0",
+    "fullname": "Trumpf Laser TruPulse 124 (Standard)",
+    "hpl": "opcua"
+  },
+ "variables": [
+    {
+      "name": "lastmessage-msgcode",
+      "description": "Last Message Code",
+      "format": "uint16",
+      "nodeId": "ns=2;s=LastMessage.MsgCode",
+      "onChange": true
+    },
+    {
+      "name": "counter-operatinghours",
+      "description": "Counter Operating Hours",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.OperatingHours"
+    },
+    {
+      "name": "counter-operatinghourshot",
+      "description": "Counter Operating Hours Hot",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.OperatingHoursHot"
+    },
+    {
+      "name": "laser-energy",
+      "description": "Laser Energy",
+      "format": "double",
+      "nodeId": "ns=2;s=Production.MPI-Slot01.Output.Word07.ENERGY"
+    },
+    {
+      "name": "laser-power",
+      "description": "Laser Power",
+      "format": "uint16",
+      "nodeId": "ns=2;s=Production.MPI-Slot01.Output.Word06.LASER_POWER",
+      "transformEq": "x/10"
+    }
+  ]
+}

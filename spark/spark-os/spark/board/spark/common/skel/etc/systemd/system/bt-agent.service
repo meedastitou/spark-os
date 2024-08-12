@@ -1,0 +1,16 @@
+[Unit]
+Description=Bluetooth Agent for hci0
+After=bluetooth.target
+Requires=sys-subsystem-bluetooth-devices-hci0.device
+BindsTo=sys-subsystem-bluetooth-devices-hci0.device
+After=sys-subsystem-bluetooth-devices-hci0.device
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/bt-adapter -a hci0 --set Powered 1
+ExecStartPre=/usr/bin/bt-adapter -a hci0 --set Discoverable 1
+ExecStart=/usr/bin/bt-agent -c NoInputNoOutput
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

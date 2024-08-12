@@ -1,0 +1,32 @@
+{
+  "name": "node-simple-ftpd",
+  "version": "0.0.4",
+  "description": "simple ftp server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"TODO: add tests\""
+  },
+  "keywords": [
+    "ftp server",
+    "ftpd",
+    "ftp",
+    "file server"
+  ],
+  "author": {
+    "email": "kamicane@gmail.com",
+    "name": "Valerio Proietti"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-simple-ftpd"
+  },
+  "dependencies": {
+    "async-sequence": "^2.0.3",
+    "commander": "2.16.0",
+    "fs-extra": "7.0.0",
+    "moment": "2.22.2",
+    "pump": "3.0.0",
+    "sprintf": "^0.1.5",
+    "stat-mode": "^0.2.2"
+  }
+}

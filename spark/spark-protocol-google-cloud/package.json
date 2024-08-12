@@ -1,0 +1,35 @@
+{
+  "name": "spark-protocol-google-cloud",
+  "fullname": "Google Cloud Client",
+  "version": "0.0.1",
+  "description": "A Client for the Google Cloud Platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"TODO: add tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-google-cloud.git"
+  },
+  "keywords": [
+    "Spark",
+    "Google Cloud",
+    "Bit Table",
+    "Datastore",
+    "PubSub"
+  ],
+  "author": {
+    "name": "Dominic White",
+    "email": "dominic.white@te.com"
+  },
+  "dependencies": {
+    "@google-cloud/bigtable": "^2.3.2",
+    "@google-cloud/datastore": "^5.1.0",
+    "@google-cloud/pubsub": "^1.7.2",
+    "async": "2.6.1",
+    "lodash": "4.17.10"
+  },
+  "devDependencies": {
+    "bunyan": "1.8.12"
+  }
+}

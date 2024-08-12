@@ -1,0 +1,103 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "sensorType": "DHT22",
+            "GPIOPin": 4,
+            "temperatureScale": "Fahrenheit",
+            "temperatureOffset": 0.0,
+            "humidityOffset": 0.0,
+            "readFrequency": "1",
+            "deliverEntireResponse": false,
+            "onChange": false,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-weather-sensor",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the DHT Sensor Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "sensorType": {
+                    "title": "DHT Sensor",
+                    "type": "string",
+                    "enum": ["DHT11", "DHT22/AM2302"],
+                    "required": true
+                },
+                "GPIOPin": {
+                    "title": "SPI DATA GPIO Pin",
+                    "description": "The GPIO pin used for connection of the SPI DATA line.",
+                    "type": "integer",
+                    "enum": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,20,21,22,23,24,25,26,27,28,29,30],
+                    "required": true
+                },
+                "temperatureScale": {
+                    "title": "Temperature Scale",
+                    "type": "string",
+                    "enum": ["Fahrenheit", "Celcius"]
+                },
+                "temperatureOffset": {
+                    "title": "Temperature Offset Value",
+                    "description": "An adjustment value to allow for temperature calibration.  Offset is applied after F/C conversion.",
+                    "type": "float"
+                },
+                "humidityOffset": {
+                    "title": "Humidity Value",
+                    "description": "An adjustment value to allow for humidiry calibration.",
+                    "type": "float"
+                },
+                "readFrequency": {
+                    "title": "Time between reads of the DHT sensor (in seconds)",
+                    "description": "The time to wait between each read of the sensor.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 600,
+                    "required": true
+                },
+                "deliverEntireResponse": {
+                    "title": "Deliver Entire Response",
+                    "description": "Set to true to deliver the temperature and humidity as a single variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "onChange": {
+                    "title": "On Change",
+                    "description": "When enabled, only create a new data point when the data for that variable has changed.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+          "enable",
+          "sensorType",
+          "GPIOPin",
+          "temperatureScale",
+          "temperatureOffset",
+          "humidityOffset",
+          "readFrequency",
+          "deliverEntireResponse",
+          "onChange",
+          "publishDisabled",
+          "connectionStatus"
+        ]
+    }
+}

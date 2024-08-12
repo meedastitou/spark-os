@@ -1,0 +1,48 @@
+{
+    "variables": [],
+    "settings": {
+        "model": {
+            "enable": false,
+            "deviceList": "",
+            "updateRate": 5,
+            "publishDisabled": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "type": "object",
+            "title": "spark-machine-wac",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the WAC",
+                    "type": "boolean",
+                    "required": true
+                },
+                "deviceList": {
+                    "title": "List of WACs to listen for",
+                    "description": "The mac address of each WAC device.",
+                    "type": "string"
+                },
+                "updateRate": {
+                    "title": "Variable update rate in seconds",
+                    "description": "The time to wait between each variable being update.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                }
+            }
+        },
+        "form": [ "enable",
+                  "deviceList",
+                  "updateRate",
+                  "publishDisabled"
+                ]
+    }
+}

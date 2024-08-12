@@ -1,0 +1,123 @@
+{
+    "info": {
+        "name": "spark-machine-sodick",
+        "fullname": "Sodick Injection Molding Machine",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Sodick Injection Molding Machine",
+        "hpl": "serial"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub",
+            "baudRate": "9600",
+            "parity": "none",
+            "separator": " "
+        }
+    },
+    "variables": [{
+        "name": "OKNG",
+        "description": "OK or NG",
+        "csvPos": 0,
+        "format": "char"
+    }, {
+        "name": "ShotNum",
+        "description": "Shot Number",
+        "csvPos": 2,
+        "format": "int32"
+    }, {
+        "name": "FillingTime",
+        "description": "Filling Time (sec)",
+        "csvPos": 9,
+        "format": "float"
+    }, {
+        "name": "MeasuringTime",
+        "description": "Measuring Time (sec)",
+        "csvPos": 10,
+        "format": "float"
+    }, {
+        "name": "CycleTime",
+        "description": "Cycle Time (sec)",
+        "csvPos": 11,
+        "format": "float"
+    }, {
+        "name": "MinCushion",
+        "description": "Min Cushion (mm)",
+        "csvPos": 12,
+        "format": "float"
+    }, {
+        "name": "LastCushion",
+        "description": "Last Cushion (mm)",
+        "csvPos": 13,
+        "format": "float"
+    }, {
+        "name": "MeasuringPos",
+        "description": "Measuring Position (mm)",
+        "csvPos": 14,
+        "format": "float"
+    }, {
+        "name": "PositionVP",
+        "description": "Position(V-P) (mm)",
+        "csvPos": 22,
+        "format": "float"
+    }, {
+        "name": "IjcPrsV1_2",
+        "description": "IJC Pressure (V1-2) (Kg/cm2)",
+        "csvPos": 23,
+        "format": "float"
+    }, {
+        "name": "IjcPrsV2_3",
+        "description": "IJC Pressure (V2-3) (Kg/cm2)",
+        "csvPos": 24,
+        "format": "float"
+    }, {
+        "name": "IjcPrsV3_4",
+        "description": "IJC Pressure (V3-4) (Kg/cm2)",
+        "csvPos": 25,
+        "format": "float"
+    }, {
+        "name": "IjcPrsV_P",
+        "description": "IJC Pressure (V-P) (Kg/cm2)",
+        "csvPos": 26,
+        "format": "float"
+    }, {
+        "name": "IjcPrsT1",
+        "description": "IJC Pressure (t1) (Kg/cm2)",
+        "csvPos": 27,
+        "format": "float"
+    }, {
+        "name": "IjcPrsT2",
+        "description": "IJC Pressure (t2) (Kg/cm2)",
+        "csvPos": 28,
+        "format": "float"
+    }, {
+        "name": "IjcPrsT3",
+        "description": "IJC Pressure (t3) (Kg/cm2)",
+        "csvPos": 29,
+        "format": "float"
+    }, {
+        "name": "IjcPrsT4",
+        "description": "IJC Pressure (t4) (Kg/cm2)",
+        "csvPos": 30,
+        "format": "float"
+    }, {
+        "name": "IjcPrsMax",
+        "description": "IJC Pressure (max) (Kg/cm2)",
+        "csvPos": 31,
+        "format": "float"
+    }, {
+        "name": "IjcSpeedV1_2",
+        "description": "IJC Speed (V1-2) (mm/s)",
+        "csvPos": 32,
+        "format": "float"
+    }, {
+        "name": "IjcSpeedV2_3",
+        "description": "IJC Speed (V2-3) (mm/s)",
+        "csvPos": 33,
+        "format": "float"
+    }, {
+        "name": "IjcSpeedV3_4",
+        "description": "IJC Speed (V3-4) (mm/s)",
+        "csvPos": 34,
+        "format": "float"
+    }]
+}

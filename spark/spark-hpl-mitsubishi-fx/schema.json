@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-mitsubishi-fx",
+    "title": "Mitsubishi FX",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "memoryArea",
+                    "address"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "memoryArea",
+                        "address"
+                    ],
+                    "properties": {
+                        "memoryArea": {
+                            "title": "Memory Area",
+                            "description": "The memory area to read",
+                            "type": "string",
+                            "enum": [
+                                "X",
+                                "Y",
+                                "M",
+                                "S",
+                                "TS",
+                                "CS",
+                                "D",
+                                "TN",
+                                "CN",
+                                "R",
+                                "SD"
+                            ]
+                        },
+                        "address": {
+                            "title": "Address",
+                            "description": "The address to read within the memory area",
+                            "type": "string",
+                            "pattern": "^[0-9]+([.][0-9]{1,2})?$",
+                            "minLength": 1,
+                            "maxLength": 8
+                        },
+                        "destVariables": {
+                            "title": "Destination Variables",
+                            "description": "Array of variables to receive the values of this array variable",
+                            "type": "array",
+                            "format": "tabs",
+                            "minItems": 1,
+                            "items": {
+                                "required": [
+                                    "destVariable"
+                                ],
+                                "properties": {
+                                    "destVariable": {
+                                        "title": "Destination Variable Name",
+                                        "description": "The variable name in which to report the value of an array element",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Destination Variable Name must only contain letters, numbers, dash and underscore"
+                                    },
+                                    "arrayIndex": {
+                                        "title": "Array Index",
+                                        "description": "The index of the array element to report in this destination variable",
+                                        "type": "integer",
+                                        "minimum": 1
+                                    }
+                                }
+                            }
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "defaultProperties" : [
+                      "highByteFirst",
+                      "highWordFirst"
+                    ],
+                    "properties": {
+                        "highByteFirst": {
+                            "title": "High Byte First",
+                            "description": "Expected order of bytes recieved for 16 and 32 bit data.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "highWordFirst": {
+                            "title": "High Word First",
+                            "description": "Expected order of words recieved for 32 bit data.",
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

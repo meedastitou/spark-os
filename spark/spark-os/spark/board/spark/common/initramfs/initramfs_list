@@ -1,0 +1,61 @@
+# directory structure
+slink /bin /usr/bin 755 0 0
+dir /dev 755 0 0
+nod /dev/console 644 0 0 c 5 1
+dir /etc 755 0 0
+slink /etc/mtab /proc/mounts 755 0 0
+slink /lib /usr/lib 755 0 0
+slink /lib32 /lib 755 0 0
+slink /lib64 /lib 755 0 0
+slink /sbin /usr/sbin 755 0 0
+dir /tmp 1777 0 0
+dir /usr 755 0 0
+dir /usr/bin 755 0 0
+dir /usr/lib 755 0 0
+slink /usr/lib32 /usr/lib 755 0 0
+slink /usr/lib64 /usr/lib 755 0 0
+dir /usr/sbin 755 0 0
+
+# busybox
+file /bin/busybox ${TARGET_DIR}/bin/busybox 755 0 0
+slink /bin/sh busybox 755 0 0
+
+# fsck
+file /usr/sbin/fsck ${TARGET_DIR}/usr/sbin/fsck 755 0 0
+
+# fsck.fat
+file /sbin/fsck.fat ${TARGET_DIR}/sbin/fsck.fat 755 0 0
+slink /sbin/dosfsck fsck.fat 755 0 0
+slink /sbin/fsck.msdos fsck.fat 755 0 0
+slink /sbin/fsck.vfat fsck.fat 755 0 0
+
+# e2fsck
+file /usr/sbin/e2fsck ${TARGET_DIR}/usr/sbin/e2fsck 755 0 0
+slink /usr/sbin/fsck.ext2 e2fsck 755 0 0
+slink /usr/sbin/fsck.ext3 e2fsck 755 0 0
+slink /usr/sbin/fsck.ext4 e2fsck 755 0 0
+slink /usr/sbin/fsck.ext4dev e2fsck 755 0 0
+
+# mke2fs
+file /usr/sbin/mke2fs ${TARGET_DIR}/usr/sbin/mke2fs 755 0 0
+file /etc/mke2fs.conf ${TARGET_DIR}/etc/mke2fs.conf 644 0 0
+slink /usr/sbin/mkfs.ext2 mke2fs 755 0 0
+slink /usr/sbin/mkfs.ext3 mke2fs 755 0 0
+slink /usr/sbin/mkfs.ext4 mke2fs 755 0 0
+slink /usr/sbin/mkfs.ext4dev mke2fs 755 0 0
+
+# libraries
+file /lib/__LD_LINUX__ ${TARGET_DIR}/lib/__LD_LINUX__ 755 0 0
+file /lib/libblkid.so.1 ${TARGET_DIR}/lib/libblkid.so.1 755 0 0
+file /lib/libc.so.6 ${TARGET_DIR}/lib/libc.so.6 755 0 0
+file /lib/libmount.so.1 ${TARGET_DIR}/lib/libmount.so.1 755 0 0
+file /lib/libpthread.so.0 ${TARGET_DIR}/lib/libpthread.so.0 755 0 0
+file /lib/librt.so.1 ${TARGET_DIR}/lib/librt.so.1 755 0 0
+file /lib/libuuid.so.1 ${TARGET_DIR}/lib/libuuid.so.1 755 0 0
+file /usr/lib/libcom_err.so.2 ${TARGET_DIR}/usr/lib/libcom_err.so.2 755 0 0
+file /usr/lib/libe2p.so.2 ${TARGET_DIR}/usr/lib/libe2p.so.2 755 0 0
+file /usr/lib/libext2fs.so.2 ${TARGET_DIR}/usr/lib/libext2fs.so.2 755 0 0
+file /usr/lib/libdl.so.2 ${TARGET_DIR}/usr/lib/libdl.so.2 755 0 0
+
+# init script
+file /init ${BR2_EXTERNAL_SPARK_PATH}/board/spark/common/initramfs/init 755 0 0

@@ -1,0 +1,4 @@
+NODE_ENV=production
+LOG_SYSLOG=spark-protocol
+HTTP_HOSTNAME=127.0.0.1
+GET_SPARK_LOGS_SCRIPT=sudo /usr/bin/get-spark-logs

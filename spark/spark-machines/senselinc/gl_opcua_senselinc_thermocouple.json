@@ -1,0 +1,59 @@
+{
+  "info": {
+    "description": "Sensing Application for Thermocouple Type J Sensor",
+    "version": "1.0.0",
+    "name": "gl_opcua_senselinc_thermocouple",
+    "fullname": "SenseLinc Thermocouple Type-J",
+    "hpl": "opcua"
+  },
+  "variables": [
+    {
+      "name": "ch1_temperature",
+      "description": "Channel 1 Temperature (Fahrenheit) (1Hz sampling)",
+      "format": "int16",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.r_Ch1_EP3314"
+    },
+    {
+      "name": "ch2_temperature",
+      "description": "Channel 2 Temperature (Fahrenheit) (1Hz sampling)",
+      "format": "int16",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.r_Ch2_EP3314"
+    },
+    {
+      "name": "ch3_temperature",
+      "description": "Channel 3 Temperature (Fahrenheit) (1Hz sampling)",
+      "format": "int16",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.r_Ch3_EP3314"
+    },
+    {
+      "name": "ch4_temperature",
+      "description": "Channel 4 Temperature (Fahrenheit) (1Hz sampling)",
+      "format": "int16",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.r_Ch4_EP3314"
+    },
+    {
+      "name": "ch1_eng_unit",
+      "description": "Channel 1 Engineering Unit",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch1_EngUnit"
+    },
+    {
+      "name": "ch2_eng_unit",
+      "description": "Channel 2 Engineering Unit",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch2_EngUnit"
+    },
+    {
+      "name": "ch3_eng_unit",
+      "description": "Channel 3 Engineering Unit",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch3_EngUnit"
+    },
+    {
+      "name": "ch4_eng_unit",
+      "description": "Channel 4 Engineering Unit",
+      "format": "char",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.Application.Spark_Publish.s_Ch4_EngUnit"
+    }
+  ]
+}

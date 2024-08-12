@@ -1,0 +1,4 @@
+NODE_ENV=production
+LOG_SYSLOG=spark-web-proxy
+START_CMD=sudo /usr/bin/spark-web-proxy-start
+STOP_CMD=sudo /usr/bin/spark-web-proxy-stop

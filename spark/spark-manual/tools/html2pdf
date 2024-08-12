@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+WHHTMLTOPDF=wkhtmltopdf
+SRCDIR=./dist
+DESTDIR=${1:-./dist/pdf/}
+
+mkdir -p ${DESTDIR}
+find $SRCDIR -name "*.html" -type f -print0 | while IFS= read -r -d $'\0' i; do
+	f=$(basename $i .html)
+	if [ "$f" != "index" ] ; then
+		echo "Processing: $f"
+		${WHHTMLTOPDF} --quiet --print-media-type $i ${DESTDIR}/${f}.pdf
+	fi
+done

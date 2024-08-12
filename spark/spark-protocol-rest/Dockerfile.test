@@ -1,0 +1,16 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+
+RUN apt-get update &&\
+    apt-get install -y libudev-dev libdbus-1-dev
+
+RUN install -o node -g node -m 750 -d /app
+COPY --chown=node:node node-ble /app/node-ble/
+COPY --chown=node:node spark-hpl-dummy /app/spark-hpl-dummy/
+COPY --chown=node:node spark-machine-hpl /app/spark-machine-hpl/
+COPY --chown=node:node spark-protocol-rest/package.json spark-protocol-rest/yarn.lock /app/spark-protocol-rest/
+WORKDIR /app/spark-protocol-rest
+RUN yarn install --frozen-lockfile
+COPY --chown=node:node spark-protocol-rest /app/spark-protocol-rest
+CMD ["yarn", "test"]

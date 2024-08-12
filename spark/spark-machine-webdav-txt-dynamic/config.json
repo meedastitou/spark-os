@@ -1,0 +1,106 @@
+{
+    "variables": [],
+    "settings": {
+        "model": {
+          "enable": false,
+          "webdavUrl": "",
+          "baseFilename": "",
+          "useBlacklistRegex": false,
+          "blacklistRegex": "",
+          "username": "anonymous",
+          "password": "",
+          "readFrequency": 5,
+          "utcOffset": 0,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-webdav-txt-dynamic",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the WebDAV Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "webdavUrl": {
+                    "title": "WebDAV URL",
+                    "description": "The URL of the WebDAV server",
+                    "type": "string",
+                    "required": true
+                },
+                "baseFilename": {
+                    "title": "Base Filename",
+                    "description": "The base filename of the file to be read, if the 'Use Base Filename' box is checked. The newest file starting with the base file name is read",
+                    "type": "string",
+                    "required": true
+                },
+                "useBlacklistRegex": {
+                    "title": "Use Blacklist Regular Expression",
+                    "description": "If this box is checked, the filenames are checked against the Blacklist Regular Expression.  If they match, the file is ignored.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "blacklistRegex": {
+                    "title": "Blacklist Regular Expression",
+                    "description": "A regular expression that can be used to determine which filenames to ignore.  For example, to skip files that end with 'R', use '^.*R$'",
+                    "type": "string"
+                },
+                "username": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "readFrequency": {
+                    "title": "Time between reads of the TXT file (in seconds)",
+                    "description": "The time to wait between each read of the TXT file.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 600,
+                    "required": true
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "webdavUrl",
+            "baseFilename",
+            "useBlacklistRegex",
+            {
+                "condition": "model.useBlacklistRegex==true",
+                "key": "blacklistRegex"
+            },
+            "username",
+            "password",
+            "readFrequency",
+            "utcOffset",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

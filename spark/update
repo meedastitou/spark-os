@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Update nodejs version to match the version we are currently using
+NODE_VER=$(node --version|sed 's/^v//')
+find -maxdepth 2 -name "Dockerfile*" -type f -exec sed -i "s/^FROM node:.*/FROM node:$NODE_VER/" '{}' \;
+
+# Find all nodejs modules
+for i in `find . -maxdepth 2 -name "package.json" -exec dirname '{}' \;` ; do
+	(
+		cd $i
+		echo "Updating $i"
+
+		# Update package.json and yarn.lock
+		yarn upgrade --latest --exact
+
+		# update eslint if the package.json already includes eslint
+		if grep -q "eslint-config-airbnb" package.json ; then
+			npx install-peerdeps --dev eslint-config-airbnb --yarn
+			yarn lint --fix
+		fi
+	)
+done

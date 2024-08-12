@@ -1,0 +1,888 @@
+{
+  "info": {
+    "description": "cn554-yok-fam3-tss-stich",
+    "version": "1.0.0",
+    "fullname": "cn554-yok-fam3-tss-stich",
+    "name": "cn554-yok-fam3-tss-stich",
+    "hpl": "yokogawa"
+  },
+  "variables": [
+    {
+      "name": "num-of-postion",
+      "description": "NO. Of Postion",
+      "format": "int16",
+      "requestKey": "WRDD00110,01"
+    },
+    {
+      "name": "num-of-hsg",
+      "description": "NO. Of HSG",
+      "format": "int16",
+      "requestKey": "WRDD00130,01"
+    },
+    {
+      "name": "postion",
+      "description": "Postion",
+      "format": "int32",
+      "requestKey": "WRDD00132,02"
+    },
+    {
+      "name": "lot-products",
+      "description": "Lot Products",
+      "format": "int32",
+      "requestKey": "WRDD00150,02"
+    },
+    {
+      "name": "good-products",
+      "description": "Good Products",
+      "format": "uint16",
+      "requestKey": "WRDD00154,01"
+    },
+    {
+      "name": "reject-products",
+      "description": "Reject Products",
+      "format": "int16",
+      "requestKey": "WRDD00156,01"
+    },
+    {
+      "name": "preset",
+      "description": "Preset",
+      "format": "uint32",
+      "requestKey": "WRDD00166,02"
+    },
+    {
+      "name": "machine-running-hours",
+      "description": "Machine Running Hours",
+      "format": "int32",
+      "requestKey": "WRDD00178,02"
+    },
+    {
+      "name": "machine-auto-running-speed-rpm",
+      "description": "Machine Auto Running Speed-RPM",
+      "format": "int32",
+      "requestKey": "WRDD00190,02"
+    },
+    {
+      "name": "machine-jog-running-speed-rpm",
+      "description": "Machine JOG Running Speed-RPM",
+      "format": "int32",
+      "requestKey": "WRDD00192,02"
+    },
+    {
+      "name": "stitch-speed",
+      "description": "Stitch Speed",
+      "format": "int32",
+      "requestKey": "WRDD00208,02"
+    },
+    {
+      "name": "cycle-time",
+      "description": "Cycle Time",
+      "format": "int32",
+      "requestKey": "WRDD00210,02"
+    },
+    {
+      "name": "lot-products-preset",
+      "description": "Lot Products Preset",
+      "format": "int32",
+      "requestKey": "WRDD00162,02"
+    },
+    {
+      "name": "total-products",
+      "description": "Total Products",
+      "format": "int32",
+      "requestKey": "WRDD00158,02"
+    },
+    {
+      "name": "total-good-products",
+      "description": "Total Good Products",
+      "format": "int32",
+      "requestKey": "WRDD00160,02"
+    },
+    {
+      "name": "left-set-of-punch",
+      "description": "Left Set Of Punch",
+      "format": "int32",
+      "requestKey": "WRDD00172,02"
+    },
+    {
+      "name": "preset-left-set-of-punch",
+      "description": "Preset left set of punch",
+      "format": "int32",
+      "requestKey": "WRDD00184,02"
+    },
+    {
+      "name": "shoot-cnt-of-punch",
+      "description": "Shoot CNT of punch",
+      "format": "int32",
+      "requestKey": "WRDD00174,02"
+    },
+    {
+      "name": "total-running-time-h",
+      "description": "Total running time(h)",
+      "format": "int32",
+      "requestKey": "WRDD00178,02"
+    },
+    {
+      "name": "total-running-time-m",
+      "description": "Total running time(m)",
+      "format": "int16",
+      "requestKey": "WRDD00186,01"
+    },
+    {
+      "name": "total-power-on-time-h",
+      "description": "Total Power ON time(h)",
+      "format": "int32",
+      "requestKey": "WRDD00180,02"
+    },
+    {
+      "name": "total-power-on-time-m",
+      "description": "Total Power ON time(m)",
+      "format": "int16",
+      "requestKey": "WRDD00188,01"
+    },
+    {
+      "name": "on-line",
+      "description": "On Line",
+      "format": "bool",
+      "requestKey": "BRDI11000,001"
+    },
+    {
+      "name": "off-line",
+      "description": "Off Line",
+      "format": "bool",
+      "requestKey": "BRDI11001,001"
+    },
+    {
+      "name": "skip",
+      "description": "Skip",
+      "format": "bool",
+      "requestKey": "BRDI11002,001"
+    },
+    {
+      "name": "contact-feed-check-off",
+      "description": "Contact feed check off",
+      "format": "bool",
+      "requestKey": "BRDI11003,001"
+    },
+    {
+      "name": "pin-count-check-off",
+      "description": "Pin count check off",
+      "format": "bool",
+      "requestKey": "BRDI11004,001"
+    },
+    {
+      "name": "ph-sensor-check-off",
+      "description": "PH sensor check off",
+      "format": "bool",
+      "requestKey": "BRDI11005,001"
+    },
+    {
+      "name": "vision-insp-debug-mode",
+      "description": "Vision INSP Debug mode",
+      "format": "bool",
+      "requestKey": "BRDI11006,001"
+    },
+    {
+      "name": "operation-test-run",
+      "description": "Operation Test run",
+      "format": "bool",
+      "requestKey": "BRDI11007,001"
+    },
+    {
+      "name": "next-mc-not-link",
+      "description": "Next M/C not link",
+      "format": "bool",
+      "requestKey": "BRDI11008,001"
+    },
+    {
+      "name": "alarm-bz-auto-off",
+      "description": "Alarm BZ auto off",
+      "format": "bool",
+      "requestKey": "BRDI11009,001"
+    },
+    {
+      "name": "vision-insp-check-off",
+      "description": "Vision INSP check off",
+      "format": "bool",
+      "requestKey": "BRDI11010,001"
+    },
+    {
+      "name": "auto-mode",
+      "description": "Auto  Mode",
+      "format": "bool",
+      "requestKey": "BRDI11011,001"
+    },
+    {
+      "name": "purge-mode",
+      "description": "Purge mode",
+      "format": "bool",
+      "requestKey": "BRDI11012,001"
+    },
+    {
+      "name": "step-mode",
+      "description": "Step mode",
+      "format": "bool",
+      "requestKey": "BRDI11013,001"
+    },
+    {
+      "name": "manual-mode",
+      "description": "Manual mode",
+      "format": "bool",
+      "requestKey": "BRDI11014,001"
+    },
+    {
+      "name": "machine-auto-running",
+      "description": "machine Auto Running",
+      "format": "bool",
+      "requestKey": "BRDI11015,001"
+    },
+    {
+      "name": "machine-failure",
+      "description": "Machine Failure",
+      "format": "bool",
+      "requestKey": "BRDI11016,001"
+    },
+    {
+      "name": "not-ready-c560s-controller",
+      "description": " NOT READY - C-560S CONTROLLER",
+      "format": "bool",
+      "requestKey": "BRDI11017,001"
+    },
+    {
+      "name": "not-ready-servo-motor",
+      "description": " NOT READY - SERVO MOTOR",
+      "format": "bool",
+      "requestKey": "BRDI11018,001"
+    },
+    {
+      "name": "not-origin-feed-table",
+      "description": " NOT ORIGIN - FEED TABLE",
+      "format": "bool",
+      "requestKey": "BRDI11019,001"
+    },
+    {
+      "name": "set-error-feed-unit",
+      "description": " SET ERROR - FEED UNIT",
+      "format": "bool",
+      "requestKey": "BRDI11020,001"
+    },
+    {
+      "name": "not-origin-feed-paw",
+      "description": " NOT ORIGIN - FEED PAW",
+      "format": "bool",
+      "requestKey": "BRDI11021,001"
+    },
+    {
+      "name": "open-safety-cover",
+      "description": " OPEN - SAFETY COVER",
+      "format": "bool",
+      "requestKey": "BRDI11022,001"
+    },
+    {
+      "name": "interrupt-safety-guard-senser",
+      "description": "INTERRUPT - SAFETY GUARD SENSER",
+      "format": "bool",
+      "requestKey": "BRDI11023,001"
+    },
+    {
+      "name": "not-origin-hsg-stopper1",
+      "description": "NOT ORIGIN - HSG STOPPER1",
+      "format": "bool",
+      "requestKey": "BRDI11024,001"
+    },
+    {
+      "name": "fail-discharge-hsg",
+      "description": "Fail - Discharge HSG",
+      "format": "bool",
+      "requestKey": "BRDI11025,001"
+    },
+    {
+      "name": "not-origin-clamp-lever",
+      "description": "NOT ORIGIN - CLAMP LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11027,001"
+    },
+    {
+      "name": "not-origin-cut-lever",
+      "description": "NOT ORIGIN - CUT LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11028,001"
+    },
+    {
+      "name": "not-origin-clamp-slider",
+      "description": "NOT ORIGIN - CLAMP SLIDER",
+      "format": "bool",
+      "requestKey": "BRDI11029,001"
+    },
+    {
+      "name": "not-origin-insert-lever",
+      "description": "NOT ORIGINE - INSERT LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11030,001"
+    },
+    {
+      "name": "not-origin-contact-feed-lever",
+      "description": "NOT ORIGIN -  CONTACT FEED LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11031,001"
+    },
+    {
+      "name": "motor-free",
+      "description": "MOTOR FREE ",
+      "format": "bool",
+      "requestKey": "BRDI11032,001"
+    },
+    {
+      "name": "handle-insert",
+      "description": "HANDLE INSERT ",
+      "format": "bool",
+      "requestKey": "BRDI11033,001"
+    },
+    {
+      "name": "not-origin-main-axis",
+      "description": "NOT ORIGIN - MAIN AXIS",
+      "format": "bool",
+      "requestKey": "BRDI11034,001"
+    },
+    {
+      "name": "not-ready-servo-motor-driver-1",
+      "description": "NOT READY - SERVO MOTOR DRIVER",
+      "format": "bool",
+      "requestKey": "BRDI11035,001"
+    },
+    {
+      "name": "turned-off-dereeler-on-off-switch",
+      "description": "TURNED OFF - DEREELER ON/OFF SWITCH",
+      "format": "bool",
+      "requestKey": "BRDI11037,001"
+    },
+    {
+      "name": "not-ready-servo-motor-driver-2",
+      "description": "NOT READY - SERVO MOTOR DRIVER",
+      "format": "bool",
+      "requestKey": "BRDI11038,001"
+    },
+    {
+      "name": "not-origin-motor-axis",
+      "description": "NOT ORIGIN - MOT0R AXIS",
+      "format": "bool",
+      "requestKey": "BRDI11039,001"
+    },
+    {
+      "name": "set-error-contact-feed-unit",
+      "description": "SET ERROR - CONTACT FEED UNIT",
+      "format": "bool",
+      "requestKey": "BRDI11040,001"
+    },
+    {
+      "name": "not-origin-carrier-cut",
+      "description": "NOT ORIGIN - CARRIER CUT",
+      "format": "bool",
+      "requestKey": "BRDI11041,001"
+    },
+    {
+      "name": "set-error-carrier-scrap-box",
+      "description": "SET ERROR - CARRIER SCRAP BOX",
+      "format": "bool",
+      "requestKey": "BRDI11042,001"
+    },
+    {
+      "name": "lowered-input-air-pressure",
+      "description": "LOWERED - INPUT AIR PRESSURE",
+      "format": "bool",
+      "requestKey": "BRDI11044,001"
+    },
+    {
+      "name": "not-origin-hsg-separate",
+      "description": "NOT ORIGIN - HSG SEPARATE",
+      "format": "bool",
+      "requestKey": "BRDI11045,001"
+    },
+    {
+      "name": "not-origin-hsg-clamper",
+      "description": "NOT ORIGIN - HSG CLAMPER",
+      "format": "bool",
+      "requestKey": "BRDI11046,001"
+    },
+    {
+      "name": "not-origin-hsg-stopper2",
+      "description": "NOT ORIGIN - HSG STOPPER2",
+      "format": "bool",
+      "requestKey": "BRDI11047,001"
+    },
+    {
+      "name": "not-origin-pusher-pin",
+      "description": "NOT ORIGIN - PUSHER PIN",
+      "format": "bool",
+      "requestKey": "BRDI11048,001"
+    },
+    {
+      "name": "not-origin-reject",
+      "description": "NOT ORIGIN - REJECT",
+      "format": "bool",
+      "requestKey": "BRDI11050,001"
+    },
+    {
+      "name": "not-origin-hsg-turn",
+      "description": "NOT ORIGIN - HSG TURN",
+      "format": "bool",
+      "requestKey": "BRDI11051,001"
+    },
+    {
+      "name": "not-origin-hsg-discharge",
+      "description": "NOT ORIGIN - HSG DISCHARGE",
+      "format": "bool",
+      "requestKey": "BRDI11052,001"
+    },
+    {
+      "name": "not-origin-take-out-paw",
+      "description": "NOT ORIGIN - TAKE OUT PAW",
+      "format": "bool",
+      "requestKey": "BRDI11053,001"
+    },
+    {
+      "name": "not-origin-take-out",
+      "description": "NOT ORIGIN - TAKE OUT",
+      "format": "bool",
+      "requestKey": "BRDI11054,001"
+    },
+    {
+      "name": "not-origin-vision-shutter",
+      "description": "NOT ORIGIN - VISION SHUTTER",
+      "format": "bool",
+      "requestKey": "BRDI11055,001"
+    },
+    {
+      "name": "turned-off-dereeler-on-off-switch2",
+      "description": "TURNED OFF - DEREELER ON/OFF SWITCH 2",
+      "format": "bool",
+      "requestKey": "BRDI11057,001"
+    },
+    {
+      "name": "pause-push-start-pb-for-run",
+      "description": "PAUSE -      PUSH START PB FOR RUN",
+      "format": "bool",
+      "requestKey": "BRDI11058,001"
+    },
+    {
+      "name": "safety-guard-sensor-off",
+      "description": "   ** SAFETY GUARD SENSOR OFF **",
+      "format": "bool",
+      "requestKey": "BRDI11059,001"
+    },
+    {
+      "name": "not-ready-latter-mc",
+      "description": "NOT READY - LATTER M/C",
+      "format": "bool",
+      "requestKey": "BRDI11060,001"
+    },
+    {
+      "name": "wait-for-hsg",
+      "description": "WAIT FOR HSG ",
+      "format": "bool",
+      "requestKey": "BRDI11061,001"
+    },
+    {
+      "name": "no-contact-or-splice",
+      "description": "NO CONTACT OR SPLICE",
+      "format": "bool",
+      "requestKey": "BRDI11062,001"
+    },
+    {
+      "name": "completion-lot-products",
+      "description": "COMPLETION - LOT PRODUCTS",
+      "format": "bool",
+      "requestKey": "BRDI11063,001"
+    },
+    {
+      "name": "fail-discharge-hsg2",
+      "description": "Fail - Discharge HSG 2",
+      "format": "bool",
+      "requestKey": "BRDI11064,001"
+    },
+    {
+      "name": "once-supply-next-time-hsg-supply",
+      "description": "ONCE SUPPLY - NEXT TIME HSG SUPPLY",
+      "format": "bool",
+      "requestKey": "BRDI11065,001"
+    },
+    {
+      "name": "hsg-feed-error",
+      "description": "HSG FEED ERROR",
+      "format": "bool",
+      "requestKey": "BRDI11067,001"
+    },
+    {
+      "name": "insert-hand-error",
+      "description": "INSERT HAND ERROR",
+      "format": "bool",
+      "requestKey": "BRDI11068,001"
+    },
+    {
+      "name": "contact-feed-check",
+      "description": "CONTACT FEED ERROR",
+      "format": "bool",
+      "requestKey": "BRDI11069,001"
+    },
+    {
+      "name": "hsg-supply-error",
+      "description": "HSG SUPPLY ERROR",
+      "format": "bool",
+      "requestKey": "BRDI11070,001"
+    },
+    {
+      "name": "take-out-error",
+      "description": "TAKE OUT ERROR",
+      "format": "bool",
+      "requestKey": "BRDI11071,001"
+    },
+    {
+      "name": "other-error",
+      "description": "OTHER ERROR",
+      "format": "bool",
+      "requestKey": "BRDI11072,001"
+    },
+    {
+      "name": "time-over-feed-paw",
+      "description": "TIME OVER - FEED PAW",
+      "format": "bool",
+      "requestKey": "BRDI11073,001"
+    },
+    {
+      "name": "time-over-hsg-feed-motor",
+      "description": " TIME OVER - HSG FEED MOTOR",
+      "format": "bool",
+      "requestKey": "BRDI11074,001"
+    },
+    {
+      "name": "over-run-ccw-hsg-feed",
+      "description": "OVER RUN - CCW HSG FEED",
+      "format": "bool",
+      "requestKey": "BRDI11075,001"
+    },
+    {
+      "name": "over-run-cw-hsg-feed",
+      "description": "OVER RUN - CW HSG FEED",
+      "format": "bool",
+      "requestKey": "BRDI11076,001"
+    },
+    {
+      "name": "alarm-hsg-feed-motor",
+      "description": "ALARM - HSG FEED MOTOR",
+      "format": "bool",
+      "requestKey": "BRDI11077,001"
+    },
+    {
+      "name": "error-c570s-controller",
+      "description": "ERROR - C-570S CONTROLLER",
+      "format": "bool",
+      "requestKey": "BRDI11078,001"
+    },
+    {
+      "name": "alarm-main-motor",
+      "description": "ALARM - MAIN MOTOR",
+      "format": "bool",
+      "requestKey": "BRDI11080,001"
+    },
+    {
+      "name": "fail-carrier-pilot-pin",
+      "description": "FAIL - CARRIER PILOT PIN",
+      "format": "bool",
+      "requestKey": "BRDI11081,001"
+    },
+    {
+      "name": "fail-insertion-pin",
+      "description": "FAIL - INSERTION PIN",
+      "format": "bool",
+      "requestKey": "BRDI11082,001"
+    },
+    {
+      "name": "time-over-clamp-lever",
+      "description": "TIME OVER - CLAMP LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11083,001"
+    },
+    {
+      "name": "time-over-cut-lever",
+      "description": "TIME OVER - CUT LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11084,001"
+    },
+    {
+      "name": "error-main-axis-turn",
+      "description": "ERROR - MAIN AXIS TURN",
+      "format": "bool",
+      "requestKey": "BRDI11085,001"
+    },
+    {
+      "name": "time-over-clamp-slider",
+      "description": "TIME OVER - CLAMP SLIDER",
+      "format": "bool",
+      "requestKey": "BRDI11086,001"
+    },
+    {
+      "name": "time-over-contact-feed-lever",
+      "description": "TIME OVER - CONTACT FEED LEVER",
+      "format": "bool",
+      "requestKey": "BRDI11087,001"
+    },
+    {
+      "name": "alarm-contact-motor",
+      "description": "ALARM - CONTACT MOTOR",
+      "format": "bool",
+      "requestKey": "BRDI11088,001"
+    },
+    {
+      "name": "time-over-contact-feed",
+      "description": "TIME OVER - CONTACT FEED",
+      "format": "bool",
+      "requestKey": "BRDI11089,001"
+    },
+    {
+      "name": "fail-contact-feed",
+      "description": "FAIL - CONTACT FEED",
+      "format": "bool",
+      "requestKey": "BRDI11090,001"
+    },
+    {
+      "name": "time-over-carrier-cut",
+      "description": "TIME OVER - CARRIER CUT",
+      "format": "bool",
+      "requestKey": "BRDI11091,001"
+    },
+    {
+      "name": "fail-sensor-on-off-contact-check-sensor",
+      "description": "FAIL - SENSOR ON/OFF (CONTACT CHECK SENSOR)",
+      "format": "bool",
+      "requestKey": "BRDI11093,001"
+    },
+    {
+      "name": "time-over-hsg-stopper",
+      "description": "TIME OVER - HSG SPOPPER",
+      "format": "bool",
+      "requestKey": "BRDI11094,001"
+    },
+    {
+      "name": "damage-contact",
+      "description": "DAMAGE CONTACT",
+      "format": "bool",
+      "requestKey": "BRDI11095,001"
+    },
+    {
+      "name": "no-hsg",
+      "description": "NO HSG",
+      "format": "bool",
+      "requestKey": "BRDI11096,001"
+    },
+    {
+      "name": "time-over-hsg-separate",
+      "description": "TIME OVER - HSG SEPARATE",
+      "format": "bool",
+      "requestKey": "BRDI11097,001"
+    },
+    {
+      "name": "time-over-hsg-clamp",
+      "description": "TIME OVER - HSG CLAMP",
+      "format": "bool",
+      "requestKey": "BRDI11098,001"
+    },
+    {
+      "name": "fail-hsg-separate",
+      "description": "FAIL - HSG SEPARATE",
+      "format": "bool",
+      "requestKey": "BRDI11099,001"
+    },
+    {
+      "name": "fail-sensor-on-off-at-separate",
+      "description": "FAIL - SENSOR ON/OFF AT SEPARATE",
+      "format": "bool",
+      "requestKey": "BRDI11100,001"
+    },
+    {
+      "name": "fail-sensor-on-off-at-inlet-of-rail",
+      "description": "FAIL - SENSOR ON/OFF AT INLET OF RAIL",
+      "format": "bool",
+      "requestKey": "BRDI11101,001"
+    },
+    {
+      "name": "fail-hsg-separate-2",
+      "description": "FAIL - HSG SEPARATE 2",
+      "format": "bool",
+      "requestKey": "BRDI11103,001"
+    },
+    {
+      "name": "time-over-reject",
+      "description": "TIME OVER - REJECT",
+      "format": "bool",
+      "requestKey": "BRDI11104,001"
+    },
+    {
+      "name": "fail-in-series",
+      "description": "FAIL IN SERIES",
+      "format": "bool",
+      "requestKey": "BRDI11105,001"
+    },
+    {
+      "name": "time-over-vision-shutter",
+      "description": "TIME OVER - VISION SHUTTER",
+      "format": "bool",
+      "requestKey": "BRDI11106,001"
+    },
+    {
+      "name": "time-over-vision-inspection",
+      "description": "TIME OVER - VISION INSPECTION",
+      "format": "bool",
+      "requestKey": "BRDI11107,001"
+    },
+    {
+      "name": "time-over-take-out-paw",
+      "description": "TIME OVER - TAKE OUT PAW",
+      "format": "bool",
+      "requestKey": "BRDI11108,001"
+    },
+    {
+      "name": "time-over-take-out",
+      "description": "TIME OVER - TAKE OUT",
+      "format": "bool",
+      "requestKey": "BRDI11109,001"
+    },
+    {
+      "name": "time-over-hsg-turn",
+      "description": "TIME OVER - HSG TURN",
+      "format": "bool",
+      "requestKey": "BRDI11110,001"
+    },
+    {
+      "name": "time-over-hsg-discharge",
+      "description": "TIME OVER - HSG DISCHARGE",
+      "format": "bool",
+      "requestKey": "BRDI11111,001"
+    },
+    {
+      "name": "emergency-stop",
+      "description": "EMRG. STOP",
+      "format": "bool",
+      "requestKey": "BRDI11112,001"
+    },
+    {
+      "name": "fail-item-or-pos",
+      "description": "FAIL - ITEM or POS.",
+      "format": "bool",
+      "requestKey": "BRDI11113,001"
+    },
+    {
+      "name": "time-over-latter-mc-at-stop",
+      "description": "TIME OVER - LATTER M/C at STOP",
+      "format": "bool",
+      "requestKey": "BRDI11114,001"
+    },
+    {
+      "name": "air-down-input-air",
+      "description": "AIR DOWN - INPUT AIR",
+      "format": "bool",
+      "requestKey": "BRDI11115,001"
+    },
+    {
+      "name": "fail-handle-insert",
+      "description": "FAIL - HANDLE INSERT",
+      "format": "bool",
+      "requestKey": "BRDI11116,001"
+    },
+    {
+      "name": "set-error-hsg-feed-unit",
+      "description": "SET ERROR - HSG FEED UNIT",
+      "format": "bool",
+      "requestKey": "BRDI11117,001"
+    },
+    {
+      "name": "set-error-carrier-scrap-box-2",
+      "description": "SET ERROR - CARRIER SCRAP BOX 2",
+      "format": "bool",
+      "requestKey": "BRDI11118,001"
+    },
+    {
+      "name": "open-safety-cover-2",
+      "description": "OPEN - SAFETY COVER 2",
+      "format": "bool",
+      "requestKey": "BRDI11119,001"
+    },
+    {
+      "name": "not-ready-dereeler",
+      "description": "NOT READY - DEREELER",
+      "format": "bool",
+      "requestKey": "BRDI11120,001"
+    },
+    {
+      "name": "fail-dereeler",
+      "description": "FAIL - DEREELER",
+      "format": "bool",
+      "requestKey": "BRDI11121,001"
+    },
+    {
+      "name": "no-contact-or-splice-2",
+      "description": "NO CONTACT OR SPLICE - 2",
+      "format": "bool",
+      "requestKey": "BRDI11122,001"
+    },
+    {
+      "name": "fail-hsg-discharge",
+      "description": "FAIL - HSG DISCHARGE",
+      "format": "bool",
+      "requestKey": "BRDI11123,001"
+    },
+    {
+      "name": "open-safety-cover-3",
+      "description": "OPEN - SAFETY COVER 3",
+      "format": "bool",
+      "requestKey": "BRDI11124,001"
+    },
+    {
+      "name": "interrupt-safety-guard-senser-2",
+      "description": "INTERRUPT - SAFETY GUARD SENSOR 2",
+      "format": "bool",
+      "requestKey": "BRDI11125,001"
+    },
+    {
+      "name": "enable-change-of-sm-parameter",
+      "description": "ENABLE -  CHANGE of SM PARAMETER",
+      "format": "bool",
+      "requestKey": "BRDI11127,001"
+    },
+    {
+      "name": "life-up-cut-punch-or-die",
+      "description": "LIFE UP - CUT PUNCH OR DIE",
+      "format": "bool",
+      "requestKey": "BRDI11128,001"
+    },
+    {
+      "name": "fail-inlet-of-contact-lane",
+      "description": "FAIL - INLET OF CONTACT LANE",
+      "format": "bool",
+      "requestKey": "BRDI11129,001"
+    },
+    {
+      "name": "pls-change-contact-lane",
+      "description": "PLS CHANGE CONTACT REEL ",
+      "format": "bool",
+      "requestKey": "BRDI11130,001"
+    },
+    {
+      "name": "time-up-safety-guard-by-pass",
+      "description": "TIME UP - SAFETY GUARD BY-PASS",
+      "format": "bool",
+      "requestKey": "BRDI11131,001"
+    },
+    {
+      "name": "fail-f3nc11-module",
+      "description": "FAIL - F3NC11 MODULE ",
+      "format": "bool",
+      "requestKey": "BRDI11135,001"
+    }
+  ],
+  "settings": {
+    "model": {
+      "interface": "ethernet",
+      "requestFrequency": 5,
+      "yokogawaCPUNumber": 1
+    }
+  }
+}

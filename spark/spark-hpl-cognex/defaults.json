@@ -1,0 +1,79 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "ipAddress": "",
+            "port": 10000,
+            "disconnectReportTime": 0,
+            "deliverEntireResponse": false,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-cognex",
+            "required": [
+                "enable",
+                "port"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "ipAddress": {
+                    "title": "IP Address",
+                    "description": "The IP address of the machine.",
+                    "type": "string"
+                },
+                "port": {
+                    "title": "Port Number",
+                    "description": "The port number configured on the machine.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "deliverEntireResponse": {
+                    "title": "Deliver Entire Response",
+                    "description": "Set to true to deliver the entire machine response as variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "mode",
+            {
+                "key": "port",
+                "placeholder": "10000"
+            },
+            "disconnectReportTime",
+            "deliverEntireResponse",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

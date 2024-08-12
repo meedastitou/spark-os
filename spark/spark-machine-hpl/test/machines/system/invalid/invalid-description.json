@@ -1,0 +1,14 @@
+{
+    "info": {
+        "name": "invalid-description",
+        "fullname": "Spark Machine 1",
+        "version": "1.0.0",
+        "description": "This description is for to long. Descriptions should be less that 80 characters, not a huge essay on what the machine is",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float"
+    }]
+}

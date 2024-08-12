@@ -1,0 +1,265 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const dns = require('dns');
+const http = require('http');
+const https = require('https');
+//load the configuration file
+var Config = require(path.join(__dirname, '..', 'config.js')),
+    conf = new Config();
+const pkg = require(path.join(__dirname, '..', 'package.json'));
+var sparkAlert = require('spark-alert');
+var bunyan = require('bunyan');
+var async = require('async');
+var _ = require('lodash');
+var moment = require('moment');
+var network = require('network');
+var ping = require('ping');
+
+(function() {
+    "use strict";
+
+    var bunyanOptions = {
+        name: pkg.name,
+        level: conf.LOG_LEVEL,
+        src: conf.LOG_LEVEL === 'debug' ? true : false,
+        serializers: {
+            err: bunyan.stdSerializers.err
+        },
+        streams: []
+    };
+
+    if ((typeof conf.LOG_FILE !== "undefined") && (conf.LOG_FILE.length !== 0)) {
+        bunyanOptions.streams.push({
+            path: conf.LOG_FILE
+        });
+    } else {
+        bunyanOptions.streams.push({
+            level: conf.LOG_LEVEL,
+            stream: process.stdout
+        });
+    }
+
+    var log = bunyan.createLogger(bunyanOptions);
+
+    var modules = {
+        'spark-config': {
+            exports: {
+                get: function(key) {
+                    return conf[key];
+                }
+            }
+        },
+        'spark-logging': {
+            exports: {
+                getLogger: function(moduleName) {
+                    return log.child({
+                        module: moduleName
+                    });
+                }
+            }
+        }
+    };
+
+    function runTests(alert, done) {
+        async.waterfall([
+            function(callback) {
+                network.get_gateway_ip(function(err, ip) {
+                    if (err) {
+                        alert.raise({
+                            key: "gateway-invalid",
+                            msg: "Default gateway is not set correctly",
+                            description: "The default gateway is not set correctly.  Please check the default gateway settings in network widget."
+                        });
+                        return callback({
+                            key: "gateway-invalid",
+                            err: err
+                        });
+                    } else {
+                        alert.clear("gateway-invalid");
+                        return callback(null, ip);
+                    }
+                });
+            },
+            function(gatewayIp, callback) {
+                ping.sys.probe(gatewayIp, function(isAlive) {
+                    if (isAlive) {
+                        alert.clear("gateway-not-alive");
+                        return callback(null);
+                    } else {
+                        alert.raise({
+                            key: "gateway-not-alive",
+                            msg: "Failed to contact the default gateway",
+                            description: "The default gateway is set to " + gatewayIp + " but spark cannot contact it.  Please check the default gateway settings in network widget."
+                        });
+                        return callback({
+                            key: "gateway-not-alive"
+                        });
+                    }
+                });
+            },
+            function(callback) {
+                /* Check DNS Lookup is working */
+                dns.lookup(conf.SPARK_SERVER, (err, address, family) => {
+                    if (err) {
+                        alert.raise({
+                            key: "spark-server-dns-error",
+                            msg: "DNS error looking up spark server",
+                            description: "Spark is not able to contact the Domain Name Server (DNS) and find the IP address of " + conf.SPARK_SERVER + ".  Please check the settings in the network widget and make sure the nameserver setting is correct."
+                        });
+                        return callback({
+                            key: "spark-server-dns-error",
+                            err: err
+                        });
+                    } else {
+                        alert.clear("spark-server-dns-error");
+                        return callback(null);
+                    }
+                });
+            },
+            function(callback) {
+                /* Check http requests to the server work */
+                http.get({
+                    hostname: conf.SPARK_SERVER,
+                    port: 80,
+                    path: '/online/status.html',
+                    agent: false // create a new agent just for this one request
+                }, (res) => {
+                    if (res.statusCode === 200) {
+                        alert.clear("spark-server-http-error");
+                        return callback(null);
+                    } else {
+                        alert.raise({
+                            key: "spark-server-http-error",
+                            msg: "Failed to contact spark server using HTTP",
+                            description: "Spark is not able to contact the " + conf.SPARK_SERVER + " using HTTP.  Please make sure the firewall rules are setup correctly and port 80 is open."
+                        });
+                        return callback({
+                            key: "spark-server-http-error",
+                            err: res.statusCode
+                        });
+                    }
+                }).on('error', (e) => {
+                    alert.raise({
+                        key: "spark-server-http-error",
+                        msg: "Failed to contact spark server using HTTP",
+                        description: "Spark is not able to contact the " + conf.SPARK_SERVER + " using HTTP.  Please make sure the firewall rules are setup correctly and port 80 is open."
+                    });
+                    return callback({
+                        key: "spark-server-http-error",
+                        err: e
+                    });
+                });
+            },
+            function(callback) {
+                /* Check https requests to the server work */
+                https.get({
+                    hostname: conf.SPARK_SERVER,
+                    port: 443,
+                    agent: false // create a new agent just for this one request
+                }, (res) => {
+                    if (res.statusCode === 200) {
+                        alert.clear("spark-server-https-error");
+                        return callback(null, res.headers.date);
+                    } else {
+                        alert.raise({
+                            key: "spark-server-https-error",
+                            msg: "Failed to contact spark server using HTTPS",
+                            description: "Spark is not able to contact the " + conf.SPARK_SERVER + " using HTTPS.  Please make sure the firewall rules are setup correctly and port 443 is open."
+                        });
+                        return callback({
+                            key: "spark-server-https-error",
+                            statusCode: res.statusCode
+                        });
+                    }
+                }).on('error', (e) => {
+                    alert.raise({
+                        key: "spark-server-https-error",
+                        msg: "Failed to contact spark server using HTTPS",
+                        description: "Spark is not able to contact the " + conf.SPARK_SERVER + " using HTTPS.  Please make sure the firewall rules are setup correctly and port 443 is open."
+                    });
+                    return callback({
+                        key: "spark-server-https-error",
+                        err: e
+                    });
+                });
+            },
+            function(serverDateHeader, callback) {
+                /* Use the data header from the https response
+                   to check the local date/time is correct */
+                var serverTime = moment(new Date(serverDateHeader));
+                var now = moment();
+
+                //if the servers date header is more the 10 seconds difference
+                //from our time then the date/time is wrong
+                var dateTimeCorrect = (Math.abs(now.diff(serverTime)) <= 10 * 10000);
+
+                if (dateTimeCorrect) {
+                    alert.clear("date-time-invalid");
+                    return callback(null);
+                } else {
+                    alert.raise({
+                        key: "date-time-invalid",
+                        msg: "The Date/Time is set incorrectly",
+                        description: "The date & time of Spark is incorrect.  Spark's date & time is set to " + now.format("LLLL") + " but the server is " + serverTime.format("LLLL") + ".  Please check the Network Time Protocol (NTP) is setup correctly.  If you are using DHCP make sure the DHCP server responds with the correct time server IP address.  If you have manually set up the network make sure the time server is set correctly in the Network Widget."
+                    });
+                    return callback({
+                        key: "date-time-invalid",
+                        now: now.toISOString(),
+                        serverTime: serverTime.toISOString(),
+                        diff: now.diff(serverTime)
+                    });
+                }
+            }
+        ], function(err) {
+            return done(err);
+        });
+    }
+
+    async.waterfall([
+        function(callback) {
+            //start the spark-alert module
+            sparkAlert.start(modules, function(err, info) {
+                return callback(null);
+            });
+        },
+        function(callback) {
+            var alert = sparkAlert.getAlerter(pkg.name);
+
+            //clear existing alerts for spark-health-monitor
+            alert.clearAll(function(err, info) {
+                return callback(null, alert);
+            });
+        }
+    ], function(err, alert) {
+
+        //loop forever running tests
+        async.forever(
+            function(next) {
+                runTests(alert, function(err) {
+
+                    //set the default timeout for the next
+                    //iteration of the tests
+                    var timeout = conf.TEST_INTERVAL_SUCCESS;
+
+                    if (err) {
+                        log.error(err);
+
+                        //we have errors so run the tests
+                        //more frequently
+                        timeout = conf.TEST_INTERVAL_ERROR;
+                    }
+
+                    //Repeat after the delay
+                    setTimeout(function() {
+                        next();
+                    }, timeout);
+                });
+            },
+            function(err) {
+                console.error(err);
+            }
+        );
+    });
+
+})();

@@ -1,0 +1,181 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "scheme": "pub/sub",
+            "requestFrequency": 1,
+            "opcuaHost": "",
+            "opcuaPort": 4840,
+            "authentication": false,
+            "deliverCombinedResult": false,
+            "pubsubCombinedResultReportDwellTimeout": 1000,
+            "pubsubCombinedResultOverrideCount": 20,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-opcua",
+            "required": [
+                "enable",
+                "scheme",
+                "opcuaHost",
+                "opcuaPort",
+                "authentication"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the OPC-UA client.",
+                    "type": "boolean"
+                },
+                "scheme": {
+                    "title": "Data read scheme",
+                    "description": "Choose whether to request data at intervals, or subscribe to new data.",
+                    "type": "string",
+                    "enum": ["pub/sub", "req/res"]
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between requests when using 'req/res' scheme ",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120
+                },
+                "opcuaHost": {
+                    "title": "OPC-UA Server Hostname",
+                    "description": "The hostname or IP address of the OPC-UA server.",
+                    "type": "string",
+                    "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+                    "validationMessage": "Must be a valid IPv4 address"
+                },
+                "opcuaPort": {
+                    "title": "OPC-UA Server Port Number",
+                    "description": "The port number of the OPC-UA server.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "authentication": {
+                    "title": "Use Username and Password",
+                    "description": "Enable/Disable using username and password to connect with OPCUA server",
+                    "type": "boolean",
+                    "required": true
+                },
+                "username": {
+                    "title": "username",
+                    "description": "The username to connect with the OPC-UA server",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "password",
+                    "description": "The password to connect with the OPC-UA server",
+                    "type": "string",
+                    "required": true
+                },
+                "securityMode": {
+                  "title": "Security Mode",
+                  "description": "The security mode used to connect with the OPC-UA server",
+                  "type": "string",
+                  "enum": ["None",
+                           "Sign",
+                           "Sign & Encrypt"]
+                },
+                "securityPolicy": {
+                  "title": "Security Policy",
+                  "description": "The security policy used to connect with the OPC-UA server",
+                  "type": "string",
+                  "enum": ["None",
+                           "Basic128",
+                           "Basic128Rsa15",
+                           "Basic192",
+                           "Basic192Rsa15",
+                           "Basic256",
+                           "Basic256Rsa15",
+                           "Basic256Sha256",
+                           "Aes128_Sha256_RsaOaep"]
+                },
+                "deliverCombinedResult": {
+                    "title": "Deliver Combined Result",
+                    "description": "Set to true to deliver all of the machine's responses as variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "pubsubCombinedResultReportDwellTimeout": {
+                    "title": "Pub/Sub Combined Result Report Dwell Timeout",
+                    "description": "The amount of time to wait before delivering the CombinedResult variable.  If additional pub/sub data is received within this timeout, it will be added to the combined-result and the dwell time restarted",
+                    "type": "integer",
+                    "minimum": 500,
+                    "default": 1000
+                },
+                "pubsubCombinedResultOverrideCount": {
+                    "title": "Pub/Sub Combined Result Report Override Count",
+                    "description": "The maximum number of pub/sub reports allowed to be received before a combined-result value is published.  This can be used to ensure that a result is reported, even if the reporting data NEVER dwell for a long enough time",
+                    "type": "integer",
+                    "minimum": 1,
+                    "default": 20
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "scheme",
+            {
+                "condition": "model.scheme=='req/res'",
+                "key": "requestFrequency"
+            },
+            {
+                "key": "opcuaHost",
+                "placeholder": "192.168.0.1"
+            }, {
+                "key": "opcuaPort",
+                "placeholder": 4840
+            },
+            "authentication",
+            {
+                "condition":"model.authentication==true",
+                "key": "username"
+            },
+            {
+                "condition":"model.authentication==true",
+                "key": "password"
+            },
+            "securityMode",
+            "securityPolicy",
+            "deliverCombinedResult",
+            {
+                "condition": "model.scheme=='pub/sub'&&model.deliverCombinedResult==true",
+                "key": "pubsubCombinedResultReportDwellTimeout"
+            },
+            {
+                "condition": "model.scheme=='pub/sub'&&model.deliverCombinedResult==true",
+                "key": "pubsubCombinedResultOverrideCount"
+            },
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

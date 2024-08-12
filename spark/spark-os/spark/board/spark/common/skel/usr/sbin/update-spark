@@ -1,0 +1,30 @@
+#!/bin/sh -e
+updateZip=$1
+
+if [ -z "$1" ] ; then
+    echo "Usage: $0 <update zip file>"
+    exit 1
+fi
+
+tempDir=/boot/update.tmp
+
+clean_up () {
+    ERRCODE=$1
+    echo "cleaning up, exit code $ERRCODE"
+    if [ $ERRCODE -ne 0 ] ; then
+      echo "Removing /boot/update"
+      rm -rf /boot/update
+    fi
+    rm -rf ${tempDir}
+    rm -f ${updateZip}
+}
+trap 'clean_up $?' INT TERM EXIT
+
+rm -rf /boot/update ${tempDir}
+mkdir -p /boot/update ${tempDir}
+unzip -d ${tempDir} "${updateZip}"
+mv ${tempDir}/*/* /boot/update
+rm -rf ${tempDir}
+rm -f ${updateZip}
+
+exit 0

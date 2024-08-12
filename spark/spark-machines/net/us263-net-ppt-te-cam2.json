@@ -1,0 +1,43 @@
+{
+  "info": {
+    "description": "Spark Machine Definition for a PPT Datalogic",
+    "version": "1.0.0",
+    "fullname": "PPT Datalogic Burgess Camera 2",
+    "name": "us263-net-ppt-te-cam2",
+    "hpl": "net"
+  },
+  "variables": [
+    {
+      "name": "Date",
+      "description": "The date associated with this part",
+      "format": "char",
+      "csvPos": 0
+    },
+    {
+      "name": "Time",
+      "description": "The time associated with this this part",
+      "format": "char",
+      "csvPos": 1
+    },
+    {
+      "name": "Wire",
+      "description": "Wire",
+      "format": "float",
+      "csvPos": 3,
+      "regex": "Wire=([^,]+)"
+    },
+    {
+      "name": "Insul",
+      "description": "Insul",
+      "format": "float",
+      "regex": "Insul=([^,]+)"
+    }
+  ],
+  "settings": {
+    "model": {
+      "separator": ",",
+      "port": 10000,
+      "mode": "pub/sub as server"
+    }
+  }
+}

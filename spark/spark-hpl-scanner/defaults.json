@@ -1,0 +1,49 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "device": "/dev/input/event0",
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-scanner",
+            "required": [
+                "enable",
+                "device",
+                "publishDisabled"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Scanner Machine",
+                    "type": "boolean"
+                },
+                "device": {
+                    "title": "Scanner Device Path",
+                    "description": "The file path of the scanner device.",
+                    "type": "string"
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "device",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

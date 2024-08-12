@@ -1,0 +1,22 @@
+[Unit]
+Description=Spark Protocol
+After=network.target
+After=connman.services
+After=redis.service
+
+[Service]
+Type=notify
+User=spark-protocol
+Group=spark-protocol
+TimeoutStartSec=180
+TimeoutStopSec=30
+SyslogIdentifier=spark-protocol
+ExecStartPre=/usr/sbin/spark-protocol-prestart
+ExecStart=/usr/bin/node --max_old_space_size=400 /usr/bin/spark-protocol
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-protocol
+WatchdogSec=60
+AmbientCapabilities=CAP_NET_RAW
+
+[Install]
+WantedBy=multi-user.target

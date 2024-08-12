@@ -1,0 +1,13 @@
+[Unit]
+Description=Spark Health Monitor
+
+[Service]
+User=spark-health-monitor
+Group=spark-health-monitor
+SyslogIdentifier=spark-health-monitor
+ExecStart=/usr/bin/node --max_old_space_size=50 /usr/bin/spark-health-monitor
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-health-monitor
+
+[Install]
+WantedBy=multi-user.target

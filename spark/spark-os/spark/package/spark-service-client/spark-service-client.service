@@ -1,0 +1,13 @@
+[Unit]
+Description=Spark Service Client
+
+[Service]
+User=spark-service-client
+Group=spark-service-client
+SyslogIdentifier=spark-service-client
+ExecStart=/usr/bin/node --max_old_space_size=50 /usr/bin/spark-service-client
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-service-client
+
+[Install]
+WantedBy=multi-user.target

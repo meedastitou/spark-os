@@ -1,0 +1,4 @@
+[submodule "libas511"]
+	path = libas511
+	url = ../libas511
+	branch = master

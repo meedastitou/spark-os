@@ -1,0 +1,55 @@
+#!/bin/bash -e
+
+PROJECT_NAME=${PROJECT_NAME:-${PWD##*/}}
+D="docker"
+DC="docker-compose -p ${PROJECT_NAME} -f docker-compose.builder.yml"
+
+if [ ! -e .env ] ; then
+  echo "uid=$(id -u)" > .env
+  echo "gid=$(id -g)" >> .env
+fi
+
+set -a
+. .env
+set +a
+
+
+function finish() {
+  $DC down
+}
+
+$DC build
+
+trap finish EXIT
+
+if [ $# -gt 0 ] ; then
+  $DC run --rm builder $@
+else
+  ids=""
+  # find all spark boards
+  for i in spark/board/spark/* ; do
+    # get the board name
+    b=$(basename $i)
+
+    # ignore the common directory
+    if [ $b = "common" ] ; then
+        continue;
+    fi
+
+    # run one builder per board detached
+    # so they can run in parallel
+    id=$($DC run --rm -d builder make $b)
+    echo "Started $id"
+
+    # record a list of all the containers we start
+    ids+="$id "
+
+    # tail the logs from the container
+    # in the boackground
+    $D logs $id -f &
+  done
+
+  # wait until all the containers finish
+  echo "Waiting on $ids"
+  $D wait $ids
+fi

@@ -1,0 +1,143 @@
+{
+  "info": {
+    "description": "cn554-enetip-ml1400-tss-pack",
+    "name": "cn554-enetip-ml1400-tss-pack",
+    "version": "1.0.0",
+    "fullname": "cn554-enetip-ml1400-tss-pack",
+    "hpl": "ab-ethernet"
+  },
+  "variables": [
+    {
+      "name": "manual-mode",
+      "description": "Manual Mode",
+      "format": "bool",
+      "address": "B3:20/0"
+    },
+    {
+      "name": "single-mode",
+      "description": "Single Mode",
+      "format": "bool",
+      "address": "B3:20/1"
+    },
+    {
+      "name": "auto-mode",
+      "description": "Auto Mode",
+      "format": "bool",
+      "address": "B3:20/2"
+    },
+    {
+      "name": "auto-running",
+      "description": "Machine Auto Running",
+      "format": "bool",
+      "address": "B3:20/3"
+    },
+    {
+      "name": "e-stop",
+      "description": "EMERGENCY STOP  ",
+      "format": "bool",
+      "address": "B3:20/4"
+    },
+    {
+      "name": "air-pressure-low",
+      "description": "AIR PRESSURE LOW   \t",
+      "format": "bool",
+      "address": "B3:20/5"
+    },
+    {
+      "name": "inverter-error",
+      "description": "INVERTER ERROR\t",
+      "format": "bool",
+      "address": "B3:20/6"
+    },
+    {
+      "name": "conveyor-jam",
+      "description": "CONVEYOR JAM\t",
+      "format": "bool",
+      "address": "B3:20/7"
+    },
+    {
+      "name": "conveyor-full",
+      "description": "CONVEYOR FULL\t",
+      "format": "bool",
+      "address": "B3:20/8"
+    },
+    {
+      "name": "cycle-timeout",
+      "description": "CYCLE TIME-OUT\t",
+      "format": "bool",
+      "address": "B3:20/9"
+    },
+    {
+      "name": "torque-limitor",
+      "description": "TORQUE LIMITOR\t",
+      "format": "bool",
+      "address": "B3:20/10"
+    },
+    {
+      "name": "unload-full",
+      "description": "UNLOAD FULL\t",
+      "format": "bool",
+      "address": "B3:20/11"
+    },
+    {
+      "name": "track-full-stop",
+      "description": "TRACK FULL STOP\t",
+      "format": "bool",
+      "address": "B3:20/12"
+    },
+    {
+      "name": "reject-cylinder-jam",
+      "description": "REJECT CYLINDER JAM\t",
+      "format": "bool",
+      "address": "B3:20/13"
+    },
+    {
+      "name": "high-reject-counter",
+      "description": "HIGH REJECT COUNTER\t",
+      "format": "bool",
+      "address": "B3:20/14"
+    },
+    {
+      "name": "motor-not-home",
+      "description": "MOTOR NOT HOME\t",
+      "format": "bool",
+      "address": "B3:20/15"
+    },
+    {
+      "name": "error-start",
+      "description": "ERROR START\t",
+      "format": "bool",
+      "address": "B3:21/0"
+    },
+    {
+      "name": "camera-bypass",
+      "description": "CAMERA BYPASS\tB3:21/1",
+      "format": "bool",
+      "address": "B3:21/1"
+    },
+    {
+      "name": "good-part-counter",
+      "description": "Good Products Count\t",
+      "format": "int16",
+      "address": "L12:24"
+    },
+    {
+      "name": "cycle-time",
+      "description": "Cycle Time",
+      "format": "int16",
+      "address": "L12:40"
+    },
+    {
+      "name": "ng-part-counter",
+      "description": "NG Products Count",
+      "format": "int16",
+      "address": "L12:50"
+    },
+    {
+      "name": "Ignition-reset-counter-and-cycle-time",
+      "description": "Reset Part Counter by Ignition",
+      "format": "bool",
+      "address": "B3:15/0"
+    }
+  ]
+}

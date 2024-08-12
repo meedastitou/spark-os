@@ -1,0 +1,10 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/spark-health-monitor/coverage"]
+WORKDIR /app/spark-health-monitor/
+COPY spark-alert /app/spark-alert/
+COPY spark-health-monitor/package.json spark-health-monitor/yarn.lock /app/spark-health-monitor/
+RUN yarn install --frozen-lockfile
+COPY spark-health-monitor /app/spark-health-monitor
+CMD ["yarn", "test"]

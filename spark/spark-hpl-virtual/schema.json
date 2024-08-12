@@ -1,0 +1,279 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-virtual",
+    "title": "Virtual",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "operation",
+                    "srcVariables"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "srcVariables"
+                    ],
+                    "properties": {
+                        "operation": {
+                            "title": "Operation",
+                            "description": "The operation, if any, to perform",
+                            "type": "string",
+                            "enum": [
+                                "normal",
+                                "summation",
+                                "alarm-combination",
+                                "persistent counter",
+                                "auto-alarm-update",
+                                "array element",
+                                "match-counter",
+                                "pass-through",
+                                "level 1 status indicator",
+                                "publish variables on trigger",
+                                "split string",
+                                "bitmap",
+                                "SQL-reference",
+                                "Variable Update Alert",
+                                "no operation"
+                            ]
+                        },
+                        "changeTimeout": {
+                            "title": "Change Timeout",
+                            "description": "Number of seconds to allow for a variable to change before forcing the output to 'Change Timeout Value' for 'auto-alarm-update' or 1 for 'level 1 status indicator'. Set to zero for disabled",
+                            "type": "number",
+                            "default": 0
+                        },
+                        "changeTimeoutValue": {
+                            "title": "Change Timeout Value",
+                            "description": "Used to force the output value when no input-variable has changed within the 'Change Timeout' time",
+                            "type": "string",
+                            "default": ""
+                        },
+                        "defaultValue": {
+                            "title": "Default Value",
+                            "description": "For the bitmap operation, the value returned if none of the masked comparisons are true."
+                        },
+                        "srcVariables": {
+                            "title": "Source Variables",
+                            "description": "Array of variables to read and combine together from the source machine",
+                            "type": "array",
+                            "format": "tabs",
+                            "minItems": 1,
+                            "items": {
+                                "required": [
+                                    "srcMachine",
+                                    "srcVariable"
+                                ],
+                                "defaultProperties": [
+                                    "srcMachine",
+                                    "srcVariable"
+                                ],
+                                "properties": {
+                                    "srcMachine": {
+                                        "title": "Source Machine Name",
+                                        "description": "The machine name to source data from",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Source Machine Name must only contain lower case letters, numbers and dash"
+                                    },
+                                    "srcVariable": {
+                                        "title": "Source Variable Name",
+                                        "description": "The varaible name to source data from",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Source Variable Name must only contain letters, numbers, dash and underscore"
+                                    },
+                                    "successValue": {
+                                        "title": "Success Value",
+                                        "description": "If set for normal operation, when the success value is seen, source variables of a lower precedence will be used.  For alarm-combination and bitmap operations, the value returned on success."
+                                    },
+                                    "rolloverValue": {
+                                        "title": "Rollover Value",
+                                        "description": "The value at which the source variable counter rolls over to zero.",
+                                        "type": "integer"
+                                    },
+                                    "reportMyValue": {
+                                        "title": "Report My Value",
+                                        "description": "True: when a change is detected in this variable, the output value will be set to this changed value.    False: when a change is detected in this variable, the output value will be set to the 'On Change Report Value'.",
+                                        "type": "boolean"
+                                    },
+                                    "onChangeReport": {
+                                        "title": "On Change Report Value",
+                                        "description": "When 'Report My Value' is set to false, this field will be returned when a change is detected.",
+                                        "type": "string"
+                                    },
+                                    "arrayIndex": {
+                                        "title": "Array Index",
+                                        "description": "The array index (starting with 0) of the desired element of a source array variable or split string.",
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "default": 0
+                                    },
+                                    "separator": {
+                                        "title": "Separator for Split",
+                                        "description": "The Separator used to split a string into array elements.",
+                                        "type": "string",
+                                        "default": ","
+                                    },
+                                    "matchValue": {
+                                        "title": "Match Value",
+                                        "description": "For the 'match-counter' operation, this field is used to match the source variable for incrementing the counter.",
+                                        "type": "string"
+                                    },
+                                    "triggerOnChange": {
+                                        "title": "Trigger on Change",
+                                        "description": "For the 'publish variables on trigger' operation, if this value is true for a source variable, a change triggers publishing the source variable values.",
+                                        "type": "boolean"
+                                    },
+                                    "triggerOnChangeType": {
+                                        "title": "Change Type",
+                                        "description": "For the 'publish variables on trigger' and 'auto-alarm-update' operations, the type of change that triggers the operation.",
+                                        "type": "string",
+                                        "default": "Any Change",
+                                        "enum": [
+                                          "Any Change",
+                                          "Increase",
+                                          "Decrease"
+                                        ]
+                                    },
+                                    "bitMask": {
+                                        "title": "Bit Mask",
+                                        "description": "For the bitmap operation, the hexadecimal mask containing a 1 for each bit to be included in the comparison.",
+                                        "type": "string",
+                                        "pattern": "^[a-fA-F0-9]+$",
+                                        "minLength": 1,
+                                        "maxLength": 16
+                                    },
+                                    "bitMatch": {
+                                        "title": "Bit Match",
+                                        "description": "For the bitmap operation, the hexadecimal value the masked source variable must match to return the success value.",
+                                        "type": "string",
+                                        "pattern": "^[a-fA-F0-9]+$",
+                                        "minLength": 1,
+                                        "maxLength": 16
+                                    },
+                                    "variableUpdateAlertTimeout": {
+                                        "title": "Variable Update Alert Timeout",
+                                        "description": "The length of time (in seconds) to hold the Alert Variable as true (after seeing its Source Variable change) until reverting to false.",
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 600,
+                                        "default": 10
+                                    },
+                                    "sqlServerName": {
+                                        "title": "SQL Server Name",
+                                        "description": "The name (or IP address) of the server to connect to.",
+                                        "type": "string"
+                                    },
+                                    "sqlPort": {
+                                        "title": "SQL Port",
+                                        "description": "The port number of the SQL database to connect to.",
+                                        "type": "number",
+                                        "minimum": 1,
+                                        "maximum": 65535,
+                                        "default": 1433
+                                    },
+                                    "sqlDatabaseType": {
+                                      "title": "SQL Type",
+                                      "description": "The type of SQL server.",
+                                      "type": "string",
+                                      "enum": [
+                                          "Microsoft SQL",
+                                          "MySQL"
+                                      ],
+                                      "default": "Microsoft SQL"
+                                    },
+                                    "sqlDatabaseName": {
+                                        "title": "SQL Database Name",
+                                        "description": "The name of the SQL database.",
+                                        "type": "string",
+                                        "default": "SparkDb"
+                                    },
+                                    "sqlTableName": {
+                                        "title": "SQL Table Name",
+                                        "description": "The name of the SQL database table.",
+                                        "type": "string",
+                                        "default": "SparkData"
+                                    },
+                                    "sqlUsername": {
+                                        "title": "SQL Username",
+                                        "description": "The username to access the SQL database.",
+                                        "type": "string"
+                                    },
+                                    "sqlPassword": {
+                                        "title": "SQL Password",
+                                        "description": "The password to access the SQL database.",
+                                        "type": "string"
+                                    },
+                                    "sqlColumnName": {
+                                        "title": "SQL Column Name",
+                                        "description": "The name of column in the SQL table to read",
+                                        "type": "string",
+                                        "pattern": "^[A-Za-z0-9_-]*$",
+                                        "minLength": 1
+                                    }
+                                }
+                            }
+                        },
+                        "destVariables": {
+                            "title": "Destination Variables",
+                            "description": "Array of variables to which to write variables from the source machine",
+                            "type": "array",
+                            "format": "tabs",
+                            "minItems": 1,
+                            "items": {
+                                "required": [
+                                    "destMachine",
+                                    "destVariable"
+                                ],
+                                "properties": {
+                                    "destMachine": {
+                                        "title": "Destination Machine Name",
+                                        "description": "The machine name to write data to",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Destination Machine Name must only contain lower case letters, numbers and dash"
+                                    },
+                                    "destVariable": {
+                                        "title": "Destination Variable Name",
+                                        "description": "The varaible name to write data to",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Destination Variable Name must only contain letters, numbers, dash and underscore"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

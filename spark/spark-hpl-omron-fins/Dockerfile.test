@@ -1,0 +1,11 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/coverage"]
+WORKDIR /app/spark-hpl-omron-fins
+COPY node-omron-fins /app/node-omron-fins
+COPY node-omron-hostlink /app/node-omron-hostlink
+COPY spark-hpl-omron-fins/package.json spark-hpl-omron-fins/yarn.lock /app/spark-hpl-omron-fins/
+RUN yarn install --frozen-lockfile
+COPY spark-hpl-omron-fins /app/spark-hpl-omron-fins
+CMD ["yarn", "test"]

@@ -1,0 +1,40 @@
+#!/bin/sh
+DATA_MNT=/data
+
+#Nginx
+
+rm -f $DATA_MNT/sysroot/etc/nginx/ssl/csr/*.{pem,csr}
+HOST_NAME_FQ=$(hostname -f)
+HOST_NAME=$(hostname)
+cat <<EOF > $DATA_MNT/sysroot/etc/nginx/ssl/csr/openssl.cnf
+default_bits = 2048
+prompt = no
+default_md = sha256
+x509_extensions = req_ext
+req_extensions = req_ext
+extensions = req_ext
+distinguished_name = dn
+
+[ dn ]
+C=US
+ST=Pennsylvania
+L=Middletown
+O=TE Connectivity
+OU=TEIS
+CN=$HOST_NAME_FQ
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = $HOST_NAME_FQ
+DNS.2 = $HOST_NAME
+EOF
+
+#generate a certificate signing request to use for the https connection
+openssl req -new -newkey rsa:2048 -nodes \
+		-keyout $DATA_MNT/sysroot/etc/nginx/ssl/csr/key.pem \
+		-out $DATA_MNT/sysroot/etc/nginx/ssl/csr/cert.csr \
+		-config $DATA_MNT/sysroot/etc/nginx/ssl/csr/openssl.cnf
+
+exit $?

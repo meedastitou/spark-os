@@ -1,0 +1,95 @@
+{
+  "info": {
+    "description": "Communication with Raziol Lubrication system using Beckhoff ADS protocol",
+    "name": "emea-ads-tc2-lubrication-00",
+    "fullname": "Raziol Lubrication Beckhoff ADS (Standard)",
+    "version": "1.0.0",
+    "hpl": "beckhoff-ads"
+  },
+  "variables": [
+    {
+      "name": "ready",
+      "description": "Ready",
+      "format": "bool",
+      "adsAddressName": ".CUS.MD_READY"
+    },
+    {
+      "name": "error",
+      "description": "Error",
+      "format": "int16",
+      "adsAddressName": ".CUS.IW_ERROR",
+      "onChange": true
+    },
+    {
+      "name": "warning-1",
+      "description": "Warning 01",
+      "format": "int16",
+      "adsAddressName": ".CUS.IW_WARN1",
+      "onChange": true
+    },
+    {
+      "name": "warning-2",
+      "description": "Warning 02",
+      "format": "int16",
+      "adsAddressName": ".CUS.IW_WARN2",
+      "onChange": true
+    },
+    {
+      "name": "warning-3",
+      "description": "Warning 03",
+      "format": "int16",
+      "adsAddressName": ".CUS.IW_WARN3",
+      "onChange": true
+    },
+    {
+      "name": "warning-4",
+      "description": "Warning 04",
+      "format": "int16",
+      "adsAddressName": ".CUS.IW_WARN4",
+      "onChange": true
+    },
+    {
+      "name": "warning-5",
+      "description": "Warning 05",
+      "format": "int16",
+      "adsAddressName": ".CUS.IW_WARN5",
+      "onChange": true
+    },
+    {
+      "name": "material-mio-stroke",
+      "description": "Material Mio Stroke",
+      "format": "int32",
+      "adsAddressName": ".CUS.IW_MAT_MIOHUB"
+    },
+    {
+      "name": "material-counter",
+      "description": "Material Counter",
+      "format": "int32",
+      "adsAddressName": ".CUS.IW_MAT_ZAEHLER"
+    },
+    {
+      "name": "tool-mio-stroke",
+      "description": "Tool Mio Stroke",
+      "format": "int32",
+      "adsAddressName": ".CUS.IW_WKZ_MIOHUB"
+    },
+    {
+      "name": "tool-counter",
+      "description": "Tool Counter",
+      "format": "int32",
+      "adsAddressName": ".CUS.IW_WKZ_ZAEHLER"
+    },
+    {
+      "name": "tool-number",
+      "description": "Tool Number",
+      "format": "int32",
+      "adsAddressName": ".CUS.SW_WERKZEUGNR"
+    },
+    {
+      "name": "user-login",
+      "description": "User Login",
+      "format": "int32",
+      "adsAddressName": ".CUS.SW_USERLOGIN"
+    }
+  ]
+}

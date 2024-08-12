@@ -1,0 +1,41 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "grafanaPort": 1880,
+            "filterVariables": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-grafana",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Grafana Server.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "grafanaPort": {
+                    "title": "Grafana listen port",
+                    "description": "The Grafana port to connect to.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535,
+                    "required": true
+                },
+                "filterVariables": {
+                    "title": "Filter Variables",
+                    "description": "Select this option to exclude variables that allow filtering from Grafana searches",
+                    "type": "boolean",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "grafanaPort",
+            "filterVariables"
+        ]
+    }
+}

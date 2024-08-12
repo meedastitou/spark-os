@@ -1,0 +1,101 @@
+{
+  "info": {
+    "fullname": "Trumpf Laser TruPulse 304 Diagnostics",
+    "description": "Trumpf Laser TruPulse 304 OPC-UA Connection",
+    "version": "1.0.0",
+    "name": "trumpf-laser-trupulse-304-diag",
+    "hpl": "opcua"
+  },
+  "variables": [ {
+      "name": "Lastmessage",
+      "description": "Last message",
+      "format": "uint32",
+      "nodeId": "ns=2;s=LastMessage",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-ControlOnCount",
+      "description": "Pulse data:Counter:Control On count",
+      "format": "uint32",
+      "nodeId": "ns=2;s=PDCounter.ControlOnCount",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-ControlOnHours",
+      "description": "Pulse data:Counter:Control On hours",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.OperatingHours",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-LaserOnCount",
+      "description": "Pulse data:Counter:Laser On count",
+      "format": "uint32",
+      "nodeId": "ns=2;s=PDCounter.LaserOnCount",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-LaserOnHours",
+      "description": "Pulse data:Counter:Laser On hours",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.OperatingHoursHot",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-ProgStartCount",
+      "description": "Pulse data:Counter:Program start count",
+      "format": "uint32",
+      "nodeId": "ns=2;s=PDCounter.ProgStartCount",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-LastProgDuration",
+      "description": "Pulse data:Counter:Last program duration",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.ProgDuration",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-LastProgNo",
+      "description": "Pulse data:Counter:Last program no",
+      "format": "uint16",
+      "nodeId": "ns=2;s=PDCounter.ProgNo",
+      "array": false
+    },
+    {
+      "name": "Pulsedata-Count-LastProgExecution",
+      "description": "Pulse data:Counter:Last program execution",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.ProgExec",
+      "array": false
+    },
+    {
+      "name": "Switch-onProcess-DehimidfyPhase",
+      "description": "Switch:on process:Dehimidfy Phase",
+      "format": "bool",
+      "nodeId": "ns=2;s=SwitchOnProcess.DehumidifyPhase",
+      "array": false
+    },
+    {
+      "name": "Switch-onProcess-RemainDehumidifyTime",
+      "description": "Switch:on process:Remaining dehumidify time",
+      "format": "double",
+      "nodeId": "ns=2;s=SwitchOnProcess.RemainigDehumidify",
+      "array": false
+    },
+    {
+      "name": "Switch-onProcess-ThermalizationPhase",
+      "description": "Switch:on process:Thermalization Phase",
+      "format": "bool",
+      "nodeId": "ns=2;s=SwitchOnProcess.ThermalizationPhase",
+      "array": false
+    },
+    {
+      "name": "Switch-onProcess-ProgThermalization",
+      "description": "Switch:on process:Progress Thermalization",
+      "format": "double",
+      "nodeId": "ns=2;s=SwitchOnProcess.ProgressThermalization",
+      "array": false
+    }
+  ]
+}

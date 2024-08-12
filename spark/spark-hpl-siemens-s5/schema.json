@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-siemens-s5",
+    "title": "Siemens S5",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "address"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "address"
+                    ],
+                    "properties": {
+                        "address": {
+                            "title": "Address",
+                            "description": "S5 4 digit hex address",
+                            "type": "string",
+                            "minLength": 4,
+                            "maxLength": 4,
+                            "pattern": "[a-f0-9]{4}"
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

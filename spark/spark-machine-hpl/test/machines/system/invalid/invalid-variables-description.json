@@ -1,0 +1,14 @@
+{
+    "info": {
+        "name": "invalid-variables-description",
+        "fullname": "Spark Machine 1",
+        "version": "1.0.0",
+        "description": "Spark Machine 1 is used for testing",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "The description of a variable should not bee too long.  It is meant to be a short so that someting nice can be rendered to the end user",
+        "format": "float"
+    }]
+}

@@ -1,0 +1,152 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "connectionMode": "FTP server",
+            "ftpIp": "",
+            "ftpPort": 21,
+            "webdavUrl": "",
+            "ftpUsername": "anonymous",
+            "ftpPassword": "",
+            "sessionNumber": 0,
+            "cyclicType": "time",
+            "cyclicTime": 15,
+            "cyclicShotCount": 1,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-euromap63",
+            "required": [
+                "enable",
+                "connectionMode",
+                "ftpPort",
+                "sessionNumber",
+                "cyclicType",
+                "publishDisabled"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Euromap 63 Machine",
+                    "type": "boolean"
+                },
+                "connectionMode": {
+                    "title": "Connection Mode",
+                    "description": "The connection mode of the Spark",
+                    "type": "string",
+                    "enum": ["FTP server", "WebDAV client"]
+                },
+                "ftpIp": {
+                    "title": "ftp IP Address",
+                    "description": "The IP Address of the host (Spark IP address)",
+                    "type": "string",
+                    "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+                    "validationMessage": "Must be a valid IPv4 address"
+                },
+                "ftpPort": {
+                    "title": "Port",
+                    "description": "The connection port number",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10000
+                },
+                "webdavUrl": {
+                    "title": "WebDAV URL",
+                    "description": "The URL of the WebDAV server",
+                    "type": "string"
+                },
+                "ftpUsername": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string"
+                },
+                "ftpPassword": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "sessionNumber": {
+                    "title": "Session Number",
+                    "description": "The session number used by this Euromap 63 machine",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10,
+                    "default": 0
+                },
+                "cyclicType": {
+                    "title": "Cyclic Type",
+                    "description": "Choose either \"time\" or \"shot\" for cyclic type.",
+                    "type": "string",
+                    "enum": ["time", "shot"]
+                },
+                "cyclicTime": {
+                    "title": "Cyclic Time",
+                    "description": "The amount of time (in seconds) between sending reports",
+                    "type": "integer",
+                    "minimum": 10,
+                    "maximum": 3600
+                },
+                "cyclicShotCount": {
+                    "title": "Cyclic Shot Count",
+                    "description": "The number of shots between sending reports",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10000
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "connectionMode",
+            {
+                "condition": "model.connectionMode=='FTP server'",
+                "key": "ftpIp",
+                "placeholder": "127.0.0.1"
+            },
+            {
+                "condition": "model.connectionMode=='FTP server'",
+                "key": "ftpPort",
+                "placeholder": "21"
+            },
+            {
+                "condition": "model.connectionMode=='WebDAV client'",
+                "key": "webdavUrl",
+                "placeholder": "127.0.0.1"
+            },
+            {
+                "key": "ftpUsername",
+                "placeholder": "anonymous"
+            },
+            {
+                "key": "ftpPassword",
+                "placeholder": ""
+            },
+            "sessionNumber",
+            "cyclicType",
+            {
+                "condition": "model.cyclicType=='time'",
+                "key": "cyclicTime"
+            },
+            {
+                "condition": "model.cyclicType=='shot'",
+                "key": "cyclicShotCount"
+            },
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

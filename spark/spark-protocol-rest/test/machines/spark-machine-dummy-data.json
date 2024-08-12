@@ -1,0 +1,1441 @@
+[{
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36428",
+    "createdAt": "2017-02-17T17:13:32.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9822872507395274",
+    "_id": "36427",
+    "createdAt": "2017-02-17T17:13:32.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "-0.1873813145289059",
+    "_id": "36426",
+    "createdAt": "2017-02-17T17:13:32.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "3.571250943497528",
+    "_id": "36425",
+    "createdAt": "2017-02-17T17:13:32.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36424",
+    "createdAt": "2017-02-17T17:13:31.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9876883406041844",
+    "_id": "36423",
+    "createdAt": "2017-02-17T17:13:31.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "-0.15643446498311217",
+    "_id": "36422",
+    "createdAt": "2017-02-17T17:13:31.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "80.98862466400973",
+    "_id": "36421",
+    "createdAt": "2017-02-17T17:13:31.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36420",
+    "createdAt": "2017-02-17T17:13:30.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9921147013217243",
+    "_id": "36419",
+    "createdAt": "2017-02-17T17:13:30.398Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "-0.1253332335069421",
+    "_id": "36418",
+    "createdAt": "2017-02-17T17:13:30.397Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "24.313746283994742",
+    "_id": "36417",
+    "createdAt": "2017-02-17T17:13:30.397Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36416",
+    "createdAt": "2017-02-17T17:13:29.397Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.99556196460852",
+    "_id": "36415",
+    "createdAt": "2017-02-17T17:13:29.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "-0.09410831326096541",
+    "_id": "36414",
+    "createdAt": "2017-02-17T17:13:29.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "26.79486239586626",
+    "_id": "36413",
+    "createdAt": "2017-02-17T17:13:29.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36412",
+    "createdAt": "2017-02-17T17:13:28.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9980267284319004",
+    "_id": "36411",
+    "createdAt": "2017-02-17T17:13:28.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "-0.06279051947163458",
+    "_id": "36410",
+    "createdAt": "2017-02-17T17:13:28.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "99.11794659662661",
+    "_id": "36409",
+    "createdAt": "2017-02-17T17:13:28.396Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36408",
+    "createdAt": "2017-02-17T17:13:27.395Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9995065603675465",
+    "_id": "36407",
+    "createdAt": "2017-02-17T17:13:27.395Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "-0.03141075902037658",
+    "_id": "36406",
+    "createdAt": "2017-02-17T17:13:27.395Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "56.296543566392934",
+    "_id": "36405",
+    "createdAt": "2017-02-17T17:13:27.395Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36404",
+    "createdAt": "2017-02-17T17:13:26.394Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-1",
+    "_id": "36403",
+    "createdAt": "2017-02-17T17:13:26.394Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "5.7767610562131983e-11",
+    "_id": "36402",
+    "createdAt": "2017-02-17T17:13:26.394Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "0.22527446713074273",
+    "_id": "36401",
+    "createdAt": "2017-02-17T17:13:26.394Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36400",
+    "createdAt": "2017-02-17T17:13:25.393Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9995065603639174",
+    "_id": "36399",
+    "createdAt": "2017-02-17T17:13:25.393Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.03141075913585479",
+    "_id": "36398",
+    "createdAt": "2017-02-17T17:13:25.393Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "68.35532920581429",
+    "_id": "36397",
+    "createdAt": "2017-02-17T17:13:25.393Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36396",
+    "createdAt": "2017-02-17T17:13:24.393Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9980267284246459",
+    "_id": "36395",
+    "createdAt": "2017-02-17T17:13:24.392Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.06279051958694182",
+    "_id": "36394",
+    "createdAt": "2017-02-17T17:13:24.392Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "5.225365072150967",
+    "_id": "36393",
+    "createdAt": "2017-02-17T17:13:24.392Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36392",
+    "createdAt": "2017-02-17T17:13:23.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9955619645976471",
+    "_id": "36391",
+    "createdAt": "2017-02-17T17:13:23.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.09410831337598788",
+    "_id": "36390",
+    "createdAt": "2017-02-17T17:13:23.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "78.64316345883311",
+    "_id": "36389",
+    "createdAt": "2017-02-17T17:13:23.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36388",
+    "createdAt": "2017-02-17T17:13:22.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.992114701307244",
+    "_id": "36387",
+    "createdAt": "2017-02-17T17:13:22.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.1253332336215663",
+    "_id": "36386",
+    "createdAt": "2017-02-17T17:13:22.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "61.89830200820159",
+    "_id": "36385",
+    "createdAt": "2017-02-17T17:13:22.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36384",
+    "createdAt": "2017-02-17T17:13:21.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9876883405861108",
+    "_id": "36383",
+    "createdAt": "2017-02-17T17:13:21.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.15643446509722497",
+    "_id": "36382",
+    "createdAt": "2017-02-17T17:13:21.391Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "75.11121279302783",
+    "_id": "36381",
+    "createdAt": "2017-02-17T17:13:21.390Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36380",
+    "createdAt": "2017-02-17T17:13:20.389Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9822872507178783",
+    "_id": "36379",
+    "createdAt": "2017-02-17T17:13:20.389Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.1873813146423947",
+    "_id": "36378",
+    "createdAt": "2017-02-17T17:13:20.389Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "91.85004554828464",
+    "_id": "36377",
+    "createdAt": "2017-02-17T17:13:20.388Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36376",
+    "createdAt": "2017-02-17T17:13:19.388Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.975916761926165",
+    "_id": "36375",
+    "createdAt": "2017-02-17T17:13:19.388Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.21814324145283276",
+    "_id": "36374",
+    "createdAt": "2017-02-17T17:13:19.388Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "91.6677774505912",
+    "_id": "36373",
+    "createdAt": "2017-02-17T17:13:19.388Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36372",
+    "createdAt": "2017-02-17T17:13:18.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.96858316111429",
+    "_id": "36371",
+    "createdAt": "2017-02-17T17:13:18.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.24868988722070978",
+    "_id": "36370",
+    "createdAt": "2017-02-17T17:13:18.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "18.205606820432017",
+    "_id": "36369",
+    "createdAt": "2017-02-17T17:13:18.386Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36368",
+    "createdAt": "2017-02-17T17:13:17.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9602936856608582",
+    "_id": "36367",
+    "createdAt": "2017-02-17T17:13:17.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.2789911060945941",
+    "_id": "36366",
+    "createdAt": "2017-02-17T17:13:17.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "27.845287443853085",
+    "_id": "36365",
+    "createdAt": "2017-02-17T17:13:17.387Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36364",
+    "createdAt": "2017-02-17T17:13:16.384Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9510565162773414",
+    "_id": "36363",
+    "createdAt": "2017-02-17T17:13:16.384Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.3090169944297677",
+    "_id": "36362",
+    "createdAt": "2017-02-17T17:13:16.384Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "57.236157768768116",
+    "_id": "36361",
+    "createdAt": "2017-02-17T17:13:16.384Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36360",
+    "createdAt": "2017-02-17T17:13:15.383Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9408807689347044",
+    "_id": "36359",
+    "createdAt": "2017-02-17T17:13:15.383Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.3387379202995133",
+    "_id": "36358",
+    "createdAt": "2017-02-17T17:13:15.383Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "72.95625900295886",
+    "_id": "36357",
+    "createdAt": "2017-02-17T17:13:15.382Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36356",
+    "createdAt": "2017-02-17T17:13:14.383Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9297764858670414",
+    "_id": "36355",
+    "createdAt": "2017-02-17T17:13:14.383Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.3681245527382482",
+    "_id": "36354",
+    "createdAt": "2017-02-17T17:13:14.383Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "85.79125565841792",
+    "_id": "36353",
+    "createdAt": "2017-02-17T17:13:14.382Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36352",
+    "createdAt": "2017-02-17T17:13:13.380Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.917754625661104",
+    "_id": "36351",
+    "createdAt": "2017-02-17T17:13:13.380Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.3971478906876466",
+    "_id": "36350",
+    "createdAt": "2017-02-17T17:13:13.380Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "45.53783284450839",
+    "_id": "36349",
+    "createdAt": "2017-02-17T17:13:13.380Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36348",
+    "createdAt": "2017-02-17T17:13:12.379Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.9048270524414984",
+    "_id": "36347",
+    "createdAt": "2017-02-17T17:13:12.379Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.4257792916171826",
+    "_id": "36346",
+    "createdAt": "2017-02-17T17:13:12.379Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "66.00683178039554",
+    "_id": "36345",
+    "createdAt": "2017-02-17T17:13:12.379Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36344",
+    "createdAt": "2017-02-17T17:13:11.377Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.8910065241622278",
+    "_id": "36343",
+    "createdAt": "2017-02-17T17:13:11.377Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.45399049979084954",
+    "_id": "36342",
+    "createdAt": "2017-02-17T17:13:11.377Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "5.178044323760744",
+    "_id": "36341",
+    "createdAt": "2017-02-17T17:13:11.377Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36340",
+    "createdAt": "2017-02-17T17:13:10.377Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.876306680016131",
+    "_id": "36339",
+    "createdAt": "2017-02-17T17:13:10.377Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.4817536741521606",
+    "_id": "36338",
+    "createdAt": "2017-02-17T17:13:10.376Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "95.34586526945287",
+    "_id": "36337",
+    "createdAt": "2017-02-17T17:13:10.376Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36336",
+    "createdAt": "2017-02-17T17:13:09.375Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.8607420269746467",
+    "_id": "36335",
+    "createdAt": "2017-02-17T17:13:09.375Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.5090414157999097",
+    "_id": "36334",
+    "createdAt": "2017-02-17T17:13:09.375Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "50.52751558718172",
+    "_id": "36333",
+    "createdAt": "2017-02-17T17:13:09.375Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36332",
+    "createdAt": "2017-02-17T17:13:08.374Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.8443279254711833",
+    "_id": "36331",
+    "createdAt": "2017-02-17T17:13:08.373Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.5358267950275797",
+    "_id": "36330",
+    "createdAt": "2017-02-17T17:13:08.373Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "82.40674832164869",
+    "_id": "36329",
+    "createdAt": "2017-02-17T17:13:08.373Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36328",
+    "createdAt": "2017-02-17T17:13:07.373Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.8270805742422263",
+    "_id": "36327",
+    "createdAt": "2017-02-17T17:13:07.373Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.5620833778997109",
+    "_id": "36326",
+    "createdAt": "2017-02-17T17:13:07.373Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "54.541237131790176",
+    "_id": "36325",
+    "createdAt": "2017-02-17T17:13:07.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36324",
+    "createdAt": "2017-02-17T17:13:06.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.8090169943411407",
+    "_id": "36323",
+    "createdAt": "2017-02-17T17:13:06.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.587785252339004",
+    "_id": "36322",
+    "createdAt": "2017-02-17T17:13:06.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "97.70268518641181",
+    "_id": "36321",
+    "createdAt": "2017-02-17T17:13:06.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36320",
+    "createdAt": "2017-02-17T17:13:05.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.7901550123404466",
+    "_id": "36319",
+    "createdAt": "2017-02-17T17:13:05.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.6129070536984126",
+    "_id": "36318",
+    "createdAt": "2017-02-17T17:13:05.372Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "72.93827117062766",
+    "_id": "36317",
+    "createdAt": "2017-02-17T17:13:05.371Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36316",
+    "createdAt": "2017-02-17T17:13:04.371Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.7705132427391437",
+    "_id": "36315",
+    "createdAt": "2017-02-17T17:13:04.371Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.6374239897929866",
+    "_id": "36314",
+    "createdAt": "2017-02-17T17:13:04.371Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "75.0251747324324",
+    "_id": "36313",
+    "createdAt": "2017-02-17T17:13:04.370Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36312",
+    "createdAt": "2017-02-17T17:13:03.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.7501110695924489",
+    "_id": "36311",
+    "createdAt": "2017-02-17T17:13:03.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.6613118653667663",
+    "_id": "36310",
+    "createdAt": "2017-02-17T17:13:03.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "74.40232723416432",
+    "_id": "36309",
+    "createdAt": "2017-02-17T17:13:03.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36308",
+    "createdAt": "2017-02-17T17:13:02.370Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.7289686273820741",
+    "_id": "36307",
+    "createdAt": "2017-02-17T17:13:02.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.6845471059705788",
+    "_id": "36306",
+    "createdAt": "2017-02-17T17:13:02.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "79.02758172397408",
+    "_id": "36305",
+    "createdAt": "2017-02-17T17:13:02.369Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36304",
+    "createdAt": "2017-02-17T17:13:01.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.7071067811459226",
+    "_id": "36303",
+    "createdAt": "2017-02-17T17:13:01.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.7071067812271724",
+    "_id": "36302",
+    "createdAt": "2017-02-17T17:13:01.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "99.04324322926992",
+    "_id": "36301",
+    "createdAt": "2017-02-17T17:13:01.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36300",
+    "createdAt": "2017-02-17T17:13:00.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.684547105886817",
+    "_id": "36299",
+    "createdAt": "2017-02-17T17:13:00.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.7289686274607317",
+    "_id": "36298",
+    "createdAt": "2017-02-17T17:13:00.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "59.45552618971617",
+    "_id": "36297",
+    "createdAt": "2017-02-17T17:13:00.368Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36296",
+    "createdAt": "2017-02-17T17:12:59.367Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.6613118652805752",
+    "_id": "36295",
+    "createdAt": "2017-02-17T17:12:59.367Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.7501110696684368",
+    "_id": "36294",
+    "createdAt": "2017-02-17T17:12:59.367Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "73.37012848118707",
+    "_id": "36293",
+    "createdAt": "2017-02-17T17:12:59.366Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36292",
+    "createdAt": "2017-02-17T17:12:58.366Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.6374239897044511",
+    "_id": "36291",
+    "createdAt": "2017-02-17T17:12:58.365Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.7705132428123865",
+    "_id": "36290",
+    "createdAt": "2017-02-17T17:12:58.365Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "58.54277323862358",
+    "_id": "36289",
+    "createdAt": "2017-02-17T17:12:58.365Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36288",
+    "createdAt": "2017-02-17T17:12:57.364Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.6129070536076202",
+    "_id": "36287",
+    "createdAt": "2017-02-17T17:12:57.364Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.7901550124108724",
+    "_id": "36286",
+    "createdAt": "2017-02-17T17:12:57.364Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "14.643520361547768",
+    "_id": "36285",
+    "createdAt": "2017-02-17T17:12:57.363Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36284",
+    "createdAt": "2017-02-17T17:12:56.365Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.5877852522460443",
+    "_id": "36283",
+    "createdAt": "2017-02-17T17:12:56.364Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.8090169944086799",
+    "_id": "36282",
+    "createdAt": "2017-02-17T17:12:56.363Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "18.115478913039507",
+    "_id": "36281",
+    "createdAt": "2017-02-17T17:12:56.362Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36280",
+    "createdAt": "2017-02-17T17:12:55.359Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.5620833778046755",
+    "_id": "36279",
+    "createdAt": "2017-02-17T17:12:55.359Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.8270805743068123",
+    "_id": "36278",
+    "createdAt": "2017-02-17T17:12:55.359Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "94.22813999777755",
+    "_id": "36277",
+    "createdAt": "2017-02-17T17:12:55.358Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36276",
+    "createdAt": "2017-02-17T17:12:54.359Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.5358267949305626",
+    "_id": "36275",
+    "createdAt": "2017-02-17T17:12:54.358Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.8443279255327523",
+    "_id": "36274",
+    "createdAt": "2017-02-17T17:12:54.357Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "93.90094836490339",
+    "_id": "36273",
+    "createdAt": "2017-02-17T17:12:54.356Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36272",
+    "createdAt": "2017-02-17T17:12:53.356Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.5090414157010066",
+    "_id": "36271",
+    "createdAt": "2017-02-17T17:12:53.356Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.8607420270331378",
+    "_id": "36270",
+    "createdAt": "2017-02-17T17:12:53.356Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "54.22991501046695",
+    "_id": "36269",
+    "createdAt": "2017-02-17T17:12:53.355Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36268",
+    "createdAt": "2017-02-17T17:12:52.355Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.48175367405146896",
+    "_id": "36267",
+    "createdAt": "2017-02-17T17:12:52.355Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.8763066800714867",
+    "_id": "36266",
+    "createdAt": "2017-02-17T17:12:52.354Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "97.78893618087197",
+    "_id": "36265",
+    "createdAt": "2017-02-17T17:12:52.354Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36264",
+    "createdAt": "2017-02-17T17:12:51.320Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.45399049968846883",
+    "_id": "36263",
+    "createdAt": "2017-02-17T17:12:51.320Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.8910065242143934",
+    "_id": "36262",
+    "createdAt": "2017-02-17T17:12:51.319Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "32.26775814564316",
+    "_id": "36261",
+    "createdAt": "2017-02-17T17:12:51.318Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36260",
+    "createdAt": "2017-02-17T17:12:50.309Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.4257792915132138",
+    "_id": "36259",
+    "createdAt": "2017-02-17T17:12:50.308Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9048270524904224",
+    "_id": "36258",
+    "createdAt": "2017-02-17T17:12:50.308Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "25.649118641984092",
+    "_id": "36257",
+    "createdAt": "2017-02-17T17:12:50.308Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36256",
+    "createdAt": "2017-02-17T17:12:49.301Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.3971478905821924",
+    "_id": "36255",
+    "createdAt": "2017-02-17T17:12:49.301Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.917754625706738",
+    "_id": "36254",
+    "createdAt": "2017-02-17T17:12:49.300Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "38.47385625466877",
+    "_id": "36253",
+    "createdAt": "2017-02-17T17:12:49.300Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36252",
+    "createdAt": "2017-02-17T17:12:48.300Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.36812455263141264",
+    "_id": "36251",
+    "createdAt": "2017-02-17T17:12:48.300Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9297764859093406",
+    "_id": "36250",
+    "createdAt": "2017-02-17T17:12:48.299Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "47.40514169184993",
+    "_id": "36249",
+    "createdAt": "2017-02-17T17:12:48.299Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36248",
+    "createdAt": "2017-02-17T17:12:47.298Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.3387379201914018",
+    "_id": "36247",
+    "createdAt": "2017-02-17T17:12:47.298Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9408807689736269",
+    "_id": "36246",
+    "createdAt": "2017-02-17T17:12:47.298Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "29.469919791674503",
+    "_id": "36245",
+    "createdAt": "2017-02-17T17:12:47.298Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36244",
+    "createdAt": "2017-02-17T17:12:46.294Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.309016994320487",
+    "_id": "36243",
+    "createdAt": "2017-02-17T17:12:46.294Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9510565163128488",
+    "_id": "36242",
+    "createdAt": "2017-02-17T17:12:46.294Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "99.6695120144816",
+    "_id": "36241",
+    "createdAt": "2017-02-17T17:12:46.294Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36240",
+    "createdAt": "2017-02-17T17:12:45.290Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.278991105984252",
+    "_id": "36239",
+    "createdAt": "2017-02-17T17:12:45.290Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9602936856929154",
+    "_id": "36238",
+    "createdAt": "2017-02-17T17:12:45.290Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "54.67616370797239",
+    "_id": "36237",
+    "createdAt": "2017-02-17T17:12:45.289Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36236",
+    "createdAt": "2017-02-17T17:12:44.288Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.24868988710941517",
+    "_id": "36235",
+    "createdAt": "2017-02-17T17:12:44.288Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9685831611428656",
+    "_id": "36234",
+    "createdAt": "2017-02-17T17:12:44.288Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "43.12395231716586",
+    "_id": "36233",
+    "createdAt": "2017-02-17T17:12:44.287Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36232",
+    "createdAt": "2017-02-17T17:12:43.284Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.2181432413406955",
+    "_id": "36231",
+    "createdAt": "2017-02-17T17:12:43.283Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9759167619512307",
+    "_id": "36230",
+    "createdAt": "2017-02-17T17:12:43.283Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "57.9912977243213",
+    "_id": "36229",
+    "createdAt": "2017-02-17T17:12:43.283Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36228",
+    "createdAt": "2017-02-17T17:12:42.282Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.1873813145295254",
+    "_id": "36227",
+    "createdAt": "2017-02-17T17:12:42.282Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9822872507394093",
+    "_id": "36226",
+    "createdAt": "2017-02-17T17:12:42.282Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "43.34668455063424",
+    "_id": "36225",
+    "createdAt": "2017-02-17T17:12:42.282Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36224",
+    "createdAt": "2017-02-17T17:12:41.282Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.1564344649837351",
+    "_id": "36223",
+    "createdAt": "2017-02-17T17:12:41.282Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9876883406040857",
+    "_id": "36222",
+    "createdAt": "2017-02-17T17:12:41.281Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "53.64561447029548",
+    "_id": "36221",
+    "createdAt": "2017-02-17T17:12:41.281Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36220",
+    "createdAt": "2017-02-17T17:12:40.280Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.12533323350756778",
+    "_id": "36219",
+    "createdAt": "2017-02-17T17:12:40.280Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9921147013216454",
+    "_id": "36218",
+    "createdAt": "2017-02-17T17:12:40.280Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "30.872219417809156",
+    "_id": "36217",
+    "createdAt": "2017-02-17T17:12:40.280Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36216",
+    "createdAt": "2017-02-17T17:12:39.279Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.09410831326159327",
+    "_id": "36215",
+    "createdAt": "2017-02-17T17:12:39.279Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9955619646084606",
+    "_id": "36214",
+    "createdAt": "2017-02-17T17:12:39.279Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "24.383403018990823",
+    "_id": "36213",
+    "createdAt": "2017-02-17T17:12:39.278Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36212",
+    "createdAt": "2017-02-17T17:12:38.278Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.06279051947226401",
+    "_id": "36211",
+    "createdAt": "2017-02-17T17:12:38.278Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9980267284318608",
+    "_id": "36210",
+    "createdAt": "2017-02-17T17:12:38.278Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "97.54601368039178",
+    "_id": "36209",
+    "createdAt": "2017-02-17T17:12:38.278Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36208",
+    "createdAt": "2017-02-17T17:12:37.277Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "-0.031410759021006936",
+    "_id": "36207",
+    "createdAt": "2017-02-17T17:12:37.277Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9995065603675267",
+    "_id": "36206",
+    "createdAt": "2017-02-17T17:12:37.277Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "28.77356692983217",
+    "_id": "36205",
+    "createdAt": "2017-02-17T17:12:37.277Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36204",
+    "createdAt": "2017-02-17T17:12:36.276Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "5.713694265180494e-11",
+    "_id": "36203",
+    "createdAt": "2017-02-17T17:12:36.276Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "1",
+    "_id": "36202",
+    "createdAt": "2017-02-17T17:12:36.276Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "25.661345917380185",
+    "_id": "36201",
+    "createdAt": "2017-02-17T17:12:36.276Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36200",
+    "createdAt": "2017-02-17T17:12:35.275Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "0.03141075913522444",
+    "_id": "36199",
+    "createdAt": "2017-02-17T17:12:35.275Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9995065603639373",
+    "_id": "36198",
+    "createdAt": "2017-02-17T17:12:35.275Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "7.205986799463404",
+    "_id": "36197",
+    "createdAt": "2017-02-17T17:12:35.274Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "success, from spark-machine-dummy",
+    "_id": "36196",
+    "createdAt": "2017-02-17T17:12:34.273Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "0.06279051958631239",
+    "_id": "36195",
+    "createdAt": "2017-02-17T17:12:34.273Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9980267284246855",
+    "_id": "36194",
+    "createdAt": "2017-02-17T17:12:34.273Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "41.5523476186324",
+    "_id": "36193",
+    "createdAt": "2017-02-17T17:12:34.273Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "error",
+    "error": "error, from spark-machine-dummy",
+    "_id": "36192",
+    "createdAt": "2017-02-17T17:12:33.272Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "humidity",
+    "humidity": "0.09410831337536002",
+    "_id": "36191",
+    "createdAt": "2017-02-17T17:12:33.271Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "pressure",
+    "pressure": "0.9955619645977065",
+    "_id": "36190",
+    "createdAt": "2017-02-17T17:12:33.271Z"
+}, {
+    "machine": "spark-machine-dummy",
+    "variable": "temperature",
+    "temperature": "76.62304046091846",
+    "_id": "36189",
+    "createdAt": "2017-02-17T17:12:33.271Z"
+}]

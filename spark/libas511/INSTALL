@@ -1,0 +1,38 @@
+AS511 Installation
+
+
+***********************************************************
+svn checkout:
+-----------------------------------------------------------
+  Falls der Download der Software per svn erfolgt,
+  muessen die Befehle
+
+    autoreconfig --install
+    ./configure
+    make
+    sudo make install
+
+  ausgeführt werden, um die library zu installieren.
+
+
+***********************************************************
+Tarball download:
+-----------------------------------------------------------
+  Wird die Software als Tarball heruntergeladen,
+  müssen nach dem entpacken die Befehle
+
+    ./configure
+    make
+    sudo make install
+
+  ausgeführt werden.
+
+
+***********************************************************
+demo Programm:
+-----------------------------------------------------------
+  Das demo Programm kann mit
+
+    make check
+
+  erstellt werden.

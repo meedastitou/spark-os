@@ -1,0 +1,17 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "plugins": [
+    "json"
+  ],
+  "extends": [
+    "eslint-config-airbnb"
+  ],
+  "rules": {
+    "new-cap": ["error", {
+      "newIsCapExceptions": ["hpl"]
+    }]
+  }
+}

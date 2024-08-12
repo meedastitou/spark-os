@@ -1,0 +1,15 @@
+{
+    "info": {
+        "name": "machine2",
+        "fullname": "Spark Machine 2",
+        "version": "2.0.0",
+        "description": "Spark Machine 2 is used for testing",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float",
+        "type": "random"
+    }]
+}

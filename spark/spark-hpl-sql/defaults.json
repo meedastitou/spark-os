@@ -1,0 +1,263 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "sqlServerName": "",
+            "sqlPort": "1433",
+            "sqlServerType": "Microsoft SQL",
+            "sqlDatabaseName": "SparkDb",
+            "sqlTableName": "SparkData",
+            "username": "",
+            "password": "",
+            "mssqlRequestTimeout": 15000,
+            "updateOnRowChange": true,
+            "reportAllUpdatedRecords": false,
+            "deliverCombinedResult": false,
+            "reportUpdatedRecordDataAsArray": false,
+            "recordReportDwell": 100,
+            "multirecordKeyField": "",
+            "multirecordKeyFieldAsDateTimeString": "",
+            "maxMultirecordReportArraySize": 1,
+            "addTimestampField": false,
+            "baseTimestampFieldName": "",
+            "utcOffset": 0,
+            "requestFrequency": 10,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-sql",
+            "required": [
+                "enable",
+                "sqlServerName",
+                "sqlPort",
+                "sqlServerType",
+                "sqlDatabaseName",
+                "sqlTableName",
+                "username",
+                "password",
+                "updateOnRowChange",
+                "reportAllUpdatedRecords",
+                "requestFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "sqlServerName": {
+                    "title": "SQL Server Name",
+                    "description": "The name (or IP address) of the server to connect to.",
+                    "type": "string",
+                    "required": true
+                },
+                "sqlPort": {
+                    "title": "SQL Port",
+                    "description": "The port number of the SQL database to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "default": "1433",
+                    "required": true
+                },
+                "sqlServerType": {
+                    "title": "SQL Type",
+                    "description": "The type of SQL server.",
+                    "type": "string",
+                    "enum": [
+                        "Microsoft SQL",
+                        "MySQL"
+                    ],
+                    "default": "MySQL",
+                    "required": true
+                },
+                "sqlDatabaseName": {
+                    "title": "SQL Database Name",
+                    "description": "The name of the SQL database.",
+                    "type": "string",
+                    "default": "SparkDb",
+                    "required": true
+                },
+                "sqlTableName": {
+                    "title": "SQL Table Name",
+                    "description": "The name of the SQL database table.",
+                    "type": "string",
+                    "default": "SparkData",
+                    "required": true
+                },
+                "username": {
+                    "title": "SQL Username",
+                    "description": "The username to access the SQL database.",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "SQL Password",
+                    "description": "The password to access the SQL database.",
+                    "type": "string",
+                    "required": true
+                },
+                "mssqlRequestTimeout": {
+                    "title": "Microsoft SQL Request Timeout",
+                    "description": "Timeout, in milliseconds for the Microsoft SQL request response",
+                    "type": "integer",
+                    "minimum": 2000,
+                    "maximum": 60000
+                },
+                "updateOnRowChange": {
+                    "title": "Update Only When Number of Rows Changes",
+                    "description": "If this box is checked, variables are updated only when the number of rows changes.  Note: only for Microsoft SQL.",
+                    "type": "boolean",
+                    "default": true,
+                    "required": true
+                },
+                "reportAllUpdatedRecords": {
+                    "title": "Report All Updated Records",
+                    "description": "When this is selected, we will use the multi-record key field to identify and report all rows of data since the last read of the database.  Only for Microsoft SQL.",
+                    "type": "boolean"
+                },
+                "deliverCombinedResult": {
+                    "title": "Deliver Combined Result",
+                    "description": "Set to true to deliver all of the machine's responses as variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "reportUpdatedRecordDataAsArray": {
+                    "title": "Report Updated Records As Array",
+                    "description": "Set to true to deliver all of the updated records as a single variable, using an array for the value.  Only for 'Report All Updated Records' = TRUE and 'Deliver Combined Result' = FALSE",
+                    "type": "boolean",
+                    "default": true
+                },
+                "recordReportDwell": {
+                    "title": "Record Report Dwell",
+                    "description": "Defines the amount of time between updating multiple values.  Only for 'Report All Updated Records' = TRUE, 'Deliver Combined Results' = FALSE and 'Report Updated Records As Arrays' = FALSE",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                },
+                "multirecordKeyField": {
+                    "title": "Multi-record Key Field",
+                    "description": "Key field to be used for identifying any updated records",
+                    "type": "string"
+                },
+                "multirecordKeyFieldAsDateTimeString": {
+                    "title": "Multi-record Key Field as Date/Time String",
+                    "description": "Select to have the Spark treat the multi-record key field as a Date/Time string",
+                    "type": "boolean"
+                },
+                "maxMultirecordReportArraySize": {
+                    "title": "Maximum CombinedResult Array Size",
+                    "description": "The maximum number of records that will be packed into the CombinedResult array for reporting",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 500
+                },
+                "addTimestampField": {
+                    "title": "Add timestamp field to multi-record report",
+                    "description": "Select to have the Spark add a timestamp field for each record in the CombinedResult array",
+                    "type": "boolean"
+                },
+                "baseTimestampFieldName": {
+                    "title": "Base Timestamp Field",
+                    "description": "The Key field to be used as a base value for the added timestamp field.  This will be adjusted with the UTC Offset field.  If left blank, or if the field is invalid, the actual time of the response will be used",
+                    "type": "string"
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number"
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between reads of the SQL table",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "sqlServerName",
+            "sqlPort",
+            "sqlServerType",
+            "sqlDatabaseName",
+            "sqlTableName",
+            "username",
+            "password",
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'",
+              "key": "mssqlRequestTimeout"
+            },
+            "updateOnRowChange",
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'",
+              "key": "reportAllUpdatedRecords"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true",
+              "key": "deliverCombinedResult"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true&&model.deliverCombinedResult==false",
+              "key": "reportUpdatedRecordDataAsArray"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true&&model.deliverCombinedResult==false&&model.reportUpdatedRecordDataAsArray==false",
+              "key": "recordReportDwell"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true",
+              "key": "multirecordKeyField"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true",
+              "key": "multirecordKeyFieldAsDateTimeString"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true",
+              "key": "maxMultirecordReportArraySize"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true",
+              "key": "addTimestampField"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true&&model.addTimestampField==true",
+              "key": "baseTimestampFieldName"
+            },
+            {
+              "condition": "model.sqlServerType==='Microsoft SQL'&&model.reportAllUpdatedRecords==true&&model.addTimestampField==true",
+              "key": "utcOffset"
+            },
+            "requestFrequency",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

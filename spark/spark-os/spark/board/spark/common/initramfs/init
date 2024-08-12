@@ -1,0 +1,204 @@
+#!/bin/sh
+
+#install the busybox symlinks
+/bin/busybox --install -s
+
+mkdir -p /dev
+mkdir -p /proc
+mkdir -p /sys
+
+mount -t devtmpfs devtmpfs /dev
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+
+exec 0</dev/console
+exec 1>/dev/console
+exec 2>/dev/console
+
+boot=/dev/mmcblk0p1
+
+# parse command line arguments
+for arg in $(cat /proc/cmdline); do
+  case $arg in
+    boot=*)
+      boot="${arg#*=}"
+      ;;
+  esac
+done
+
+progress() {
+  echo "### $1 ###"
+}
+
+debug_shell() {
+  echo "### Starting debugging shell... type  exit  to quit ###"
+  sh
+}
+
+wait_debug_shell() {
+  read -t 3 -p "### Press ENTER for debug shell ###"
+  if [ $? -eq 0 ] ; then
+    debug_shell
+  else
+    echo ""
+  fi
+}
+
+error() {
+  # Display fatal error message
+  # $1:action which caused error, $2:message
+  echo "*** Error: $1: $2 ***"
+  debug_shell
+}
+
+mount_common() {
+  # $1:target, $2:mountpoint, $3:mount options, [$4:fs type]
+  # Common mount handler, handles block devices and filesystem images
+  MOUNT_OPTIONS="-o $3"
+  [ -n "$4" ] && MOUNT_OPTIONS="-t $4 $MOUNT_OPTIONS"
+
+  for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
+    ERR_ENV=1
+
+    mount $MOUNT_OPTIONS $1 $2
+    [ "$?" -eq "0" ] && ERR_ENV=0 && break
+
+    usleep 1000000
+  done
+  [ "$ERR_ENV" -ne "0" ] && error "mount_common" "Could not mount $1"
+}
+
+do_reboot() {
+  progress "System reboots now..."
+
+  # syncing filesystem
+  sync
+
+  # unmount all filesystems
+  umount -a
+
+  usleep 2000000
+
+  # Force reboot since there is no init process
+  reboot -f
+}
+
+force_fsck() {
+  echo "Filesystem corruption has been detected"
+  echo "repairing filesystem.."
+  echo ""
+  fsck -T -M -y $1
+  FSCK_RET="$?"
+  if [ "$(( $FSCK_RET & 8 ))" = 8 ] ; then
+    echo "Forced fsck failed. Your system is broken beyond repair"
+    echo "Please re-install"
+    poweroff
+  fi
+  do_reboot
+}
+
+check_disks() {
+  progress "Checking disk(s): $1"
+
+  for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
+    fsck -T -M -p -a $1
+    FSCK_RET="$?"
+
+    # FSCK_RET is the bit-wise OR of the exit codes for each filesystem that is checked.
+    if [ "$(( $FSCK_RET & 4 ))" = 4 ] ; then
+      # errors left
+      force_fsck $1
+    elif [ "$(( $FSCK_RET & 2 ))" = 2 ] ; then
+      # reboot needed
+      progress "filesystem repaired, reboot needed..."
+      do_reboot
+    elif [ "$(( $FSCK_RET & 1 ))" = 1 ] ; then
+      # filesystem errors corrected
+      progress "filesystem errors corrected, continuing..."
+    elif [ "$(( $FSCK_RET & 0 ))" = 0 ] ; then
+      # no errors found
+      progress "no filesystem errors found, continuing..."
+    fi
+
+    # repeat until fsck returns 0
+    [ $FSCK_RET -eq 0 ] && break
+  done
+  [ $FSCK_RET -ne 0 ] && error "check_disks" "Failed checking $1"
+}
+
+mount_flash() {
+  progress "Mounting flash"
+  mkdir -p /boot
+  mount_common "$boot" "/boot" "rw,noatime"
+  find /boot -name "FSCK*.REC" -type f -exec rm '{}' \;
+}
+
+do_update() {
+  if [ -d /boot/update ] ; then
+    progress "Updating..."
+    cp -a /boot/update/* /boot/.
+    rm -rf /boot/update
+    do_reboot
+  fi
+}
+
+prepare_sysroot() {
+  progress "Preparing system"
+  mkdir -p /sysroot
+  mkdir -p /sysroot/ro
+  mkdir -p /sysroot/rw
+  mkdir -p /sysroot/overlay
+  cp /boot/rootfs.squashfs /dev
+  mount_common "/dev/rootfs.squashfs" "/sysroot/ro" "loop"
+  mount_common "tmpfs" "/sysroot/rw" "loop" "tmpfs"
+  mkdir -p /sysroot/rw/work
+  mkdir -p /sysroot/rw/upper
+  mount_common "overlay" "/sysroot/overlay" "lowerdir=/sysroot/ro,upperdir=/sysroot/rw/upper,workdir=/sysroot/rw/work" "overlay"
+  mkdir -p /sysroot/overlay/boot
+  mount --move /boot /sysroot/overlay/boot
+}
+
+set_hostname() {
+  UID=$(sed 's/://g' /sys/class/net/eth0/address)
+  HOSTNAME="spark-${UID}"
+  progress "Setting hostname to $HOSTNAME"
+  echo ${HOSTNAME} > /sysroot/overlay/etc/hostname
+  echo -e "127.0.0.1\t${HOSTNAME}" >> /sysroot/overlay/etc/hosts
+  echo "UID=${UID}" >> /sysroot/overlay/etc/spark-release
+}
+
+factory_reset() {
+  if [ -f /sysroot/overlay/boot/.factoryreset ] ; then
+    progress "Factory reset"
+    rm -f /sysroot/overlay/boot/data.ext4 \
+      /sysroot/overlay/boot/.factoryreset
+  fi
+}
+
+create_data_mnt() {
+  if [ ! -f /sysroot/overlay/boot/data.ext4 ] ; then
+    progress "Creating data mount"
+    dd if=/dev/zero of=/sysroot/overlay/boot/data.ext4 bs=1M count=50
+    mkfs.ext4 -L data /sysroot/overlay/boot/data.ext4
+  fi
+}
+
+# main boot sequence
+usleep 2000000
+wait_debug_shell
+check_disks $boot
+mount_flash
+do_update
+prepare_sysroot
+set_hostname
+factory_reset
+create_data_mnt
+check_disks /sysroot/overlay/boot/data.ext4
+
+mount --move /dev /sysroot/overlay/dev
+mount --move /proc /sysroot/overlay/proc
+mount --move /sys /sysroot/overlay/sys
+
+exec switch_root /sysroot/overlay /sbin/init
+
+error "switch_root" "Error in initramfs. Could not switch to new root"

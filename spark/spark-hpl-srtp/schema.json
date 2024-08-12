@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-srtp",
+    "title": "SRTP",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "memoryArea",
+                    "address"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "memoryArea",
+                        "address"
+                    ],
+                    "properties": {
+                        "memoryArea": {
+                            "title": "Memory Area",
+                            "description": "The memory area to read",
+                            "type": "string",
+                            "enum": [
+                                "%R",
+                                "%AI",
+                                "%AQ",
+                                "%I",
+                                "%Q",
+                                "%T",
+                                "%M",
+                                "%SA",
+                                "%SB",
+                                "%SC",
+                                "%S",
+                                "%G"
+                            ]
+                        },
+                        "address": {
+                            "title": "Address",
+                            "description": "The address to read within the memory area",
+                            "type": "string",
+                            "pattern": "^[0-9]*[1-9][0-9]*$",
+                            "minLength": 1,
+                            "maxLength": 4
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

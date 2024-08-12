@@ -1,0 +1,24 @@
+#!/bin/sh -e
+
+REDIS_CLI=/usr/bin/redis-cli
+
+#wait until we can connect to redis
+printf "Connecting to redis "
+until ${REDIS_CLI} info >/dev/null 2>&1 ; do
+    printf '.'
+    sleep 1
+done
+printf '\n'
+
+echo "Deleting alerts"
+${REDIS_CLI} KEYS "alerts:*" | xargs ${REDIS_CLI} DEL >/dev/null 2>&1
+
+echo "Deleting non-persistent machine data"
+${REDIS_CLI} KEYS "machine:*:read:*" | xargs ${REDIS_CLI} DEL >/dev/null 2>&1
+${REDIS_CLI} KEYS "machine:*:write:*" | xargs ${REDIS_CLI} DEL >/dev/null 2>&1
+
+echo "Deleting obsolete machines"
+${REDIS_CLI} KEYS nconf:machines:spark-machine-wasabi:* | xargs ${REDIS_CLI}  DEL >/dev/null 2>&1
+${REDIS_CLI} SREM nconf:machines:keys "spark-machine-wasabi" >/dev/null 2>&1
+
+echo "Done"

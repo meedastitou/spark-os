@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "#networkProxy",
+    "title": "Network Proxy",
+    "type": "object",
+    "required": [
+        "method"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "method": {
+            "title": "Proxy Method",
+            "description": "Proxy method to use.  Choose direct to bypass the proxy and send messages directly.  Choose manual to set a proxy",
+            "type": "string",
+            "enum": [
+                "direct",
+                "manual"
+            ],
+            "default": "direct"
+        },
+        "netIf": {
+            "title": "Network Interface",
+            "description": "Network interface connected to the proxy",
+            "type": "string",
+            "minLength": 1
+        },
+        "url": {
+            "title": "Manual Proxy URL",
+            "description": "Proxy URL in for format http://hostname:port",
+            "type": "string",
+            "format": "uri"
+        }
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-dummy",
+    "title": "Dummy",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "type"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "type"
+                    ],
+                    "properties": {
+                        "type": {
+                            "title": "Type",
+                            "description": "Type of variable to generate",
+                            "type": "string",
+                            "enum": [
+                                "random",
+                                "sine",
+                                "cosine",
+                                "square",
+                                "error",
+                                "count",
+                                "static",
+                                "data",
+                                "RPI-temperature",
+                                "deliver-entire-response-results"
+                            ]
+                        },
+                        "staticvalue": {
+                            "title": "Static value",
+                            "type": "string",
+                            "default": "static"
+                        },
+                        "min": {
+                            "title": "Minimum value",
+                            "type": "number",
+                            "default": 0
+                        },
+                        "max": {
+                            "title": "Maximum value",
+                            "type": "number",
+                            "default": 100
+                        },
+                        "on_cycle": {
+                            "title": "On Cycle",
+                            "type": "integer",
+                            "default": 10
+                        },
+                        "off_cycle": {
+                            "title": "Off Cycle",
+                            "type": "integer",
+                            "default": 10
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

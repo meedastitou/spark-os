@@ -1,0 +1,384 @@
+[submodule "spark-config"]
+	path = spark-config
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-config.git
+	branch = master
+[submodule "spark-db"]
+	path = spark-db
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-db.git
+	branch = master
+[submodule "spark-hardware"]
+	path = spark-hardware
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hardware.git
+	branch = master
+[submodule "spark-hardware-detect"]
+	path = spark-hardware-detect
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hardware-detect.git
+	branch = master
+[submodule "spark-logging"]
+	path = spark-logging
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-logging.git
+	branch = master
+[submodule "spark-plugin"]
+	path = spark-plugin
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-plugin.git
+	branch = master
+[submodule "spark-protocol"]
+	path = spark-protocol
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol.git
+	branch = master
+[submodule "spark-protocol-http"]
+	path = spark-protocol-http
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-http.git
+	branch = master
+[submodule "spark-protocol-opcua"]
+	path = spark-protocol-opcua
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-opcua.git
+	branch = master
+[submodule "spark-protocol-rest"]
+	path = spark-protocol-rest
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-rest.git
+	branch = master
+[submodule "spark-protocol-websockets"]
+	path = spark-protocol-websockets
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-websockets.git
+	branch = master
+[submodule "spark-webadmin"]
+	path = spark-webadmin
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-webadmin.git
+	branch = master
+[submodule "spark-manual"]
+	path = spark-manual
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-manual.git
+	branch = master
+[submodule "spark-hpl-dummy"]
+	path = spark-hpl-dummy
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-dummy.git
+	branch = master
+[submodule "spark-machine-hpl"]
+	path = spark-machine-hpl
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-hpl.git
+	branch = master
+[submodule "spark-machines"]
+	path = spark-machines
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machines.git
+	branch = master
+[submodule "spark-hpl-modbus"]
+	path = spark-hpl-modbus
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-modbus.git
+	branch = master
+[submodule "spark-hpl-beckhoff-ads"]
+	path = spark-hpl-beckhoff-ads
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-beckhoff-ads.git
+	branch = master
+[submodule "spark-hpl-net"]
+	path = spark-hpl-net
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-net.git
+	branch = master
+[submodule "spark-hpl-serial"]
+	path = spark-hpl-serial
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-serial.git
+	branch = master
+[submodule "spark-os"]
+	path = spark-os
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-os.git
+	branch = master
+[submodule "spark-hpl-ble"]
+	path = spark-hpl-ble
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-ble.git
+	branch = master
+[submodule "spark-hpl-virtual"]
+	path = spark-hpl-virtual
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-virtual.git
+	branch = master
+[submodule "spark-protocol-mqtt-client"]
+	path = spark-protocol-mqtt-client
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-mqtt-client.git
+	branch = master
+[submodule "spark-hpl-siemens-s7"]
+	path = spark-hpl-siemens-s7
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-siemens-s7.git
+	branch = master
+[submodule "libas511"]
+	path = libas511
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/libas511.git
+	branch = spark
+[submodule "node-as511"]
+	path = node-as511
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-as511.git
+	branch = master
+[submodule "spark-hpl-siemens-s5"]
+	path = spark-hpl-siemens-s5
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-siemens-s5.git
+	branch = master
+[submodule "spark-machine-test-crash"]
+	path = spark-machine-test-crash
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-test-crash.git
+	branch = master
+[submodule "spark-protocol-test-crash"]
+	path = spark-protocol-test-crash
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-test-crash.git
+	branch = master
+[submodule "spark-protocol-aws-iot"]
+	path = spark-protocol-aws-iot
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-aws-iot.git
+	branch = master
+[submodule "spark-hpl-omron-fins"]
+	path = spark-hpl-omron-fins
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-omron-fins.git
+	branch = master
+[submodule "spark-hpl-fanuc"]
+	path = spark-hpl-fanuc
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-fanuc.git
+	branch = master
+[submodule "spark-hpl-opcua"]
+	path = spark-hpl-opcua
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-opcua.git
+	branch = master
+[submodule "spark-service-client"]
+	path = spark-service-client
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-service-client.git
+	branch = master
+[submodule "spark-hpl-yokogawa"]
+	path = spark-hpl-yokogawa
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-yokogawa.git
+	branch = master
+[submodule "spark-protocol-azure-iot-hub"]
+	path = spark-protocol-azure-iot-hub
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-azure-iot-hub.git
+	branch = master
+[submodule "spark-web-proxy"]
+	path = spark-web-proxy
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-web-proxy.git
+	branch = master
+[submodule "spark-machine-ppt-vision-dynamic"]
+	path = spark-machine-ppt-vision-dynamic
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-ppt-vision-dynamic.git
+	branch = master
+[submodule "spark-machine-mtconnect"]
+	path = spark-machine-mtconnect
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-mtconnect.git
+	branch = master
+[submodule "node-omron-hostlink"]
+	path = node-omron-hostlink
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-omron-hostlink.git
+	branch = master
+[submodule "node-s7-serial"]
+	path = node-s7-serial
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-s7-serial.git
+	branch = master
+[submodule "libnodave"]
+	path = libnodave
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/libnodave.git
+	branch = master
+[submodule "spark-hpl-keyence-hostlink"]
+	path = spark-hpl-keyence-hostlink
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-keyence-hostlink.git
+	branch = master
+[submodule "spark-machine-dataq"]
+	path = spark-machine-dataq
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-dataq.git
+	branch = master
+[submodule "spark-alert"]
+	path = spark-alert
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-alert.git
+	branch = master
+[submodule "spark-health-monitor"]
+	path = spark-health-monitor
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-health-monitor.git
+	branch = master
+[submodule "spark-hpl-yamada-dobby"]
+	path = spark-hpl-yamada-dobby
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-yamada-dobby.git
+	branch = master
+[submodule "node-ble"]
+	path = node-ble
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-ble.git
+	branch = master
+[submodule "spark-hpl-arburg"]
+	path = spark-hpl-arburg
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-arburg.git
+	branch = master
+[submodule "spark-hpl-soap"]
+	path = spark-hpl-soap
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-soap.git
+	branch = master
+[submodule "spark-machine-wac"]
+	path = spark-machine-wac
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-wac.git
+	branch = master
+[submodule "spark-protocol-google-cloud"]
+	path = spark-protocol-google-cloud
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-google-cloud.git
+	branch = master
+[submodule "spark-hpl-ab-ethernet"]
+	path = spark-hpl-ab-ethernet
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-ab-ethernet.git
+	branch = master
+[submodule "spark-hpl-ethernetip"]
+	path = spark-hpl-ethernetip
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-ethernetip.git
+	branch = master
+[submodule "spark-hpl-mitsubishi-fx"]
+	path = spark-hpl-mitsubishi-fx
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-mitsubishi-fx.git
+	branch = master
+[submodule "spark-hpl-scada"]
+	path = spark-hpl-scada
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-scada.git
+	branch = master
+[submodule "spark-hpl-sikora"]
+	path = spark-hpl-sikora
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-sikora.git
+	branch = master
+[submodule "spark-protocol-data-logger"]
+	path = spark-protocol-data-logger
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-data-logger.git
+	branch = master
+[submodule "spark-protocol-sparkplug"]
+	path = spark-protocol-sparkplug
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-sparkplug.git
+	branch = master
+[submodule "node-simple-ftpd"]
+	path = node-simple-ftpd
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-simple-ftpd.git
+	branch = master
+[submodule "spark-hpl-euromap63"]
+	path = spark-hpl-euromap63
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-euromap63.git
+	branch = master
+[submodule "spark-protocol-sql"]
+	path = spark-protocol-sql
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-sql.git
+	branch = master
+[submodule "spark-machine-spark"]
+	path = spark-machine-spark
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-spark.git
+	branch = master
+[submodule "spark-hpl-srtp"]
+	path = spark-hpl-srtp
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-srtp.git
+	branch = master
+[submodule "spark-hpl-scanner"]
+	path = spark-hpl-scanner
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-scanner.git
+	branch = master
+[submodule "spark-machine-otto-vision-dynamic"]
+	path = spark-machine-otto-vision-dynamic
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-otto-vision-dynamic.git
+	branch = master
+[submodule "spark-hpl-directnet"]
+	path = spark-hpl-directnet
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-directnet.git
+	branch = master
+[submodule "node-omron-fins"]
+	path = node-omron-fins
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-omron-fins.git
+	branch = master
+[submodule "spark-protocol-aws-kinesis"]
+	path = spark-protocol-aws-kinesis
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-aws-kinesis.git
+	branch = master
+[submodule "spark-mqtt-broker"]
+	path = spark-mqtt-broker
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-mqtt-broker.git
+	branch = master
+[submodule "spark-hpl-secs-gem"]
+	path = spark-hpl-secs-gem
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-secs-gem.git
+	branch = master
+[submodule "spark-hpl-marsilli"]
+	path = spark-hpl-marsilli
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-marsilli.git
+	branch = master
+[submodule "spark-hpl-mlan"]
+	path = spark-hpl-mlan
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-mlan.git
+	branch = master
+[submodule "spark-hpl-corona"]
+	path = spark-hpl-corona
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-corona.git
+	branch = master
+[submodule "spark-hpl-adc"]
+	path = spark-hpl-adc
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-adc.git
+	branch = master
+[submodule "spark-hpl-sql"]
+	path = spark-hpl-sql
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-sql.git
+	branch = master
+[submodule "spark-hpl-webdav"]
+	path = spark-hpl-webdav
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-webdav.git
+	branch = master
+[submodule "spark-protocol-grafana"]
+	path = spark-protocol-grafana
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-grafana.git
+	branch = master
+[submodule "spark-machine-deviceinfo"]
+	path = spark-machine-deviceinfo
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-deviceinfo.git
+	branch = master
+[submodule "spark-protocol-aws-iot-advanced"]
+	path = spark-protocol-aws-iot-advanced
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-aws-iot-advanced.git
+	branch = master
+[submodule "spark-machine-webdav-csv-dynamic"]
+	path = spark-machine-webdav-csv-dynamic
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-webdav-csv-dynamic.git
+	branch = master
+[submodule "spark-machine-webdav-txt-dynamic"]
+	path = spark-machine-webdav-txt-dynamic
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-webdav-txt-dynamic.git
+	branch = master
+[submodule "spark-hpl-kellerbus"]
+	path = spark-hpl-kellerbus
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-kellerbus.git
+	branch = master
+[submodule "spark-machine-ftp-csv-dynamic"]
+	path = spark-machine-ftp-csv-dynamic
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-ftp-csv-dynamic.git
+	branch = master
+[submodule "spark-hpl-modbus-multiclient"]
+	path = spark-hpl-modbus-multiclient
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-modbus-multiclient.git
+	branch = master
+[submodule "spark-machine-weather-sensor"]
+	path = spark-machine-weather-sensor
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-weather-sensor.git
+	branch = master
+[submodule "spark-hpl-silvac"]
+	path = spark-hpl-silvac
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-silvac.git
+	branch = master
+[submodule "spark-hpl-cognex"]
+	path = spark-hpl-cognex
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-cognex.git
+	branch = master
+[submodule "spark-hpl-sftp"]
+	path = spark-hpl-sftp
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-sftp.git
+	branch = master
+[submodule "spark-hpl-sftp-xml"]
+	path = spark-hpl-sftp-xml
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-sftp-xml.git
+	branch = master
+[submodule "spark-hpl-sftp-cleanlaser"]
+	path = spark-hpl-sftp-cleanlaser
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-sftp-cleanlaser.git
+	branch = master
+[submodule "spark-hpl-sftp-file-cleanup"]
+	path = spark-hpl-sftp-file-cleanup
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-sftp-file-cleanup.git
+	branch = master
+[submodule "spark-protocol-sql-2"]
+	path = spark-protocol-sql-2
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-sql-2.git
+	branch = master
+[submodule "spark-protocol-sql-multi-table"]
+	path = spark-protocol-sql-multi-table
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-sql-multi-table.git
+	branch = master
+[submodule "spark-hpl-euromap63-multiclient"]
+	path = spark-hpl-euromap63-multiclient
+	url = https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-euromap63-multiclient.git
+	branch = master

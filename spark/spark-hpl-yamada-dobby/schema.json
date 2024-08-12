@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-yamada-dobby",
+    "title": "Yamada-Dobby",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "properties": {
+                        "requestKey": {
+                            "title": "Request Key",
+                            "description": "The key used to request this variable's data from the server",
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "bitRead": {
+                            "title": "Bit Read",
+                            "description": "Which bit to read (0-15) if not wanting to read the whole 16bit word. Format should be set to bool",
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 15
+                        },
+                        "alarmVariable": {
+                            "title": "Alarm Variable",
+                            "description": "If set to true this will be a special alarm variable. The 'Format' should be set to 'int16', and the 'Request Key' will be ignored",
+                            "type": "boolean"
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "defaultProperties" : [
+                      "highByteFirst",
+                      "highWordFirst",
+                      "disconnectReportTime"
+                    ],
+                    "properties": {
+                        "highByteFirst": {
+                            "title": "High Byte First",
+                            "description": "Expected order of bytes recieved for 16 and 32 bit data.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "highWordFirst": {
+                            "title": "High Word First",
+                            "description": "Expected order of words recieved for 32 bit data.",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

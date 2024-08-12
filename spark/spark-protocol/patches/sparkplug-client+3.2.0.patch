@@ -1,0 +1,33 @@
+diff --git a/node_modules/sparkplug-client/index.js b/node_modules/sparkplug-client/index.js
+index 5b9b6a3..1ffbe9e 100644
+--- a/node_modules/sparkplug-client/index.js
++++ b/node_modules/sparkplug-client/index.js
+@@ -258,7 +258,7 @@ function SparkplugClient(config) {
+         messageAlert("published", topic, payload);
+     };
+ 
+-    // Publishes Node BIRTH certificates for the edge node
++    // Publishes Device Data messages for the edge node
+     this.publishDeviceData = function(deviceId, payload, options) {
+         var topic = version + "/" + groupId + "/DDATA/" + edgeNode + "/" + deviceId;
+         // Add seq number
+@@ -269,7 +269,7 @@ function SparkplugClient(config) {
+         messageAlert("published", topic, payload);
+     };
+ 
+-    // Publishes Node BIRTH certificates for the edge node
++    // Publishes Device BIRTH certificates for the edge node
+     this.publishDeviceBirth = function(deviceId, payload, options) {
+         var topic = version + "/" + groupId + "/DBIRTH/" + edgeNode + "/" + deviceId;
+         // Add seq number
+@@ -281,8 +281,8 @@ function SparkplugClient(config) {
+         messageAlert("published", topic, p);
+     };
+ 
+-    // Publishes Node BIRTH certificates for the edge node
+-    this.publishDeviceDeath = function(deviceId, payload) {
++    // Publishes Device DEATH certificates for the edge node
++    this.publishDeviceDeath = function(deviceId, payload, options) {
+         var topic = version + "/" + groupId + "/DDEATH/" + edgeNode + "/" + deviceId;
+         // Add seq number
+         addSeqNumber(payload);

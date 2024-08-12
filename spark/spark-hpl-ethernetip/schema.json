@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "spark-hpl-ethernetip",
+    "title": "Ethernet/IP",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "requestType",
+                    "controllerVariable"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "properties": {
+                        "requestType": {
+                            "title": "Request Type",
+                            "description": "The type of information being requested",
+                            "type": "string",
+                            "enum": [
+                                "variable",
+                                "vendor ID",
+                                "device type",
+                                "product code",
+                                "revision",
+                                "status",
+                                "serial number",
+                                "product name"
+                            ]
+                        },
+                        "controllerVariable": {
+                            "title": "Controller Variable",
+                            "description": "The name of the variable within the controller",
+                            "type": "string"
+                        },
+                        "programScope": {
+                            "title": "Program Scope Variable",
+                            "description": "If true, the associated machine variable has program scope",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "programName": {
+                            "title": "Program Name",
+                            "description": "The name of the program in which the associated machine variable has program scope",
+                            "type": "string"
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

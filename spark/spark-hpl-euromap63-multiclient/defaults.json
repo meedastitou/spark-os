@@ -1,0 +1,170 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "webdavUrl": "",
+            "webdavUrlHTTPS": false,
+            "serverMachineNameList": "",
+            "webdavUsername": "anonymous",
+            "webdavPassword": "",
+            "sessionNumber": 0,
+            "cyclicType": "time",
+            "cyclicTime": 15,
+            "cyclicShotCount": 1,
+            "filePollingTime": 2,
+            "deliverEntireResponse": false,
+            "timestampFields": "",
+            "useFiledateForTimestampDate": false,
+            "utcOffset": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-euromap63-multiclient",
+            "required": [
+                "enable",
+                "sessionNumber",
+                "cyclicType",
+                "publishDisabled"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Euromap 63 Multi-client Machine",
+                    "type": "boolean"
+                },
+                "webdavUrl": {
+                    "title": "WebDAV BASE URL",
+                    "description": "The Base URL of the WebDAV server",
+                    "type": "string"
+                },
+                "webdavUrlHTTPS": {
+                    "title": "Use HTTPS for WebDAV BASE URL",
+                    "description": "When selected, we will use HTTPS://WebDAV-BASE-URL.  Otherwise, HTTP://WebDAV-BASE-URL",
+                    "type": "boolean"
+                },
+                "serverMachineNameList": {
+                    "title": "The list of the server folders and their associated machine name",
+                    "description": "The list of the server folders and the associated machine names.  Format is Folder-1:MachineName-1,Folder-2:MachineName-2,...,Folder-n:MachineName-n.  Note that if the MachineName is ommitted, it will be automatically generated as machine definition name, appended with the folder.  Also note that there are no spaces in the list.",
+                    "type": "string"
+                },
+                "webdavUsername": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string"
+                },
+                "webdavPassword": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "sessionNumber": {
+                    "title": "Session Number",
+                    "description": "The session number used by this Euromap 63 machine",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10,
+                    "default": 0
+                },
+                "cyclicType": {
+                    "title": "Cyclic Type",
+                    "description": "Choose either \"time\" or \"shot\" for cyclic type.",
+                    "type": "string",
+                    "enum": ["time", "shot"]
+                },
+                "cyclicTime": {
+                    "title": "Cyclic Time",
+                    "description": "The amount of time (in seconds) between sending reports",
+                    "type": "integer",
+                    "minimum": 10,
+                    "maximum": 3600
+                },
+                "cyclicShotCount": {
+                    "title": "Cyclic Shot Count",
+                    "description": "The number of shots between sending reports",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10000
+                },
+                "filePollingTime": {
+                    "title": "File Polling Time",
+                    "description": "The number of seconds between polling the server for new files",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100
+                },
+                "deliverEntireResponse": {
+                    "title": "Deliver Entire Response",
+                    "description": "Set to true to deliver the entire machine response as variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "timestampFields": {
+                    "title": "Timestamp Field(s)",
+                    "description": "The field(s) to use to generate a row's timestamp.  For machine definitions where the data and time are in two different variables, enter date-variable, time-variable",
+                    "type": "string",
+                    "default": "1"
+                },
+                "useFiledateForTimestampDate": {
+                  "title": "Use File Date for Timestamp Date",
+                  "description": "If this box is checked, the date and time of the file will be used for the row data's timestamp.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "webdavUrl",
+            "webdavUrlHTTPS",
+            "serverMachineNameList",
+            "webdavUsername",
+            "webdavPassword",
+            "sessionNumber",
+            "cyclicType",
+            {
+                "condition": "model.cyclicType=='time'",
+                "key": "cyclicTime"
+            },
+            {
+                "condition": "model.cyclicType=='shot'",
+                "key": "cyclicShotCount"
+            },
+            "filePollingTime",
+            "deliverEntireResponse",
+            {
+                "condition": "model.deliverEntireResponse==true",
+                "key": "timestampFields"
+            },
+            {
+              "condition": "model.deliverEntireResponse==true",
+              "key": "useFiledateForTimestampDate"
+            },
+            {
+                "condition": "model.deliverEntireResponse==true&&model.timestampField!=''||model.useFiledateForTimestampDate==true",
+                "key": "utcOffset"
+            },
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

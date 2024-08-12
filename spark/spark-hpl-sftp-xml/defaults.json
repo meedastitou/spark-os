@@ -1,0 +1,201 @@
+{
+    "settings": {
+        "model": {
+          "enable": false,
+          "sftpUrl": "",
+          "sftpPort": 22,
+          "sftpFolder": "/",
+          "username": "anonymous",
+          "password": "",
+          "checkArchiveFolder": false,
+          "sftpArchiveFolder": "/",
+          "sftpArchiveCheckFrequency": 100,
+          "moveProcessedFilesToArchiveFolder": false,
+          "sftpProcessedFilesArchiveFolder": "/",
+          "useOutputProtocolForFileOperationPermission": false,
+          "autoParsePinData": false,
+          "autoParseVariableNamePrefixFilter": "",
+          "readFrequency": 10,
+          "deliverEntireResponse": false,
+          "includeFilenameInCombinedData": false,
+          "utcOffset": 0,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-sftp-xml",
+            "required": [
+              "enable",
+              "sftpUrl",
+              "sftpPort",
+              "sftpFolder",
+              "username",
+              "password",
+              "readFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the SFTP xml Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "sftpUrl": {
+                    "title": "SFTP URL",
+                    "description": "The URL of the SFTP server",
+                    "type": "string",
+                    "required": true
+                },
+                "sftpPort": {
+                    "title": "SFTP Port Number",
+                    "description": "The port number of the SFTP server",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9999,
+                    "required": true
+                },
+                "sftpFolder": {
+                    "title": "SFTP Folder",
+                    "description": "The folder-name to search for on the SFTP server.  Path: /Images/yyyy/mmdd/hr/folder-name",
+                    "type": "string",
+                    "required": true
+                },
+                "username": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "checkArchiveFolder": {
+                    "title": "Check Archive Folder",
+                    "description": "If checked, the archive folder will be used to perform periodic reads of an archive folder.  Any un-processed files found in the archive folder since the last read will then be processed.",
+                    "type": "boolean"
+                },
+                "sftpArchiveFolder": {
+                    "title": "SFTP Archive Folder",
+                    "description": "The folder-name to search for archive files on the SFTP server.",
+                    "type": "string"
+                },
+                "sftpArchiveCheckFrequency": {
+                    "title": "Time between reads of the archive folder (in seconds)",
+                    "description": "The time to wait between each search and read of un-processed xml files in the archive folder.  Since this search replaces the normally scheduled base-folder check, this time should be considerably greater than the normal read frequency value.",
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 600
+                },
+                "moveProcessedFilesToArchiveFolder": {
+                    "title": "Move Processed Files to Archive Folder",
+                    "description": "If checked, any processed files will be moved to a desgnated archive folder after processing.  This will happen immediately after processing unless the 'Use Output Protocol for File Move Permission' option is checked.",
+                    "type": "boolean"
+                },
+                "sftpProcessedFilesArchiveFolder": {
+                    "title": "SFTP Archive Folder for processed files",
+                    "description": "The folder-name to use for moving processed files.",
+                    "type": "string"
+                },
+                "useOutputProtocolForFileOperationPermission": {
+                    "title": "Use Output Protocol for File Move Permission",
+                    "description": "If checked, files will only be moved after receiving a permission file from the output protocol.  When the output protocol has processed the data, it will write the permission file to the original folder, allowing the processed file to be moved to the desgnated archive.",
+                    "type": "boolean"
+                },
+                "autoParsePinData": {
+                    "title": "Auto-Parse Pin Data",
+                    "description": "If checked, any Pin data will be parsed automatically and delivered as discrete variables when found in the xml file",
+                    "type": "boolean"
+                },
+                "autoParseVariableNamePrefixFilter": {
+                    "title": "Auto-Parse Variable Name Prefix Filter",
+                    "description": "For auto-parse variables, this field can be used to remove any constant prefix from the generated variables.  Example: VvExtDataExportXml.DataModel.Panel.Board1",
+                    "type": "string"
+                },
+                "readFrequency": {
+                    "title": "Time between reads of the sftp server (in seconds)",
+                    "description": "The time to wait between each search and read of new xml files.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 600,
+                    "required": true
+                },
+                "deliverEntireResponse": {
+                    "title": "Deliver Entire Response",
+                    "description": "Set to true to deliver the entire machine response as variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "includeFilenameInCombinedData": {
+                  "title": "Include Filename in Combined Data",
+                  "description": "If this box is checked, the filename that generated the delivered data will be included as a new filename field in the combined-result.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "sftpUrl",
+            "sftpPort",
+            "sftpFolder",
+            "username",
+            "password",
+            "checkArchiveFolder",
+            {
+                "condition": "model.checkArchiveFolder==true",
+                "key": "sftpArchiveFolder"
+            },
+            {
+                "condition": "model.checkArchiveFolder==true",
+                "key": "sftpArchiveCheckFrequency"
+            },
+            {
+                "condition": "model.checkArchiveFolder==false",
+                "key": "moveProcessedFilesToArchiveFolder"
+            },
+            {
+                "condition": "model.checkArchiveFolder==false&&model.moveProcessedFilesToArchiveFolder==true",
+                "key": "sftpProcessedFilesArchiveFolder"
+            },
+            {
+                "condition": "model.checkArchiveFolder==false&&model.moveProcessedFilesToArchiveFolder==true",
+                "key": "useOutputProtocolForFileOperationPermission"
+            },
+            "autoParsePinData",
+            {
+                "condition": "model.autoParsePinData==true",
+                "key": "autoParseVariableNamePrefixFilter"
+            },
+            "readFrequency",
+            "deliverEntireResponse",
+            {
+                "condition": "model.deliverEntireResponse==true",
+                "key": "includeFilenameInCombinedData"
+            },
+            "utcOffset",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

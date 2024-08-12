@@ -1,0 +1,22 @@
+{
+    "info": {
+        "name": "spark-machine-torbal-scale",
+        "fullname": "Torbal Scale",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Torbal Scale",
+        "hpl": "serial"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub",
+            "baudRate": "4800",
+            "parity": "none"
+        }
+    },
+    "variables": [{
+        "name": "Weight",
+        "description": "Weight",
+        "regex": "([\\d\\.]{1,8})",
+        "format": "float"
+    }]
+}

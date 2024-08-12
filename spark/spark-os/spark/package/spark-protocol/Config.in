@@ -1,0 +1,12 @@
+config BR2_PACKAGE_SPARK_PROTOCOL
+	bool "spark-protocol"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_REDIS
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark Protocol layer
+
+config BR2_PACKAGE_SPARK_PROTOCOL_MODULES
+	string "Additional modules"
+	help
+	  List of space-separated spark plugins to install.

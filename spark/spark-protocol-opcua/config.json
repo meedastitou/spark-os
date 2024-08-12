@@ -1,0 +1,33 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "opcuaPort": 4334
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-opcua",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the OPC-UA Server.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "opcuaPort": {
+                    "title": "OPC-UA listen port",
+                    "description": "The OPC-UA port to connect to.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535,
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "opcuaPort"
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
+        parallelsAlwaysFailFast()
+    }
+    triggers {
+        // poll git for changes every fifteen minutes
+        pollSCM('H/15 * * * *')
+        // also run the build around midnight
+        // will be between 12:00AM and 2:59AM
+        cron('@midnight')
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'make test'
+            }
+        }
+        stage('Release Setup') {
+            steps {
+                // setup the buildroot directory
+                sh 'make spark-os-setup'
+            }
+        }
+        stage('Release Build') {
+            parallel {
+                stage('manuals') {
+                    steps {
+                        sh 'make manual'
+                    }
+                }
+                stage('x86_64') {
+                    steps {
+                        sh 'make spark-os-x86_64'
+                    }
+                }
+                stage('rpi3') {
+                    steps {
+                        sh 'make spark-os-rpi3'
+                    }
+                }
+                stage('rpi4') {
+                    steps {
+                        sh 'make spark-os-rpi4'
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'release/**/*', fingerprint: true
+
+            step([$class: 'Mailer',
+                notifyEveryUnstableBuild: true,
+                recipients: "martin.bark@te.com matthew.miller@te.com mike.strong@te.com adhavann.ramalingam@te.com",
+                sendToIndividuals: false])
+        }
+    }
+}

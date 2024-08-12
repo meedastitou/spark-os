@@ -1,0 +1,116 @@
+{
+    "settings": {
+        "model": {
+          "enable": false,
+          "sftpUrl": "",
+          "sftpPort": 22,
+          "sftpFolder": "/",
+          "username": "anonymous",
+          "password": "",
+          "cleanupAgeLimit": 20,
+          "checkFrequency": 60,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-sftp-file-cleanup",
+            "required": [
+              "enable",
+              "sftpUrl",
+              "sftpPort",
+              "sftpFolder",
+              "username",
+              "password",
+              "cleanupAgeLimit",
+              "stripLeadingSlashForDeleteDirectoryPath",
+              "checkFrequency"
+            ],
+            "properties": {
+              "enable": {
+                  "title": "Enable",
+                  "description": "Enable/Disable the File Cleanup Machine",
+                  "type": "boolean",
+                  "required": true
+              },
+              "sftpUrl": {
+                  "title": "SFTP URL",
+                  "description": "The URL of the SFTP server",
+                  "type": "string",
+                  "required": true
+              },
+              "sftpPort": {
+                  "title": "SFTP Port Number",
+                  "description": "The port number of the SFTP server",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9999,
+                  "required": true
+              },
+              "sftpFolder": {
+                  "title": "SFTP Folder",
+                  "description": "The folder to search on the SFTP server",
+                  "type": "string",
+                  "required": true
+              },
+              "username": {
+                  "title": "Username",
+                  "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                  "type": "string",
+                  "required": true
+              },
+              "password": {
+                  "title": "Password",
+                  "description": "The password for the login (leave blank for anonymous login).",
+                  "type": "string"
+              },
+              "cleanupAgeLimit": {
+                  "title": "The maximum age of files to retain, not delete (in days)",
+                  "description": "Age in days to use for filtering files to delete.",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 365,
+                  "required": true
+              },
+              "stripLeadingSlashForDeleteDirectoryPath": {
+                  "title": "Strip Leading Slash For Delete Directory Path",
+                  "description": "If checked, we will remove the leading slash from the path to delete a directory.  Leave unchecked for directories that are based off the file system root.",
+                  "type": "boolean"
+              },
+              "checkFrequency": {
+                  "title": "Time between checks of the sftp server (in seconds)",
+                  "description": "The time to wait between each check of the sftp server for new folders to purge.",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 86400,
+                  "required": true
+              },
+              "publishDisabled": {
+                  "title": "Output Publish Disabled",
+                  "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                  "type": "boolean"
+              },
+              "connectionStatus" : {
+                "title": "Connected",
+                "description": "Whether or not the Spark is connected to this machine",
+                "type": "boolean",
+                "readOnly": true
+              }
+            }
+        },
+        "form": [
+          "enable",
+          "sftpUrl",
+          "sftpPort",
+          "sftpFolder",
+          "username",
+          "password",
+          "cleanupAgeLimit",
+          "stripLeadingSlashForDeleteDirectoryPath",
+          "checkFrequency",
+          "publishDisabled",
+          "connectionStatus"
+        ]
+    }
+}

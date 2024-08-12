@@ -1,0 +1,10 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/coverage"]
+WORKDIR /app/spark-hpl-ble
+COPY node-ble /app/node-ble
+COPY spark-hpl-ble/package.json spark-hpl-ble/yarn.lock /app/spark-hpl-ble/
+RUN yarn install --frozen-lockfile
+COPY spark-hpl-ble /app/spark-hpl-ble
+CMD ["yarn", "test"]

@@ -1,0 +1,138 @@
+{
+  "info": {
+    "description": "Sensing Application for Cavity Pressure Sensor",
+    "version": "1.0.0",
+    "name": "gl_opcua_senselinc_cavpress",
+    "fullname": "SenseLinc Cavity Pressure",
+    "hpl": "opcua"
+  },
+  "variables": [
+    {
+      "name": "Cav1_pressure_Scaled",
+      "description": "Cavity 1 Pressure (bar) timeseries (1khz sampling)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_1",
+      "array": true,
+      "onChange": true,
+      "outputFormat": "char"
+    },
+    {
+      "name": "Cav1_pressure_Max",
+      "description": "Cavity 1 Pressure Max(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_1_maxPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav1_pressure_Min",
+      "description": "Cavity 1 Pressure Min(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_1_minPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav1_pressure_Integral",
+      "description": "Cavity 1 Pressure Integral",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_1_integral",
+      "onChange": true
+    },
+    {
+      "name": "Cav2_pressure_Scaled",
+      "description": "Cavity 2 Pressure (bar) timeseries (1khz sampling)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_2",
+      "array": true,
+      "onChange": true,
+      "outputFormat": "char"
+    },
+    {
+      "name": "Cav2_pressure_Max",
+      "description": "Cavity 2 Pressure Max(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_2_maxPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav2_pressure_Min",
+      "description": "Cavity 2 Pressure Min(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_2_minPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav2_pressure_Integral",
+      "description": "Cavity 2 Pressure Integral",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_2_integral",
+      "onChange": true
+    },
+    {
+      "name": "Cav3_pressure_Scaled",
+      "description": "Cavity 3 Pressure (bar) timeseries (1khz sampling)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_3",
+      "array": true,
+      "onChange": true,
+      "outputFormat": "char"
+    },
+    {
+      "name": "Cav3_pressure_Max",
+      "description": "Cavity 3 Pressure Max(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_3_maxPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav3_pressure_Min",
+      "description": "Cavity 3 Pressure Min(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_3_minPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav3_pressure_Integral",
+      "description": "Cavity 3 Pressure Integral",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_3_integral",
+      "onChange": true
+    },
+    {
+      "name": "Cav4_pressure_Scaled",
+      "description": "Cavity 4 Pressure (bar) timeseries (1khz sampling)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_4",
+      "array": true,
+      "onChange": true,
+      "outputFormat": "char"
+    },
+    {
+      "name": "Cav4_pressure_Max",
+      "description": "Cavity 4 Pressure Max(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_4_maxPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav4_pressure_Min",
+      "description": "Cavity 4 Pressure Min(bar)",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_4_minPeak",
+      "onChange": true
+    },
+    {
+      "name": "Cav4_pressure_Integral",
+      "description": "Cavity 4 Pressure Integral",
+      "format": "float",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_4_integral",
+      "onChange": true
+    },
+    {
+      "name": "Measure_Count",
+      "description": "Measurement Trigger Count Value",
+      "format": "int32",
+      "nodeId": "ns=4;s=|var|CODESYS Control for BeagleboneBlack SL.SenseLinc_App.Spark_Publish.r_variable_count",
+      "onChange": true
+    }
+  ]
+}

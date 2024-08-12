@@ -1,0 +1,13 @@
+[Unit]
+Description=Spark MQTT Broker
+
+[Service]
+User=spark-mqtt-broker
+Group=spark-mqtt-broker
+SyslogIdentifier=spark-mqtt-broker
+ExecStart=/usr/bin/node --max_old_space_size=50 /usr/bin/spark-mqtt-broker
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-mqtt-broker
+
+[Install]
+WantedBy=multi-user.target

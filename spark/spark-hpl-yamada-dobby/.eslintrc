@@ -1,0 +1,11 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "extends": "eslint-config-airbnb",
+  "rules": {
+    "max-len": ["error", 125, {
+      "ignoreStrings": true
+    }]
+}}

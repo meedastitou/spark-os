@@ -1,0 +1,9 @@
+node_modules/
+.nyc_output/
+coverage/
+.DS_Store
+package-lock.json
+*.log
+test/mydb
+consumer/node_modules/
+consumer/consumer.zip

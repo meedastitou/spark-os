@@ -1,0 +1,33 @@
+From 95829456e5a210e7053e7a0350c249e61c958d77 Mon Sep 17 00:00:00 2001
+From: Martin Bark <martin@barkynet.com>
+Date: Tue, 14 Jun 2016 13:59:02 +0100
+Subject: [PATCH] bt-agent: fix not shutting down from SIGTERM
+
+bt-agent does not receive an unregistered callback signal in BlueZ 5, even
+when the agent manager successfully unregisters the agent. This is a known
+issue that results in the need for two SIGINT to exit bt-agent.
+
+Work around this by simply not attempting to unregistered from BlueZ 5.
+It is not necessary since BlueZ 5 will see bt-agent disconnect from dbus
+and unregister it anyway.
+
+Signed-off-by: Martin Bark <martin@barkynet.com>
+---
+ src/bt-agent.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/bt-agent.c b/src/bt-agent.c
+index feabaa6..7f6f044 100644
+--- a/src/bt-agent.c
++++ b/src/bt-agent.c
+@@ -41,7 +41,7 @@
+ #include "lib/agent-helper.h"
+ #include "lib/bluez-api.h"
+
+-static gboolean need_unregister = TRUE;
++static gboolean need_unregister = FALSE;
+ static GMainLoop *mainloop = NULL;
+
+ static GHashTable *pin_hash_table = NULL;
+--
+2.7.4

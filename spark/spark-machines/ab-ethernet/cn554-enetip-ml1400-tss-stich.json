@@ -1,0 +1,149 @@
+{
+  "info": {
+    "description": "cn554-enetip-ml1400-tss-stich",
+    "name": "cn554-enetip-ml1400-tss-stich",
+    "version": "1.0.0",
+    "fullname": "cn554-enetip-ml1400-tss-stich",
+    "hpl": "ab-ethernet"
+  },
+  "variables": [
+    {
+      "name": "manual-mode",
+      "description": "Manual Mode",
+      "format": "bool",
+      "address": "B3:10/0"
+    },
+    {
+      "name": "single-mode",
+      "description": "Single Mode",
+      "format": "bool",
+      "address": "B3:10/1"
+    },
+    {
+      "name": "auto-mode",
+      "description": "Auto Mode",
+      "format": "bool",
+      "address": "B3:10/2"
+    },
+    {
+      "name": "auto-running",
+      "description": "Machine Auto Running",
+      "format": "bool",
+      "address": "B3:10/3"
+    },
+    {
+      "name": "e-stop",
+      "description": "EMERGENCY STOP  ",
+      "format": "bool",
+      "address": "B3:10/4"
+    },
+    {
+      "name": "air-pressure-low",
+      "description": "AIR PRESSURE LOW   \t",
+      "format": "bool",
+      "address": "B3:10/5"
+    },
+    {
+      "name": "clutch-error",
+      "description": "Clutch Error ",
+      "format": "bool",
+      "address": "B3:10/6"
+    },
+    {
+      "name": "pusher-error",
+      "description": "Pusher Error (X000)",
+      "format": "bool",
+      "address": "B3:10/7"
+    },
+    {
+      "name": "contact-feed-error",
+      "description": "Contact Feed Error (X001)",
+      "format": "bool",
+      "address": "B3:10/8"
+    },
+    {
+      "name": "contact-splice",
+      "description": "Contact Splice (X008)",
+      "format": "bool",
+      "address": "B3:10/9"
+    },
+    {
+      "name": "no-contact",
+      "description": "No Contact (X007)",
+      "format": "bool",
+      "address": "B3:10/10"
+    },
+    {
+      "name": "contact-reel",
+      "description": "Contact Reel (X102/X103)",
+      "format": "bool",
+      "address": "B3:10/11"
+    },
+    {
+      "name": "hsg-error-x010",
+      "description": "HSG ERROR X010",
+      "format": "bool",
+      "address": "B3:10/12"
+    },
+    {
+      "name": "hsg-error-x011",
+      "description": "HSG ERROR X011",
+      "format": "bool",
+      "address": "B3:10/13"
+    },
+    {
+      "name": "hsg-error-x012",
+      "description": "HSG ERROR X012",
+      "format": "bool",
+      "address": "B3:10/14"
+    },
+    {
+      "name": "hsg-error-x013x014",
+      "description": "HSG ERROR X013 X014",
+      "format": "bool",
+      "address": "B3:10/15"
+    },
+    {
+      "name": "hsg-jam-aft-ejector",
+      "description": "HSG JAM AFT EJECTOR (X015)",
+      "format": "bool",
+      "address": "B3:11/0"
+    },
+    {
+      "name": "ejector-open-error",
+      "description": "Ejector Open Error (X101)",
+      "format": "bool",
+      "address": "B3:11/1"
+    },
+    {
+      "name": "good-part-counter",
+      "description": "Good Products Count\t",
+      "format": "int16",
+      "address": "L12:12"
+    },
+    {
+      "name": "cycle-time",
+      "description": "Cycle Time",
+      "format": "int16",
+      "address": "L12:30"
+    },
+    {
+      "name": "Ignition-reset-counter-and-cycle-time",
+      "description": "Reset Part Counter by Ignition",
+      "format": "bool",
+      "address": "B3:15/0"
+    },
+    {
+      "name": "mc-insertion-timing-error",
+      "description": "M/C Insertion Timing Error",
+      "format": "bool",
+      "address": "B3:11/2"
+    },
+    {
+      "name": "packing-setting-error",
+      "description": "Packing Setting Error",
+      "format": "bool",
+      "address": "B3:11/3"
+    }
+  ]
+}

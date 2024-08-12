@@ -1,0 +1,40 @@
+{
+  "name": "spark-hpl-dummy",
+  "fullname": "Dummy HPL",
+  "version": "0.0.1",
+  "description": "Spark HPL for a fake device",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint *.js test --color",
+    "pretest": "yarn lint",
+    "test": "nyc --reporter=text --reporter=html mocha --bail --exit",
+    "posttest": "nyc check-coverage --statements 98 --functions 100 --branches 96 --lines 98"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-dummy.git"
+  },
+  "keywords": [
+    "Spark"
+  ],
+  "author": {
+    "name": "Martin Bark",
+    "email": "martin.bark@te.com"
+  },
+  "dependencies": {
+    "node-raspi": "1.0.1",
+    "lodash": "4.17.10"
+  },
+  "devDependencies": {
+    "bunyan": "1.8.12",
+    "chai": "4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "mocha": "5.2.0",
+    "nyc": "12.0.2"
+  }
+}

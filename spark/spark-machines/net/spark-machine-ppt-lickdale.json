@@ -1,0 +1,67 @@
+{
+    "info": {
+        "name": "spark-machine-ppt-lickdale",
+        "fullname": "PPT Lickdale",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a PPT Machine Vision System in Lickdale",
+        "hpl": "net"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub as server",
+            "port": 10000,
+            "separator": ","
+        }
+    },
+    "variables": [{
+        "name": "Date",
+        "description": "The date associated with this part",
+        "csvPos": 0,
+        "format": "char"
+    }, {
+        "name": "Time",
+        "description": "The time associated with this this part",
+        "csvPos": 1,
+        "format": "char"
+    }, {
+        "name": "DeformedPart",
+        "description": "Whether the part is deformed",
+        "csvPos": 3,
+        "format": "int8"
+    }, {
+        "name": "InsulationUWidth",
+        "description": "Insulation Width in micrometers",
+        "csvPos": 5,
+        "format": "float"
+    }, {
+        "name": "WireUWidth",
+        "description": "Wire Width in micrometers",
+        "csvPos": 7,
+        "format": "float"
+    }, {
+        "name": "TopLanceHt",
+        "description": "Top Lance Height",
+        "csvPos": 9,
+        "format": "float"
+    }, {
+        "name": "BottomLanceHt",
+        "description": "Bottom Lance Height",
+        "csvPos": 11,
+        "format": "float"
+    }, {
+        "name": "NoseWidth",
+        "description": "Nose Width",
+        "csvPos": 13,
+        "format": "float"
+    }, {
+        "name": "Result",
+        "description": "The result associated with this part",
+        "csvPos": 14,
+        "format": "char"
+    }, {
+        "name": "Count",
+        "description": "The parts counter",
+        "csvPos": 15,
+        "format": "int32"
+    }]
+}

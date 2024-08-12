@@ -1,0 +1,5 @@
+NODE_ENV=production
+LOG_SYSLOG=spark-webadmin
+HTTP_HOSTNAME=127.0.0.1
+SHUTDOWN_CMD=sudo /usr/sbin/spark-shutdown
+UPDATE_CMD=sudo /usr/sbin/update-spark

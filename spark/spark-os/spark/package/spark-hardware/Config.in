@@ -1,0 +1,13 @@
+config BR2_PACKAGE_SPARK_HARDWARE
+	bool "spark-hardware"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_REDIS
+	select BR2_PACKAGE_LIBUSB
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark Hardware layer
+
+config BR2_PACKAGE_SPARK_HARDWARE_MODULES
+	string "Additional modules"
+	help
+	  List of space-separated spark plugins to install.

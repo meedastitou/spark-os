@@ -1,0 +1,117 @@
+#!/bin/sh
+
+DATE=$(date -u "+%Y%m%d-%H%M%S")
+HOSTNAME=$(hostname -f)
+TMP_DIR=/tmp
+LOG_STORE=/var/lib/spark/logs
+LOG_NAME=${HOSTNAME}-${DATE}
+LOG_DIR=${TMP_DIR}/${LOG_NAME}
+LOG_ARCHIVE=${LOG_STORE}/${LOG_NAME}.tar.gz
+
+echo "Gathering logs, please wait"
+
+rm -rf ${LOG_DIR}
+
+mkdir -p ${LOG_STORE}
+mkdir -p ${LOG_DIR}/sysroot/data
+rsync -a --exclude="lost+found" /data/ ${LOG_DIR}/sysroot/data/
+
+mkdir -p ${LOG_DIR}/sysroot/var/lib/systemd/coredump
+rsync -a /var/lib/systemd/coredump/ ${LOG_DIR}/sysroot/var/lib/systemd/coredump/
+
+mkdir -p ${LOG_DIR}/sysroot/etc
+cp -a /etc/spark-release ${LOG_DIR}/sysroot/etc
+cp -a /etc/os-release ${LOG_DIR}/sysroot/etc
+cp -a /etc/spark.json ${LOG_DIR}/sysroot/etc
+cp -a /etc/resolv.conf ${LOG_DIR}/sysroot/etc
+
+printf "\n########## journalctl ##########\n\n" >> ${LOG_DIR}/journal.log
+journalctl >> ${LOG_DIR}/journal.log
+
+printf "\n########## dmesg ##########\n\n" >> ${LOG_DIR}/dmesg.log
+dmesg >> ${LOG_DIR}/dmesg.log
+
+printf "\n########## cat /proc/cpuinfo ##########\n\n" >> ${LOG_DIR}/system.log
+cat /proc/cpuinfo >> ${LOG_DIR}/system.log
+
+printf "\n########## uname -a ##########\n\n" >> ${LOG_DIR}/system.log
+uname -a >> ${LOG_DIR}/system.log
+
+printf "\n########## Spark alerts ##########\n\n" >> ${LOG_DIR}/system.log
+redis-cli keys alerts:* | xargs redis-cli get | xargs -0 node -e "console.log(JSON.stringify(JSON.parse(process.argv[1]), null, 2))"
+
+printf "\n########## iwconfig ##########\n\n" >> ${LOG_DIR}/system.log
+iwconfig >> ${LOG_DIR}/system.log 2>/dev/null
+
+for i in /sys/class/net/*/wireless ; do
+  wdev=$(echo $i|sed 's%/sys/class/net/\(.*\)/wireless%\1%')
+  printf "\n########## iwlist $wdev scan ##########\n\n" >> ${LOG_DIR}/system.log
+  iwlist $wdev scan >> ${LOG_DIR}/system.log 2>/dev/null
+done
+
+printf "\n########## cat /proc/net/wireless ##########\n\n" >> ${LOG_DIR}/system.log
+cat /proc/net/wireless >> ${LOG_DIR}/system.log 2>/dev/null
+
+printf "\n########## rfkill list all ##########\n\n" >> ${LOG_DIR}/system.log
+rfkill list all >> ${LOG_DIR}/system.log
+
+printf "\n########## ip addr ##########\n\n" >> ${LOG_DIR}/system.log
+ip addr >> ${LOG_DIR}/system.log
+
+printf "\n########## route -n ##########\n\n" >> ${LOG_DIR}/system.log
+route -n >> ${LOG_DIR}/system.log
+
+printf "\n########## lsmod ##########\n\n" >> ${LOG_DIR}/system.log
+lsmod >> ${LOG_DIR}/system.log
+
+printf "\n########## lsusb ##########\n\n" >> ${LOG_DIR}/system.log
+lsusb >> ${LOG_DIR}/system.log
+
+printf "\n########## df -h ##########\n\n" >> ${LOG_DIR}/system.log
+df -h >> ${LOG_DIR}/system.log
+
+printf "\n########## mount ##########\n\n" >> ${LOG_DIR}/system.log
+mount >> ${LOG_DIR}/system.log
+
+printf "\n########## ps ##########\n\n" >> ${LOG_DIR}/system.log
+ps >> ${LOG_DIR}/system.log
+
+printf "\n########## free ##########\n\n" >> ${LOG_DIR}/system.log
+free >> ${LOG_DIR}/system.log
+
+printf "\n########## top -b -n 1 ##########\n\n" >> ${LOG_DIR}/system.log
+top -b -n 1 >> ${LOG_DIR}/system.log
+
+printf "\n########## netstat -nl ##########\n\n" >> ${LOG_DIR}/system.log
+netstat -nl >> ${LOG_DIR}/system.log
+
+printf "\n########## hciconfig -a ##########\n\n" >> ${LOG_DIR}/system.log
+hciconfig -a >> ${LOG_DIR}/system.log
+
+printf "\n########## connmanctl state ##########\n\n" >> ${LOG_DIR}/system.log
+connmanctl state >> ${LOG_DIR}/system.log
+
+printf "\n########## connmanctl technologies ##########\n\n" >> ${LOG_DIR}/system.log
+connmanctl technologies >> ${LOG_DIR}/system.log
+
+printf "\n########## connmanctl clock ##########\n\n" >> ${LOG_DIR}/system.log
+connmanctl clock >> ${LOG_DIR}/system.log
+
+printf "\n########## connmanctl services ##########\n\n" >> ${LOG_DIR}/system.log
+connmanctl services >> ${LOG_DIR}/system.log
+
+printf "\n########## connmanctl services (details) ##########\n\n" >> ${LOG_DIR}/system.log
+for i in $(connmanctl services | sed -e 's/^.*\(wifi.*\)$/\1/' -e 's/^.*\(ethernet.*\)$/\1/') ; do
+    connmanctl services $i >> ${LOG_DIR}/system.log
+done
+
+(cd ${TMP_DIR} && tar -cf - ${LOG_NAME} | gzip > ${LOG_ARCHIVE})
+rm -rf ${LOG_DIR}
+
+echo "Created ${LOG_ARCHIVE}"
+
+#clean up old logs.  Keep at most 5 logs
+for i in $(cd ${LOG_STORE} && ls -tr | head -n -5) ; do
+    echo "Deleting old log ${LOG_STORE}/${i}"
+    rm "${LOG_STORE}/${i}"
+done

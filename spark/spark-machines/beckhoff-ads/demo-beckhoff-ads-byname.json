@@ -1,0 +1,30 @@
+{
+    "info": {
+        "name": "demo-beckhoff-ads-byname",
+        "fullname": "Demo ADS Beckhoff plc using named addressing",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Beckhoff plc using named addressing",
+        "hpl": "beckhoff-ads"
+    },
+    "variables": [{
+        "name": "Byte",
+        "description": "Test Byte",
+        "adsAddressName": "Main.byByte[0]",
+        "format": "uint8"
+    }, {
+        "name": "Real",
+        "description": "Test Real",
+        "adsAddressName": "Main.exampleReal",
+        "format": "float"
+    }, {
+        "name": "LReal",
+        "description": "Test LReal",
+        "adsAddressName": "Main.exampleLReal",
+        "format": "double"
+    }, {
+        "name": "Bool",
+        "description": "Test Bool",
+        "adsAddressName": "Main.exampleBool",
+        "format": "bool"
+    }]
+}

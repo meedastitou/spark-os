@@ -1,0 +1,77 @@
+{
+  "info": {
+    "version": "1.0.0",
+    "fullname": "euromap-test",
+    "description": "euromap-test",
+    "name": "euromap-test",
+    "hpl": "euromap63"
+  },
+  "variables": [
+    {
+      "name": "Date",
+      "description": "Date",
+      "format": "char",
+      "reportName": "DATE"
+    },
+    {
+      "name": "Time",
+      "description": "Time",
+      "format": "char",
+      "reportName": "TIME"
+    },
+    {
+      "name": "Count",
+      "description": "Count",
+      "format": "uint32",
+      "reportName": "COUNT"
+    },
+    {
+      "name": "act-tim-cyc-first",
+      "description": "act-tim-cyc-first",
+      "format": "float",
+      "reportName": "ActTimCyc"
+    },
+    {
+      "name": "act-vol-csh",
+      "description": "act-vol-csh",
+      "format": "float",
+      "reportName": "ActVolCsh[1]"
+    },
+    {
+      "name": "act-tim-fill",
+      "description": "act-tim-fill",
+      "format": "float",
+      "reportName": "ActTimFill[1]"
+    },
+    {
+      "name": "act-tim-plst",
+      "description": "act-tim-plst",
+      "format": "float",
+      "reportName": "ActTimPlst[1]"
+    },
+    {
+      "name": "act-prs-mach-spec-max",
+      "description": "act-prs-mach-spec-max",
+      "format": "float",
+      "reportName": "ActPrsMachSpecMax"
+    },
+    {
+      "name": "act-prs-xfr-spec",
+      "description": "act-prs-xfr-spec",
+      "format": "float",
+      "reportName": "ActPrsXfrSpec[1]"
+    },
+    {
+      "name": "act-vol-xfr",
+      "description": "act-vol-xfr",
+      "format": "float",
+      "reportName": "ActVolXfr[1]"
+    },
+    {
+      "name": "act-tim-cyc-second",
+      "description": "act-tim-cyc-second",
+      "format": "float",
+      "reportName": "ActTimCyc"
+    }
+  ]
+}

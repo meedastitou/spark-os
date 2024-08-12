@@ -1,0 +1,10 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/spark-hpl-siemens-s7/coverage"]
+WORKDIR /app/spark-hpl-siemens-s7/
+COPY node-s7-serial /app/node-s7-serial/
+COPY spark-hpl-siemens-s7/package.json spark-hpl-siemens-s7/yarn.lock /app/spark-hpl-siemens-s7/
+RUN yarn install --frozen-lockfile
+COPY spark-hpl-siemens-s7 /app/spark-hpl-siemens-s7
+CMD ["yarn", "test"]

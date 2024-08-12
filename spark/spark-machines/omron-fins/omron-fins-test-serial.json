@@ -1,0 +1,73 @@
+{
+  "info": {
+    "description": "Omron Fins Hostlink Serial Test",
+    "fullname": "Omron Fins Test Serial",
+    "version": "1.0.0",
+    "name": "omron-fins-test-serial",
+    "hpl": "omron-fins"
+  },
+  "settings": {
+    "model": {
+      "interface": "serial",
+      "updateRate": 2,
+      "payload": "Hostlink (C-mode)",
+      "device": "/dev/ttyUSB0",
+      "baudRate": "9600",
+      "dataBits": 7,
+      "stopBits": 2,
+      "parity": "even"
+    }
+  },
+  "variables": [
+    {
+      "name": "dm100",
+      "description": "DM100",
+      "format": "int16",
+      "address": "DM0100"
+    },
+    {
+      "name": "dm102",
+      "description": "DM102",
+      "format": "int16",
+      "address": "DM0102"
+    },
+    {
+      "name": "ir010-05",
+      "description": "IR010 bit 5",
+      "format": "bool",
+      "address": "IR010.05"
+    },
+    {
+      "name": "dm101",
+      "description": "DM101",
+      "format": "int16",
+      "address": "DM0101"
+    },
+    {
+      "name": "ir10",
+      "description": "IR10",
+      "format": "int16",
+      "address": "IR10"
+    },
+    {
+      "name": "tc0000",
+      "description": "TC0000",
+      "format": "int8",
+      "address": "TC0000"
+    },
+    {
+      "name": "tc0000-2",
+      "description": "TC000 Len 2",
+      "format": "int8",
+      "address": "TC0000",
+      "length": 2,
+      "array": true
+    },
+    {
+      "name": "d100-32bit",
+      "description": "D100 32bit",
+      "format": "uint32",
+      "address": "D0100"
+    }
+  ]
+}

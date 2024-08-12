@@ -1,0 +1,4 @@
+[hostnamectl]
+Identity=unix-user:spark-protocol
+Action=org.freedesktop.hostname1.*
+ResultAny=yes

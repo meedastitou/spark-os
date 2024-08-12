@@ -1,0 +1,10 @@
+version: '3'
+services:
+  tester:
+    build:
+      context: ../
+      dockerfile: $PWD/Dockerfile.test
+    volumes:
+      - artifacts:/app/spark-machines/coverage
+volumes:
+  artifacts:

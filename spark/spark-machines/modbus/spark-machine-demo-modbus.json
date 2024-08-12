@@ -1,0 +1,181 @@
+{
+    "info": {
+        "name": "spark-machine-demo-modbus",
+        "fullname": "Demo Modbus Implementation for CLICK plc",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a CLICK plc example over Modbus",
+        "hpl": "modbus"
+    },
+    "settings": {
+        "model": {
+            "highByteFirst": true,
+            "highWordFirst": false,
+            "mode": "RTU",
+            "baudRate": "115200"
+        }
+    },
+    "variables": [{
+        "name": "X001",
+        "description": "Total Counter Reset",
+        "type": "di",
+        "address": "0000",
+        "format": "bool"
+    }, {
+        "name": "X002",
+        "description": "Y001 Illuminator",
+        "type": "di",
+        "address": "0001",
+        "format": "bool"
+    }, {
+        "name": "X003",
+        "description": "DS1 Toggle",
+        "type": "di",
+        "address": "0002",
+        "format": "bool"
+    }, {
+        "name": "X004",
+        "description": "Manual Counter Input",
+        "type": "di",
+        "address": "0003",
+        "format": "bool"
+    }, {
+        "name": "X005",
+        "description": "Manual Counter Reset",
+        "type": "di",
+        "address": "0004",
+        "format": "bool"
+    }, {
+        "name": "X007",
+        "description": "Text Toggle TXT1 to TXT5",
+        "type": "di",
+        "address": "0006",
+        "format": "bool"
+    }, {
+        "name": "X008",
+        "description": "Hex Toggle DH1",
+        "type": "di",
+        "address": "0007",
+        "format": "bool"
+    }, {
+        "name": "Y001",
+        "description": "Timer Relay Output",
+        "type": "coil",
+        "address": "2000",
+        "format": "bool"
+    }, {
+        "name": "Y002",
+        "description": "Input X002 Indicator",
+        "type": "coil",
+        "address": "2001",
+        "format": "bool"
+    }, {
+        "name": "Y003",
+        "description": "DF1 Quarter",
+        "type": "coil",
+        "address": "2002",
+        "format": "bool"
+    }, {
+        "name": "Y004",
+        "description": "DF1 Half",
+        "type": "coil",
+        "address": "2003",
+        "format": "bool"
+    }, {
+        "name": "Y005",
+        "description": "DF1 Three Quarters",
+        "type": "coil",
+        "address": "2004",
+        "format": "bool"
+    }, {
+        "name": "Y006",
+        "description": "DF1 Full",
+        "type": "coil",
+        "address": "2005",
+        "format": "bool"
+    }, {
+        "name": "CT1",
+        "description": "Auto Cycle Counter",
+        "type": "di",
+        "address": "C000",
+        "format": "bool"
+    }, {
+        "name": "CT2",
+        "description": "Auto Total Counter",
+        "type": "di",
+        "address": "C001",
+        "format": "bool"
+    }, {
+        "name": "CT3",
+        "description": "Manual Counter",
+        "type": "di",
+        "address": "C002",
+        "format": "bool"
+    }, {
+        "name": "SC7",
+        "description": "1 Sec Clock",
+        "type": "di",
+        "address": "F006",
+        "format": "bool"
+    }, {
+        "name": "DS1",
+        "description": "Int Toggled by X003",
+        "type": "hr",
+        "address": "0000",
+        "format": "int16"
+    }, {
+        "name": "DH1",
+        "description": "Hex Toggled by X008",
+        "type": "hr",
+        "address": "6000",
+        "format": "uint16"
+    }, {
+        "name": "DF1",
+        "description": "Level Control 1",
+        "type": "hr",
+        "address": "7000",
+        "format": "float"
+    }, {
+        "name": "DF2",
+        "description": "Level Control 2",
+        "type": "hr",
+        "address": "7002",
+        "format": "float"
+    }, {
+        "name": "DF3",
+        "description": "Level Control 3",
+        "type": "hr",
+        "address": "7004",
+        "format": "float"
+    }, {
+        "name": "DF4",
+        "description": "Level Control 4",
+        "type": "hr",
+        "address": "7006",
+        "format": "float"
+    }, {
+        "name": "CTD1",
+        "description": "Value of Cycle Counter",
+        "type": "hr",
+        "address": "C000",
+        "format": "int32"
+    }, {
+        "name": "CTD2",
+        "description": "Value of Total Counter",
+        "type": "hr",
+        "address": "C002",
+        "format": "int32"
+    }, {
+        "name": "CTD3",
+        "description": "Value of Manual Counter",
+        "type": "hr",
+        "address": "C004",
+        "format": "int32"
+    }, {
+        "name": "TXT1_5",
+        "description": "String of length 5",
+        "type": "hr",
+        "address": "9000",
+        "format": "char",
+        "length": 5
+    }]
+}

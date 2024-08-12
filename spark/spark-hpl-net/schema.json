@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-net",
+    "title": "Network",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "properties": {
+                        "regex": {
+                            "title": "Regular Expression",
+                            "description": "A regular expression capable of extracting this variable's data from the returned data. Note, if a space char is required at the start or end, encase them in [] otherwise they will be stripped",
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "csvPos": {
+                            "title": "CSV Position",
+                            "description": "This variable's position in the returned comma separated data (may also be separated by a custom separator)",
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "packetIndexPosition": {
+                            "title": "Packet Index Position",
+                            "description": "The starting index for the binary value used to parse this variable from the received packet data",
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "packetIndexLength": {
+                            "title": "Packet Index Length`",
+                            "description": "The length of the binary data parsed from the received packet data",
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "packetIndexEndian": {
+                            "title": "Packet Index MSB / LSB`",
+                            "description": "Defines whether the binary data parsed from the received packet data is Most-Significant-Byte first, or Least-Significant-Byte first",
+                            "type": "string",
+                            "enum": ["MSB", "LSB"]
+                        },
+                        "requestKey": {
+                            "title": "Request Key",
+                            "description": "The key used to request this variable's data from the server",
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "mode": {
+                            "title": "Data capture method",
+                            "description": "Choose the data capture method applicable for the interface.",
+                            "type": "string",
+                            "enum": ["pub/sub as client", "pub/sub as server", "req/res as client"]
+                        },
+                        "port": {
+                            "title": "Port Number",
+                            "description": "The port number configured on the machine.",
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 65535
+                        },
+                        "separator": {
+                            "title": "Separator used",
+                            "description": "The Separator used between variables in pub/sub modes.",
+                            "type": "string"
+                        },
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "spark-hpl-fanuc",
+    "fullname": "Fanuc HPL",
+    "version": "0.0.1",
+    "description": "Spark HPL for Fanuc",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-hpl-fanuc.git"
+    },
+    "keywords": [
+        "Spark",
+        "Fanuc"
+    ],
+    "author": {
+        "name": "Dominic White",
+        "email": "dominic.white@te.com"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "lodash": "4.17.10",
+        "serialport": "6.2.1"
+    }
+}

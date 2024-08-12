@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-omron-fins",
+    "title": "Omron FINS",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "address"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "address"
+                    ],
+                    "properties": {
+                        "address": {
+                            "title": "Address",
+                            "description": "Decimal address preceeded by memory area designator e.g. 'D0100'. With optional bit access e.g. 'IR010.12'",
+                            "type": "string",
+                            "minLength": 4,
+                            "maxLength": 11
+                        },
+                        "decEncoding": {
+                            "title": "Decimal Encoded Data",
+                            "description": "Set to true if response data is Decimal rather than HEX encoded",
+                            "type": "boolean"
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "spark-other-module",
+    "version": "0.0.1",
+    "description": "Spark Other module",
+    "private": true,
+    "main": "index.js",
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    }
+}

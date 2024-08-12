@@ -1,0 +1,210 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-opcua",
+    "title": "OPC-UA",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "nodeId",
+                    "array"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "properties": {
+                        "nodeId": {
+                            "title": "Node Id",
+                            "description": "The node id of the variable for monitored variables",
+                            "type": "string"
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "destVariables": {
+                            "title": "Destination Variables",
+                            "description": "Array of variables to receive the values of this array variable",
+                            "type": "array",
+                            "format": "tabs",
+                            "minItems": 1,
+                            "items": {
+                                "required": [
+                                    "destVariable"
+                                ],
+                                "properties": {
+                                    "destVariable": {
+                                        "title": "Destination Variable Name",
+                                        "description": "The variable name in which to report the value of an array element",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "maxLength": 40,
+                                        "validationMessage": "Destination Variable Name must only contain letters, numbers, dash and underscore"
+                                    },
+                                    "arrayIndex": {
+                                        "title": "Array Index",
+                                        "description": "The index of the array element to report in this destination variable",
+                                        "type": "integer"
+                                    },
+                                    "onChange": {
+                                        "title": "On Change",
+                                        "description": "Implement 'on change' on this variable. If enabled, only changes in the variables value will cause the value to be written",
+                                        "type": "boolean",
+                                        "default": false
+                                    },
+                                    "onChangeDelta":{
+                                        "title": "On Change Delta",
+                                        "description": "Describes the amount of change that is necessary for this variable's value to be reported (when On-change is set)  For example, if onChangeDelta = 3 and the previous value of this variable is 1 then we will only process a change when the new value is >= 4 or <= -2.",
+                                        "type": "integer",
+                                        "minimum": 1
+                                    }
+                                }
+                            }
+                        },
+                        "type": {
+                          "title": "Type",
+                          "description": "The type of the variable (how it is updated)",
+                          "type": "string",
+                          "enum": [
+                            "Monitored",
+                            "Event Value",
+                            "Event Value-curves"
+                          ],
+                          "default": "Monitored"
+                        },
+                        "eventValueName": {
+                          "title": "Event Value Name",
+                          "description": "For an event value variable, the name of the event value used to set the variable's value",
+                          "type": "string"
+                        },
+                        "eventValueStructure": {
+                          "title": "Event Value Structure",
+                          "description": "For an event value variable, if this option is true, the event value name refers to structure or array of structures",
+                          "type": "boolean",
+                          "default": false
+                        },
+                        "eventValueStructureMembers": {
+                            "title": "Event Value Structure Members",
+                            "description": "For an event value variable whose event value name refers to a structure, a list of all structure members",
+                            "type": "array",
+                            "format": "tabs",
+                            "minItems": 1,
+                            "items": {
+                                "required": [
+                                    "memberName",
+                                    "memberFormat",
+                                    "memberSpecialRole"
+                                ],
+                                "properties": {
+                                    "memberName": {
+                                        "title": " Member Name",
+                                        "description": "The name of the the event value structure member",
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9-_]*$",
+                                        "minLength": 1,
+                                        "validationMessage": "Member Name must only contain letters, numbers, dash and underscore"
+                                    },
+                                    "memberFormat": {
+                                        "title": "Member Format",
+                                        "description": "The format of the member value",
+                                        "type": "string",
+                                        "enum": [
+                                            "float",
+                                            "double",
+                                            "int8",
+                                            "int16",
+                                            "int32",
+                                            "int64",
+                                            "uint8",
+                                            "uint16",
+                                            "uint32",
+                                            "uint64",
+                                            "char",
+                                            "bool"
+                                        ]
+                                    },
+                                    "memberSpecialRole": {
+                                        "title": "Member Special Role",
+                                        "description": "The special role, if any, of the member",
+                                        "type": "string",
+                                        "enum": [
+                                            "None",
+                                            "Name",
+                                            "Value",
+                                            "Match Value"
+                                        ],
+                                        "default": "None"
+                                    }
+                                }
+                            }
+                        },
+                        "eventValueSelectedStructureName": {
+                          "title": "Event Value Selected Structure Name",
+                          "description": "For an event value variable that refers to an array of structures, the name of the structure used to set the variable's value",
+                          "type": "string"
+                        },
+                        "eventValueSelectedStructureMatchField": {
+                          "title": "Event Value Selected Structure Match Field",
+                          "description": "For an event value variable that refers to an array of structures (where several structures match the Structure Name), the field in the structure that we will use to match",
+                          "type": "string"
+                        },
+                        "eventValueSelectedStructureMatchValue": {
+                          "title": "Event Value Selected Structure Match Value",
+                          "description": "For an event value variable that refers to an array of structures (where several structures match the Structure Name), the value of the Match Field to determine which structure to use",
+                          "type": "string"
+                        },
+                        "curveDataDecimalPlaces": {
+                          "title": "Curve Data Decimal Places",
+                          "description": "For Event Values-curves, the amount of decimal places returned in the array for the data",
+                          "type": "string"
+                        },
+                        "curveDataSubfieldForValues": {
+                          "title": "Curve Data Sub-field for Values",
+                          "description": "For Event Values-curves, the sub-field to match for returning the appropriate array of curve data.  For example, 'time' or 'data'.",
+                          "type": "string"
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

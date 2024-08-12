@@ -1,0 +1,67 @@
+{
+    "variables": [
+      {
+          "name": "enabled-machines",
+          "description": "Enabled Machines",
+          "format": "char",
+          "array": true
+      },
+      {
+          "name": "connectivity-status",
+          "description": "Connectivity Status (true if connected)",
+          "format": "bool",
+          "array": false
+      },
+      {
+          "name": "connectivity-alerts",
+          "description": "Connectivity Alerts",
+          "format": "char",
+          "array": true
+      },
+      {
+          "name": "spark-key",
+          "description": "Spark Key",
+          "format": "char",
+          "array": false
+      }
+    ],
+    "settings": {
+        "model": {
+            "enable": false,
+            "disconnectReportTime": 0,
+            "publishDisabled": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-spark",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Spark Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds an alert condition must be present before the connectivity status becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "disconnectReportTime",
+            "publishDisabled"
+        ]
+    }
+}

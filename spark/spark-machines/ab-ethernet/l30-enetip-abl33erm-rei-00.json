@@ -1,0 +1,209 @@
+{
+  "info": {
+    "description": "32P EOL Tester",
+    "version": "1.0.0",
+    "fullname": "32P EOL Tester",
+    "name": "l30-enetip-abl33erm-rei-00",
+    "hpl": "ab-ethernet"
+  },
+  "variables": [
+    {
+      "name": "good-parts",
+      "description": "Contador de piezas buenas",
+      "format": "double",
+      "address": "F8:0"
+    },
+    {
+      "name": "pin1-height",
+      "description": "Altura PIN 1",
+      "format": "float",
+      "address": "F8:1"
+    },
+    {
+      "name": "pin2-height",
+      "description": "Altura PIN 2",
+      "format": "float",
+      "address": "F8:2"
+    },
+    {
+      "name": "pin3-height",
+      "description": "Altura PIN 3",
+      "format": "float",
+      "address": "F8:3"
+    },
+    {
+      "name": "pin4-height",
+      "description": "Altura PIN 4",
+      "format": "float",
+      "address": "F8:4"
+    },
+    {
+      "name": "pin5-height",
+      "description": "Altura PIN 5",
+      "format": "float",
+      "address": "F8:5"
+    },
+    {
+      "name": "pin6-height",
+      "description": "Altura PIN 6",
+      "format": "float",
+      "address": "F8:6"
+    },
+    {
+      "name": "pin7-height",
+      "description": "Altura PIN 7",
+      "format": "float",
+      "address": "F8:7"
+    },
+    {
+      "name": "pin8-height",
+      "description": "Altura PIN 8",
+      "format": "float",
+      "address": "F8:8"
+    },
+    {
+      "name": "pin9-height",
+      "description": "Altura PIN 9",
+      "format": "float",
+      "address": "F8:9"
+    },
+    {
+      "name": "pin10-height",
+      "description": "Altura PIN 10",
+      "format": "float",
+      "address": "F8:10"
+    },
+    {
+      "name": "pin11-height",
+      "description": "Altura PIN 11",
+      "format": "float",
+      "address": "F8:11"
+    },
+    {
+      "name": "pin12-height",
+      "description": "Altura PIN 12",
+      "format": "float",
+      "address": "F8:12"
+    },
+    {
+      "name": "pin13-height",
+      "description": "Altura PIN 13",
+      "format": "float",
+      "address": "F8:13"
+    },
+    {
+      "name": "pin14-height",
+      "description": "Altura PIN 14",
+      "format": "float",
+      "address": "F8:14"
+    },
+    {
+      "name": "pin15-height",
+      "description": "Altura PIN 15",
+      "format": "float",
+      "address": "F8:15"
+    },
+    {
+      "name": "pin16-height",
+      "description": "Altura PIN 16",
+      "format": "float",
+      "address": "F8:16"
+    },
+    {
+      "name": "pin17-height",
+      "description": "Altura PIN 17",
+      "format": "float",
+      "address": "F8:17"
+    },
+    {
+      "name": "pin18-height",
+      "description": "Altura PIN 18",
+      "format": "float",
+      "address": "F8:18"
+    },
+    {
+      "name": "pin19-height",
+      "description": "Altura PIN 19",
+      "format": "float",
+      "address": "F8:19"
+    },
+    {
+      "name": "pin20-height",
+      "description": "Altura PIN 20",
+      "format": "float",
+      "address": "F8:20"
+    },
+    {
+      "name": "pin21-height",
+      "description": "Altura PIN 21",
+      "format": "float",
+      "address": "F8:21"
+    },
+    {
+      "name": "pin22-height",
+      "description": "Altura PIN 22",
+      "format": "float",
+      "address": "F8:22"
+    },
+    {
+      "name": "pin23-height",
+      "description": "Altura PIN 23",
+      "format": "float",
+      "address": "F8:23"
+    },
+    {
+      "name": "pin24-height",
+      "description": "Altura PIN 24",
+      "format": "float",
+      "address": "F8:24"
+    },
+    {
+      "name": "pin25-height",
+      "description": "Altura PIN 25",
+      "format": "float",
+      "address": "F8:25"
+    },
+    {
+      "name": "pin26-height",
+      "description": "Altura PIN 26",
+      "format": "float",
+      "address": "F8:26"
+    },
+    {
+      "name": "pin27-height",
+      "description": "Altura PIN 27",
+      "format": "float",
+      "address": "F8:27"
+    },
+    {
+      "name": "pin28-height",
+      "description": "Altura PIN 28",
+      "format": "float",
+      "address": "F8:28"
+    },
+    {
+      "name": "pin29-height",
+      "description": "Altura PIN 29",
+      "format": "float",
+      "address": "F8:29"
+    },
+    {
+      "name": "pin30-height",
+      "description": "Altura PIN 30",
+      "format": "float",
+      "address": "F8:30"
+    },
+    {
+      "name": "pin31-height",
+      "description": "Altura PIN 31",
+      "format": "float",
+      "address": "F8:31"
+    },
+    {
+      "name": "pin32-height",
+      "description": "Altura PIN 32",
+      "format": "float",
+      "address": "F8:32"
+    }
+  ]
+}

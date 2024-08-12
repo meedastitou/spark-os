@@ -1,0 +1,25 @@
+{
+    "info": {
+        "name": "test-machine",
+        "fullname": "Test machine",
+        "version": "1.0.0",
+        "description": "Test Machine",
+        "hpl": "yamada-dobby"
+    },
+    "variables": [{
+        "name": "DSPM",
+        "description": "DISPLAY SPM",
+        "format": "int16",
+        "requestKey": "010208360000000000"
+    }, {
+        "name": "DPA",
+        "description": "DISPLAY PRESS ANGLE",
+        "format": "int16",
+        "requestKey": "010208370000000000"
+    }, {
+        "name": "combinedAlarm",
+        "description": "Alarm Code/Result",
+        "format": "int16",
+        "alarmVariable": true
+    }]
+  }

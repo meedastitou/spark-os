@@ -1,0 +1,2 @@
+# Start bt-agent when hci0 is added
+ACTION=="add", SUBSYSTEM=="bluetooth", KERNEL=="hci0", TAG+="systemd", ENV{SYSTEMD_WANTS}="bt-agent.service"

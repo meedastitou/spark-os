@@ -1,0 +1,24 @@
+{
+    "name": "node-ble",
+    "fullname": "Node Bluetooth LE",
+    "version": "0.0.1",
+    "description": "Bluetooth Module to Interface with Noble",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"TODO: add tests\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/node-ble.git"
+    },
+    "keywords": [
+        "Noble"
+    ],
+    "author": {
+        "name": "Nathaniel Tye",
+        "email": "nathaniel.tye@te.com"
+    },
+    "dependencies": {
+        "noble": "mattmiller2112/noble#0514618f91de9ed1ebfc17dd6442748a3643725c"
+    }
+}

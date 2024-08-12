@@ -1,0 +1,47 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "mqttBrokerHostname": "",
+            "mqttBrokerPort": "1883"
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-mqtt-client",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the MQTT client.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "mqttBrokerHostname": {
+                    "title": "MQTT Broker Hostname",
+                    "description": "The hostname of the MQTT Broker to connect to.",
+                    "type": "string",
+                    "format": "hostname",
+                    "required": true
+                },
+                "mqttBrokerPort": {
+                    "title": "MQTT Broker Port",
+                    "description": "The port number of the MQTT Broker to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable", {
+                "key": "mqttBrokerHostname",
+                "placeholder": "mqtt.te.com",
+                "validationMessage": "The hostname must a valid hostname or IPv4 address"
+            }, {
+                "key": "mqttBrokerPort",
+                "placeholder": "1883"
+            }
+        ]
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "name": "spark-db",
+    "fullname": "Spark Database",
+    "version": "0.0.1",
+    "description": "Spark Database Interface",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "pretest": "yarn lint",
+        "test": "NODE_ENV=test nyc --reporter=text --reporter=html mocha --bail --exit test/test.js",
+        "posttest": "nyc check-coverage --statements 90 --branches 76 --functions 95 --lines 91",
+        "notify": "node test/notify.js | bunyan",
+        "lint": "eslint *.js test --color"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-db.git"
+    },
+    "keywords": [
+        "Spark"
+    ],
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    },
+    "dependencies": {
+        "ajv": "^6.5.2",
+        "ioredis": "3.2.2",
+        "lodash": "4.17.10",
+        "moment": "2.22.2"
+    },
+    "devDependencies": {
+        "bunyan": "1.8.12",
+        "chai": "4.1.2",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb": "17.0.0",
+        "eslint-plugin-import": "^2.12.0",
+        "eslint-plugin-jsx-a11y": "^6.0.3",
+        "eslint-plugin-react": "^7.9.1",
+        "mocha": "5.2.0",
+        "nyc": "^12.0.2"
+    }
+}

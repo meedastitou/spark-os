@@ -1,0 +1,53 @@
+{
+    "name": "spark-protocol-rest",
+    "fullname": "REST",
+    "version": "0.0.1",
+    "description": "Spark REST Interface",
+    "main": "src/index.js",
+    "private": true,
+    "scripts": {
+        "lint": "eslint . --ext .json --ext .js --ignore-path .gitignore --color --fix",
+        "pretest": "yarn lint",
+        "test": "./test/teststart.sh && TEST_HOSTNAME=$(hostname) NODE_ENV=test nyc --reporter=text --reporter=html mocha --bail --exit || (tail ./test.log | bunyan)",
+        "posttest": "nyc check-coverage --statements 72 --branches 50 --functions 70 --lines 72"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-rest.git"
+    },
+    "keywords": [
+        "Spark"
+    ],
+    "author": "Martin Bark <martin.bark@te.com>",
+    "dependencies": {
+        "ajv": "6.5.2",
+        "async": "2.6.1",
+        "body-parser": "1.18.3",
+        "connman-api": "martinbark/connman-api#1bf154d",
+        "cors": "2.8.4",
+        "dbus-native": "0.2.5",
+        "express": "4.16.3",
+        "glob": "7.1.2",
+        "ini": "1.3.5",
+        "lodash": "4.17.10",
+        "mkdirp": "0.5.1",
+        "moment": "2.22.2",
+        "node-ble": "../node-ble",
+        "ssl-utils": "0.3.0",
+        "type-is": "1.6.16",
+        "uuid": "3.3.2"
+    },
+    "devDependencies": {
+        "bunyan": "1.8.12",
+        "chai": "4.1.2",
+        "eslint": "5.3.0",
+        "eslint-config-airbnb": "17.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-json": "^1.3.2",
+        "eslint-plugin-jsx-a11y": "^6.1.1",
+        "eslint-plugin-react": "^7.11.0",
+        "mocha": "5.2.0",
+        "nyc": "^12.0.2",
+        "supertest": "3.1.0"
+    }
+}

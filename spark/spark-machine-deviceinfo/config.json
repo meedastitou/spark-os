@@ -1,0 +1,20 @@
+{
+    "info": {
+        "hidden": true
+    },
+    "variables": [
+      {
+          "name": "deviceinfo",
+          "description": "Device Info",
+          "format": "object",
+          "array": true,
+          "allowFiltering": true
+      }
+    ],
+    "settings": {
+        "model": {
+            "enable": true,
+            "publishDisabled": false
+        }
+    }
+}

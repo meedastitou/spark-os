@@ -1,0 +1,16 @@
+*.o
+*.so
+ibhsim5
+isotest4
+testAS511
+testIBH
+testISO_TCP
+testISO_TCPload
+testMPI
+testMPI_IBHload
+testMPIload
+testNLpro
+testPPI
+testPPI_IBH
+testPPI_IBHload
+testPPIload

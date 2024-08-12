@@ -1,0 +1,38 @@
+{
+    "info": {
+        "name": "spark-machine-cqm-ii",
+        "fullname": "Crimp Quality Monitor II",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Crimp Quality Monitor II",
+        "hpl": "serial"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub",
+            "baudRate": "4800",
+            "parity": "none",
+            "separator": ","
+        }
+    },
+    "variables": [{
+        "name": "PartName",
+        "description": "Part or Sequence Name",
+        "csvPos": 0,
+        "format": "char"
+    }, {
+        "name": "SequencePosition",
+        "description": "Sequence Position",
+        "csvPos": 1,
+        "format": "int16"
+    }, {
+        "name": "CrimpStatus",
+        "description": "Crimp Status",
+        "csvPos": 2,
+        "format": "char"
+    }, {
+        "name": "CrimpHeight",
+        "description": "Crimp Height",
+        "csvPos": 3,
+        "format": "float"
+    }]
+}

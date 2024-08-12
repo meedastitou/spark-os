@@ -1,0 +1,10 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/coverage"]
+WORKDIR /app/spark-machine-wac
+COPY node-ble /app/node-ble
+COPY spark-machine-wac/package.json spark-machine-wac/yarn.lock /app/spark-machine-wac/
+RUN yarn install --frozen-lockfile
+COPY spark-machine-wac /app/spark-machine-wac
+CMD ["yarn", "test"]

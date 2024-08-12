@@ -1,0 +1,7 @@
+config BR2_PACKAGE_SPARK_WEBADMIN
+	bool "spark-webadmin"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_SPARK_PROTOCOL
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark WebAdmin Interface

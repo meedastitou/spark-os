@@ -1,0 +1,2 @@
+#!/bin/sh
+redis-cli keys 'alerts:*' | grep -c 'alerts:*'

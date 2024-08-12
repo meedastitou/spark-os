@@ -1,0 +1,46 @@
+{
+  "info": {
+    "fullname": "Mitsubishi FX Test",
+    "description": "Machine Definition to test a Mitsubishi Fx",
+    "name": "mitsubishi-fx-test",
+    "version": "1.0.0",
+    "hpl": "mitsubishi-fx"
+  },
+  "variables": [
+    {
+      "name": "d100",
+      "description": "D100 Reg",
+      "format": "int16",
+      "memoryArea": "D",
+      "address": "100"
+    },
+    {
+      "name": "d101",
+      "description": "D101 Reg",
+      "format": "int16",
+      "memoryArea": "D",
+      "address": "101"
+    },
+    {
+      "name": "d102",
+      "description": "D102 Reg",
+      "format": "int16",
+      "memoryArea": "D",
+      "address": "102"
+    },
+    {
+      "name": "d103",
+      "description": "D103 Reg",
+      "format": "int16",
+      "memoryArea": "D",
+      "address": "103"
+    },
+    {
+      "name": "d110",
+      "description": "D110 Reg",
+      "format": "int16",
+      "memoryArea": "D",
+      "address": "110"
+    }
+  ]
+}

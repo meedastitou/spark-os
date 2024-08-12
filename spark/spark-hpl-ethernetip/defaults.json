@@ -1,0 +1,83 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "hostName": "",
+            "port": 44818,
+            "mode": "Omron",
+            "requestFrequency": 5,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-ethernetip",
+            "required": [
+                "enable",
+                "hostName",
+                "port",
+                "mode",
+                "requestFrequency",
+                "publishDisabled"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "hostName": {
+                    "title": "Host Name",
+                    "description": "The host name (or IP address) to connect to.",
+                    "type": "string",
+                    "required": true
+                },
+                "port": {
+                    "title": "Port",
+                    "description": "The port number to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": true
+                },
+                "mode": {
+                    "title": "Protocol Mode",
+                    "description": "Choose the Ethernet/IP protocol mode to use.",
+                    "type": "string",
+                    "enum": ["Omron", "Standard"],
+                    "default": "Omron"
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between data requests.",
+                    "type": "integer",
+                    "minimum": 2,
+                    "maximum": 120
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "interface",
+            "hostName",
+            "port",
+            "mode",
+            "requestFrequency",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

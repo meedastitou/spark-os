@@ -1,0 +1,30 @@
+{
+    "info": {
+        "name": "test-machine2",
+        "fullname": "Test machine 2",
+        "version": "1.0.0",
+        "description": "Test Machine 2",
+        "hpl": "yamada-dobby"
+    },
+    "variables": [{
+        "name": "DSPM",
+        "description": "DISPLAY SPM",
+        "format": "int16",
+        "requestKey": "010208360000000000"
+    }, {
+        "name": "DPA",
+        "description": "DISPLAY PRESS ANGLE",
+        "format": "int16"
+    }, {
+        "name": "combinedAlarm",
+        "description": "Alarm Code/Result",
+        "format": "int16",
+        "alarmVariable": true
+    }, {
+        "name": "writeTest",
+        "description": "Write Test",
+        "format": "int64",
+        "requestKey": "010208460000000000",
+        "access": "write"
+    }]
+  }

@@ -1,0 +1,36 @@
+{
+    "name": "spark-health-monitor",
+    "version": "0.1.0",
+    "description": "Spark Health Monitor",
+    "private": true,
+    "bin": {
+        "spark-health-monitor": "bin/spark-health-monitor"
+    },
+    "scripts": {
+        "start": "./bin/spark-health-monitor | bunyan",
+        "test": "echo \"TODO: add tests\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-health-monitor.git"
+    },
+    "keywords": [
+        "Spark"
+    ],
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    },
+    "engines": {
+        "node": ">=0.12"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "bunyan": "1.8.12",
+        "lodash": "4.17.10",
+        "moment": "2.22.2",
+        "network": "0.4.1",
+        "ping": "0.2.2",
+        "spark-alert": "../spark-alert"
+    }
+}

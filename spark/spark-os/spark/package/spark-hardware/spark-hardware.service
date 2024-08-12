@@ -1,0 +1,20 @@
+[Unit]
+Description=Spark Hardware
+After=redis.service
+
+[Service]
+Type=notify
+User=spark-hardware
+Group=spark-hardware
+TimeoutStartSec=600
+TimeoutStopSec=10
+SyslogIdentifier=spark-hardware
+ExecStartPre=/usr/sbin/spark-hardware-prestart
+ExecStart=/usr/bin/node --max_old_space_size=1536 /usr/bin/spark-hardware
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-hardware
+WatchdogSec=600
+AmbientCapabilities=CAP_NET_RAW CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

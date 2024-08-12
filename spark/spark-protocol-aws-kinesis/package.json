@@ -1,0 +1,42 @@
+{
+  "name": "spark-protocol-aws-kinesis",
+  "fullname": "AWS Kinesis Producer",
+  "version": "0.0.1",
+  "description": "An AWS Kinesis producer",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint *.js *.json test src consumer --color --fix",
+    "pretest": "yarn lint",
+    "test": "rm -rf test/mydb && nyc --reporter=text --reporter=html mocha --bail --exit",
+    "posttest": "nyc check-coverage --statements 97 --branches 86 --functions 96 --lines 98"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-aws-kinesis.git"
+  },
+  "keywords": [
+    "Spark",
+    "AWS",
+    "Kinesis"
+  ],
+  "author": "Sam Pawlikowski <sam.pawlikowski@te.com>",
+  "dependencies": {
+    "async": "^2.6.1",
+    "aws-sdk": "^2.273.1",
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "bunyan": "1.8.10",
+    "chai": "^4.1.2",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.9.1",
+    "kinesalite": "^1.14.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  }
+}

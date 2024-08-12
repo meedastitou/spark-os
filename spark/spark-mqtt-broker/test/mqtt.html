@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+</head>
+
+<body>
+  <script>
+    var MQTT_URL = 'wss://' + location.hostname + '/mqtt/';
+    var client = mqtt.connect(MQTT_URL);
+
+    client.on('connect', function() {
+      console.log("Connected to", MQTT_URL);
+
+      client.subscribe('test', function(err) {
+        console.log("Subscribed to test topic");
+      });
+    });
+
+    client.on('message', function(topic, message) {
+      console.log(message.toString());
+    });
+  </script>
+</body>
+
+</html>

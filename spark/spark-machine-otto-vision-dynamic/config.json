@@ -1,0 +1,95 @@
+{
+    "variables": [],
+    "settings": {
+        "model": {
+            "enable": false,
+            "port": 10000,
+            "deliverEntireResponse": false,
+            "genericNamespace": "NONE",
+            "overrideVariableNameFlag": false,
+            "overrideVariableNameBase": "Var",
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-otto-vision-dynamic",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Otto Vision Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "port": {
+                    "title": "Port Number",
+                    "description": "The port number configured on the machine.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "deliverEntireResponse": {
+                  "title": "Deliver Entire Response",
+                  "description": "Set to true to deliver the entire machine response as variable 'RESULT'",
+                  "type": "boolean",
+                  "default": false
+                },
+                "genericNamespace": {
+                    "title": "Generic Namespace",
+                    "description": "Optional generic Namespace to use in place of machine name",
+                    "type": "string",
+                    "enum": [
+                        "NONE",
+                        "Vision",
+                        "Undefined-1",
+                        "Undefined-2",
+                        "Undefined-3",
+                        "Undefined-4"
+                    ]
+                },
+                "overrideVariableNameFlag": {
+                    "title": "Override auto-naming",
+                    "description": "Replace variable names from entire-response processing.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "overrideVariableNameBase": {
+                    "title": "Override variable name base",
+                    "description": "The base string for the overridden variable names - for example 'Var' results in 'Var1', 'Var2', etc.",
+                    "type": "string",
+                    "default": "Var",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "port",
+            "deliverEntireResponse",
+            "genericNamespace",
+            {
+                "condition": "model.deliverEntireResponse==true",
+                "key": "overrideVariableNameFlag"
+            },
+            {
+                "condition": "(model.deliverEntireResponse==true)&&(model.overrideVariableNameFlag==true)",
+                "key": "overrideVariableNameBase"
+            },
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "name": "spark-machine-hpl",
+    "fullname": "HPL Machine",
+    "version": "0.0.1",
+    "description": "Spark Machine to start other machines defined by JSON using the HPL",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "node test/test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-hpl.git"
+    },
+    "keywords": [
+        "Spark"
+    ],
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    },
+    "devDependencies": {
+        "bunyan": "1.8.12"
+    },
+    "dependencies": {
+        "ajv": "6.5.2",
+        "async": "2.6.1",
+        "chokidar": "2.0.4",
+        "glob": "7.1.2",
+        "lodash": "4.17.10",
+        "spark-hpl-ab-ethernet": "../spark-hpl-ab-ethernet",
+        "spark-hpl-adc": "../spark-hpl-adc",
+        "spark-hpl-arburg": "../spark-hpl-arburg",
+        "spark-hpl-beckhoff-ads": "../spark-hpl-beckhoff-ads",
+        "spark-hpl-ble": "../spark-hpl-ble",
+        "spark-hpl-cognex": "../spark-hpl-cognex",
+        "spark-hpl-directnet": "../spark-hpl-directnet",
+        "spark-hpl-dummy": "../spark-hpl-dummy",
+        "spark-hpl-ethernetip": "../spark-hpl-ethernetip",
+        "spark-hpl-euromap63": "../spark-hpl-euromap63",
+        "spark-hpl-fanuc": "../spark-hpl-fanuc",
+        "spark-hpl-keyence-hostlink": "../spark-hpl-keyence-hostlink",
+        "spark-hpl-marsilli": "../spark-hpl-marsilli",
+        "spark-hpl-mitsubishi-fx": "../spark-hpl-mitsubishi-fx",
+        "spark-hpl-mlan": "../spark-hpl-mlan",
+        "spark-hpl-modbus": "../spark-hpl-modbus",
+        "spark-hpl-modbus-multiclient": "../spark-hpl-modbus-multiclient",
+        "spark-hpl-kellerbus": "../spark-hpl-kellerbus",
+        "spark-hpl-net": "../spark-hpl-net",
+        "spark-hpl-omron-fins": "../spark-hpl-omron-fins",
+        "spark-hpl-opcua": "../spark-hpl-opcua",
+        "spark-hpl-scada": "../spark-hpl-scada",
+        "spark-hpl-scanner": "../spark-hpl-scanner",
+        "spark-hpl-secs-gem": "../spark-hpl-secs-gem",
+        "spark-hpl-serial": "../spark-hpl-serial",
+        "spark-hpl-sftp": "../spark-hpl-sftp",
+        "spark-hpl-sftp-cleanlaser": "../spark-hpl-sftp-cleanlaser",
+        "spark-hpl-sftp-file-cleanup": "../spark-hpl-sftp-file-cleanup",
+        "spark-hpl-sftp-xml": "../spark-hpl-sftp-xml",
+        "spark-hpl-siemens-s5": "../spark-hpl-siemens-s5",
+        "spark-hpl-siemens-s7": "../spark-hpl-siemens-s7",
+        "spark-hpl-sikora": "../spark-hpl-sikora",
+        "spark-hpl-silvac": "../spark-hpl-silvac",
+        "spark-hpl-soap": "../spark-hpl-soap",
+        "spark-hpl-sql": "../spark-hpl-sql",
+        "spark-hpl-srtp": "../spark-hpl-srtp",
+        "spark-hpl-virtual": "../spark-hpl-virtual",
+        "spark-hpl-webdav": "../spark-hpl-webdav",
+        "spark-hpl-yamada-dobby": "../spark-hpl-yamada-dobby",
+        "spark-hpl-yokogawa": "../spark-hpl-yokogawa"
+    }
+}

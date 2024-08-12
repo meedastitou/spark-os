@@ -1,0 +1,49 @@
+{
+  "info": {
+    "description": "Spark Machine Definition for a PPT Datalogic",
+    "version": "1.0.0",
+    "fullname": "PPT Datalogic Burgess Camera 1",
+    "name": "us263-net-ppt-te-cam1",
+    "hpl": "net"
+  },
+  "variables": [
+    {
+      "name": "Date",
+      "description": "The date associated with this part",
+      "format": "char",
+      "csvPos": 0
+    },
+    {
+      "name": "Time",
+      "description": "The time associated with this this part",
+      "format": "char",
+      "csvPos": 1
+    },
+    {
+      "name": "Beam",
+      "description": "Beam",
+      "format": "float",
+      "csvPos": 3,
+      "regex": "Beam=([^,]+)"
+    },
+    {
+      "name": "BoxWidth",
+      "description": "BoxWidth",
+      "format": "float",
+      "regex": "BoxWidth=([^,]+)"
+    },
+    {
+      "name": "BoxHeight",
+      "description": "BoxHeight",
+      "format": "float",
+      "regex": "BoxHeight=([^,]+)"
+    }
+  ],
+  "settings": {
+    "model": {
+      "separator": ",",
+      "port": 10000,
+      "mode": "pub/sub as server"
+    }
+  }
+}

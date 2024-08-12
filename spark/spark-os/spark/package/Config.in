@@ -1,0 +1,8 @@
+source "$BR2_EXTERNAL_SPARK_PATH/package/ca-certificates-te/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-hardware/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-health-monitor/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-mqtt-broker/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-protocol/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-service-client/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-web-proxy/Config.in"
+source "$BR2_EXTERNAL_SPARK_PATH/package/spark-webadmin/Config.in"

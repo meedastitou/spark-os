@@ -1,0 +1,42 @@
+{
+  "info": {
+    "name": "cn554-net-ppt-cam1-old",
+    "description": "cn554-net-ppt-cam1-old",
+    "version": "1.0.0",
+    "fullname": "cn554-net-ppt-cam1-old",
+    "hpl": "net"
+  },
+  "variables": [
+    {
+      "name": "upper_pitch_ng",
+      "description": "upper_pitch_ng",
+      "format": "int16",
+      "csvPos": 11
+    },
+    {
+      "name": "lower_pitch_ng",
+      "description": "lower_pitch_ng",
+      "format": "int16",
+      "csvPos": 13
+    },
+    {
+      "name": "left_vertical_ng",
+      "description": "left_vertical_ng",
+      "format": "int16",
+      "csvPos": 15
+    },
+    {
+      "name": "right_vertical_ng",
+      "description": "right_vertical_ng",
+      "format": "int16",
+      "csvPos": 17
+    }
+  ],
+  "settings": {
+    "model": {
+      "mode": "pub/sub as server",
+      "port": 2000,
+      "separator": ","
+    }
+  }
+}

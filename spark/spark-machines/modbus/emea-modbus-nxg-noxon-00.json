@@ -1,0 +1,119 @@
+{
+  "info": {
+    "description": "Machine Definition using modbus TCP protocol for Noxon Reeler NXG6-20",
+    "name": "emea-modbus-nxg-noxon-00",
+    "version": "1.0.0",
+    "fullname": "Noxon Reeler NXG6-20 (Standard)",
+    "hpl": "modbus"
+  },
+  "variables": [
+    {
+      "name": "machine_status",
+      "description": "machine status",
+      "format": "int16",
+      "type": "hr",
+      "address": "0000",
+      "onChange": false
+    },
+    {
+      "name": "fault_number",
+      "description": "fault number",
+      "format": "int16",
+      "type": "hr",
+      "address": "0001",
+      "onChange": true
+    },
+    {
+      "name": "operation_number",
+      "description": "operation number",
+      "format": "int16",
+      "type": "hr",
+      "address": "0002",
+      "onChange": true
+    },
+    {
+      "name": "hydramelic_number",
+      "description": "hydramelic number",
+      "format": "int16",
+      "type": "hr",
+      "address": "0003"
+    },
+    {
+      "name": "record_number",
+      "description": "record number",
+      "format": "int16",
+      "type": "hr",
+      "address": "0004"
+    },
+    {
+      "name": "main_pot",
+      "description": "main pot",
+      "format": "int16",
+      "type": "hr",
+      "address": "0005"
+    },
+    {
+      "name": "loop",
+      "description": "loop",
+      "format": "int16",
+      "type": "hr",
+      "address": "0006"
+    },
+    {
+      "name": "temperature_hot_glue_hose",
+      "description": "temperature hot glue hose",
+      "format": "int16",
+      "type": "hr",
+      "address": "0008"
+    },
+    {
+      "name": "temperature_hot_glue_nozzle",
+      "description": "temperature hot glue nozzle",
+      "format": "uint16",
+      "type": "hr",
+      "address": "0009"
+    },
+    {
+      "name": "spooler_counter",
+      "description": "spooler counter",
+      "format": "int16",
+      "type": "hr",
+      "address": "000A"
+    },
+    {
+      "name": "parts-should",
+      "description": "parts should",
+      "format": "int32",
+      "type": "hr",
+      "address": "0014"
+    },
+    {
+      "name": "parts_is",
+      "description": "parts is",
+      "format": "int32",
+      "type": "hr",
+      "address": "0016"
+    },
+    {
+      "name": "parts_last_reel",
+      "description": "parts last reel",
+      "format": "int32",
+      "type": "hr",
+      "address": "0018"
+    },
+    {
+      "name": "paper_diameter_1",
+      "description": "paper diameter 1",
+      "format": "int32",
+      "type": "hr",
+      "address": "002E"
+    },
+    {
+      "name": "paper_diameter_2",
+      "description": "paper diameter 2",
+      "format": "int32",
+      "type": "hr",
+      "address": "0030"
+    }
+  ]
+}

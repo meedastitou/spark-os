@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "hpl-corona",
+  "title": "Corona",
+  "headerTemplate": "{{self.info.name}}",
+  "type": "object",
+  "required": [
+    "info",
+    "variables"
+  ],
+  "properties": {
+    "info": {
+      "$ref": "#/definitions/hpl/definitions/info"
+    },
+    "variables": {
+      "title": "Variables",
+      "description": "Array of variables to read from the machine",
+      "type": "array",
+      "format": "tabs",
+      "minItems": 1,
+      "items": {
+        "headerTemplate": "{{self.name}}",
+        "defaultProperties": [
+          "name",
+          "description",
+          "format",
+          "type"
+        ],
+        "allOf": [{
+          "$ref": "#/definitions/hpl/definitions/variable"
+        }, {
+          "required": [
+            "channelType"
+          ],
+          "properties": {
+            "channelType": {
+              "title": "Channel Type",
+              "description": "Choose the Channel Type for this variable",
+              "type": "string",
+              "enum": [
+                "Analog Input",
+                "Digital Input"
+              ]
+            },
+            "channelNum": {
+              "title": "Channel Number",
+              "description": "Channel number to assign to this variable",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          }
+        }]
+      }
+    }
+  }
+}

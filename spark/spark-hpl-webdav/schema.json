@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-csv",
+    "title": "CSV",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "rowPosition",
+                    "columnPosition",
+                    "matchName"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "rowPosition",
+                        "columnPosition"
+                    ],
+                    "properties": {
+                        "rowPosition": {
+                            "title": "Row Position",
+                            "description": "The row from which to read the value.",
+                            "type": "string",
+                            "enum": [
+                                "Last",
+                                "All New Rows at End",
+                                "First",
+                                "First after Header",
+                                "Specific Row"
+                            ],
+                            "default": "Last"
+                        },
+                        "specificRow": {
+                            "title": "Specific Row",
+                            "description": "If Row Position is 'Specific Row', the number of the row from which to read the value",
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "columnPosition": {
+                            "title": "Column Position",
+                            "description": "The column from which to read the value.",
+                            "type": "string",
+                            "enum": [
+                                "Match Name",
+                                "Specific Column"
+                            ],
+                            "default": "Match Name"
+                        },
+                        "matchName": {
+                            "title": "Match Name",
+                            "description": "If Column Position is 'Match Name', the name of the column in the header from which to read the value",
+                            "type": "string",
+                            "pattern": "^[a-zA-Z0-9-_]*$",
+                            "minLength": 1,
+                            "maxLength": 40,
+                            "validationMessage": "Match Name must only contain letters, numbers, dash and underscore"
+                        },
+                        "specificColumn": {
+                            "title": "Specific Column",
+                            "description": "If Column Position is 'Specific Column', the number of the column from which to read the value",
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+DC="docker-compose -f docker-compose.builder.yml"
+
+function finish() {
+  # down and remove volumes
+  $DC down --volumes
+}
+
+$DC build
+
+trap finish EXIT
+$DC run --rm builder $@
+$DC run --no-deps --rm -T builder bash -c '(tar cf - dist)' | tar xf -

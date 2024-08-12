@@ -1,0 +1,27 @@
+{
+  "info": {
+    "description": "Machine Definition using modbus TCP protocol for Noxon Dereeler DPH2T-1250",
+    "name": "emea-modbus-dph2t-noxon-00",
+    "fullname": "Noxon Dereeler DPH2T-1250 (Standard)",
+    "version": "1.0.0",
+    "hpl": "modbus"
+  },
+  "variables": [
+    {
+      "name": "machine_status",
+      "description": "machine status",
+      "format": "int16",
+      "type": "hr",
+      "address": "0000",
+      "onChange": false
+    },
+    {
+      "name": "fault_number",
+      "description": "fault number",
+      "format": "int16",
+      "type": "hr",
+      "address": "0001",
+      "onChange": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "info": {
+    "description": "cn554-net-ppt-cam1",
+    "version": "1.0.0",
+    "name": "cn554-net-ppt-cam1",
+    "fullname": "cn554-net-ppt-cam1",
+    "hpl": "net"
+  },
+  "variables": [
+    {
+      "name": "upper_pitch_ng",
+      "description": "Upper Pitch NG",
+      "format": "uint16",
+      "csvPos": 27
+    },
+    {
+      "name": "lower_pitch_ng",
+      "description": "Lower Pitch NG",
+      "format": "uint16",
+      "csvPos": 29
+    },
+    {
+      "name": "left_vertical_ng",
+      "description": "Left Vertical NG",
+      "format": "uint16",
+      "csvPos": 31
+    },
+    {
+      "name": "right_vertical_ng",
+      "description": "Right Vertical NG",
+      "format": "uint16",
+      "csvPos": 33
+    },
+    {
+      "name": "upper_gap_ng",
+      "description": "Upper Gap NG",
+      "format": "uint16",
+      "csvPos": 35
+    },
+    {
+      "name": "lower_gap_ng",
+      "description": "Lower Gap NG",
+      "format": "uint16",
+      "csvPos": 37
+    },
+    {
+      "name": "upper_contrast_ng",
+      "description": "Upper Contrast NG",
+      "format": "uint16",
+      "csvPos": 39
+    },
+    {
+      "name": "lower_contrast_ng",
+      "description": "Lower Contrast NG",
+      "format": "uint16",
+      "csvPos": 41
+    }
+  ],
+  "settings": {
+    "model": {
+      "port": 2001,
+      "separator": ",",
+      "mode": "pub/sub as server"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "device": "/dev/ttyS1",
+            "baudRate": "4800",
+            "requestFrequency": 5,
+            "unicodeEncoding" : "utf16le",
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-arburg",
+            "required": [
+                "enable",
+                "requestFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the Arburg is connected to.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["1200", "2400", "4800", "9600"]
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between data requests.",
+                    "type": "integer",
+                    "minimum": 5,
+                    "maximum": 120
+                },
+                "unicodeEncoding": {
+                    "title": "Unicode Encoding",
+                    "description": "Choose the Unicode encoding for alarm messages.",
+                    "type": "string",
+                    "enum": ["utf8", "utf16le", "latin1"],
+                    "default": "utf16le"
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "device",
+            "baudRate",
+            "requestFrequency",
+            "unicodeEncoding",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

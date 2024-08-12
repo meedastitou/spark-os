@@ -1,0 +1,104 @@
+.\" AS511 Status Variable
+.TH "AS511 Status Variable" "3" "0.1" "Peter Schnabel 2006" "Programmers Library"
+.SH "NAME"
+AS511 Status Var
+.SH "BESCHREIBUNG"
+.br 
+Mit den Funktionen wird der Befehl Status Variable einer S5 SPS aufgerufen.
+.br 
+int as511_status_var_create( td_t *td )
+.br 
+int as511_status_var_destroy( td_t *td, int (*usrfk)(void*) )
+.br 
+dl_t *as511_status_var_insert_type( td_t *td, unsigned char type, unsigned short addr, int (*usrfk)(void*), void *udata )
+.br 
+int as511_status_var_start( td_t *td )
+.br 
+int as511_status_var_run( td_t *td )
+.br 
+int as511_status_var_stop( td_t *td )
+.br 
+.SH "STATUS VAR"
+\fB
+.IP  "STATUS VAR Initialisieren"
+\fR
+.br 
+int as511_status_var_create( td_t *td )
+\fB
+.IP  "STATUS VAR Datensrukturen Loeschen
+\fR
+.br 
+int as511_status_var_destroy( td_t *td, int (*usrfk)(void*) )
+\fB
+.IP  "STATUS VAR Funktionstypen einfuegen"
+\fR
+.br 
+dl_t *as511_status_var_insert_type( td_t *td, unsigned char type, unsigned short addr, int (*usrfk)(void*), void *udata )
+.br 
+\fB
+.IP  "STATUS VAR Protokoll"
+\fR
+.br 
+int    as511_status_var_start( td_t *td )
+.br 
+svl_t *as511_status_var_run( td_t *td )
+.br 
+int    as511_status_var_stop( td_t *td )
+.br 
+.SH "FUNKTIONSTYPEN EINFUEGEN"
+\fB
+.IP  "dl_t *as511_status_var_insert_type( td_t *td, unsigned char type, unsigned short addr, int (*usrfk)(void*), void *udata )"
+\fR
+Einfuegen von Typ und Adresse, deren Status gelesen werden soll
+.br 
+\fB
+type:
+\fR
+.br 
+STATUS_VAR_PAE      Lesen des Prozessabbildes der Eingaenge 
+.br 
+STATUS_VAR_PAA      Lesen des Prozessabbildes der Ausgaenge
+.br 
+STATUS_VAR_MERKER   Lesen eines Merkerbytes
+.br 
+STATUS_VAR_ZAEHLER  Lesen einer Speicherzelle der Zaehler
+.br 
+STATUS_VAR_DATEN    Lesen der Speicherzelle eines Datenwortes oder einer Speicherzelle der Zeiten
+.br 
+\fB
+addr:
+\fR
+.br 
+Die Speicheeradresse im S5 Ram, dessen Daten gelesen werden sollen.
+.br 
+\fB
+usrfk:
+\fR
+.br 
+Benutzerdefinierte Funktion, die aufgerufen wird, bevor die Datenstruktur geloescht wird
+.br 
+\fB
+udata:
+\fR
+.br 
+Diese Daten werden usrfk beim loeschen uebergeben.
+.br 
+.SH "PROTOKOLL"
+\fB
+.IP  "int as511_status_var_start( td_t *td )"
+\fR
+.br 
+Startet die Funktion Status Var
+.br 
+\fB
+.IP  "int *as511_status_var_run( td_t *td )"
+\fR
+Diese Funktion wird so lange aufgerufen, wie die Daten benoetigt werden.
+Mit jedem Durchlauf wird die Liste mit den Aktuellen Daten gefuellt.
+.br 
+\fB
+.IP  "int as511_status_var_stop( td_t *td )"
+\fR
+Diese Funktion beendet die mit "as511_status_var_start" gestartete Funktion
+.br
+

@@ -1,0 +1,32 @@
+{
+  "name": "spark-protocol-azure-iot-hub",
+  "fullname": "Azure Cloud Client",
+  "version": "0.0.1",
+  "description": "An Azure Cloud client for IoT hub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"TODO: add tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-azure-iot-hub.git"
+  },
+  "keywords": [
+    "Spark",
+    "Azure Cloud"
+  ],
+  "author": {
+    "name": "Matt Miller",
+    "email": "matthew.miller@te.com"
+  },
+  "dependencies": {
+    "async": "2.6.1",
+    "azure-iot-device": "1.7.1",
+    "azure-iot-device-mqtt": "1.7.1",
+    "azure-iothub": "1.7.1",
+    "lodash": "4.17.10"
+  },
+  "devDependencies": {
+    "bunyan": "1.8.12"
+  }
+}

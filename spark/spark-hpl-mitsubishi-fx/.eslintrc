@@ -1,0 +1,13 @@
+{
+    "env": {
+      "node": true,
+      "mocha": true
+    },
+    "plugins": [
+      "json"
+    ],
+    "extends": [
+      "eslint-config-airbnb"
+    ]
+  }
+  

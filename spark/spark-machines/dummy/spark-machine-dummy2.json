@@ -1,0 +1,25 @@
+{
+    "info": {
+        "name": "spark-machine-dummy2",
+        "fullname": "Dummy Machine 2",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a 2nd fake device",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "count",
+        "description": "Count",
+        "format": "float",
+        "type": "sine"
+    }, {
+        "name": "error",
+        "description": "Error Code",
+        "format": "uint16",
+        "outputFormat": "char",
+        "type": "error",
+        "transformMap": {
+            "0": "success, from spark-machine-dummy2",
+            "1": "error, from spark-machine-dummy2"
+        }
+    }]
+}

@@ -1,0 +1,13 @@
+{
+    "info": {
+        "name": "missing-description",
+        "fullname": "Spark Machine 1",
+        "version": "1.0.0",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float"
+    }]
+}

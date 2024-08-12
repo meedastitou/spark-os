@@ -1,0 +1,15 @@
+{
+  "name": "kinesisClient",
+  "version": "0.0.1",
+  "description": "AWS Lambda function for the Kinesis client.",
+  "main": "index.js",
+  "scripts": {
+    "zip": "yarn install && chmod a+r * && zip -r -q consumer.zip ./*"
+  },
+  "repository": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-aws-kinesis.git",
+  "author": "Sam Pawlikowski <sam.pawlikowski@te.com>",
+  "dependencies": {
+    "aws-sdk": "^2.275.1",
+    "lodash": "^4.17.10"
+  }
+}

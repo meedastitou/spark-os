@@ -1,0 +1,102 @@
+{
+    "info": {
+        "name": "spark-machine-otto-pc-8578",
+        "fullname": "OTTO PC-8578",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a OTTO PC-8578",
+        "hpl": "net"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub as server",
+            "port": 7501,
+            "newLinesForXml": true,
+            "publishTerminator": "<!--END-->"
+        }
+    }    ,
+    "variables": [{
+        "name": "IBO1",
+        "description": "Insulation Barrel out 1",
+        "regex": "Insulation Barrel out 1\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "WBO1",
+        "description": "Wire Barrel out 1",
+        "regex": "Wire Barrel out 1\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "BWO1",
+        "description": "Box Width out 1",
+        "regex": "Box Width out 1\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "BWRO1",
+        "description": "Blade Width Rear out 1",
+        "regex": "Blade Width  Rear out 1\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "BWFO1",
+        "description": "Blade Width Front out 1",
+        "regex": "Blade Width  Front out 1\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "PCTO1",
+        "description": "Px Count Tip out 1",
+        "regex": "Px Count Tip out 1\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "TW2",
+        "description": "Transition Width 2",
+        "regex": "Transition Width 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "BWO2",
+        "description": "Box Width out 2",
+        "regex": "Box Width out 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "IBO2",
+        "description": "Insulation Barrel out 2",
+        "regex": "Insulation Barrel out 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "WBO2",
+        "description": "Wire Barrel out 2",
+        "regex": "Wire Barrel out 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "BWRO2",
+        "description": "Blade Width Rear out 2",
+        "regex": "Blade Width  Rear out 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "BWFO2",
+        "description": "Blade Width Front out 2",
+        "regex": "Blade Width  Front out 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "PCTO2",
+        "description": "Px Count Tip out 2",
+        "regex": "Px Count Tip out 2\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }, {
+        "name": "TW1",
+        "description": "Transition Width 1",
+        "regex": "Transition Width\" R=\"(.*?)\"",
+        "format": "float",
+        "array": true
+    }]
+}

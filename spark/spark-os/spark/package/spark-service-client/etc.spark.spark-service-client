@@ -1,0 +1,7 @@
+NODE_ENV=production
+NODE_OPTIONS="--use-openssl-ca"
+LOG_SYSLOG=spark-service-client
+HEARTBEAT_URI=https://spark.tycoelectronics.com/api/heartbeat
+UPDATE_CMD=sudo /usr/sbin/update-spark
+REBOOT_CMD=sudo /usr/sbin/reboot
+ENABLE_UPDATES=true

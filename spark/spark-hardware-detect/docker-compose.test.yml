@@ -1,0 +1,11 @@
+version: '3'
+services:
+  tester:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - artifacts:/app/coverage
+      - /dev/bus/usb:/dev/bus/usb
+volumes:
+  artifacts:

@@ -1,0 +1,72 @@
+{
+    "info": {
+        "name": "spark-machine-ml1400-stamping",
+        "fullname": "ML1400 stamping",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a ML1400 stamping using Modbus",
+        "hpl": "modbus"
+    },
+    "settings": {
+        "model": {
+            "highByteFirst": true,
+            "highWordFirst": true,
+            "mode": "RTU",
+            "baudRate": "19200"
+        }
+    },
+    "variables": [{
+        "name": "CurrentSPM",
+        "description": "Current SPM / Last Running SPM",
+        "type": "hr",
+        "address": "0000",
+        "format": "int16"
+    }, {
+        "name": "PartsStamped",
+        "description": "Parts Stamped (Last Hour)",
+        "type": "hr",
+        "address": "0001",
+        "format": "int16"
+    }, {
+        "name": "OilHigh",
+        "description": "Oil pressure High",
+        "type": "di",
+        "address": "0000",
+        "format": "bool"
+    }, {
+        "name": "OilLow",
+        "description": "Oil Pressure Low",
+        "type": "di",
+        "address": "0001",
+        "format": "bool"
+    }, {
+        "name": "GuardFeeback",
+        "description": "Guard Feedback",
+        "type": "di",
+        "address": "0002",
+        "format": "bool"
+    }, {
+        "name": "AirLow",
+        "description": "Air pressure Low",
+        "type": "di",
+        "address": "0003",
+        "format": "bool"
+    }, {
+        "name": "BrakeFault",
+        "description": "Brake/Clutch Faulted",
+        "type": "di",
+        "address": "0004",
+        "format": "bool"
+    }, {
+        "name": "CircuitTripped",
+        "description": "Circuit Breaker(s) Tripped",
+        "type": "di",
+        "address": "0005",
+        "format": "bool"
+    }, {
+        "name": "Running",
+        "description": "Running",
+        "type": "di",
+        "address": "0006",
+        "format": "bool"
+    }]
+}

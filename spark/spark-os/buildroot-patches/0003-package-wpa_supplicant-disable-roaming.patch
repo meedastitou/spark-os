@@ -1,0 +1,25 @@
+From 12438eaa1b7281cee0c50a499b14523f02e384f9 Mon Sep 17 00:00:00 2001
+From: "Bark, Martin" <martin.bark@te.com>
+Date: Mon, 19 Feb 2018 16:20:20 +0000
+Subject: [PATCH] package/wpa_supplicant: disable roaming
+
+Signed-off-by: Bark, Martin <martin.bark@te.com>
+---
+ package/wpa_supplicant/wpa_supplicant.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/package/wpa_supplicant/wpa_supplicant.mk b/package/wpa_supplicant/wpa_supplicant.mk
+index 75ecbaa53c..642e0cfb85 100644
+--- a/package/wpa_supplicant/wpa_supplicant.mk
++++ b/package/wpa_supplicant/wpa_supplicant.mk
+@@ -37,6 +37,7 @@ WPA_SUPPLICANT_CONFIG_ENABLE = \
+ 	CONFIG_IEEE80211R \
+ 	CONFIG_INTERNAL_LIBTOMMATH \
+ 	CONFIG_DEBUG_FILE \
++	CONFIG_NO_ROAMING \
+ 	CONFIG_MATCH_IFACE
+ 
+ WPA_SUPPLICANT_CONFIG_DISABLE = \
+-- 
+2.16.1
+

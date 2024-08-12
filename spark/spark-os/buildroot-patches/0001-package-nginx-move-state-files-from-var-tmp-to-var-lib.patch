@@ -1,0 +1,67 @@
+From 5113d50e014e0e819dffc78999c065f32de0acc3 Mon Sep 17 00:00:00 2001
+From: "Bark, Martin" <martin.bark@te.com>
+Date: Mon, 19 Feb 2018 16:17:54 +0000
+Subject: [PATCH] package/nginx: move state files from /var/tmp to /var/lib
+
+When using systemd, systemd-tmpfiles-clean.timer can come along and
+clean up the /var/tmp/nginx file causing nginx to error.
+
+Solve this issue by placing the nginx state files under /var/lib/nginx
+
+Signed-off-by: Bark, Martin <martin.bark@te.com>
+---
+ package/nginx/S50nginx      |  2 +-
+ package/nginx/nginx.mk      | 10 +++++-----
+ package/nginx/nginx.service |  2 +-
+ 3 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/package/nginx/S50nginx b/package/nginx/S50nginx
+index 964652b922..db41099555 100755
+--- a/package/nginx/S50nginx
++++ b/package/nginx/S50nginx
+@@ -9,7 +9,7 @@ PIDFILE=/var/run/nginx.pid
+ case "$1" in
+   start)
+ 	echo "Starting nginx..."
+-	mkdir -p /var/log/nginx /var/tmp/nginx
++	mkdir -p /var/log/nginx /var/lib/nginx
+ 	start-stop-daemon -S -x "$NGINX" -p "$PIDFILE"
+ 	;;
+   stop)
+diff --git a/package/nginx/nginx.mk b/package/nginx/nginx.mk
+index e5652af6df..e773414dfb 100644
+--- a/package/nginx/nginx.mk
++++ b/package/nginx/nginx.mk
+@@ -56,11 +56,11 @@ NGINX_CONF_OPTS += \
+ 	--group=www-data \
+ 	--error-log-path=/var/log/nginx/error.log \
+ 	--http-log-path=/var/log/nginx/access.log \
+-	--http-client-body-temp-path=/var/tmp/nginx/client-body \
+-	--http-proxy-temp-path=/var/tmp/nginx/proxy \
+-	--http-fastcgi-temp-path=/var/tmp/nginx/fastcgi \
+-	--http-scgi-temp-path=/var/tmp/nginx/scgi \
+-	--http-uwsgi-temp-path=/var/tmp/nginx/uwsgi
++	--http-client-body-temp-path=/var/lib/nginx/client-body \
++	--http-proxy-temp-path=/var/lib/nginx/proxy \
++	--http-fastcgi-temp-path=/var/lib/nginx/fastcgi \
++	--http-scgi-temp-path=/var/lib/nginx/scgi \
++	--http-uwsgi-temp-path=/var/lib/nginx/uwsgi
+ 
+ NGINX_CONF_OPTS += \
+ 	$(if $(BR2_PACKAGE_NGINX_FILE_AIO),--with-file-aio) \
+diff --git a/package/nginx/nginx.service b/package/nginx/nginx.service
+index 320df9a80e..283a704ad1 100644
+--- a/package/nginx/nginx.service
++++ b/package/nginx/nginx.service
+@@ -5,7 +5,7 @@ After=syslog.target network.target
+ [Service]
+ Type=forking
+ PIDFile=/var/run/nginx.pid
+-ExecStartPre=/usr/bin/mkdir -p /var/log/nginx /var/tmp/nginx
++ExecStartPre=/usr/bin/mkdir -p /var/log/nginx /var/lib/nginx
+ ExecStartPre=/usr/sbin/nginx -t -q -g 'pid /var/run/nginx.pid; daemon on; master_process on;'
+ ExecStart=/usr/sbin/nginx -g 'pid /var/run/nginx.pid; daemon on; master_process on;'
+ ExecReload=/usr/sbin/nginx -g 'pid /var/run/nginx.pid; daemon on; master_process on;' -s reload
+-- 
+2.16.1
+

@@ -1,0 +1,210 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "interface": "serial",
+            "device": "/dev/ttyUSB0",
+            "baudRate": "9600",
+            "dataBits": "7 bit",
+            "stopBits": "1 bit",
+            "parity": "none",
+            "format": "Format 1",
+            "checksum": true,
+            "stationNumber": 0,
+            "hostName": "",
+            "port": "",
+            "mode": "binary",
+            "frame": "1E",
+            "requestFrequency": 5,
+            "highByteFirst": true,
+            "highWordFirst": true,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-mitsubishi-fx",
+            "required": [
+                "enable",
+                "interface",
+                "requestFrequency",
+                "publishDisabled"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "interface": {
+                    "title": "Interface",
+                    "description": "Choose either Serial or Ethernet Interface.",
+                    "type": "string",
+                    "enum": ["serial", "ethernet"]
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the Machine is connected to.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["75", "110", "300", "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200"]
+                },
+                "dataBits": {
+                    "title": "Data Bits Length",
+                    "description": "Choose the Data Bits Length for the serial device.",
+                    "type": "string",
+                    "enum": ["7 bit", "8 bit"]
+                },
+                "stopBits": {
+                    "title": "Stop Bits",
+                    "description": "Choose the number of Stop Bits for the serial device.",
+                    "type": "string",
+                    "enum": ["1 bit", "2 bit"]
+                },
+                "parity": {
+                    "title": "Serial Parity",
+                    "description": "Choose the Parity for the serial device.",
+                    "type": "string",
+                    "enum": ["none", "odd", "even"]
+                },
+                "format": {
+                    "title": "Format",
+                    "description": "Choose either Format 1 or Format 4 (with CR/LF termination).",
+                    "type": "string",
+                    "enum": ["Format 1", "Format 4"]
+                },
+                "checksum": {
+                    "title": "Checksum",
+                    "description": "Whether to expect (and send) a Checksum",
+                    "type": "boolean"
+                },
+                "stationNumber": {
+                    "title": "Station Number",
+                    "description": "The Station Number of the machine to communicate with.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 15
+                },
+                "hostName": {
+                    "title": "Host Name",
+                    "description": "The host name (or IP address) to connect to.",
+                    "type": "string",
+                    "required": true
+                },
+                "port": {
+                    "title": "Port",
+                    "description": "The port number to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": true
+                },
+                "mode": {
+                    "title": "Encoding Scheme",
+                    "description": "Choose the data encoding (binary or ASCII).",
+                    "type": "string",
+                    "enum": ["binary", "ASCII"]
+                },
+                "frame": {
+                    "title": "Frame Type",
+                    "description": "Choose the MC protocol communication frame .",
+                    "type": "string",
+                    "enum": ["1E", "3E"]
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between data requests.",
+                    "type": "integer",
+                    "minimum": 2,
+                    "maximum": 120
+                },
+                "highByteFirst": {
+                    "title": "High Byte First",
+                    "description": "Expected order of bytes recieved for 16 and 32 bit data.",
+                    "type": "boolean"
+                },
+                "highWordFirst": {
+                    "title": "High Word First",
+                    "description": "Expected order of words recieved for 32 bit data.",
+                    "type": "boolean"
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "interface", {
+                "condition": "model.interface=='serial'",
+                "key": "device"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "baudRate"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "dataBits"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "stopBits"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "parity"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "format"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "checksum"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "highByteFirst"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "highWordFirst"
+            }, {
+                "condition": "model.interface=='serial'",
+                "key": "stationNumber"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "hostName"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "port"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "mode"
+            }, {
+                "condition": "model.interface=='ethernet'",
+                "key": "frame"
+            },
+            "requestFrequency",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

@@ -1,0 +1,2 @@
+spark-webadmin ALL=(ALL) NOPASSWD: /usr/sbin/spark-shutdown
+spark-webadmin ALL=(ALL) NOPASSWD: /usr/sbin/update-spark

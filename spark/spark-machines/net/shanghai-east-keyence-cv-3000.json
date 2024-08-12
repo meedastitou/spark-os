@@ -1,0 +1,51 @@
+{
+    "info": {
+        "fullname": "Shanghai East Keyence CV-3000",
+        "version": "1.0.0",
+        "description": "Keyence CV-3000 Machine Vision System in Shanghai East",
+        "hpl": "net",
+        "name": "shanghai-east-keyence-cv-3000"
+    },
+    "variables": [{
+        "name": "Date",
+        "description": "The date associated with this part",
+        "format": "char",
+        "csvPos": 3,
+        "length": 3
+    }, {
+        "name": "Time",
+        "description": "The time associated with this this part",
+        "format": "char",
+        "csvPos": 6,
+        "length": 3
+    }, {
+        "name": "Result",
+        "description": "The result associated with this part",
+        "format": "char",
+        "csvPos": 2
+    }, {
+        "name": "Count",
+        "description": "The parts counter",
+        "format": "int32",
+        "csvPos": 1
+    }, {
+        "name": "judge_value",
+        "description": "The judgment values of the selected windows are output",
+        "format": "float",
+        "csvPos": 9,
+        "length": 3
+    }, {
+        "name": "measure_value",
+        "description": "Outputs the set measurement value",
+        "format": "float",
+        "length": 3,
+        "csvPos": 12
+    }],
+    "settings": {
+        "model": {
+            "separator": ",",
+            "mode": "pub/sub as client",
+            "port": 8500
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "extends": "eslint-config-airbnb",
+  "rules": {
+    "no-param-reassign": ["error", {
+      "props": false
+    }],
+    "new-cap": ["error", {
+      "properties": false
+    }]
+  }
+}

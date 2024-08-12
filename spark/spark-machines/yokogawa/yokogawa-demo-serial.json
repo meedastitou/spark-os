@@ -1,0 +1,35 @@
+{
+  "info": {
+    "hpl": "yokogawa",
+    "fullname": "Yokogawa Demo Serial",
+    "name": "yokogawa-demo-serial",
+    "version": "1.0.0",
+    "description": "Demo definition for Yokogawa PLC using the serial interface"
+  },
+  "settings": {
+      "model": {
+          "interface": "serial",
+          "device": "/dev/ttyS1",
+          "baudRate": "9600",
+          "requestFrequency": 5,
+          "yokogawaStationNumber": 1,
+          "yokogawaCPUNumber": 1,
+          "usingChecksum": true,
+          "usingCr": true
+      }
+  },
+  "variables": [
+    {
+      "name": "good-products",
+      "description": "Good product count",
+      "format": "uint32",
+      "requestKey": "WRDD7006,02"
+    },
+    {
+      "name": "on-line",
+      "description": "Online bool",
+      "format": "bool",
+      "requestKey": "BRDI11000,001"
+    }
+  ]
+}

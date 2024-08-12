@@ -1,0 +1,30 @@
+{
+  "info": {
+    "hpl": "yokogawa",
+    "fullname": "Yokogawa Demo Ethernet",
+    "name": "yokogawa-demo-ethernet",
+    "version": "1.0.0",
+    "description": "Demo definition for Yokogawa PLC using the ethernet interface"
+  },
+  "settings": {
+      "model": {
+          "interface": "ethernet",
+          "requestFrequency": 5,
+          "yokogawaCPUNumber": 1
+      }
+  },
+  "variables": [
+    {
+      "name": "good-products",
+      "description": "Good product count",
+      "format": "uint32",
+      "requestKey": "WRDD7006,02"
+    },
+    {
+      "name": "on-line",
+      "description": "Online bool",
+      "format": "bool",
+      "requestKey": "BRDI11000,001"
+    }
+  ]
+}

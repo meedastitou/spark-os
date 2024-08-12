@@ -1,0 +1,135 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "mode": "pub/sub as server",
+            "ipAddress": "",
+            "port": 10000,
+            "binaryPacket": false,
+            "separator": ",",
+            "newLinesForXml": false,
+            "publishTerminator": "",
+            "requestFrequency": 5,
+            "deliverEntireResponse": false,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-net",
+            "required": [
+                "enable",
+                "mode",
+                "port"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "mode": {
+                    "title": "Data capture method",
+                    "description": "Choose the data capture method applicable for the interface.",
+                    "type": "string",
+                    "enum": ["pub/sub as client", "pub/sub as server", "req/res as client"]
+                },
+                "ipAddress": {
+                    "title": "IP Address",
+                    "description": "The IP address of the machine.",
+                    "type": "string"
+                },
+                "port": {
+                    "title": "Port Number",
+                    "description": "The port number configured on the machine.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "binaryPacket": {
+                    "title": "Process received packet as raw (binary) data, with packet index fields",
+                    "description": "Process data will be raw (binary) data.  Variable fields: Packet Index Position, Packet Index Length and Packet Index MSB/LSB will be used to parse binary data.",
+                    "type": "boolean"
+                },
+                "separator": {
+                    "title": "Separator used",
+                    "description": "The Separator used between variables in pub/sub modes.",
+                    "type": "string"
+                },
+                "newLinesForXml": {
+                    "title": "Add new Line Char to end of each XML object",
+                    "description": "If publish data is XML formated and likely to be an array of each value, it may help regexs if new lines are added.",
+                    "type": "boolean"
+                },
+                "publishTerminator": {
+                    "title": "Terminator String",
+                    "description": "The String used to signify the end of the published data in pub/sub modes. If not set then assume end of packet is end of publish.",
+                    "type": "string"
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between each complete set of requests in req/res mode.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120
+                },
+                "deliverEntireResponse": {
+                    "title": "Deliver Entire Response",
+                    "description": "Set to true to deliver the entire machine response as variable 'CombinedResult'",
+                    "type": "boolean",
+                    "default": false
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "mode", {
+                "condition": "model.mode=='pub/sub as client' || model.mode=='req/res as client'",
+                "key": "ipAddress",
+                "placeholder": "192.168.0.1"
+            }, {
+                "key": "port",
+                "placeholder": "10000"
+            }, {
+                "condition": "model.mode=='pub/sub as client' || model.mode=='pub/sub as server'",
+                "key": "separator"
+            },
+            "binaryPacket", {
+                "condition": "model.mode=='pub/sub as client' || model.mode=='pub/sub as server'",
+                "key": "newLinesForXml"
+            }, {
+                "condition": "model.mode=='pub/sub as client' || model.mode=='pub/sub as server'",
+                "key": "publishTerminator"
+            }, {
+                "condition": "model.mode=='req/res as client'",
+                "key": "requestFrequency"
+            },
+            "deliverEntireResponse",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

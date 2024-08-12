@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-directnet",
+    "title": "DirectNET",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "address",
+                    "type",
+                    "bytePos"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "address",
+                        "type",
+                        "bytePos"
+                    ],
+                    "properties": {
+                        "address": {
+                            "title": "V-Memory Address",
+                            "description": "The octal V-Memory address location, with an optional '.n' suffix for bit position",
+                            "type": "string",
+                            "pattern": "^[vV]*[0-7]+(\\.[0-7])*$",
+                            "default": "0"
+                        },
+                        "type": {
+                            "title": "Type",
+                            "description": "Whether the variable is memory value, an input, or an output",
+                            "type": "string",
+                            "enum": [
+                                "Memory",
+                                "Input",
+                                "Output"
+                            ]
+                        },
+                        "bytePos": {
+                            "title": "Byte Position",
+                            "description": "For inputs, outputs, and memory bit values, whether to use the least or most significant byte",
+                            "type": "string",
+                            "enum": [
+                                "LSB",
+                                "MSB"
+                            ]
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "defaultProperties" : [
+                      "disconnectReportTime"
+                    ],
+                    "properties": {
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

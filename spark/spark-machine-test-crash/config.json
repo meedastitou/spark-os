@@ -1,0 +1,33 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "timer": 2
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-test-crash",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the machine.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "timer": {
+                    "title": "Crash timer in seconds",
+                    "description": "The time to wait before triggering a crash.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 60,
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "timer"
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "spark-protocol-data-logger",
+  "fullname": "Data Logger",
+  "version": "0.0.1",
+  "description": "Logs machine data to file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"TODO: add tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-protocol-data-logger.git"
+  },
+  "keywords": [
+    "Spark"
+  ],
+  "author": {
+    "name": "Dominic White",
+    "email": "dominic.white@te.com"
+  },
+  "dependencies": {
+    "async": "2.6.1",
+    "diskusage": "0.2.4",
+    "lodash": "4.17.10"
+  },
+  "devDependencies": {
+    "bunyan": "1.8.12"
+  }
+}

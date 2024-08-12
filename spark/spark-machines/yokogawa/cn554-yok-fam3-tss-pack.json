@@ -1,0 +1,528 @@
+{
+  "info": {
+    "description": "cn554-yok-fam3-tss-pack",
+    "version": "1.0.0",
+    "fullname": "cn554-yok-fam3-tss-pack",
+    "name": "cn554-yok-fam3-tss-pack",
+    "hpl": "yokogawa"
+  },
+  "variables": [
+    {
+      "name": "num-of-postion",
+      "description": "NO. Of Postion",
+      "format": "int16",
+      "requestKey": "WRDD01021,01"
+    },
+    {
+      "name": "cycle-time",
+      "description": "Cycle Time",
+      "format": "int32",
+      "requestKey": "WRDD00172,02"
+    },
+    {
+      "name": "pass-count",
+      "description": "Pass Count",
+      "format": "int32",
+      "requestKey": "WRDD00303,02"
+    },
+    {
+      "name": "preset-pass-count",
+      "description": "Preset Pass Count",
+      "format": "int32",
+      "requestKey": "WRDD00203,02"
+    },
+    {
+      "name": "packing-count",
+      "description": "Packing Count",
+      "format": "int16",
+      "requestKey": "WRDD00307,01"
+    },
+    {
+      "name": "preset-packing-count",
+      "description": "Preset Packing Count",
+      "format": "int16",
+      "requestKey": "WRDD01027,01"
+    },
+    {
+      "name": "fail-total",
+      "description": "Fail Total",
+      "format": "int32",
+      "requestKey": "WRDD00309,02"
+    },
+    {
+      "name": "fail-rate",
+      "description": "Fail Rate",
+      "format": "int32",
+      "requestKey": "WRDD00345,02"
+    },
+    {
+      "name": "ccd1-ng",
+      "description": "CCD1 NG",
+      "format": "int32",
+      "requestKey": "WRDD00341,02"
+    },
+    {
+      "name": "ccd2-ng",
+      "description": "CCD2 NG",
+      "format": "int32",
+      "requestKey": "WRDD00343,02"
+    },
+    {
+      "name": "pass-count-auto-reset",
+      "description": "Pass Count(Auto reset every count 10000)",
+      "format": "int32",
+      "requestKey": "WRDD00320,02"
+    },
+    {
+      "name": "ng-count-auto-reset",
+      "description": "NG Count(Auto reset every count 10)",
+      "format": "int16",
+      "requestKey": "WRDD00322,01"
+    },
+    {
+      "name": "dry-run",
+      "description": "Dry running",
+      "format": "bool",
+      "requestKey": "BRDI11000,001"
+    },
+    {
+      "name": "alm-buzzer-auto-stop-off",
+      "description": "Alarm Buzzer Auto stop off",
+      "format": "bool",
+      "requestKey": "BRDI11001,001"
+    },
+    {
+      "name": "hsg-feed-non-stop-run",
+      "description": "HSG Feed Non Stop Run",
+      "format": "bool",
+      "requestKey": "BRDI11002,001"
+    },
+    {
+      "name": "safety-cover-enable",
+      "description": "Safety Cover Enable",
+      "format": "bool",
+      "requestKey": "BRDI11003,001"
+    },
+    {
+      "name": "ccd1-vision-enable",
+      "description": "CCD1 Vision Enable",
+      "format": "bool",
+      "requestKey": "BRDI11004,001"
+    },
+    {
+      "name": "ccd2-vision-enable",
+      "description": "CCD2 Vision Enable",
+      "format": "bool",
+      "requestKey": "BRDI11005,001"
+    },
+    {
+      "name": "front-mc-online",
+      "description": "Front MC Online",
+      "format": "bool",
+      "requestKey": "BRDI11006,001"
+    },
+    {
+      "name": "auto-mode",
+      "description": "Auto  Mode",
+      "format": "bool",
+      "requestKey": "BRDI11008,001"
+    },
+    {
+      "name": "purge-product-mode",
+      "description": "Purge Product mode",
+      "format": "bool",
+      "requestKey": "BRDI11009,001"
+    },
+    {
+      "name": "step-mode",
+      "description": "Step mode",
+      "format": "bool",
+      "requestKey": "BRDI11010,001"
+    },
+    {
+      "name": "manual-mode",
+      "description": "Manual mode",
+      "format": "bool",
+      "requestKey": "BRDI11011,001"
+    },
+    {
+      "name": "ng-check-mode",
+      "description": "NG Check Mode",
+      "format": "bool",
+      "requestKey": "BRDI11012,001"
+    },
+    {
+      "name": "machine-auto-running-stop",
+      "description": "machine Auto Running/Stop",
+      "format": "bool",
+      "requestKey": "BRDI11013,001"
+    },
+    {
+      "name": "machine-failure",
+      "description": "Machine Failure",
+      "format": "bool",
+      "requestKey": "BRDI11014,001"
+    },
+    {
+      "name": "ccd1-ctng-ok",
+      "description": "CCD1:C/T NG   OK",
+      "format": "bool",
+      "requestKey": "BRDI11016,001"
+    },
+    {
+      "name": "ccd1-ctng-ng",
+      "description": "CCD1:C/T NG   NG",
+      "format": "bool",
+      "requestKey": "BRDI11017,001"
+    },
+    {
+      "name": "ccd2-idcng-ok",
+      "description": "CCD2:IDC NG   OK",
+      "format": "bool",
+      "requestKey": "BRDI11018,001"
+    },
+    {
+      "name": "ccd2-idcng-ng",
+      "description": "CCD2:IDC NG   NG",
+      "format": "bool",
+      "requestKey": "BRDI11019,001"
+    },
+    {
+      "name": "ccd1-not-ready",
+      "description": "CCD1 Not Ready",
+      "format": "bool",
+      "requestKey": "BRDI11021,001"
+    },
+    {
+      "name": "ccd2-not-ready",
+      "description": "CCD2 Not Ready",
+      "format": "bool",
+      "requestKey": "BRDI11022,001"
+    },
+    {
+      "name": "packing-count-0",
+      "description": "Packing Count 0",
+      "format": "bool",
+      "requestKey": "BRDI11023,001"
+    },
+    {
+      "name": "auto-operation",
+      "description": "Auto Operation",
+      "format": "bool",
+      "requestKey": "BRDI11025,001"
+    },
+    {
+      "name": "purge-operation",
+      "description": "Purge Operation",
+      "format": "bool",
+      "requestKey": "BRDI11026,001"
+    },
+    {
+      "name": "step-operation",
+      "description": "Step Operation",
+      "format": "bool",
+      "requestKey": "BRDI11027,001"
+    },
+    {
+      "name": "hsg-wait-x302",
+      "description": "HSG Wait(X302)",
+      "format": "bool",
+      "requestKey": "BRDI11028,001"
+    },
+    {
+      "name": "cv-overflow",
+      "description": "C/V Overflow(X301)",
+      "format": "bool",
+      "requestKey": "BRDI11029,001"
+    },
+    {
+      "name": "dry-run2",
+      "description": "Dry Run 2",
+      "format": "bool",
+      "requestKey": "BRDI11030,001"
+    },
+    {
+      "name": "alm-buzzer-auto-stop",
+      "description": "Alarm Buzzer Auto Stop",
+      "format": "bool",
+      "requestKey": "BRDI11031,001"
+    },
+    {
+      "name": "hsg-feed-cycle-stop-run",
+      "description": "HSG Feed Cycle Stop Run",
+      "format": "bool",
+      "requestKey": "BRDI11032,001"
+    },
+    {
+      "name": "safety-cover-disable",
+      "description": "Safety Cover Disable",
+      "format": "bool",
+      "requestKey": "BRDI11033,001"
+    },
+    {
+      "name": "ccd1-inspection-disable",
+      "description": "CCD1 Inspection Disable",
+      "format": "bool",
+      "requestKey": "BRDI11034,001"
+    },
+    {
+      "name": "ccd2-inspection-disable",
+      "description": "CCD2 Inspection Disable",
+      "format": "bool",
+      "requestKey": "BRDI11035,001"
+    },
+    {
+      "name": "front-mc-offline",
+      "description": "Front MC Offline",
+      "format": "bool",
+      "requestKey": "BRDI11036,001"
+    },
+    {
+      "name": "led-manual-control",
+      "description": "LED Manual Control",
+      "format": "bool",
+      "requestKey": "BRDI11037,001"
+    },
+    {
+      "name": "safety-cover1-open",
+      "description": "Safety Cover1 Open",
+      "format": "bool",
+      "requestKey": "BRDI11038,001"
+    },
+    {
+      "name": "safety-cover2-open",
+      "description": "Safety Cover2 Open",
+      "format": "bool",
+      "requestKey": "BRDI11039,001"
+    },
+    {
+      "name": "safety-cover3-open",
+      "description": "Safety Cover3 Open",
+      "format": "bool",
+      "requestKey": "BRDI11040,001"
+    },
+    {
+      "name": "safety-cover4-open",
+      "description": "Safety Cover4 Open",
+      "format": "bool",
+      "requestKey": "BRDI11041,001"
+    },
+    {
+      "name": "safety-cover5-open",
+      "description": "Safety Cover5 Open",
+      "format": "bool",
+      "requestKey": "BRDI11042,001"
+    },
+    {
+      "name": "safety-cover6-open",
+      "description": "Safety Cover6 Open",
+      "format": "bool",
+      "requestKey": "BRDI11043,001"
+    },
+    {
+      "name": "alm001-fault-emergency-stop",
+      "description": "001>Fault:Emergency Stop",
+      "format": "bool",
+      "requestKey": "BRDI11045,001"
+    },
+    {
+      "name": "alm004-fault-low-air",
+      "description": "004>Fault:Low Air",
+      "format": "bool",
+      "requestKey": "BRDI11046,001"
+    },
+    {
+      "name": "alm005-fault-plc-error",
+      "description": "005>Fault:PLC Error",
+      "format": "bool",
+      "requestKey": "BRDI11047,001"
+    },
+    {
+      "name": "alm006-fault-emergency-stop2",
+      "description": "006>Fault:Emergency Stop2",
+      "format": "bool",
+      "requestKey": "BRDI11048,001"
+    },
+    {
+      "name": "alm007-fault-emergency-stop3",
+      "description": "007>Fault:Emergency Stop3",
+      "format": "bool",
+      "requestKey": "BRDI11049,001"
+    },
+    {
+      "name": "alm008-fault-emergency-stop4",
+      "description": "008>Fault:Emergency Stop4",
+      "format": "bool",
+      "requestKey": "BRDI11050,001"
+    },
+    {
+      "name": "alm009-fault-emergency-stop5",
+      "description": "009>Fault:Emergency Stop5",
+      "format": "bool",
+      "requestKey": "BRDI11051,001"
+    },
+    {
+      "name": "alm012-fault-all-org-process-timeout",
+      "description": "012>Fault:All ORG Process Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11052,001"
+    },
+    {
+      "name": "alm013-fault-hsg-wait-for-alarm",
+      "description": "013>Fault:HSG Wait for Alarm(X302)",
+      "format": "bool",
+      "requestKey": "BRDI11053,001"
+    },
+    {
+      "name": "alm033-fault-axis1-error",
+      "description": "033>Fault:Axis1 Error",
+      "format": "bool",
+      "requestKey": "BRDI11054,001"
+    },
+    {
+      "name": "alm034-fault-axis2-error",
+      "description": "034>Fault:Axis2 Error",
+      "format": "bool",
+      "requestKey": "BRDI11055,001"
+    },
+    {
+      "name": "alm049-fault-axis1-driver-error",
+      "description": "049>Fault:Axis1 Driver Error",
+      "format": "bool",
+      "requestKey": "BRDI11056,001"
+    },
+    {
+      "name": "alm050-fault-axis2-driver-error",
+      "description": "050>Fault:Axis2 Driver Error",
+      "format": "bool",
+      "requestKey": "BRDI11057,001"
+    },
+    {
+      "name": "alm065-timeout-axis1",
+      "description": "065>Timeout:Axis1",
+      "format": "bool",
+      "requestKey": "BRDI11058,001"
+    },
+    {
+      "name": "alm066-timeout-axis2",
+      "description": "066>Timeout:Axis2",
+      "format": "bool",
+      "requestKey": "BRDI11059,001"
+    },
+    {
+      "name": "alm081-escape-timeout",
+      "description": "081>Escape:Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11060,001"
+    },
+    {
+      "name": "alm082-escape-ud-error",
+      "description": "082>Escape:Escape U/D Error(X303,304)",
+      "format": "bool",
+      "requestKey": "BRDI11061,001"
+    },
+    {
+      "name": "alm097-ccd1-timeout",
+      "description": "097>CCD1:Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11062,001"
+    },
+    {
+      "name": "alm098-ccd1-trigger-count-err",
+      "description": "098>CCD1:Trigger Count Err",
+      "format": "bool",
+      "requestKey": "BRDI11063,001"
+    },
+    {
+      "name": "alm099-ccd1-continuity-ng",
+      "description": "099>CCD1:Continuity NG",
+      "format": "bool",
+      "requestKey": "BRDI11064,001"
+    },
+    {
+      "name": "alm113-ccd2-timeout",
+      "description": "113>CCD2:Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11065,001"
+    },
+    {
+      "name": "alm114-ccd2-trigger-count-err",
+      "description": "114>CCD2:Trigger Count Err",
+      "format": "bool",
+      "requestKey": "BRDI11066,001"
+    },
+    {
+      "name": "alm115-ccd2-continuity-ng",
+      "description": "115>CCD2:Continuity NG",
+      "format": "bool",
+      "requestKey": "BRDI11067,001"
+    },
+    {
+      "name": "alm129-ng-timeout",
+      "description": "129>NG:Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11068,001"
+    },
+    {
+      "name": "alm130-ng-hsg-exist",
+      "description": "130>NG:HSG exist(X314)",
+      "format": "bool",
+      "requestKey": "BRDI11069,001"
+    },
+    {
+      "name": "alm145-hsg-feed-timeout",
+      "description": "145>HSG Feed:Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11070,001"
+    },
+    {
+      "name": "alm146-hsg-feed-overload",
+      "description": "146>HSG Feed:Overload(X307)",
+      "format": "bool",
+      "requestKey": "BRDI11071,001"
+    },
+    {
+      "name": "alm147-hsg-feed-finger-check-err",
+      "description": "147>HSG Feed:Finger Check Err(X308)",
+      "format": "bool",
+      "requestKey": "BRDI11072,001"
+    },
+    {
+      "name": "alm148-hsg-feed-ng-delay",
+      "description": "148>HSG Feed:NG Delay",
+      "format": "bool",
+      "requestKey": "BRDI11073,001"
+    },
+    {
+      "name": "alm149-hsg-feed-escape-delay",
+      "description": "149>HSG Feed:Escape Delay",
+      "format": "bool",
+      "requestKey": "BRDI11074,001"
+    },
+    {
+      "name": "alm161-packing-timeout",
+      "description": "161>Packing:Timeout",
+      "format": "bool",
+      "requestKey": "BRDI11075,001"
+    },
+    {
+      "name": "alm162-packing-hsg-exist-error",
+      "description": "162>Packing:HSG Exist Error",
+      "format": "bool",
+      "requestKey": "BRDI11076,001"
+    },
+    {
+      "name": "alm163-packing-rail-overflow",
+      "description": "163>Packing:Rail Overflow",
+      "format": "bool",
+      "requestKey": "BRDI11077,001"
+    }
+  ],
+  "settings": {
+    "model": {
+      "interface": "ethernet",
+      "requestFrequency": 5,
+      "yokogawaCPUNumber": 1
+    }
+  }
+}

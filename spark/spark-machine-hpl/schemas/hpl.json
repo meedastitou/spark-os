@@ -1,0 +1,413 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl",
+    "title": "HPL Base Schema",
+    "type": "object",
+    "definitions": {
+        "info": {
+            "title": "Information",
+            "type": "object",
+            "required": [
+                "name",
+                "fullname",
+                "version",
+                "description",
+                "hpl"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "description": "Machine name using only alphanumeric, dash and underscore",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9-_]*$",
+                    "minLength": 1,
+                    "maxLength": 40,
+                    "validationMessage": "Name must only contain alphanumeric, dash and underscore",
+                    "readOnly": true,
+                    "propertyOrder": 1
+                },
+                "fullname": {
+                    "title": "Full Name",
+                    "description": "Full machine name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "propertyOrder": 2
+                },
+                "version": {
+                    "title": "Version",
+                    "description": "Version number of this definition in the format marjor.minor.patch",
+                    "type": "string",
+                    "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$",
+                    "propertyOrder": 3
+                },
+                "description": {
+                    "title": "Description",
+                    "description": "Text description of the machine",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "propertyOrder": 4
+                },
+                "hpl": {
+                    "title": "Hardware Protocol Layer",
+                    "description": "Hardware Protocol Layer to use",
+                    "type": "string",
+                    "readOnly": true,
+                    "propertyOrder": 5
+                },
+                "genericNamespace": {
+                    "title": "Generic Namespace",
+                    "description": "Optional generic Namespace to use in place of machine definition name",
+                    "type": "string",
+                    "enum": [
+                        "NONE",
+                        "MES",
+                        "StampingPress",
+                        "Vision",
+                        "Reeler",
+                        "Dereeler",
+                        "Undefined-1",
+                        "Undefined-2",
+                        "Undefined-3",
+                        "Undefined-4"
+                    ],
+                    "propertyOrder": 6
+                }
+            }
+        },
+        "variable": {
+            "title": "Variables",
+            "type": "object",
+            "required": [
+                "name",
+                "description",
+                "format"
+            ],
+            "additionalProperties": true,
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "description": "Variable name using only alphanumeric, dash and underscore",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9-_]*$",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "propertyOrder": 1
+                },
+                "description": {
+                    "title": "Description",
+                    "description": "Text description of the variable",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "propertyOrder": 2
+                },
+                "format": {
+                    "title": "Format",
+                    "description": "Format of the variable to get from the machine",
+                    "type": "string",
+                    "enum": [
+                        "float",
+                        "double",
+                        "int8",
+                        "int16",
+                        "int32",
+                        "int64",
+                        "uint8",
+                        "uint16",
+                        "uint32",
+                        "uint64",
+                        "char",
+                        "bool"
+                    ],
+                    "propertyOrder": 3
+                },
+                "length": {
+                    "title": "Length",
+                    "description": "Optional length of the variable.  If not set default to 1",
+                    "type": "integer",
+                    "minimum": 1,
+                    "default": 1
+                },
+                "engineeringUnits": {
+                    "title": "Engineering Units",
+                    "description": "Optional Engineering Units String",
+                    "type": "string",
+                    "maxLength": 80
+                },
+                "array": {
+                    "title": "Array",
+                    "description": "If more than one result is expected, enable this option to store as an array.  If not set default to false",
+                    "type": "boolean",
+                    "default": false
+                },
+                "onChange": {
+                    "title": "On Change",
+                    "description": "Implement 'on change' on this variable. If enabled, only changes in the variables value will cause the value to be written",
+                    "type": "boolean",
+                    "default": false
+                },
+                "onChangeDelta":{
+                    "title": "On Change Delta",
+                    "description": "Describes the amount of change that is necessary for this variable's value to be reported (when On-change is set)  For example, if onChangeDelta = 3 and the previous value of this variable is 1 then we will only process a change when the new value is >= 4 or <= -2.",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "onChangeTimeoutEnable":{
+                    "title": "On Change Timeout",
+                    "description": "If enabled, variable's value will be reported periodically, regardless of any actual change in the variable's value.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "onChangeTimeoutValue":{
+                    "title": "On Change Timeout Value (seconds)",
+                    "description": "Describes the amount of time in seconds for the periodic reporting of a variable, regardless of its actual change in value.",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "onChangeTimeoutConditionalEnable":{
+                    "title": "On Change Timeout Conditional",
+                    "description": "If enabled, allows the on-change-timeout functionality to only apply to a specific value of the variable.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "onChangeTimeoutConditionalValue":{
+                    "title": "On Change Timeout Conditional Value",
+                    "description": "Describes the value that the variable must match in order to allow the on-change-timeout functionality.",
+                    "type": "string"
+                },
+                "onStateChangeIgnoreTimerEnable":{
+                    "title": "On State Change Ignore Timer Enable",
+                    "description": "If enabled for changes in a boolean variable to false and/or true, the selected changes will be ignored until the timer expires.",
+                    "type": "string",
+                    "default": "disable",
+                    "enum": [
+                        "disable",
+                        "enable for false",
+                        "enable for true",
+                        "enable for both"
+                    ]
+                },
+                "onStateChangeIgnoreTimer":{
+                    "title": "On State Change Ignore Timer (seconds)",
+                    "description": "The time in seconds during which changes in the state of a boolean variable are ignored.",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "averageLength": {
+                    "title": "Average Length",
+                    "description": "Implement averaging on this variable, with the length being the number of samples to take the average over",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "downsampleSize": {
+                    "title": "Downsample Size",
+                    "description": "Implement downsampling on this variable, write only every N samples (where 'Downsample Size' is 'N')",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "thresholdLower": {
+                    "title": "Threshold Lower Bounds",
+                    "description": "Implement 'Out of Bounds' on this variable, the value is only written if it is outside the the upper and lower bounds (can be negative and floating point e.g. '-20.5' )",
+                    "type": "number"
+                },
+                "thresholdUpper": {
+                    "title": "Threshold Upper Bounds",
+                    "description": "Implement 'Out of Bounds' on this variable, the value is only written if it is outside the the upper and lower bounds (can be negative and floating point e.g. '-20.5' )",
+                    "type": "number"
+                },
+                "transformEq": {
+                    "title":  "Transform Equation",
+                    "description": "Optional equation to transform the variable.  Use the letter x to represent the variable in the equation.  Depending on the transformation applied it may be necessary to also set outputFormat. For example, x/10 may change an int16 to the outputFormat float.",
+                    "type": "string",
+                    "pattern": "^[x0-9-+=<>/()?:\\*\\.]*$"
+                },
+                "transformMap": {
+                    "title": "Transform Map",
+                    "description": "Optional map to apply to the variable.  For example, use this to transform 1 to \"success\" or \"not found\" to 404.  Depending on the transformation applied it may be necessary to also set outputFormat.  For example, to transform 1 to \"success\" would require outputFormat to be char.",
+                    "type": "object",
+                    "additionalProperties": true,
+                    "minProperties": 1,
+                    "properties": {
+                        "else": {
+                            "title": "Else",
+                            "description": "Optional property that applies to the variables for every non-matching map "
+                        }
+                    }
+                },
+                "outputFormat": {
+                    "title": "Output Format",
+                    "description": "Optional Format used when applying a transform that will change the variable type.  For example, from an int16 to a float.",
+                    "type": "string",
+                    "enum": [
+                        "float",
+                        "double",
+                        "int8",
+                        "int16",
+                        "int32",
+                        "int64",
+                        "uint8",
+                        "uint16",
+                        "uint32",
+                        "uint64",
+                        "char",
+                        "bool"
+                    ]
+                },
+                "access": {
+                    "title": "Access",
+                    "description": "Access level of this variable",
+                    "type": "string",
+                    "enum": [
+                        "read",
+                        "write"
+                    ],
+                    "default": "read"
+                },
+                "enableReadWrite": {
+                    "title": "Enable Read Before and After Write",
+                    "description": "Emable reading this variable before and after writing it",
+                    "type": "boolean",
+                    "default": false
+                },
+                "midString": {
+                    "title": "Mid String",
+                    "description": "Optional string operation to return a portion of the original string",
+                    "type" : "object",
+                    "required": [
+                        "start",
+                        "length"
+                    ],
+                    "properties": {
+                        "length": {
+                            "title": "length",
+                            "description": "'length' indicates the maximum number of characters returned, limited by the amount of characters available(An entry of 0 or less than 0 will return all remaining characters)",
+                            "type": "number",
+                            "default": 1
+                        },
+                        "start": {
+                            "title": "start",
+                            "description": "Start position of the returned string, with 1 or less than 1 indicating the first character, If 'start' exceeds the total length, a null string is returned",
+                            "type": "number",
+                            "default" : 1
+                        }
+                    }
+                },
+                "stringReplace": {
+                    "title": "String Replace",
+                    "description": "Optional string operation to replace a portion of a string and return the result",
+                    "type" : "object",
+                    "required": [
+                        "replacePatternType",
+                        "replacementString"
+                    ],
+                    "properties": {
+                        "replacePatternType": {
+                            "title": "Replace Pattern Type",
+                            "description": "The type of replacement operation (string or regular expression) to perform",
+                            "type": "string",
+                            "enum": [
+                                "string",
+                                "regex",
+                                "no replacement"
+                            ],
+                            "default": "string",
+                            "propertyOrder": 1
+                        },
+                        "replacePatternString": {
+                            "title": "Replace Pattern String",
+                            "description": "The string to match for replacement, if 'Replace Pattern Type' is string",
+                            "type": "string",
+                            "default": "",
+                            "propertyOrder": 2
+                        },
+                        "replacePatternRegex": {
+                            "title": "Replace Pattern Regex",
+                            "description": "The regular expression to match for replacement, if 'Replace Pattern Type' is regex",
+                            "type": "string",
+                            "default": "",
+                            "propertyOrder": 3
+                        },
+                        "replacementString": {
+                            "title": "Replacement String",
+                            "description": "The string used to replace any instance of the matched patttern (if empty, any matches are simply removed)",
+                            "type": "string",
+                            "default": "",
+                            "propertyOrder": 4
+                        }
+                    }
+                },
+                "allowFiltering": {
+                    "title": "Allow Filtering",
+                    "description": "If enabled, this variable will not be published by any protocol for which filtering is enabled",
+                    "type": "boolean",
+                    "default": false
+                },
+                "triggerSelectivePublish": {
+                    "title": "Trigger Selective Publish",
+                    "description": "If enabled, a change in the value of this variable will cause all variables with the 'Selectively Publish' property enabled to be published by protocols that selectively publish",
+                    "type": "boolean",
+                    "default": false
+                },
+                "selectivelyPublish": {
+                    "title": "Selectively Publish",
+                    "description": "If enabled, when the value of a variable with the 'Trigger Selective Publish' property enabled changes, this variable will be published by protocols that selectively publish",
+                    "type": "boolean",
+                    "default": false
+                },
+                "reverseArray": {
+                    "title": "Reverse Array",
+                    "description": "If enabled, the value of the array variable will be reversed",
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "modelSettings": {
+          "title": "Model",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "overrideVariableNameFlag": {
+                "title": "Override auto-naming",
+                "description": "Replace variable names from entire-response processing.",
+                "type": "boolean"
+            },
+            "overrideVariableNameBase": {
+                "title": "Override variable name base",
+                "description": "The base string for the overridden variable names - for example 'Var' results in 'Var1', 'Var2', etc.",
+                "type": "string",
+                "default": "Var"
+            }
+          }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/variable"
+            }
+        },
+        "settings": {
+            "$ref": "#/definitions/settings"
+        }
+    }
+}

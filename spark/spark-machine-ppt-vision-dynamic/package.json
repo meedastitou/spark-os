@@ -1,0 +1,32 @@
+{
+  "name": "spark-machine-ppt-vision-dynamic",
+  "fullname": "PPT Vision Dynamic",
+  "version": "0.0.1",
+  "description": "Spark Machine Definition for a Dynamic PPT Vision System",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-ppt-vision-dynamic.git"
+  },
+  "keywords": [
+    "Spark",
+    "PPT",
+    "Vision System"
+  ],
+  "author": {
+    "name": "Dominic White",
+    "email": "dominic.white@te.com"
+  },
+  "devDependencies": {
+    "bunyan": "1.8.12"
+  },
+  "dependencies": {
+    "async": "2.6.1",
+    "camelcase": "5.0.0",
+    "lodash": "4.17.10"
+  }
+}

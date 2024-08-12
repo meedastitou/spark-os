@@ -1,0 +1,7 @@
+config BR2_PACKAGE_SPARK_WEB_PROXY
+	bool "spark-web-proxy"
+	select BR2_PACKAGE_NODEJS
+	select BR2_PACKAGE_LIBPCAP
+	select BR2_PACKAGE_HOST_YARN
+	help
+	  Spark HTTP & HTTPS Proxy

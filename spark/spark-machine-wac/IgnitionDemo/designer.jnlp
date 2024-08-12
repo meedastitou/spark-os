@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP file for Ignition client launch -->
+<jnlp
+  spec="1.0+"
+  codebase="http://localhost:8088/main/"
+  href="system/launch/designer/designer.jnlp">
+  <information>
+    <title>Ignition Designer</title>
+    <vendor>Inductive Automation</vendor>
+    <icon href="web/platform_logo.png"/>
+    <offline-allowed/>
+    <shortcut online="true">
+      <desktop/>
+      <menu/>
+    </shortcut>
+  </information>
+  <security><all-permissions/></security>
+  <resources>
+    <j2se version="1.8" initial-heap-size="64M" max-heap-size="1024M" java-vm-args="-XX:MaxPermSize=128m"/>
+    <j2se version="1.7" initial-heap-size="64M" max-heap-size="1024M" java-vm-args="-XX:MaxPermSize=128m"/>
+    <j2se version="1.6" initial-heap-size="64M" max-heap-size="1024M" java-vm-args="-XX:MaxPermSize=128m"/>
+    <jar href="system/launchbin/launchclient.jar" download="eager"/>
+    <property name="javaws.sr.gateway.addr.0" value="localhost:8088:8043/main"/>
+    <property name="javaws.sr.launchts" value="1498471693264"/>
+    <property name="javaws.sr.scope" value="D"/>
+    <property name="javaws.sr.main" value="com.inductiveautomation.ignition.designer.DesignerStartupHook"/>
+    <property name="javaws.sr.platform.edition" value=""/>
+    <property name="sun.java2d.d3d" value="false"/>
+    <property name="javaws.sr.memory.init" value="64M"/>
+    <property name="javaws.sr.memory.max" value="1024M"/>
+  </resources>
+  <application-desc main-class="com.inductiveautomation.ignition.client.launch.BootstrapSwing"/>
+</jnlp>

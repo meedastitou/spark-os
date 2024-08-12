@@ -1,0 +1,125 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "device": "/dev/ttyUSB0",
+            "baudRate": "9600",
+            "parity": "none",
+            "requestFrequency": 5,
+            "v7port": 1,
+            "usingChecksum": true,
+            "usingCrLf": true,
+            "highByteFirst": true,
+            "highWordFirst": true,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-yamada-dobby",
+            "required": [
+                "enable",
+                "device",
+                "baudRate",
+                "parity",
+                "highByteFirst",
+                "highWordFirst"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the interface is connected to.",
+                    "type": "string"
+                },
+                "baudRate": {
+                    "title": "Serial Baud Rate",
+                    "description": "Choose the Baud Rate for the serial device.",
+                    "type": "string",
+                    "enum": ["75", "110", "300", "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200"]
+                },
+                "parity": {
+                    "title": "Serial Parity",
+                    "description": "Choose the Parity for the serial device.",
+                    "type": "string",
+                    "enum": ["none", "even", "mark", "odd", "space"]
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between each complete set of requests in req/res mode.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120
+                },
+                "v7port": {
+                    "title": "V7 Port Number",
+                    "description": "Set the port number of the V7 series.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 31
+                },
+                "usingChecksum": {
+                    "title": "Using Checksum",
+                    "description": "Whether Checksums are expected in requests and responses.",
+                    "type": "boolean"
+                },
+                "usingCrLf": {
+                    "title": "Using CrLf",
+                    "description": "Whether requests and responses are terminated with carriage returns and linefeeds.",
+                    "type": "boolean"
+                },
+                "highByteFirst": {
+                    "title": "High Byte First",
+                    "description": "Expected order of bytes recieved for 16 and 32 bit data.",
+                    "type": "boolean"
+                },
+                "highWordFirst": {
+                    "title": "High Word First",
+                    "description": "Expected order of words recieved for 32 bit data.",
+                    "type": "boolean"
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "device",
+            "baudRate",
+            "parity",
+            "requestFrequency",
+            "v7port",
+            "usingChecksum",
+            "usingCrLf",
+            "highByteFirst",
+            "highWordFirst",
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MODE=${1:-reboot}
+FACTORY_RESET=${2:-false}
+
+if [ "${FACTORY_RESET}" = "true" ] ; then
+    touch /boot/.factoryreset
+fi
+
+systemctl ${MODE}

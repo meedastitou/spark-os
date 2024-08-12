@@ -1,0 +1,14 @@
+{
+    "info": {
+        "name": "invalid-hpl",
+        "fullname": "Spark Machine 1",
+        "version": "1.0.0",
+        "description": "Spark Machine 1 is used for testing",
+        "hpl": "invalid"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float"
+    }]
+}

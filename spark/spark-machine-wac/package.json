@@ -1,0 +1,33 @@
+{
+    "name": "spark-machine-wac",
+    "fullname": "Spark WAC Machine",
+    "version": "0.0.1",
+    "description": "Machine to filter WACs from received bluetooth LE advertisements",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "NODE_ENV=test nyc --reporter=text --reporter=html mocha --bail --exit test/test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-wac.git"
+    },
+    "keywords": [
+        "Spark, WAC"
+    ],
+    "author": {
+        "name": "Nathaniel Tye",
+        "email": "nathaniel.@te.com"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "lodash": "4.17.10",
+        "node-ble": "../node-ble"
+    },
+    "devDependencies": {
+        "bunyan": "1.8.12",
+        "chai": "4.1.2",
+        "mocha": "5.2.0",
+        "nyc": "12.0.2"
+    }
+}

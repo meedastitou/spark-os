@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-mlan",
+    "title": "MLAN",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "commandCode",
+                    "byteOffset"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "commandCode",
+                        "byteOffset"
+                    ],
+                    "properties": {
+                        "commandCode": {
+                            "title": "Command Code",
+                            "description": "The command code to send to retrieve the desired data",
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                        },
+                        "subcommandCode": {
+                            "title": "Subcommand Code",
+                            "description": "An option subcommand code to send following the command code (-1 if none)",
+                            "type": "integer",
+                            "minimum": -1,
+                            "maximum": 255,
+                            "default": -1
+                        },
+                        "byteOffset": {
+                            "title": "Byte Offset",
+                            "description": "The byte offset in the response at which the data for the variable begins",
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 65535
+                        },
+                        "parameterID": {
+                            "title": "Parameter ID",
+                            "description": "3-letter acronym of parameter for Get Parameter command (69)",
+                            "type": "string",
+                            "minLength": 3,
+                            "maxLength": 3
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "port": {
+                            "title": "Port Number",
+                            "description": "The port number configured on the controller.",
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 65535
+                        },
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

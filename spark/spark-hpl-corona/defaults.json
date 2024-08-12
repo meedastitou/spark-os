@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "model": {
+      "enable": false,
+      "url": "tcp://127.0.0.1:5000"
+    },
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "title": "Enable",
+          "description": "Enable/Disable the machine",
+          "type": "boolean",
+          "required": true
+        },
+        "url": {
+          "title": "Corona URL",
+          "description": "URL of Corona to connect to.  For example tcp://192.168.1.10:5000",
+          "type": "string",
+          "format": "url",
+          "required": true
+        }
+      }
+    },
+    "form": [
+      "enable",
+      "url"
+    ]
+  }
+}

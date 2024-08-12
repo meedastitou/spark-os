@@ -1,0 +1,13 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/spark-hpl-siemens-s5/coverage"]
+WORKDIR /app/spark-hpl-siemens-s5/
+COPY node-as511 /app/node-as511/
+COPY spark-hpl-siemens-s5/package.json spark-hpl-siemens-s5/yarn.lock /app/spark-hpl-siemens-s5/
+RUN apt-get update && apt-get install -y \
+    libpopt-dev \
+&& rm -rf /var/lib/apt/lists/*
+RUN yarn install --frozen-lockfile
+COPY spark-hpl-siemens-s5 /app/spark-hpl-siemens-s5
+CMD ["yarn", "test"]

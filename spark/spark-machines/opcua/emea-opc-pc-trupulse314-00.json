@@ -1,0 +1,18 @@
+{
+  "info": {
+    "version": "1.0.0",
+    "fullname": "Trumpf Laser TruPulse 314 (Wort)",
+    "description": "Trumpf Laser TruPulse 314 OPC-UA Connection",
+    "name": "emea-opc-pc-trupulse314-00",
+    "hpl": "opcua"
+  },
+  "variables": [
+    {
+      "name": "Pulsedata-Count-ControlOnHours",
+      "description": "Pulse data:Counter:Control On hours",
+      "format": "double",
+      "nodeId": "ns=2;s=PDCounter.OperatingHours",
+      "array": false
+    }
+  ]
+}

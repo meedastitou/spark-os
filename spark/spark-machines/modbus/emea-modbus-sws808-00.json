@@ -1,0 +1,131 @@
+{
+  "info": {
+    "description": "Machine Definition using modbus TCP protocol for Noxon Reeler SWS-808",
+    "name": "emea-modbus-sws808-00",
+    "version": "1.0.0",
+    "fullname": "Noxon Reeler SWS-808 (Standard)",
+    "hpl": "modbus"
+  },
+  "variables": [
+    {
+      "name": "machine_status",
+      "description": "automatic ",
+      "format": "int16",
+      "type": "hr",
+      "address": "0000"
+    },
+    {
+      "name": "fault_number",
+      "description": "fault number ",
+      "format": "int16",
+      "type": "hr",
+      "address": "0001",
+      "onChange": true
+    },
+    {
+      "name": "record-number",
+      "description": "record number ",
+      "format": "int16",
+      "type": "hr",
+      "address": "0004"
+    },
+    {
+      "name": "main-pot",
+      "description": "main pot ",
+      "format": "int16",
+      "type": "hr",
+      "address": "0005"
+    },
+    {
+      "name": "loop",
+      "description": "loop",
+      "format": "int16",
+      "type": "hr",
+      "address": "0006"
+    },
+    {
+      "name": "feed-position",
+      "description": "feed position ",
+      "format": "int16",
+      "type": "hr",
+      "address": "0007"
+    },
+    {
+      "name": "spool-counter",
+      "description": "spool counter",
+      "format": "int16",
+      "type": "hr",
+      "address": "000A"
+    },
+    {
+      "name": "parts-should",
+      "description": "parts should",
+      "format": "int32",
+      "type": "hr",
+      "address": "0014"
+    },
+    {
+      "name": "parts",
+      "description": "parts ",
+      "format": "int32",
+      "type": "hr",
+      "address": "0016"
+    },
+    {
+      "name": "part-trace-1",
+      "description": "part trace 1",
+      "format": "int32",
+      "type": "hr",
+      "address": "001A"
+    },
+    {
+      "name": "part-trace-2",
+      "description": "part trace 2",
+      "format": "int32",
+      "type": "hr",
+      "address": "001C"
+    },
+    {
+      "name": "part-trace-3",
+      "description": "part trace 3",
+      "format": "int32",
+      "type": "hr",
+      "address": "001E"
+    },
+    {
+      "name": "part-trace-4",
+      "description": "part trace 4",
+      "format": "int32",
+      "type": "hr",
+      "address": "0020"
+    },
+    {
+      "name": "part-trace-5",
+      "description": "part trace 5",
+      "format": "int32",
+      "type": "hr",
+      "address": "0022"
+    },
+    {
+      "name": "part-trace-6",
+      "description": "part trace 6",
+      "format": "int32",
+      "type": "hr",
+      "address": "0024"
+    },
+    {
+      "name": "part-trace-7",
+      "description": "part trace 7",
+      "format": "int32",
+      "type": "hr",
+      "address": "0026"
+    },
+    {
+      "name": "part-trace-8",
+      "description": "part trace 8",
+      "format": "int32",
+      "type": "hr",
+      "address": "0028"
+    }
+  ]
+}

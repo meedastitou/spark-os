@@ -1,0 +1,200 @@
+{
+    "info": {
+        "name": "spark-machine-yamada-dobby-2",
+        "fullname": "Yamada Dobby-2",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Yamada Dobby-2",
+        "hpl": "yamada-dobby"
+    },
+    "settings": {
+        "model": {
+            "baudRate": "19200",
+            "parity": "even",
+            "requestFrequency": 5,
+            "v7port": 1,
+            "usingChecksum": true,
+            "usingCrLf": true
+        }
+    },
+    "variables": [{
+        "name": "DSPM",
+        "description": "DISPLAY SPM",
+        "format": "int16",
+        "requestKey": "010208360000000000"
+    }, {
+        "name": "DPA",
+        "description": "DISPLAY PRESS ANGLE",
+        "format": "int16",
+        "requestKey": "010208370000000000"
+    }, {
+        "name": "IC",
+        "description": "INVERTER CURRENT",
+        "format": "uint16",
+        "requestKey": "010208380000000000",
+        "outputFormat": "float",
+        "transformEq": "x/10"
+    }, {
+        "name": "OT",
+        "description": "OPERATION TIME",
+        "format": "uint16",
+        "requestKey": "010400640000000000",
+        "outputFormat": "float"
+    }, {
+        "name": "AT",
+        "description": "ALARM TIME",
+        "format": "uint16",
+        "requestKey": "010400660000000000",
+        "outputFormat": "float"
+    }, {
+        "name": "TT",
+        "description": "TOTAL TIME",
+        "format": "uint16",
+        "requestKey": "010400680000000000",
+        "outputFormat": "float"
+    }, {
+        "name": "PC",
+        "description": "PRESET COUNTER",
+        "format": "uint16",
+        "requestKey": "0104006A0000000000"
+    }, {
+        "name": "TC",
+        "description": "TOTAL COUNTER",
+        "format": "uint16",
+        "requestKey": "0104006C0000000000"
+    }, {
+        "name": "SPMS",
+        "description": "SPM SETTING",
+        "format": "int16",
+        "requestKey": "010400260000000000"
+    }, {
+        "name": "DHS",
+        "description": "DIE HEIGHT SETTING",
+        "format": "uint16",
+        "requestKey": "0104019A0000000000"
+    }, {
+        "name": "ADH",
+        "description": "ACTUAL DIE HEIGHT",
+        "format": "uint32",
+        "requestKey": "010401A00000000000"
+    }, {
+        "name": "MD0",
+        "description": "MD3.0",
+        "format": "uint32",
+        "requestKey": "010400000000000000"
+    }, {
+        "name": "MD2",
+        "description": "MD3.2",
+        "format": "uint32",
+        "requestKey": "010400020000000000"
+    }, {
+        "name": "MD4",
+        "description": "MD3.4",
+        "format": "uint16",
+        "requestKey": "010400040000000000"
+    }, {
+        "name": "MD6",
+        "description": "MD3.6",
+        "format": "uint16",
+        "requestKey": "010400060000000000"
+    }, {
+        "name": "MD30",
+        "description": "MD3.30",
+        "format": "uint16",
+        "requestKey": "0104001E0000000000"
+    }, {
+        "name": "MD32",
+        "description": "MD3.32",
+        "format": "int32",
+        "requestKey": "010400200000000000"
+    }, {
+        "name": "MD34",
+        "description": "MD3.34",
+        "format": "uint16",
+        "requestKey": "010400220000000000"
+    }, {
+        "name": "MD36",
+        "description": "MD3,36",
+        "format": "uint16",
+        "requestKey": "010400240000000000"
+    }, {
+        "name": "MD40",
+        "description": "MD3.40",
+        "format": "uint32",
+        "requestKey": "010400280000000000"
+    }, {
+        "name": "MD42",
+        "description": "MD4.42",
+        "format": "uint32",
+        "requestKey": "0104002A0000000000"
+    }, {
+        "name": "MW2100",
+        "description": "MW2100",
+        "format": "uint16",
+        "requestKey": "010208340000000000"
+    }, {
+        "name": "MW2101",
+        "description": "MW2101",
+        "format": "uint16",
+        "requestKey": "010208350000000000"
+    }, {
+        "name": "MW2105",
+        "description": "MW2105",
+        "format": "uint16",
+        "requestKey": "010208390000000000"
+    }, {
+        "name": "MW2106",
+        "description": "MW2106",
+        "format": "uint16",
+        "requestKey": "0102083A0000000000"
+    }, {
+        "name": "DNM",
+        "description": "Die name",
+        "format": "uint32",
+        "requestKey": "000002640000000000"
+    }, {
+        "name": "NC1",
+        "description": "N-CUT COUNTER 1",
+        "format": "int16",
+        "requestKey": "010400720000000000"
+    }, {
+        "name": "NC2",
+        "description": "N-CUT COUNTER 2",
+        "format": "int16",
+        "requestKey": "010400740000000000"
+    }, {
+        "name": "PC1",
+        "description": "PRESET COUNTER 1",
+        "format": "uint16",
+        "requestKey": "010400780000000000"
+    }, {
+        "name": "PC2",
+        "description": "PRESET COUNTER 2",
+        "format": "uint16",
+        "requestKey": "0104007A0000000000"
+    }, {
+        "name": "TC2",
+        "description": "TOTAL COUNTER 2",
+        "format": "uint16",
+        "requestKey": "0104007C0000000000"
+    }, {
+        "name": "TC3",
+        "description": "TOTAL COUNTER 3",
+        "format": "uint16",
+        "requestKey": "0104007E0000000000"
+    }, {
+        "name": "PSET",
+        "description": "PRESET1",
+        "format": "uint32",
+        "requestKey": "010400820000000000"
+    }, {
+        "name": "RF",
+        "description": "REAL FREQUENCY",
+        "format": "uint16",
+        "requestKey": "010208400000000000"
+    }, {
+        "name": "combinedAlarm",
+        "description": "Alarm Code/Result",
+        "format": "int16",
+        "alarmVariable": true
+    }]
+}

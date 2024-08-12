@@ -1,0 +1,135 @@
+#!/bin/sh
+DATA_MNT=/data
+
+start()
+{
+    #machine-info
+    if [ -f $DATA_MNT/sysroot/etc/machine-info ] ; then
+        install -m644 -D $DATA_MNT/sysroot/etc/machine-info /etc/machine-info
+    fi
+
+    #hostname
+    cp -a /etc/hostname /etc/default-hostname
+    if [ -f $DATA_MNT/sysroot/etc/hostname ] ; then
+        HOSTNAME=$(cat $DATA_MNT/sysroot/etc/hostname)
+        hostnamectl set-hostname --static --transient $HOSTNAME
+        echo -e "127.0.0.1\tlocalhost" > /etc/hosts
+        echo -e "127.0.0.1\t${HOSTNAME}" >> /etc/hosts
+    fi
+
+    # enable host admin group write permissions on /etc/hosts file so that spark-service-client can modify it to get hostname -f to work
+    chgrp host-admins /etc/hosts
+		chmod 664 /etc/hosts
+
+    #openssh
+    mkdir -p $DATA_MNT/sysroot/etc/ssh
+    if [ -d /etc/ssh ] ; then
+        cp -a /etc/ssh/* $DATA_MNT/sysroot/etc/ssh
+        rm -rf /etc/ssh
+    fi
+    ln -sf $DATA_MNT/sysroot/etc/ssh /etc/ssh
+
+    #Connman
+    mkdir -p $DATA_MNT/sysroot/var/lib/connman
+    if [ ! -f $DATA_MNT/sysroot/var/lib/connman/settings ] ; then
+        #add default settings if none exist
+        cat <<EOF > $DATA_MNT/sysroot/var/lib/connman/settings
+[global]
+OfflineMode=false
+
+[WiFi]
+Enable=true
+Tethering=false
+
+[Wired]
+Enable=true
+Tethering=false
+
+[P2P]
+Enable=false
+Tethering=false
+
+[Bluetooth]
+Enable=true
+Tethering=true
+EOF
+    fi
+
+    #User defined machines
+    mkdir -p $DATA_MNT/machines/user
+    rm -rf $DATA_MNT/machines/system
+    ln -sf /usr/lib/node_modules/spark-hardware/node_modules/spark-machines $DATA_MNT/machines/system
+    chown -R spark-protocol.spark-protocol $DATA_MNT/machines/user
+
+    #Redis
+    mkdir -p $DATA_MNT/sysroot/var/lib/redis
+    chown -R redis:redis $DATA_MNT/sysroot/var/lib/redis
+    rm -rf /var/lib/redis
+    ln -sf $DATA_MNT/sysroot/var/lib/redis /var/lib/redis
+
+    #Wireless regulatory domain
+    mkdir -p $DATA_MNT/sysroot/etc/conf.d
+    if [ ! -f $DATA_MNT/sysroot/etc/conf.d/wireless-regdom ] ; then
+        #If the file does not exist create it with a default of the World
+        echo 'WIRELESS_REGDOM="00"' > $DATA_MNT/sysroot/etc/conf.d/wireless-regdom
+    fi
+
+    #Timezone
+    ln -sf $DATA_MNT/sysroot/etc/localtime /etc/localtime
+    if [ ! -e $DATA_MNT/sysroot/etc/localtime ] ; then
+        #No timezone is set so default to UTC
+        ln -sf /usr/share/zoneinfo/Etc/UTC $DATA_MNT/sysroot/etc/localtime
+    fi
+
+    #Nginx: if certificate exists, allow cert_admins to modify, otherwise generate a self-signed certificate
+    if [ -e $DATA_MNT/sysroot/etc/nginx/ssl/cert.pem ] ; then
+         chgrp cert-admins $DATA_MNT/sysroot/etc/nginx/ssl/*.pem
+         chmod 664 $DATA_MNT/sysroot/etc/nginx/ssl/*.pem
+    else
+         mkdir -p $DATA_MNT/sysroot/etc/nginx/ssl
+         /etc/systemd/scripts/genselfcert
+    fi
+
+    # enable certificate admin group write and execute permissions on certificate directory so that spark-protocol can modify certificates
+    chgrp cert-admins $DATA_MNT/sysroot/etc/nginx/ssl
+    chmod 774 $DATA_MNT/sysroot/etc/nginx/ssl
+    mkdir -p $DATA_MNT/sysroot/etc/nginx/ssl/csr
+    chgrp cert-admins $DATA_MNT/sysroot/etc/nginx/ssl/csr
+    chmod 774 $DATA_MNT/sysroot/etc/nginx/ssl/csr
+}
+
+stop() {
+    #machine-info
+    if [ -f /etc/machine-info ] ; then
+        install -m644 -D /etc/machine-info $DATA_MNT/sysroot/etc/machine-info
+    else
+        rm -f $DATA_MNT/sysroot/etc/machine-info
+    fi
+
+    #hostname
+    diff /etc/default-hostname /etc/hostname 2> /dev/null
+    if [ $? -eq 0 ] ; then
+        # the hostname is the same as the default
+        # so there is no need to keep a copy of it
+        rm -f $DATA_MNT/sysroot/etc/hostname
+    else
+        install -m644 -D /etc/hostname $DATA_MNT/sysroot/etc/hostname
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    reload|restart)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 start|stop|restart|reload"
+        exit 1
+esac
+exit 0

@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-arburg",
+    "title": "Arburg",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "blockLocation",
+                    "byteOffset"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "blockLocation",
+                        "byteOffset"
+                    ],
+                    "properties": {
+                        "blockLocation": {
+                            "title": "Block Location",
+                            "description": "Block to get the variable from.",
+                            "type": "string",
+                            "enum": [
+                                "Basic Status",
+                                "Process Data 1st Cylinder",
+                                "Process Data 2nd Cylinder",
+                                "Automation Components",
+                                "Alarm String"
+                            ]
+                        },
+                        "byteOffset": {
+                            "title": "Byte Offset",
+                            "description": "Buffer Offset from base of chosen block.",
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "alarmStringNullReplacement": {
+                            "title": "Alarm String Null Replacement",
+                            "description": "Replacement string to be returned when Alarm String is read as null.",
+                            "type": "string"
+                        },
+                        "machineConnected": {
+                            "title": "Machine Connected Status",
+                            "description": "Set to true if variable is true/false when the machine is connected/disconnected",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "type": "object",
+            "properties": {
+                "model": {
+                    "title": "Model",
+                    "type": "object",
+                    "properties": {
+                        "disconnectReportTime": {
+                            "title": "Disconnect Report Time",
+                            "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

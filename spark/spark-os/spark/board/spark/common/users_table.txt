@@ -1,0 +1,3 @@
+sparkadmin 999 sparkadmin 999 =Pyro! /home/sparkadmin /bin/sh wheel,i2c,dialout,storage,connman-users Spark Administrator
+dnsmasq -1 dnsmasq -1 - - - - dnsmasq daemon
+- -1 storage 95 - - - -

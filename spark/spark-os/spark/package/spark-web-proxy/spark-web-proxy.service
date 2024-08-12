@@ -1,0 +1,14 @@
+[Unit]
+Description=Spark HTTP & HTTPS Proxy
+
+[Service]
+User=spark-web-proxy
+Group=spark-web-proxy
+SyslogIdentifier=spark-web-proxy
+ExecStart=/usr/bin/node --max_old_space_size=50 /usr/bin/spark-web-proxy
+Restart=on-failure
+EnvironmentFile=/etc/spark/spark-web-proxy
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+
+[Install]
+WantedBy=multi-user.target

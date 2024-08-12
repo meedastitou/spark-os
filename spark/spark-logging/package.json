@@ -1,0 +1,25 @@
+{
+  "name": "spark-logging",
+  "fullname": "Spark Logging",
+  "version": "0.0.1",
+  "description": "Spark Logging Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-logging.git"
+  },
+  "keywords": [
+    "Spark"
+  ],
+  "author": {
+    "name": "Martin Bark",
+    "email": "martin.bark@te.com"
+  },
+  "dependencies": {
+    "@redisrupt/bunyan-syslog": "0.3.2",
+    "bunyan": "1.8.12"
+  }
+}

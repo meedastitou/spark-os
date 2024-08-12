@@ -1,0 +1,17 @@
+#!/bin/sh
+
+DATE=$(date -u "+%Y%m%d-%H%M%S-%N")
+HOSTNAME=$(hostname -f)
+LOG_STORE=${1:-logs}
+LOG_NAME=${HOSTNAME}-${DATE}
+LOG_ARCHIVE=${LOG_STORE}/${LOG_NAME}.tar.gz
+
+mkdir -p ${LOG_STORE}
+touch ${LOG_ARCHIVE}
+echo "Created ${LOG_ARCHIVE}"
+
+#clean up old logs.  Keep at most 3 logs
+for i in $(cd ${LOG_STORE} && ls -tr | head -n -3) ; do
+    echo "Deleting old log ${LOG_STORE}/${i}"
+    rm "${LOG_STORE}/${i}"
+done

@@ -1,0 +1,25 @@
+{
+    "info": {
+        "name": "machine1-updated",
+        "fullname": "Spark Machine 1 - Updated",
+        "version": "1.0.1",
+        "description": "Updated spark Machine 1 is used for testing",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float",
+        "type": "random"
+    }, {
+        "name": "pressure",
+        "description": "Pressure",
+        "format": "float",
+        "type": "sine"
+    }, {
+        "name": "humidity",
+        "description": "Humidity",
+        "format": "float",
+        "type": "cosine"
+    }]
+}

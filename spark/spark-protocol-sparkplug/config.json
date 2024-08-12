@@ -1,0 +1,165 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "mqttServer1Hostname": "",
+            "mqttServer1Port": "1883",
+            "username": "ignition",
+            "password": "ignition",
+            "groupId": "Sparkplug B Devices",
+            "utcOffset": 0,
+            "mqttServer2Hostname": "",
+            "mqttServer2Port": "1883",
+            "mqttServer3Hostname": "",
+            "mqttServer3Port": "1883",
+            "mqttServer4Hostname": "",
+            "mqttServer4Port": "1883",
+            "mqttServer5Hostname": "",
+            "mqttServer5Port": "1883",
+            "onChangeOnly": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-sparkplug",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Sparkplug client.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "mqttServer1Hostname": {
+                    "title": "MQTT Server #1 Hostname",
+                    "description": "The hostname of the first MQTT server to connect to.",
+                    "type": "string",
+                    "format": "hostname",
+                    "required": true
+                },
+                "mqttServer1Port": {
+                    "title": "MQTT Server #1 Port",
+                    "description": "The port number of the first MQTT server to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": true
+                },
+                "username": {
+                    "title": "Username",
+                    "description": "The username for the MQTT server connection.",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "Password",
+                    "description": "The password for the MQTT server connection.",
+                    "type": "string",
+                    "required": true
+                },
+                "groupId": {
+                    "title": "Group ID",
+                    "description": "An ID representing a logical grouping of MQTT EoN Nodes and Devices into the infrastructure.",
+                    "type": "string",
+                    "required": true
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number",
+                    "required": true
+                },
+                "mqttServer2Hostname": {
+                    "title": "MQTT Server #2 Hostname",
+                    "description": "The hostname of the second MQTT server to connect to.",
+                    "type": "string",
+                    "format": "hostname",
+                    "required": false
+                },
+                "mqttServer2Port": {
+                    "title": "MQTT Server #2 Port",
+                    "description": "The port number of the second MQTT server to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": false
+                },
+                "mqttServer3Hostname": {
+                    "title": "MQTT Server #3 Hostname",
+                    "description": "The hostname of the third MQTT server to connect to.",
+                    "type": "string",
+                    "format": "hostname",
+                    "required": false
+                },
+                "mqttServer3Port": {
+                    "title": "MQTT Server #3 Port",
+                    "description": "The port number of the third MQTT server to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": false
+                },
+                "mqttServer4Hostname": {
+                    "title": "MQTT Server #4 Hostname",
+                    "description": "The hostname of the fourth MQTT server to connect to.",
+                    "type": "string",
+                    "format": "hostname",
+                    "required": false
+                },
+                "mqttServer4Port": {
+                    "title": "MQTT Server #4 Port",
+                    "description": "The port number of the fourth MQTT server to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": false
+                },
+                "mqttServer5Hostname": {
+                    "title": "MQTT Server #5 Hostname",
+                    "description": "The hostname of the fifth MQTT server to connect to.",
+                    "type": "string",
+                    "format": "hostname",
+                    "required": false
+                },
+                "mqttServer5Port": {
+                    "title": "MQTT Server #5 Port",
+                    "description": "The port number of the fifth MQTT server to connect to.",
+                    "type": "number",
+                    "minimum": "1",
+                    "maximum": "65535",
+                    "required": false
+                },
+                "onChangeOnly": {
+                    "title": "Publish Only on Change",
+                    "description": "Publish variable values only when they change.",
+                    "type": "boolean",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            {
+                "key": "mqttServer1Hostname",
+                "placeholder": "45.77.93.250",
+                "validationMessage": "The hostname must a valid hostname or IPv4 address"
+            },
+            {
+                "key": "mqttServer1Port",
+                "placeholder": "1883"
+            },
+            "username",
+            "password",
+            "groupId",
+            "utcOffset",
+            "mqttServer2Hostname",
+            "mqttServer2Port",
+            "mqttServer3Hostname",
+            "mqttServer3Port",
+            "mqttServer4Hostname",
+            "mqttServer4Port",
+            "mqttServer5Hostname",
+            "mqttServer5Port",
+            "onChangeOnly"
+        ]
+    }
+}

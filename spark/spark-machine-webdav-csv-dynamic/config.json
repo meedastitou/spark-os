@@ -1,0 +1,221 @@
+{
+    "variables": [],
+    "settings": {
+        "model": {
+          "enable": false,
+          "webdavUrl": "",
+          "checkAllFiles": false,
+          "useBaseFilename": false,
+          "filename": "",
+          "baseFilename": "",
+          "useBlacklistRegex": false,
+          "blacklistRegex": "",
+          "includeFilenameInCombinedData": false,
+          "username": "anonymous",
+          "password": "",
+          "mode": "original",
+          "useTabsForDelimiters": false,
+          "useHeaderRowForKeywords": false,
+          "keywordList": "",
+          "trimNumericDataLeadingZeros": false,
+          "readFrequency": 5,
+          "timestampFields": "1",
+          "utcOffset": 0,
+          "publishDisabled": false,
+          "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-webdav-csv-dynamic",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the WebDAV Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "webdavUrl": {
+                    "title": "WebDAV URL",
+                    "description": "The URL of the WebDAV server",
+                    "type": "string",
+                    "required": true
+                },
+                "checkAllFiles": {
+                  "title": "Check all files",
+                  "description": "If this box is checked, the newest file is read, rather than a file with a specific filename.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "useBaseFilename": {
+                  "title": "Use Base Filename",
+                  "description": "If this box is checked, the newest file whose filename starts with a base filename is read, rather than a file with a specific filename.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "filename": {
+                    "title": "Filename",
+                    "description": "The filename of the file to be read, if the 'Use Base Filename' box is not checked.",
+                    "type": "string",
+                    "required": true
+                },
+                "baseFilename": {
+                    "title": "Base Filename",
+                    "description": "The base filename of the file to be read, if the 'Use Base Filename' box is checked. The newest file starting with the base file name is read",
+                    "type": "string",
+                    "required": true
+                },
+                "useBlacklistRegex": {
+                    "title": "Use Blacklist Regular Expression",
+                    "description": "If this box is checked, the filenames are checked against the Blacklist Regular Expression.  If they match, the file is ignored.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "blacklistRegex": {
+                    "title": "Blacklist Regular Expression",
+                    "description": "A regular expression that can be used to determine which filenames to ignore.  For example, to skip files that end with 'R', use '^.*R$'",
+                    "type": "string"
+                },
+                "includeFilenameInCombinedData": {
+                  "title": "Include Filename in Combined Data",
+                  "description": "If this box is checked, the filename that generated the delivered data will be included as a new filename field in the combined-result.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "username": {
+                    "title": "Username",
+                    "description": "The username for the login (use \"anonymous\" for anonymous login).",
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "title": "Password",
+                    "description": "The password for the login (leave blank for anonymous login).",
+                    "type": "string"
+                },
+                "mode": {
+                    "title": "Data capture method",
+                    "description": "Choose the data capture method applicable for the targeted files.",
+                    "type": "string",
+                    "enum": ["original", "version2", "CN612-DND"]
+                },
+                "startFieldForKeyValuePairs": {
+                  "title": "Starting Field for Key Value Pairs",
+                  "description": "The starting field for actual key-value pairs in the data row.  For example, if the key-values start immediately after a single timestamp entry, the starting field would be 2.",
+                  "type": "number"
+                },
+                "useTabsForDelimiters": {
+                  "title": "Use tabs for delimiters",
+                  "description": "If this box is checked, the protocol will use tabs to parse the fields",
+                  "type": "boolean",
+                  "default": false
+                },
+                "useHeaderRowForKeywords": {
+                  "title": "Use header row for keywords",
+                  "description": "If this box is checked, the first row in the file is read and used to define the keywords for the rest of the rows",
+                  "type": "boolean",
+                  "default": false
+                },
+                "keywordList": {
+                    "title": "Keyword list",
+                    "description": "For version2, the comma-separated keyword list to use for parsing data into variables.",
+                    "type": "string"
+                },
+                "trimNumericDataLeadingZeros": {
+                  "title": "Trim Numeric Data Leading Zeros",
+                  "description": "For version2 or CN612, if the received data is numeric, trim off any leading zeros.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "readFrequency": {
+                    "title": "Time between reads of the CSV file (in seconds)",
+                    "description": "The time to wait between each read of the CSV file.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 600,
+                    "required": true
+                },
+                "timestampFields": {
+                    "title": "Timestamp Field(s)",
+                    "description": "The field to use to generate a row's timestamp for sorting.  For files where the data and time are in two different fields, enter date-field, time-field",
+                    "type": "string",
+                    "default": "1"
+                },
+                "utcOffset": {
+                    "title": "Hour Offset from UTC",
+                    "description": "The number of hours (+/-) from UTC.",
+                    "type": "number",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean"
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "webdavUrl",
+            "checkAllFiles",
+            {
+                "condition": "model.checkAllFiles==false",
+                "key": "useBaseFilename"
+            },
+            {
+                "condition": "model.checkAllFiles==false&&model.useBaseFilename==false",
+                "key": "filename"
+            },
+            {
+                "condition": "model.checkAllFiles==false&&model.useBaseFilename==true",
+                "key": "baseFilename"
+            },
+            "useBlacklistRegex",
+            {
+                "condition": "model.useBlacklistRegex==true",
+                "key": "blacklistRegex"
+            },
+            "includeFilenameInCombinedData",
+            "username",
+            "password",
+            "mode",
+            {
+                "condition": "model.mode=='CN612-DND'",
+                "key": "startFieldForKeyValuePairs"
+            },
+            {
+                "condition": "model.mode=='version2'||model.mode=='CN612-DND'",
+                "key": "useTabsForDelimiters"
+            },
+            {
+                "condition": "model.mode=='version2'",
+                "key": "useHeaderRowForKeywords"
+            },
+            {
+                "condition": "model.mode=='version2'&&model.useHeaderRowForKeywords==false",
+                "key": "keywordList"
+            },
+            {
+                "condition": "model.mode=='version2'||model.mode=='CN612-DND'",
+                "key": "trimNumericDataLeadingZeros"
+            },
+            "readFrequency",
+            {
+              "condition": "model.mode=='version2'||model.mode=='CN612-DND'",
+                "key": "timestampFields"
+            },
+            {
+              "condition": "model.mode=='version2'||model.mode=='CN612-DND'",
+                "key": "utcOffset"
+            },
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

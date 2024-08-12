@@ -1,0 +1,2 @@
+spark-web-proxy ALL=(ALL) NOPASSWD: /usr/bin/spark-web-proxy-start
+spark-web-proxy ALL=(ALL) NOPASSWD: /usr/bin/spark-web-proxy-stop

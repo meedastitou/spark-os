@@ -1,0 +1,227 @@
+{
+  "info": {
+    "fullname": "Bruderer B2 Stamping (Laser)",
+    "version": "1.0.0",
+    "description": "Bruderer B2 Stamping Laser Definition File",
+    "name": "emea-ads-tc2-bruderer-03",
+    "hpl": "beckhoff-ads"
+  },
+  "variables": [
+    {
+      "name": "compressed-air-pressure",
+      "description": "Compressed Air Pressure",
+      "format": "float",
+      "adsAddressName": ".IW_DRUCK_LUFT_BAR"
+    },
+    {
+      "name": "cycle-time",
+      "description": "Calculated Cycle Time",
+      "format": "float",
+      "adsAddressName": ".IW_HUBZAHL",
+      "transformEq": "(60/x)"
+    },
+    {
+      "name": "tool-shut-height",
+      "description": "Tool Shut Height",
+      "format": "float",
+      "adsAddressName": ".IW_STOESSELH_1LI_HOEHE_UT"
+    },
+    {
+      "name": "error-number",
+      "description": "Error Number",
+      "format": "int32",
+      "adsAddressName": ".OPCSIGNALS.ALLGEMEINE_STOERUNG",
+      "onChange": true
+    },
+    {
+      "name": "oil-pressure",
+      "description": "Oil Pressure",
+      "format": "float",
+      "adsAddressName": ".IW_DRUCK_OEL_BAR"
+    },
+    {
+      "name": "oil-temperature",
+      "description": "Oil Temperature",
+      "format": "float",
+      "adsAddressName": ".IW_TEMP_OEL_C"
+    },
+    {
+      "name": "press-force-1",
+      "description": "Press Force 1",
+      "format": "float",
+      "adsAddressName": ".IW_PRESSKRAFT_K1"
+    },
+    {
+      "name": "press-force-1-max",
+      "description": "Press Force 1 Max",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MAXKANAL1"
+    },
+    {
+      "name": "press-force-1-min",
+      "description": "Press Force 1 Min",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MINKANAL1"
+    },
+    {
+      "name": "press-force-2",
+      "description": "Press Force 2",
+      "format": "float",
+      "adsAddressName": ".IW_PRESSKRAFT_K2"
+    },
+    {
+      "name": "press-force-2-max",
+      "description": "Press Force 2 Max",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MAXKANAL2"
+    },
+    {
+      "name": "press-force-2-min",
+      "description": "Press Force 2 Min",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MINKANAL2"
+    },
+    {
+      "name": "press-force-3",
+      "description": "Press Force 3",
+      "format": "float",
+      "adsAddressName": ".IW_PRESSKRAFT_K3"
+    },
+    {
+      "name": "press-force-3-max",
+      "description": "Press Force 3 Max",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MAXKANAL3"
+    },
+    {
+      "name": "press-force-3-min",
+      "description": "Press Force 3 Min",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MINKANAL3"
+    },
+    {
+      "name": "press-force-4",
+      "description": "Press Force 4",
+      "format": "float",
+      "adsAddressName": ".IW_PRESSKRAFT_K4"
+    },
+    {
+      "name": "press-force-4-max",
+      "description": "Press Force 4 Max",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MAXKANAL4"
+    },
+    {
+      "name": "press-force-4-min",
+      "description": "Press Force 4 Min",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MINKANAL4"
+    },
+    {
+      "name": "press-force-total",
+      "description": "Press Force Total",
+      "format": "float",
+      "adsAddressName": ".IW_PRESSKRAFT_GESAMT"
+    },
+    {
+      "name": "press-speed",
+      "description": "Press Speed",
+      "format": "float",
+      "adsAddressName": ".IW_HUBZAHL"
+    },
+    {
+      "name": "production-counter",
+      "description": "Production Counter",
+      "format": "uint32",
+      "adsAddressName": ".WD.WkzZaehler.Gesamtstueck.Ist"
+    },
+    {
+      "name": "press-force-total-max",
+      "description": "Press Force Total Max",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MAXGESAMT"
+    },
+    {
+      "name": "press-force-total-min",
+      "description": "Press Force Total Min",
+      "format": "float",
+      "adsAddressName": ".WD.PK.MINGESAMT"
+    },
+    {
+      "name": "laser1-percent-nominal-power",
+      "description": "Laser1 Percent Nominal Power",
+      "format": "float",
+      "adsAddressName": ".iRdLaser1PercentNominalPower"
+    },
+    {
+      "name": "laser1-nominal-pulse-duration",
+      "description": "Laser1 Nominal Pulse Duration /ms",
+      "format": "int32",
+      "adsAddressName": ".iRdLaser1NominalPulseDuration",
+      "transformEq": "x/1000"
+    },
+    {
+      "name": "laser1-utilization",
+      "description": "Laser1 utilization in percent",
+      "format": "float",
+      "adsAddressName": ".iRdLaser1Utilization"
+    },
+    {
+      "name": "laser1-conductivity",
+      "description": "Laser1 Water Conductivity\t",
+      "format": "float",
+      "adsAddressName": ".iRdLaser1Conductivity"
+    },
+    {
+      "name": "laser1-water-temp",
+      "description": "Laser1 Water Temperature\t",
+      "format": "float",
+      "adsAddressName": ".iRdLaser1WaterTemp"
+    },
+    {
+      "name": "laser1-error-number",
+      "description": "Laser 1 Error Number",
+      "format": "int32",
+      "adsAddressName": ".iRdLaser1MessageID_Number",
+      "onChange": true
+    },
+    {
+      "name": "laser2-percent-nominal-power",
+      "description": "Laser2 Percent Nominal Power",
+      "format": "float",
+      "adsAddressName": ".iRdLaser2PercentNominalPower"
+    },
+    {
+      "name": "laser2-nominal-pulse-duration",
+      "description": "Laser2 Nominal Pulse Duration /ms",
+      "format": "int32",
+      "adsAddressName": ".iRdLaser2NominalPulseDuration",
+      "transformEq": "x/1000"
+    },
+    {
+      "name": "laser2-utilization",
+      "description": "Laser2 utilization in percent",
+      "format": "float",
+      "adsAddressName": ".iRdLaser2Utilization"
+    },
+    {
+      "name": "laser2-conductivity",
+      "description": "Laser2 Water Conductivity\t",
+      "format": "float",
+      "adsAddressName": ".iRdLaser2Conductivity"
+    },
+    {
+      "name": "laser2-water-temp",
+      "description": "Laser2 Water Temperature\t",
+      "format": "float",
+      "adsAddressName": ".iRdLaser2WaterTemp"
+    },
+    {
+      "name": "laser2-error-number",
+      "description": "Laser 2 Error Number",
+      "format": "int32",
+      "adsAddressName": ".iRdLaser2MessageID_Number",
+      "onChange": true
+    }
+  ]
+}

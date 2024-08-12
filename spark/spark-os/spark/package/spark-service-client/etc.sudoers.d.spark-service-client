@@ -1,0 +1,2 @@
+spark-service-client ALL=(ALL) NOPASSWD: /usr/sbin/update-spark
+spark-service-client ALL=(ALL) NOPASSWD: /usr/sbin/reboot

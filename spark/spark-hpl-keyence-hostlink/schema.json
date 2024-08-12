@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-keyence-hostlink",
+    "title": "Keyence Hostlink",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "memoryArea",
+                    "address"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "memoryArea",
+                        "address"
+                    ],
+                    "properties": {
+                        "memoryArea": {
+                            "title": "Memory Area",
+                            "description": "The memory area (Device Type) to read",
+                            "type": "string",
+                            "enum": [
+                                "R",
+                                "B",
+                                "MR",
+                                "LR",
+                                "CR",
+                                "VB",
+                                "DM",
+                                "EM",
+                                "FM",
+                                "ZF",
+                                "W",
+                                "TM",
+                                "Z",
+                                "AT",
+                                "CM",
+                                "VM",
+                                "TC",
+                                "CC",
+                                "TS",
+                                "CS"
+                            ]
+                        },
+                        "address": {
+                            "title": "Address",
+                            "description": "The address (Device Number) to read within the memory area",
+                            "type": "string",
+                            "pattern": "[a-f0-9]",
+                            "minLength": 1
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

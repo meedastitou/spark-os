@@ -1,0 +1,120 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "authMethod": "File",
+            "keyFilePath": "",
+            "certFilePath": "",
+            "caFilePath": "",
+            "keyBuffer": "",
+            "certBuffer": "",
+            "caBuffer": "",
+            "host": "",
+            "basicIngestEnable": false,
+            "AWSIoTAct": "",
+            "groupId": "Sparkplug B Devices"
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-aws-iot-advanced-client",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the AWS IoT Client.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "authMethod": {
+                    "title": "Authentication Method",
+                    "description": "Specify the authentication certificates and keys via file or string buffers.",
+                    "type": "string",
+                    "enum": ["File", "Buffer"],
+                    "required": true
+                },
+                "keyFilePath": {
+                    "title": "Private Key File Path",
+                    "description": "The path (including filename) of where the private key file is in the filesystem.",
+                    "type": "string"
+                },
+                "certFilePath": {
+                    "title": "Client Certificate File Path",
+                    "description": "The path (including filename) of where the client certificate file is in the filesystem.",
+                    "type": "string"
+                },
+                "caFilePath": {
+                    "title": "CA Certificate File Path",
+                    "description": "The path (including filename) of where the CA certificate file is in the filesystem.",
+                    "type": "string"
+                },
+                "keyBuffer": {
+                    "title": "Private Key Buffer",
+                    "description": "The string contents of the private key.",
+                    "type": "string"
+                },
+                "certBuffer": {
+                    "title": "Client Certificate Buffer",
+                    "description": "The string contents of the client certificate.",
+                    "type": "string"
+                },
+                "caBuffer": {
+                    "title": "CA Certificate Buffer",
+                    "description": "The string contents of the CA certificate.",
+                    "type": "string"
+                },
+                "host": {
+                    "title": "Host Endpoint",
+                    "description": "The endpoint of the host (found under 'Settings' in the AWS IoT Service page)",
+                    "type": "string",
+                    "required": true
+                },
+                "basicIngestEnable": {
+                    "title": "Basic Ingest",
+                    "description": "Enable/Disable freeform AWS IoT Act (Rule) field.",
+                    "type": "boolean"
+                },
+                "AWSIoTAct": {
+                    "title": "AWS IoT Act (Rule)",
+                    "description": "Freeform field corresponding to predefined AWS IoT Act (Rule).",
+                    "type": "string"
+                },
+                "groupId": {
+                    "title": "Group ID",
+                    "description": "An ID representing a logical grouping of MQTT EoN Nodes and Devices into the infrastructure.",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "authMethod",
+            {
+                "condition": "model.authMethod=='File'",
+                "key": "keyFilePath"
+            }, {
+                "condition": "model.authMethod=='File'",
+                "key": "certFilePath"
+            }, {
+                "condition": "model.authMethod=='File'",
+                "key": "caFilePath"
+            }, {
+                "condition": "model.authMethod=='Buffer'",
+                "key": "keyBuffer",
+                "type": "textarea"
+            }, {
+                "condition": "model.authMethod=='Buffer'",
+                "key": "certBuffer",
+                "type": "textarea"
+            }, {
+                "condition": "model.authMethod=='Buffer'",
+                "key": "caBuffer",
+                "type": "textarea"
+            },
+            "host",
+            "basicIngestEnable",
+            "AWSIoTAct",
+            "groupId"
+        ]
+    }
+}

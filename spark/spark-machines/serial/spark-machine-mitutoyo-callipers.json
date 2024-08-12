@@ -1,0 +1,22 @@
+{
+    "info": {
+        "name": "spark-machine-mitutoyo-callipers",
+        "fullname": "Mitutoyo Callipers",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Mitutoyo Callipers",
+        "hpl": "serial"
+    },
+    "settings": {
+        "model": {
+            "mode": "pub/sub",
+            "baudRate": "9600",
+            "parity": "none"
+        }
+    },
+    "variables": [{
+        "name": "Distance",
+        "description": "Distance in mm",
+        "regex": "(.*)",
+        "format": "double"
+    }]
+}

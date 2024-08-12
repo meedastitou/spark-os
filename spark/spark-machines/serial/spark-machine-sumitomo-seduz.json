@@ -1,0 +1,104 @@
+{
+    "info": {
+        "name": "spark-machine-sumitomo-seduz",
+        "fullname": "Sumitomo Seduz",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Sumitomo Seduz",
+        "hpl": "serial"
+    },
+    "settings": {
+        "model": {
+            "mode": "req/res",
+            "baudRate": "9600",
+            "parity": "even",
+            "requestFrequency": 10,
+            "protocol": "SE-DUZ"
+        }
+    },
+    "variables": [{
+        "name": "Clamping_Force_Abnormal",
+        "description": "Clamping Force Abnormal",
+        "requestKey": "A407",
+        "format": "double"
+    }, {
+        "name": "Ejector_Retract_Abnormal",
+        "description": "Ejector Retract Abnormal",
+        "requestKey": "A408",
+        "format": "double"
+    }, {
+        "name": "Heater_Open_Circuit",
+        "description": "Heater Open Circuit",
+        "requestKey": "A24",
+        "format": "double"
+    }, {
+        "name": "Mold_heater_Open_Circuit",
+        "description": "Mold heater Open Circuit",
+        "requestKey": "A32",
+        "format": "double"
+    }, {
+        "name": "Heater_Temperature_Abnormal",
+        "description": "Heater Temperature Abnormal",
+        "requestKey": "A14",
+        "format": "double"
+    }, {
+        "name": "Mold_Temperature_Abnormal",
+        "description": "Mold Temperature Abnormal",
+        "requestKey": "A22",
+        "format": "double"
+    }, {
+        "name": "Oil_Temperature_Abnormal",
+        "description": "Oil Temperature Abnormal",
+        "requestKey": "A36",
+        "format": "double"
+    }, {
+        "name": "Resin_Temperature_Abnormal",
+        "description": "Resin Temperature Abnormal",
+        "requestKey": "A34",
+        "format": "double"
+    }, {
+        "name": "Water_Jacket_Temperature_Abnormal",
+        "description": "Water Jacket Temperature Abnormal",
+        "requestKey": "A35",
+        "format": "double"
+    }, {
+        "name": "Cycle_time",
+        "description": "Cycle Time",
+        "requestKey": "T300",
+        "format": "double"
+    }, {
+        "name": "Ejection_Count",
+        "description": "Ejection Count",
+        "requestKey": "C52",
+        "format": "double"
+    }, {
+        "name": "Non_Defect_Shots",
+        "description": "Non Defect Shots",
+        "requestKey": "C301",
+        "format": "double"
+    }, {
+        "name": "Reject_Shots",
+        "description": "Reject Shots",
+        "requestKey": "C304",
+        "format": "double"
+    }, {
+        "name": "Total_Production_Quantity",
+        "description": "Total Production Quantity",
+        "requestKey": "C305",
+        "format": "double"
+    }, {
+        "name": "Maintenance_Shot_Count",
+        "description": "Maintenance Shot Count",
+        "requestKey": "C307",
+        "format": "double"
+    }, {
+        "name": "Total_Shots",
+        "description": "Total Shots",
+        "requestKey": "C300",
+        "format": "double"
+    }, {
+        "name": "Machine_Condition",
+        "description": "Machine Condition",
+        "requestKey": "A73",
+        "format": "double"
+    }]
+}

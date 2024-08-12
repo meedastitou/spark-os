@@ -1,0 +1,67 @@
+{
+  "info": {
+    "description": "cn554-net-ppt-cam2",
+    "version": "1.0.0",
+    "name": "cn554-net-ppt-cam2",
+    "fullname": "cn554-net-ppt-cam2",
+    "hpl": "net"
+  },
+  "variables": [
+    {
+      "name": "result_gap",
+      "description": "result_gap",
+      "format": "float",
+      "csvPos": 17
+    },
+    {
+      "name": "result_mid_gap",
+      "description": "result_mid_gap",
+      "format": "float",
+      "csvPos": 19
+    },
+    {
+      "name": "Tolerance_Gap_2",
+      "description": "Tolerance_Gap_2",
+      "format": "float",
+      "csvPos": 3
+    },
+    {
+      "name": "Tolerance_Gap_1",
+      "description": "Tolerance_Gap_1",
+      "format": "float",
+      "csvPos": 2
+    },
+    {
+      "name": "Tolerance_Gap_3",
+      "description": "Tolerance_Gap_3",
+      "format": "float",
+      "csvPos": 4
+    },
+    {
+      "name": "Tolerance_MidGap_1",
+      "description": "Tolerance_MidGap_1",
+      "format": "float",
+      "csvPos": 6,
+      "length": 1
+    },
+    {
+      "name": "Tolerance_MidGap_2",
+      "description": "Tolerance_MidGap_2",
+      "format": "float",
+      "csvPos": 7
+    },
+    {
+      "name": "Tolerance_MidGap_3",
+      "description": "Tolerance_MidGap_3",
+      "format": "float",
+      "csvPos": 8
+    }
+  ],
+  "settings": {
+    "model": {
+      "port": 2000,
+      "separator": ",",
+      "mode": "pub/sub as server"
+    }
+  }
+}

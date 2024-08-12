@@ -1,0 +1,10 @@
+#i2c
+ACTION=="add", KERNEL=="i2c-[0-9]*", MODE="0660", GROUP="i2c"
+
+#gpio
+ACTION=="add", KERNEL=="gpio*", MODE="0660", GROUP="gpio"
+
+#tty - set /sys/class/tty/xxxx to the dialout group
+ACTION=="add", SUBSYSTEM=="tty", PROGRAM="/bin/sh -c '/usr/bin/chgrp -R dialout /sys%p'"
+
+

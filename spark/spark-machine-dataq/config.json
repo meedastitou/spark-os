@@ -1,0 +1,491 @@
+{
+    "variables": [],
+    "settings": {
+        "model": {
+            "enable": false,
+            "device": "/dev/ttyACM0",
+            "modelNum": "DI-149",
+            "samplingRate": "1",
+            "onChange": false,
+            "publishDisabled": false,
+            "connectionStatus": false,
+            "anaInCh1Enable": false,
+            "anaInCh1Name": "Analog CH1",
+            "anaInCh2Enable": false,
+            "anaInCh2Name": "Analog CH2",
+            "anaInCh3Enable": false,
+            "anaInCh3Name": "Analog CH3",
+            "anaInCh4Enable": false,
+            "anaInCh4Name": "Analog CH4",
+            "anaInCh5Enable": false,
+            "anaInCh5Name": "Analog CH5",
+            "anaInCh6Enable": false,
+            "anaInCh6Name": "Analog CH6",
+            "anaInCh7Enable": false,
+            "anaInCh7Name": "Analog CH7",
+            "anaInCh8Enable": false,
+            "anaInCh8Name": "Analog CH8",
+            "digiInCh0Enable": false,
+            "digiInCh0OutConfig": false,
+            "digiInCh0Mode": "Normal",
+            "digiInCh0Name": "Dig Input CH0",
+            "digiInCh1Enable": false,
+            "digiInCh1OutConfig": false,
+            "digiInCh1Name": "Dig Input CH1",
+            "digiInCh2Enable": false,
+            "digiInCh2OutConfig": false,
+            "digiInCh2Mode": "Normal",
+            "digiInCh2RateRangeDi149": "10000",
+            "digiInCh2RateRangeDi1110": "10000",
+            "digiInCh2Name": "Dig Input CH2",
+            "digiInCh3Enable": false,
+            "digiInCh3OutConfig": false,
+            "digiInCh3Mode": "Normal",
+            "digiInCh3Name": "Dig Input CH3",
+            "digiInCh4Enable": false,
+            "digiInCh4OutConfig": false,
+            "digiInCh4Name": "Dig Input CH4",
+            "digiInCh5Enable": false,
+            "digiInCh5OutConfig": false,
+            "digiInCh5Name": "Dig Input CH5",
+            "digiInCh6Enable": false,
+            "digiInCh6OutConfig": false,
+            "digiInCh6Name": "Dig Input CH6",
+            "digiOutCh0Enable": false,
+            "digiOutCh0Name": "Dig Output CH0",
+            "digiOutCh1Enable": false,
+            "digiOutCh1Name": "Dig Output CH1",
+            "digiOutCh2Enable": false,
+            "digiOutCh2Name": "Dig Output CH2",
+            "digiOutCh3Enable": false,
+            "digiOutCh3Name": "Dig Output CH3"
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-machine-dataq",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the DataQ Machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "device": {
+                    "title": "Serial Device Path",
+                    "description": "The serial device the DataQ is connected to.",
+                    "type": "string"
+                },
+                "modelNum": {
+                    "title": "DataQ Model",
+                    "type": "string",
+                    "enum": ["DI-149", "DI-1110"]
+                },
+                "samplingRate": {
+                    "title": "Sampling Rate (Hz)",
+                    "type": "string",
+                    "enum": ["1", "2", "5", "10", "20"]
+                },
+                "onChange": {
+                    "title": "On Change",
+                    "description": "When enabled, only create a new data point for a digital inputs when the data for that variable has changed.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                },
+                "anaInCh1Enable": {
+                    "title": "Analog In Channel 1 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh1Name": {
+                    "title": "Analog In Channel 1 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh2Enable": {
+                    "title": "Analog In Channel 2 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh2Name": {
+                    "title": "Analog In Channel 2 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh3Enable": {
+                    "title": "Analog In Channel 3 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh3Name": {
+                    "title": "Analog In Channel 3 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh4Enable": {
+                    "title": "Analog In Channel 4 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh4Name": {
+                    "title": "Analog In Channel 4 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh5Enable": {
+                    "title": "Analog In Channel 5 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh5Name": {
+                    "title": "Analog In Channel 5 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh6Enable": {
+                    "title": "Analog In Channel 6 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh6Name": {
+                    "title": "Analog In Channel 6 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh7Enable": {
+                    "title": "Analog In Channel 7 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh7Name": {
+                    "title": "Analog In Channel 7 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "anaInCh8Enable": {
+                    "title": "Analog In Channel 8 Enable",
+                    "type": "boolean"
+                },
+                "anaInCh8Name": {
+                    "title": "Analog In Channel 8 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh0Enable": {
+                    "title": "Digital Input Channel 0 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh0OutConfig": {
+                    "title": "Configure Channel 0 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh0Mode": {
+                    "title": "Digital Input Channel 0 Mode",
+                    "type": "string",
+                    "enum": ["Normal", "Counter Reset"]
+                },
+                "digiInCh0Name": {
+                    "title": "Digital Input Channel 0 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh1Enable": {
+                    "title": "Digital Input Channel 1 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh1OutConfig": {
+                    "title": "Configure Channel 1 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh1Name": {
+                    "title": "Digital Input Channel 1 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh2Enable": {
+                    "title": "Digital Input Channel 2 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh2OutConfig": {
+                    "title": "Configure Channel 2 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh2Mode": {
+                    "title": "Digital Input Channel 2 Mode",
+                    "type": "string",
+                    "enum": ["Normal", "Rate"]
+                },
+                "digiInCh2RateRangeDi149": {
+                    "title": "Digital Input Channel 2 Rate Range (Set to maximum expected Hz)",
+                    "type": "string",
+                    "enum": ["5", "10", "20", "50", "100", "200", "500", "1000", "2000", "5000", "10000"]
+                },
+                "digiInCh2RateRangeDi1110": {
+                    "title": "Digital Input Channel 2 Rate Range (Set to maximum expected Hz)",
+                    "type": "string",
+                    "enum": ["10", "20", "50", "100", "200", "500", "1000", "2000", "5000", "10000", "20000", "50000"]
+                },
+                "digiInCh2Name": {
+                    "title": "Digital Input Channel 2 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh3Enable": {
+                    "title": "Digital Input Channel 3 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh3OutConfig": {
+                    "title": "Configure Channel 3 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh3Mode": {
+                    "title": "Digital Input Channel 3 Mode",
+                    "type": "string",
+                    "enum": ["Normal", "Counter"]
+                },
+                "digiInCh3Name": {
+                    "title": "Digital Input Channel 3 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh4Enable": {
+                    "title": "Digital Input Channel 4 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh4OutConfig": {
+                    "title": "Configure Channel 4 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh4Name": {
+                    "title": "Digital Input Channel 4 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh5Enable": {
+                    "title": "Digital Input Channel 5 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh5OutConfig": {
+                    "title": "Configure Channel 5 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh5Name": {
+                    "title": "Digital Input Channel 5 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiInCh6Enable": {
+                    "title": "Digital Input Channel 6 Enable",
+                    "type": "boolean"
+                },
+                "digiInCh6OutConfig": {
+                    "title": "Configure Channel 6 for Output",
+                    "type": "boolean"
+                },
+                "digiInCh6Name": {
+                    "title": "Digital Input Channel 6 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiOutCh0Enable": {
+                    "title": "Digital Output Channel 0 Enable",
+                    "type": "boolean"
+                },
+                "digiOutCh0Name": {
+                    "title": "Digital Output Channel 0 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiOutCh1Enable": {
+                    "title": "Digital Output Channel 1 Enable",
+                    "type": "boolean"
+                },
+                "digiOutCh1Name": {
+                    "title": "Digital Output Channel 1 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiOutCh2Enable": {
+                    "title": "Digital Output Channel 2 Enable",
+                    "type": "boolean"
+                },
+                "digiOutCh2Name": {
+                    "title": "Digital Output Channel 2 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                },
+                "digiOutCh3Enable": {
+                    "title": "Digital Output Channel 3 Enable",
+                    "type": "boolean"
+                },
+                "digiOutCh3Name": {
+                    "title": "Digital Output Channel 3 Name",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40
+                }
+            }
+        },
+        "form": [{
+            "type": "tabs",
+            "tabs": [{
+                "title": "General",
+                "items": [
+                    "enable",
+                    "device",
+                    "modelNum",
+                    "samplingRate",
+                    "onChange",
+                    "publishDisabled",
+                    "connectionStatus"
+                ]
+            }, {
+                "title": "Analog Inputs",
+                "items": [
+                   "anaInCh1Enable", {
+                    "key": "anaInCh1Name",
+                    "condition": "model.anaInCh1Enable==true"
+                }, "anaInCh2Enable",{
+                    "key": "anaInCh2Name",
+                    "condition": "model.anaInCh2Enable==true"
+                }, "anaInCh3Enable", {
+                    "key": "anaInCh3Name",
+                    "condition": "model.anaInCh3Enable==true"
+                }, "anaInCh4Enable", {
+                    "key": "anaInCh4Name",
+                    "condition": "model.anaInCh4Enable==true"
+                }, "anaInCh5Enable", {
+                    "key": "anaInCh5Name",
+                    "condition": "model.anaInCh5Enable==true"
+                }, "anaInCh6Enable", {
+                    "key": "anaInCh6Name",
+                    "condition": "model.anaInCh6Enable==true"
+                }, "anaInCh7Enable", {
+                    "key": "anaInCh7Name",
+                    "condition": "model.anaInCh7Enable==true"
+                }, "anaInCh8Enable", {
+                    "key": "anaInCh8Name",
+                    "condition": "model.anaInCh8Enable==true"
+                }]
+            },{
+                "title": "Digital Inputs/Outputs",
+                "items": [
+                    "digiInCh0Enable", {
+                    "key": "digiInCh0OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh0Enable==true"
+                    },{
+                    "key": "digiInCh0Mode",
+                    "condition": "model.digiInCh0Enable==true && (model.digiInCh0OutConfig==false || model.modelNum=='DI-149')"
+                    },{
+                    "key": "digiInCh0Name",
+                    "condition": "model.digiInCh0Enable==true"
+                    }, "digiInCh1Enable", {
+                    "key": "digiInCh1OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh1Enable==true"
+                    },{
+                    "key": "digiInCh1Name",
+                    "condition": "model.digiInCh1Enable==true"
+                    }, "digiInCh2Enable", {
+                    "key": "digiInCh2OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh2Enable==true"
+                    },{
+                    "key": "digiInCh2Mode",
+                    "condition": "model.digiInCh2Enable==true && (model.digiInCh2OutConfig==false || model.modelNum=='DI-149')"
+                    }, {
+                    "key": "digiInCh2RateRangeDi149",
+                    "condition": "model.modelNum=='DI-149' && model.digiInCh2Enable==true && model.digiInCh2Mode=='Rate'"
+                    }, {
+                    "key": "digiInCh2RateRangeDi1110",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh2Enable==true && model.digiInCh2OutConfig==false && model.digiInCh2Mode=='Rate'"
+                    }, {
+                    "key": "digiInCh2Name",
+                    "condition": "model.digiInCh2Enable==true"
+                    }, "digiInCh3Enable", {
+                    "key": "digiInCh3OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh3Enable==true"
+                    }, {
+                    "key": "digiInCh3Mode",
+                    "condition": "model.digiInCh3Enable==true && (model.digiInCh3OutConfig==false || model.modelNum=='DI-149')"
+                    }, {
+                    "key": "digiInCh3Name",
+                    "condition": "model.digiInCh3Enable==true"
+                    }, {
+                    "key": "digiInCh4Enable",
+                    "condition": "model.modelNum=='DI-1110'"
+                    }, {
+                    "key": "digiInCh4OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh4Enable==true"
+                    }, {
+                    "key": "digiInCh4Name",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh4Enable==true"
+                    }, {
+                    "key": "digiInCh5Enable",
+                    "condition": "model.modelNum=='DI-1110'"
+                    }, {
+                    "key": "digiInCh5OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh5Enable==true"
+                    }, {
+                    "key": "digiInCh5Name",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh5Enable==true"
+                    }, {
+                    "key": "digiInCh6Enable",
+                    "condition": "model.modelNum=='DI-1110'"
+                    }, {
+                    "key": "digiInCh6OutConfig",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh6Enable==true"
+                    }, {
+                    "key": "digiInCh6Name",
+                    "condition": "model.modelNum=='DI-1110' && model.digiInCh6Enable==true"
+                    }, {
+                    "key": "digiOutCh0Enable",
+                    "condition": "model.modelNum=='DI-149'"
+                    }, {
+                    "key": "digiOutCh0Name",
+                    "condition": "model.modelNum=='DI-149' && model.digiOutCh0Enable==true"
+                    }, {
+                    "key": "digiOutCh1Enable",
+                    "condition": "model.modelNum=='DI-149'"
+                    }, {
+                    "key": "digiOutCh1Name",
+                    "condition": "model.modelNum=='DI-149' && model.digiOutCh1Enable==true"
+                    }, {
+                    "key": "digiOutCh2Enable",
+                    "condition": "model.modelNum=='DI-149'"
+                    }, {
+                    "key": "digiOutCh2Name",
+                    "condition": "model.modelNum=='DI-149' && model.digiOutCh2Enable==true"
+                    }, {
+                    "key": "digiOutCh3Enable",
+                    "condition": "model.modelNum=='DI-149'"
+                    }, {
+                    "key": "digiOutCh3Name",
+                    "condition": "model.modelNum=='DI-149' && model.digiOutCh3Enable==true"
+                    }
+                ]
+            }]
+        }]
+    }
+}

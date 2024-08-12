@@ -1,0 +1,34 @@
+{
+  "name": "spark-mqtt-broker",
+  "version": "0.1.0",
+  "description": "Spark MQTT Broker",
+  "private": true,
+  "bin": {
+    "spark-mqtt-broker": "./bin/spark-mqtt-broker"
+  },
+  "scripts": {
+    "start": "./bin/spark-mqtt-broker | pino",
+    "lint": "eslint . bin/* lib/* --color --fix",
+    "pretest": "yarn lint",
+    "test": "echo TODO"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-mqtt-broker.git"
+  },
+  "keywords": [
+      "Spark",
+      "MQTT"
+  ],
+  "author": "Martin Bark <martin.bark@te.com>",
+  "dependencies": {
+    "mosca": "2.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0"
+  }
+}

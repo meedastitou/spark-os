@@ -1,0 +1,257 @@
+{
+    "info": {
+        "fullname": "Fanuc Roboshot Serial",
+        "version": "1.0.0",
+        "description": "Fanuc Roboshot Injection Molding Press: Serial",
+        "hpl": "fanuc",
+        "name": "fanuc-roboshot-serial"
+    },
+    "variables": [{
+        "name": "Status",
+        "description": "The machine status",
+        "format": "int16",
+        "measType": "None (N/A)",
+        "charOffset": 4,
+        "charLength": 2
+    }, {
+        "name": "Cycle",
+        "description": "Cycle Time",
+        "format": "float",
+        "measType": "Time (0.01s)",
+        "charOffset": 6,
+        "charLength": 6
+    }, {
+        "name": "InjTime",
+        "description": "Injection Time",
+        "format": "float",
+        "measType": "Time (0.01s)",
+        "charOffset": 12,
+        "charLength": 6
+    }, {
+        "name": "RecovTime",
+        "description": "Recovery Time",
+        "format": "float",
+        "measType": "Time (0.01s)",
+        "charOffset": 18,
+        "charLength": 6
+    }, {
+        "name": "MCushion",
+        "description": "M Cushion",
+        "format": "float",
+        "measType": "Length/Distance",
+        "charOffset": 24,
+        "charLength": 6
+    }, {
+        "name": "ShotSize",
+        "description": "Shot Size",
+        "format": "float",
+        "measType": "Length/Distance",
+        "charOffset": 30,
+        "charLength": 6
+    }, {
+        "name": "PeakPrs",
+        "description": "Peak Pressure",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 36,
+        "charLength": 6
+    }, {
+        "name": "Shotcount",
+        "description": "Shot Count",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 42,
+        "charLength": 8
+    }, {
+        "name": "Good",
+        "description": "Good Count",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 50,
+        "charLength": 8
+    }, {
+        "name": "NG",
+        "description": "Not Good Count",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 58,
+        "charLength": 8
+    }, {
+        "name": "Remain",
+        "description": "Remain",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 66,
+        "charLength": 8
+    }, {
+        "name": "Alarm",
+        "description": "Alarm",
+        "format": "int16",
+        "measType": "None (N/A)",
+        "charOffset": 74,
+        "charLength": 4
+    }, {
+        "name": "History2",
+        "description": "History 2",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 84,
+        "charLength": 4
+    }, {
+        "name": "Nozzle",
+        "description": "Nozzle Temperature",
+        "format": "float",
+        "measType": "Temperature",
+        "charOffset": 100,
+        "charLength": 6
+    }, {
+        "name": "Barrel1",
+        "description": "Barrel 1 Temperature",
+        "format": "float",
+        "measType": "Temperature",
+        "charOffset": 112,
+        "charLength": 6
+    }, {
+        "name": "Barrel2",
+        "description": "Barrel 2 Temperature",
+        "format": "float",
+        "measType": "Temperature",
+        "charOffset": 118,
+        "charLength": 6
+    }, {
+        "name": "Barrel3",
+        "description": "Barrel 3 Temperature",
+        "format": "float",
+        "measType": "Temperature",
+        "charOffset": 124,
+        "charLength": 6
+    }, {
+        "name": "FeedTh",
+        "description": "Feed Threshold Temperature",
+        "format": "float",
+        "measType": "Temperature",
+        "charOffset": 142,
+        "charLength": 6
+    }, {
+        "name": "ExtrdStart",
+        "description": "Extrude Start",
+        "format": "float",
+        "measType": "Length/Distance",
+        "charOffset": 148,
+        "charLength": 6
+    }, {
+        "name": "File",
+        "description": "File",
+        "format": "int16",
+        "measType": "None (N/A)",
+        "charOffset": 154,
+        "charLength": 4
+    }, {
+        "name": "Lot",
+        "description": "Lot",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 158,
+        "charLength": 8
+    }, {
+        "name": "ContainerGood",
+        "description": "Container Good",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 166,
+        "charLength": 8
+    }, {
+        "name": "Torque1",
+        "description": "Torque 1",
+        "format": "float",
+        "measType": "Percentage (0.1%)",
+        "charOffset": 184,
+        "charLength": 6
+    }, {
+        "name": "Torque2",
+        "description": "Torque 2",
+        "format": "float",
+        "measType": "Percentage (0.1%)",
+        "charOffset": 190,
+        "charLength": 6
+    }, {
+        "name": "Monitor1",
+        "description": "Monitor 1 Pressure",
+        "format": "float",
+        "measType": "Pressure",
+        "charOffset": 196,
+        "charLength": 6
+    },  {
+        "name": "Torque3",
+        "description": "Torque 3",
+        "format": "float",
+        "measType": "Percentage (0.1%)",
+        "charOffset": 202,
+        "charLength": 6
+    },  {
+        "name": "Torque4",
+        "description": "Torque 4",
+        "format": "float",
+        "measType": "Percentage (0.1%)",
+        "charOffset": 208,
+        "charLength": 6
+    }, {
+        "name": "Monitor2",
+        "description": "Monitor 2 Pressure",
+        "format": "float",
+        "measType": "Pressure",
+        "charOffset": 214,
+        "charLength": 6
+    }, {
+        "name": "Torque5",
+        "description": "Torque 5",
+        "format": "float",
+        "measType": "Percentage (0.1%)",
+        "charOffset": 220,
+        "charLength": 6
+    },  {
+        "name": "Torque6",
+        "description": "Torque 6",
+        "format": "float",
+        "measType": "Percentage (0.1%)",
+        "charOffset": 226,
+        "charLength": 6
+    }, {
+        "name": "Monitor3",
+        "description": "Monitor 3 Pressure",
+        "format": "float",
+        "measType": "Pressure",
+        "charOffset": 232,
+        "charLength": 6
+    }, {
+        "name": "Monitor4",
+        "description": "Monitor 4 Pressure",
+        "format": "float",
+        "measType": "Pressure",
+        "charOffset": 250,
+        "charLength": 6
+    }, {
+        "name": "Monitor5",
+        "description": "Monitor 5 Pressure",
+        "format": "float",
+        "measType": "Pressure",
+        "charOffset": 268,
+        "charLength": 6
+    }, {
+        "name": "Judge",
+        "description": "Judge",
+        "format": "int32",
+        "measType": "None (N/A)",
+        "charOffset": 280,
+        "charLength": 6
+    }],
+    "settings": {
+        "model": {
+            "interface": "serial",
+            "device": "/dev/ttyS1",
+            "baudRate": "9600",
+            "requestFrequency": 10,
+            "units": "Imperial"
+        }
+    }
+}

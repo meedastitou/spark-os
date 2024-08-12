@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hpl-fanuc",
+    "title": "Fanuc",
+    "headerTemplate": "{{self.info.name}}",
+    "type": "object",
+    "required": [
+        "info",
+        "variables"
+    ],
+    "properties": {
+        "info": {
+            "$ref": "#/definitions/hpl/definitions/info"
+        },
+        "variables": {
+            "title": "Variables",
+            "description": "Array of variables to read from the machine",
+            "type": "array",
+            "format": "tabs",
+            "minItems": 1,
+            "items": {
+                "headerTemplate": "{{self.name}}",
+                "defaultProperties": [
+                    "name",
+                    "description",
+                    "format",
+                    "measType",
+                    "charOffset",
+                    "charLength",
+                    "alarmCode"
+                ],
+                "allOf": [{
+                    "$ref": "#/definitions/hpl/definitions/variable"
+                }, {
+                    "required": [
+                        "measType",
+                        "charOffset",
+                        "charLength"
+                    ],
+                    "properties": {
+                        "measType": {
+                            "title": "Measurement Type",
+                            "description": "The variables data type. Used to process the raw data.",
+                            "type": "string",
+                            "enum": ["None (N/A)", "Time (0.01s)", "Precision Time (0.001s)", "Length/Distance", "Temperature", "Percentage (0.1%)", "Percentage (0.01%)", "Pressure", "Power (0.1kw)", "Precision Power (0.01kw)", "Consumption (0.1w)", "Flow", "Force", "Volume" ]
+                        },
+                        "charOffset": {
+                            "title": "Character Offset Position",
+                            "description": "This variable's offset position from the start of the message.",
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "charLength": {
+                            "title": "Character Length",
+                            "description": "This variable's character length.",
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "convertNullToZero": {
+                            "title": "Convert Null To Zero",
+                            "description": "Set whether if no data, it should be converted to a zero.",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "alarmCode": {
+                            "title": "Alarm Code",
+                            "description": "Set when the variable field is an alarm code, requiring special parsing.",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}

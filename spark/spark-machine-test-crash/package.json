@@ -1,0 +1,30 @@
+{
+    "name": "spark-machine-test-crash",
+    "fullname": "Test - Machine Crash",
+    "version": "0.0.1",
+    "description": "Test machine that always crashes",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"TODO: add tests\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://makemake.tycoelectronics.com/stash/scm/iotlabs/spark-machine-test-crash.git"
+    },
+    "keywords": [
+        "Spark"
+    ],
+    "author": {
+        "name": "Martin Bark",
+        "email": "martin.bark@te.com"
+    },
+    "dependencies": {
+        "async": "2.6.1",
+        "lodash": "4.17.10",
+        "segfault-handler": "1.0.1"
+    },
+    "devDependencies": {
+        "bunyan": "1.8.12"
+    }
+}

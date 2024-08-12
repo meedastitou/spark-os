@@ -1,0 +1,40 @@
+#!/bin/sh
+DATA_MNT=/data
+
+#Nginx
+
+rm -f $DATA_MNT/sysroot/etc/nginx/ssl/{key,cert}.pem
+HOST_NAME_FQ=$(hostname -f)
+HOST_NAME=$(hostname)
+cat <<EOF > $DATA_MNT/sysroot/etc/nginx/ssl/openssl.cnf
+default_bits = 2048
+prompt = no
+default_md = sha256
+x509_extensions = req_ext
+req_extensions = req_ext
+extensions = req_ext
+distinguished_name = dn
+
+[ dn ]
+C=US
+ST=Pennsylvania
+L=Middletown
+O=TE Connectivity
+OU=TEIS
+CN=$HOST_NAME_FQ
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = $HOST_NAME_FQ
+DNS.2 = $HOST_NAME
+EOF
+
+#generate a self signed certificate to use for the https connection
+openssl req -x509 -newkey rsa:2048 \
+		-keyout $DATA_MNT/sysroot/etc/nginx/ssl/key.pem \
+		-out $DATA_MNT/sysroot/etc/nginx/ssl/cert.pem \
+		-days 3650 -nodes -config $DATA_MNT/sysroot/etc/nginx/ssl/openssl.cnf
+
+exit $?

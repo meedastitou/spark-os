@@ -1,0 +1,103 @@
+.\" AS511 Status Baustein (Module)
+.TH "AS511 Status Baustein (Module)" "3" "0.1" "Peter Schnabel 2006" "Programmers Library"
+.SH "NAME"
+AS511 Status Module (Status Baustein)
+.SH "BESCHREIBUNG"
+.br
+Mit den Funktionen wird der Befehl Status Baustein (Module) einer S5 SPS aufgerufen.
+.br
+Die Protokoll Funktionen teilen sich in die Befehle Start Status, Run Status und Stop Status.
+.br
+int as511_status_module_destroy( td_t *td, int (*usrfk)(void*) )
+.br
+int as511_status_module_create( td_t *td )
+.br
+int as511_status_module_insert_op( td_t *td, unsigned short type, unsigned short addr, void *udata )
+.br
+int as511_status_module_start( td_t *td, unsigned short offset, unsigned char bst_typ, unsigned char bst_nr )
+.br
+int as511_status_module_run( td_t *td )
+.br
+int as511_status_module_stop( td_t *td )
+.SH "STATUS MODULE"
+\fB
+.IP  "STATUS VAR Initialisieren"
+\fR
+.br
+int as511_status_module_create( td_t *td )
+\fB
+.IP  "STATUS VAR Loeschen
+\fR
+.br
+int as511_status_module_destroy( td_t *td, int (*usrfk)(void*) )
+\fB
+.IP  "STATUS VAR Funktionstypen einfuegen"
+\fR
+.br
+int as511_status_module_insert_op( td_t *td, unsigned short type, unsigned short addr, void *udata )
+.br
+\fB
+.IP  "STATUS VAR Protokoll"
+\fR
+.br
+int as511_status_var_start( td_t *td )
+.br
+int as511_status_var_run( td_t *td )
+.br
+int as511_status_var_stop( td_t *td )
+.SH "SPEICHERVERWALTUNG"
+\fB
+.IP  "int as511_status_module_insert_op( td_t *td, unsigned short type, unsigned short addr, void *udata )"
+\fR
+Einfuegen von Operandentypen und Speicheradressen in die Liste.
+Die Reihenfolge muss mit der im Programmcode uebereinstimmen.
+.br
+.br
+\fB
+type:
+\fR
+einer der Typen STATUS_MODULE_...
+.br
+STATUS_MODULE_PAE       Adressabbild der Eingaenge
+.br
+STATUS_MODULE_PAA       Adressabbild der Ausgaenge
+.br
+STATUS_MODULE_MERKER    Werte aus Merkerbereich Lesen (BYTE, WORD, DWORD)
+.br
+STATUS_MODULE_ZAEHLER   Zaehlwerte Lesen
+.br
+STATUS_MODULE_DATEN     Zeiten und Daten lesen (Wortweise)
+.br
+STATUS_MODULE_NOPAR     Befehlscodes ohne Status
+.br
+STATUS_MODULE_LOAD      Ladeoperationen
+.br
+STATUS_MODULE_LOAD_LARGE Ladeoperationen DWORD
+.br
+\fB
+addr:
+\fR
+Die Speicheradresse, die dessen Status gelesen werden soll.
+.br
+\fB
+data:
+\fR
+Benutzerdefinierte Daten
+.br
+.SH "PROTOKOLL"
+\fB
+.IP  "int as511_status_module_start( td_t *td, unsigned short offset, unsigned char bst_typ, unsigned char bst_nr )"
+\fR
+.br
+Startet die Funktion Status Module
+.br
+\fB
+.IP  "int as511_status_module_run( td_t *td )"
+\fR
+Diese Funktion wird so lange aufgerufen, wie die Daten benoetigt werden.
+Mit jedem Durchlauf wird die Liste mit den Aktuellen Daten gefüllt.
+.br
+\fB
+.IP  "int as511_status_module_stop( td_t *td )"
+\fR
+Die Funktion beendet die mit "as511_status_module_start" gestartete Funktion

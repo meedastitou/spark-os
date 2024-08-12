@@ -1,0 +1,94 @@
+From 9e6f76c5c3a825720c9bdf12ca41c329f53a8346 Mon Sep 17 00:00:00 2001
+From: "Bark, Martin" <martin.bark@te.com>
+Date: Thu, 31 Aug 2017 16:26:33 +0100
+Subject: [PATCH] package/yarn: new package
+
+Signed-off-by: Bark, Martin <martin.bark@te.com>
+---
+ package/Config.in.host      |  1 +
+ package/yarn/Config.in.host |  6 ++++++
+ package/yarn/yarn.hash      |  2 ++
+ package/yarn/yarn.mk        | 37 +++++++++++++++++++++++++++++++++++++
+ 4 files changed, 46 insertions(+)
+ create mode 100644 package/yarn/Config.in.host
+ create mode 100644 package/yarn/yarn.hash
+ create mode 100644 package/yarn/yarn.mk
+
+diff --git a/package/Config.in.host b/package/Config.in.host
+index 199a8e9856..1b51e16e27 100644
+--- a/package/Config.in.host
++++ b/package/Config.in.host
+@@ -58,6 +58,7 @@ menu "Host utilities"
+ 	source "package/util-linux/Config.in.host"
+ 	source "package/vboot-utils/Config.in.host"
+ 	source "package/xorriso/Config.in.host"
++	source "package/yarn/Config.in.host"
+ 	source "package/zip/Config.in.host"
+
+ endmenu
+diff --git a/package/yarn/Config.in.host b/package/yarn/Config.in.host
+new file mode 100644
+index 0000000000..cba6f24b08
+--- /dev/null
++++ b/package/yarn/Config.in.host
+@@ -0,0 +1,6 @@
++config BR2_PACKAGE_HOST_YARN
++	bool "host yarn"
++	help
++	  Fast, reliable, and secure dependency management.
++
++	  https://yarnpkg.com/
+diff --git a/package/yarn/yarn.hash b/package/yarn/yarn.hash
+new file mode 100644
+index 0000000000..8ef1549a79
+--- /dev/null
++++ b/package/yarn/yarn.hash
+@@ -0,0 +1,2 @@
++# Calculated Locally
++sha256  c4feca9ba5d6bf1e820e8828609d3de733edf0e4722d17ed7ce493ed39f61abd  yarn-v1.15.2.tar.gz
+diff --git a/package/yarn/yarn.mk b/package/yarn/yarn.mk
+new file mode 100644
+index 0000000000..7d95bec5ee
+--- /dev/null
++++ b/package/yarn/yarn.mk
+@@ -0,0 +1,38 @@
++################################################################################
++#
++# yarn
++#
++################################################################################
++
++YARN_VERSION = 1.15.2
++YARN_SOURCE=yarn-v$(YARN_VERSION).tar.gz
++YARN_SITE = https://yarnpkg.com/downloads/$(YARN_VERSION)
++HOST_YARN_DEPENDENCIES = host-nodejs
++YARN_LICENSE = BSD-2-Clause
++YARN_LICENSE_FILES = LICENSE
++
++define HOST_YARN_INSTALL_CMDS
++	$(INSTALL) -d -m 0755 $(HOST_DIR)/usr/share/yarn
++	cp -av $(@D)/* $(HOST_DIR)/usr/share/yarn
++	$(INSTALL) -d -m 0755 $(HOST_DIR)/usr/bin
++	ln -sf ../share/yarn/bin/yarn $(HOST_DIR)/usr/bin/yarn
++	ln -sf ../share/yarn/bin/yarn $(HOST_DIR)/usr/bin/yarnpkg
++endef
++
++# Define YARN for other packages to use
++YARN_CONFIGURE_OPTS = $(TARGET_CONFIGURE_OPTS) \
++	LD="$(TARGET_CXX)" \
++	CFLAGS="$(TARGET_CFLAGS) -Wno-error" \
++	CXXFLAGS="$(TARGET_CXXFLAGS) -Wno-error" \
++	PATH="$(BR_PATH):$(TARGET_DIR)/usr/bin" \
++	npm_config_arch=$(NODEJS_CPU) \
++	npm_config_target_arch=$(NODEJS_CPU) \
++	npm_config_build_from_source=true \
++	npm_config_nodedir=$(BUILD_DIR)/nodejs-$(NODEJS_VERSION) \
++	npm_config_prefix=$(TARGET_DIR)/usr \
++	YARN_PREFIX=$(TARGET_DIR)/usr \
++	YARN_CACHE_FOLDER=$(BR2_DL_DIR)/yarn
++
++YARN = $(YARN_CONFIGURE_OPTS) $(HOST_DIR)/usr/bin/yarn
++
++$(eval $(host-generic-package))
+--
+2.16.1

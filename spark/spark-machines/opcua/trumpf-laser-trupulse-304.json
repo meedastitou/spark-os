@@ -1,0 +1,46 @@
+{
+  "info": {
+    "fullname": "Trumpf Laser TruPulse 304",
+    "description": "Trumpf Laser TruPulse 304 OPC-UA Connection",
+    "version": "1.0.0",
+    "name": "trumpf-laser-trupulse-304",
+    "hpl": "opcua"
+  },
+  "variables": [
+    {
+      "name": "ConditionMon-CoolingCirc-Qual",
+      "description": "ConditionMonitoring : CoolingCircuit : Quality",
+      "format": "uint16",
+      "nodeId": "ns=3;s=CoolingCircuit.Quality",
+      "array": false
+    },
+    {
+      "name": "ConditionMon-TankNiveau-Qual",
+      "description": "Condition Monitoring : Tank Niveau : Quality",
+      "format": "uint16",
+      "nodeId": "ns=3;s=TankNiveau.Quality",
+      "array": false
+    },
+    {
+      "name": "ConditionMon-TankConductivity-Qual",
+      "description": "Condition Monitoring : Tank Conductivity : Quality",
+      "format": "uint16",
+      "nodeId": "ns=3;s=TankConductivity.Quality",
+      "array": false
+    },
+    {
+      "name": "ConditionMon-MainsVoltageHigh-Qual",
+      "description": "Condition Monitoring : Mains Voltage High : Quality",
+      "format": "uint16",
+      "nodeId": "ns=3;s=MainsVoltageHigh.Quality",
+      "array": false
+    },
+    {
+      "name": "ConditionMon-MainsVoltageLow-Qual",
+      "description": "Condition Monitoring : Mains Voltage Low : Quality",
+      "format": "uint16",
+      "nodeId": "ns=3;s=MainsVoltageLow.Quality",
+      "array": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+From 45ccde23a90c49f5f576ab65bdd7144e70f8bbc3 Mon Sep 17 00:00:00 2001
+From: Jonas Bonn <jonas@southpole.se>
+Date: Wed, 20 Dec 2017 11:24:32 +0100
+Subject: [PATCH] scripts: Don't forceably overwrite /etc/resolv.conf
+
+Using L+ in the tmpfiles.d snippet is overly aggressive.  These snippets
+are evaluated on every boot and may be evaluated on package upgrade.
+It's fine to check that the file /etc/resolv.conf exists, but forceably
+overwriting an existing file or link makes it difficult for connman to
+co-exist with other potential managers of /etc/resolv.conf.
+---
+ scripts/connman_resolvconf.conf.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/connman_resolvconf.conf.in b/scripts/connman_resolvconf.conf.in
+index 2d61dfe1..a242d7bc 100644
+--- a/scripts/connman_resolvconf.conf.in
++++ b/scripts/connman_resolvconf.conf.in
+@@ -1,2 +1,2 @@
+ d	@runstatedir@/connman	- - - -
+-L+	/etc/resolv.conf	- - - -	@runstatedir@/connman/resolv.conf
++L	/etc/resolv.conf	- - - -	@runstatedir@/connman/resolv.conf
+-- 
+2.17.0
+

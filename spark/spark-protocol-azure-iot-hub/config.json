@@ -1,0 +1,39 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "azureHub": "",
+            "azureHubAccessKey": ""
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-protocol-azure-cloud-client",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Azure Cloud Client.",
+                    "type": "boolean",
+                    "required": true
+                },
+                "azureHub": {
+                    "title": "Azure IoT Hub Name",
+                    "description": "Enter the Azure IoT Hub name for this account.",
+                    "type": "string",
+                    "required": true
+                },
+                "azureHubAccessKey": {
+                    "title": "Azure IoT Hub Access Key",
+                    "description": "Enter the Azure Hub Access Key for this account.",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "azureHub",
+            "azureHubAccessKey"
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "info": {
+        "name": "spark-machine-dummy",
+        "fullname": "Dummy Machine",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a fake device",
+        "hpl": "dummy"
+    },
+    "variables": [{
+        "name": "temperature",
+        "description": "Temperature",
+        "format": "float",
+        "type": "random"
+    }, {
+        "name": "pressure",
+        "description": "Pressure",
+        "format": "float",
+        "type": "sine"
+    }, {
+        "name": "humidity",
+        "description": "Humidity",
+        "format": "float",
+        "type": "cosine"
+    }, {
+        "name": "error",
+        "description": "Error Code",
+        "format": "uint16",
+        "outputFormat": "char",
+        "type": "error",
+        "transformMap": {
+            "0": "success, from spark-machine-dummy",
+            "1": "error, from spark-machine-dummy"
+        }
+    }]
+}

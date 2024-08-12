@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source spark-os/spark/release
+
+export VERSION=${MAJOR}.${MINOR}.${PATCH}
+export LOG=$(git log `git describe --tags --abbrev=0 HEAD^`..HEAD --format='# %s'|grep -v 'update version to'|sort)
+export LOG_MD=$(git log `git describe --tags --abbrev=0 HEAD^`..HEAD --format='- %s'|grep -v 'update version to'|sort)
+export RELEASE_USER=$(echo ${USER} | tr /a-z/ /A-Z/)
+
+envsubst < "release-template.txt"
+
+
+cat << EOF
+
+
+Manually edit then add the following to RELEASE_NOTES.md
+
+# Release History
+## ${VERSION}
+${LOG_MD}
+EOF

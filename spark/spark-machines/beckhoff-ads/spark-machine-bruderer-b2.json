@@ -1,0 +1,58 @@
+{
+    "info": {
+        "name": "spark-machine-bruderer-b2",
+        "fullname": "Bruderer B2 PLC",
+        "version": "1.0.0",
+        "description": "Spark Machine Definition for a Bruderer B2 press  over ADS",
+        "hpl": "beckhoff-ads"
+    },
+    "variables": [{
+        "name": "IW_TEMP_MOTHERBOARD",
+        "description": "Temperature motherboard",
+        "indexGroup": "4040",
+        "indexOffset": "C3672",
+        "format": "uint32"
+    }, {
+        "name": "qw_OilTemperatureControl",
+        "description": "Oil temperature control word",
+        "indexGroup": "F030",
+        "indexOffset": "64",
+        "format": "uint8"
+    }, {
+        "name": "qw_OilTemperatureValue",
+        "description": "Oil temperature value",
+        "indexGroup": "F030",
+        "indexOffset": "68",
+        "format": "uint16"
+    }, {
+        "name": "qw_CabinetTemperatureControl",
+        "description": "Cabinet temperature control word",
+        "indexGroup": "F030",
+        "indexOffset": "70",
+        "format": "uint8"
+    }, {
+        "name": "qw_CabinetTemperatureValue",
+        "description": "Cabinet temperature value",
+        "indexGroup": "F030",
+        "indexOffset": "74",
+        "format": "uint16"
+    }, {
+        "name": "qw_OilPressureControl",
+        "description": "Oil pressure control word",
+        "indexGroup": "F030",
+        "indexOffset": "80",
+        "format": "uint8"
+    }, {
+        "name": "qw_OilPressureValue",
+        "description": "Oil pressure value",
+        "indexGroup": "F030",
+        "indexOffset": "84",
+        "format": "uint16"
+    }, {
+        "name": "SavePersistent-nNoOfSavesCounter",
+        "description": "Number of saves counter",
+        "indexGroup": "F030",
+        "indexOffset": "AE559",
+        "format": "uint32"
+    }]
+}

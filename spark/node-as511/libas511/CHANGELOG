@@ -1,0 +1,86 @@
+29.04.2007
+  Beginn mit dem Umbau der Speicherverwaltung
+
+13.04.2007
+  Funktion int as511_read_data( td_t *td ) in alle Module eingebaut,
+  die Daten von der SPS Lesen.
+
+14.03.2007
+  Erweiterungen zum Lesen von RAM auf einer CPU 928R
+
+28.02.2007
+  Neue Funktionen BSTACK lesen und Start/Stop für die CPU 928B,
+  Kleine Fehlerkorrekturen,
+  Dokumentation
+
+30.11.2006
+  Neue Funktion AUSGAENGE STEUERN Hinzugefügt. ACHTUNG, diese
+  Funktion Steuert Ausgänge an. Dies kann zu Schäden an Menschen
+  und Maschinen führen. ALSO VORSICHT!!!
+
+  Funktion zum Erkennen des CPU Typs / AG Typs Hinzugefügt
+  wobei diese Funktion nur auf einem AG 100U CPU 103 sowie
+  auf einem AG135U CPU928B getestet wurde.
+
+  Kleine Fehlerkorrekturen, Großer Wirkung
+
+25.11.2006
+  Überwiegend Fehlerkorrekturen im bereich der Bausteinlängen
+  der funktionen as511_read_module, as511_write_module
+
+  Neue Funktionen zur vereinfachung der Speicherverwaltung
+
+  Detailverbesserungen in anderen Modulen
+
+  Das demo wurde nochmals überarbeitet. Auserdem wird es jetzt
+  statisch gegen die as511 Library gelinkt. Deshalb ist es jetzt
+  nicht mehr notwendig, die Umgebungsvariable LD_LIBRARY_PATH
+  zu setzen.
+
+  Anpassungen an die 928B CPU
+
+10.11.2006
+  Neue Funktionen für die AG Funktion STATUS Baustein hinzugefügt
+
+  Diese Funktion hat noch einen Fehler, der bei AG STOP auftritt.
+  Wird bei Laufendem STATUS die SPS in STOP geschaltet, kommt der
+  Protokollablauf durcheinander.
+
+31.10.2006
+  Verschidene Korrekturen sowie Felerbereinigungen.
+
+29.10.2006
+  Datei raminfo_t *as511_read_ram_info.c hinzugefügt
+  Die Funktion ruft die AG Funktion SPAUS (Lesen Speicherausbau)
+  auf. Bei Fehlerfreier Durchführung werden die drei Adressen des
+  AG Speichers Zurueckgegeben.
+
+  Startadresse RAM
+  Startadresse beginn freies RAM
+  Endadresse Freies RAM
+
+21.10.2006-28.10.2006
+  Umbau der demo Funktion.
+
+20.10.2006
+ Datei as511_delete_module.c hinzugefuegt
+ Getestet wurden das Loeschen des DB 2.
+ Bisher konnten noch nicht alle Varianten getestet werden. Insbesondere das
+ Loeschen auf anderen CPUs als die von mir verwendete CPU103.
+
+
+18.10.2006
+ Das Makefile erzeugt jetzt eine Statische sowie eine Dynamische Library
+ Ein Demonstration der as511 Library kann mit
+
+    ./demo -d /dev/ttyS0
+
+ gestartet werden.
+
+ Wird die Library nicht in einem Verzeichnis installiert, das der
+ Dynamische Linker kennt, muss die Variable LD_LIBRARY_PATH mit
+
+    export LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH
+
+ auf das aktuelle Verzeichnis gesetzt werden, damit das Demo Laeuft.
+

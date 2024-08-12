@@ -1,0 +1,127 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "ipAddress": "",
+            "port": 5000,
+            "sparkDeviceID": 1,
+            "equipDeviceID": 0,
+            "requestFrequency": 5,
+            "enablePeriodicLinkTestMessages": false,
+            "linkTestFrequency": 60,
+            "disconnectReportTime": 0,
+            "publishDisabled": false,
+            "connectionStatus": false
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "title": "spark-hpl-secs-gem",
+            "required": [
+                "enable",
+                "ipAddress",
+                "port",
+                "sparkDeviceID",
+                "equipDeviceID",
+                "requestFrequency"
+            ],
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the Machine.",
+                    "type": "boolean"
+                },
+                "ipAddress": {
+                    "title": "IP Address",
+                    "description": "The IP address of the machine.",
+                    "type": "string"
+                },
+                "port": {
+                    "title": "Port Number",
+                    "description": "The port number configured on the machine.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                },
+                "sparkDeviceID": {
+                    "title": "Spark Device ID",
+                    "description": "The device ID of this Spark.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 32767,
+                    "default": 1
+                },
+                "equipDeviceID": {
+                    "title": "Equipment Device ID",
+                    "description": "The device ID of the equipment.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 32767,
+                    "default": 0
+                },
+                "requestFrequency": {
+                    "title": "Time between Requests (in seconds)",
+                    "description": "The time to wait between each complete set of requests.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 120,
+                    "required": true
+                },
+                "enablePeriodicLinkTestMessages": {
+                    "title": "Enable Periodic Link Test Messages",
+                    "description": "When checked, the Spark will send peiodic Link-Test messages to the machine",
+                    "type": "boolean",
+                    "default": false
+                },
+                "linkTestFrequency": {
+                    "title": "Time Between Link Test Messages",
+                    "description": "Time in seconds between peiodic link-tet messages",
+                    "type": "integer",
+                    "minimum": 5,
+                    "default": 60
+                },
+                "disconnectReportTime": {
+                    "title": "Disconnect Report Time",
+                    "description": "Time in seconds machine must be disconnected before any machine connected status variable becomes false",
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                },
+                "connectionStatus" : {
+                  "title": "Connected",
+                  "description": "Whether or not the Spark is connected to this machine",
+                  "type": "boolean",
+                  "readOnly": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            {
+                "key": "ipAddress",
+                "placeholder": "192.168.0.1"
+            }, {
+                "key": "port",
+                "placeholder": "10000"
+            },
+            "sparkDeviceID",
+            "equipDeviceID",
+            "requestFrequency",
+            "enablePeriodicLinkTestMessages",
+            {
+              "condition": "model.enablePeriodicLinkTestMessages==true",
+              "key": "linkTestFrequency"
+            },
+            "disconnectReportTime",
+            "publishDisabled",
+            "connectionStatus"
+        ]
+    }
+}

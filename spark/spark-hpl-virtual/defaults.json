@@ -1,0 +1,31 @@
+{
+    "settings": {
+        "model": {
+            "enable": false,
+            "publishDisabled": false,
+            "operation": "normal"
+        },
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "properties": {
+                "enable": {
+                    "title": "Enable",
+                    "description": "Enable/Disable the machine",
+                    "type": "boolean",
+                    "required": true
+                },
+                "publishDisabled": {
+                    "title": "Output Publish Disabled",
+                    "description": "Whether or not this machine will be disabled for 'Publish' based output protocols e.g. AWS IoT",
+                    "type": "boolean",
+                    "required": true
+                }
+            }
+        },
+        "form": [
+            "enable",
+            "publishDisabled"
+        ]
+    }
+}

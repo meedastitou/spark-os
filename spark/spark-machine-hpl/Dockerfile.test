@@ -1,0 +1,14 @@
+FROM node:8.15.1
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
+VOLUME ["/app/spark-machine-hpl/coverage"]
+WORKDIR /app/spark-machine-hpl/
+COPY . /app/
+COPY spark-machine-hpl/package.json spark-machine-hpl/yarn.lock /app/spark-machine-hpl/
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+RUN apt-get update && apt-get install -y \
+    libpopt-dev \
+&& rm -rf /var/lib/apt/lists/*
+RUN yarn install --frozen-lockfile --ignore-engines
+COPY spark-machine-hpl /app/spark-machine-hpl
+CMD ["yarn", "test"]
